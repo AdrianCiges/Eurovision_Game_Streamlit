@@ -608,7 +608,7 @@ if app_mode == '🎶 Juego Eurovisión':
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
 
     # CARGAMOS DATA TO TRAIN
-    data = pd.read_excel("../Data/Data_to_train.xlsx")
+    data = pd.read_excel("./data/Data_to_train.xlsx")
     data.drop("Unnamed: 0", axis=1, inplace=True)
 
     # PARTIMOS DATA
@@ -681,7 +681,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
 
     # CARGAMOS DATA TO TRAIN
-    data = pd.read_excel("../Data/Data_to_train.xlsx")
+    data = pd.read_excel("./data/Data_to_train.xlsx")
     data.drop("Unnamed: 0", axis=1, inplace=True)
 
     # PARTIMOS DATA
@@ -814,7 +814,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2022</u></h1>', unsafe_allow_html=True)
 
-    df_master = pd.read_excel('../Data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
+    df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
 
     # Filtro por año
@@ -838,7 +838,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         'Czech Republic': 'Czechia',
         'United Kingdom': 'UK'
     }
-
     # actualizar la columna 'country' utilizando el método replace
     filtered_df['country'] = filtered_df['country'].replace(replace_dict)
 
