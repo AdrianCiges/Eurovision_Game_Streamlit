@@ -26,15 +26,15 @@ import plotly.graph_objects as go
 import plotly.express as px
 import plotly.subplots as sp
 
-# from selenium import webdriver
-# from selenium.webdriver.chrome.service import Service as ChromeService
-# from selenium.webdriver.chrome.options import Options as ChromeOptions
-# from bs4 import BeautifulSoup
-# from selenium.webdriver.common.by import By
-# from statistics import mean
-# from selenium.webdriver.chrome.service import Service
-# from webdriver_manager.chrome import ChromeDriverManager
-# from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from bs4 import BeautifulSoup
+from selenium.webdriver.common.by import By
+from statistics import mean
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 # chrome_options = Options()
 # chrome_options.add_argument('--headless')  # Ejecutar en modo headless
