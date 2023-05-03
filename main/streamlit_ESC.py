@@ -1033,12 +1033,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
 
         # Grafico 3: Nº de Vecinos
-        #filtered_df['vecinos_participantes'] = filtered_df['vecinos_participantes'].replace(0, 0.0001)
-        filtered_df
         grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df
         grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
-        grouped_df
 
         fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
                               orientation='h', #text='likes',
