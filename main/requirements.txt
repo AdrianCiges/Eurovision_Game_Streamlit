@@ -5,6 +5,7 @@ plotly==5.4.0
 click==7.1.2
 catboost==1.0.0
 scikit-learn==1.1.0
+ipython
 streamlit==1.19.0
 streamlit_extras==0.2.4
 openpyxl
