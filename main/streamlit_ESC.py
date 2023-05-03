@@ -325,7 +325,7 @@ def row_data(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
-    st.write('Esto puede tardar unos minutos. Interval act time!)
+    st.write('Esto puede tardar unos minutos. Interval act time!')
     st.video('https://youtu.be/FVsvrFAWDTM') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs)(d) for d in user_songs)
@@ -342,7 +342,7 @@ def row_data_ESC23(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones de Eurovisión 2023 a día {fecha_actual_str} a las {hora_actual_str}')
-    st.write('Esto puede tardar un par de minutos')
+    st.write('Esto puede tardar un par de minutos. Interval Act time!')
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
 
