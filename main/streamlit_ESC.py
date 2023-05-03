@@ -730,7 +730,7 @@ if app_mode == '🎶 Juego Eurovisión':
                     df_sorted = df_sorted[['song','singer','country','player','points']]
                     st.write('🖐🏻 Europe, stop scrapping now!')
                     time.sleep(4)
-                    st.markdown(f'### 🥳 Enhorabuena a {df_sorted['player']}, ganadora con {df_sorted['song']} de {df_sorted['singer']} representando a {df_sorted['country']}')
+                    st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player']}, ganadora con {df_sorted['song']} de {df_sorted['singer']} representando a {df_sorted['country']}")
                     df_sorted
                 except:
                     st.write('Ha habido algún error con las canciones que has introducido')
