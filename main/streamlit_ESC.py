@@ -600,7 +600,7 @@ st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game"
 # def get_available_countries(selected_countries):
 #     return [c for c in countries if c not in selected_countries]
 
-# app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicción Eurovisión 2023', '📊 Estadísticas 2002-2022'])
+app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicción Eurovisión 2023', '📊 Estadísticas 2002-2022'])
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
