@@ -36,19 +36,19 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
-# chrome_options = Options()
-# chrome_options.add_argument('--headless')  # Ejecutar en modo headless
-# chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
+chrome_options = Options()
+chrome_options.add_argument('--headless')  # Ejecutar en modo headless
+chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
 
-# # Iniciar el navegador Chrome en modo "headless"
-# PATH = ChromeDriverManager().install()
-# driver = webdriver.Chrome(executable_path=PATH, options=chrome_options)
+# Iniciar el navegador Chrome en modo "headless"
+PATH = ChromeDriverManager().install()
+driver = webdriver.Chrome(executable_path=PATH, options=chrome_options)
 
-# # URL de la página web con la tabla
-# url = 'https://eurovisionworld.com/odds/eurovision'
+# URL de la página web con la tabla
+url = 'https://eurovisionworld.com/odds/eurovision'
 
 st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game")
-#st.write('')
+st.write('')
 
 # def get_songs(cancion):
     
