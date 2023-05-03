@@ -328,10 +328,9 @@ def row_data(user_songs):
     time.sleep(1)
     st.write('Esto puede tardar unos minutos. Interval act time!')
     
-    st.markdown("""<h1 style='text-align: center'>Video con reproducción automática</h1>""", unsafe_allow_html=True)
     video_url = 'https://www.youtube.com/watch?v=Cv6tgnx6jTQ' 
     video_html = f"""<video width="100%" height="auto" autoplay loop><source src="{video_url}" type="video/mp4"></video>"""
-    st.markdown(video_html, unsafe_allow_html=True)
+    st.video(video_html, unsafe_allow_html=True)
     
     
     #time.sleep(0.5)
