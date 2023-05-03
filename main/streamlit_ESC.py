@@ -1,9 +1,9 @@
 import streamlit as st
-# import random
-# import warnings
-# import time
-# import statistics as stats
-# from operator import itemgetter
+import random
+import warnings
+import time
+import statistics as stats
+from operator import itemgetter
 
 # warnings.filterwarnings("ignore")
 # from sklearn.metrics import mean_squared_error as mse
