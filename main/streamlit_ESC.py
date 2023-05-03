@@ -1036,6 +1036,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         filtered_df['vecinos_participantes'] = filtered_df['vecinos_participantes'].replace(0, 100)
         filtered_df
         grouped_df = filtered_df.groupby('country').max().reset_index()
+        grouped_df
         grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
         grouped_df
 
