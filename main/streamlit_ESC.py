@@ -777,7 +777,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_nuevo = df_nuevo.sort_index(axis=1)
             #df_nuevo
 
-            df_prueba = pd.read_excel('./prueba_predicc_dia_dia.xlsx')
+            df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
             df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
             df_prueba = df_prueba.set_index('date')
             # Cambiar el índice de fecha+hora a solo fecha
