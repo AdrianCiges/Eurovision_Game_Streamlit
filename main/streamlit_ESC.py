@@ -648,14 +648,14 @@ if app_mode == '🎶 Juego Eurovisión':
 
                         total_points = df_sorted['points'].sum()
 
-                        cociente = (116*len(df_sorted)/total_points)
+                        cociente = (116*len(df_sorted))/total_points
 
                         for i,puntos in enumerate(df_sorted['points'][:26]):
                             df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
                         total_points = df_sorted['points'].sum()
 
-                        diferencia = (116*len(df_sorted)-total_points
+                        diferencia = 116*len(df_sorted)-total_points
 
                         # Me quedo con el último índice no nulo
                         for i,p in enumerate(df_sorted['points']):
