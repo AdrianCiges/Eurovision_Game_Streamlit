@@ -754,7 +754,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             # Cambiar el índice de fecha+hora a solo fecha
             df_prueba.index = df_prueba.index.date.astype(str)
             # Cambiar los valores numéricos de float a int
-#             df_prueba = df_prueba.astype(int)
+            df_prueba = df_prueba.astype(int)
             df_prueba
 
             df_prueba = pd.concat([df_nuevo, df_prueba])
