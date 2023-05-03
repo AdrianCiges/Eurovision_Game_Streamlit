@@ -5,51 +5,51 @@ import time
 import statistics as stats
 from operator import itemgetter
 
-warnings.filterwarnings("ignore")
-from sklearn.metrics import mean_squared_error as mse
-from sklearn.metrics import r2_score as r2
-import pandas as pd
-from catboost import CatBoostRegressor as CTR
-from sklearn.model_selection import train_test_split as tts
-from joblib import Parallel, delayed
-import requests as req
-from bs4 import BeautifulSoup as bs
-import pandas as pd
-import time
-import asyncio
-import websockets
-import json
-from pytube import YouTube
-import os
-from IPython.display import HTML
-import datetime
-import plotly.graph_objects as go
-import plotly.express as px
-import plotly.subplots as sp
+# warnings.filterwarnings("ignore")
+# from sklearn.metrics import mean_squared_error as mse
+# from sklearn.metrics import r2_score as r2
+# import pandas as pd
+# from catboost import CatBoostRegressor as CTR
+# from sklearn.model_selection import train_test_split as tts
+# from joblib import Parallel, delayed
+# import requests as req
+# from bs4 import BeautifulSoup as bs
+# import pandas as pd
+# import time
+# import asyncio
+# import websockets
+# import json
+# from pytube import YouTube
+# import os
+# from IPython.display import HTML
+# import datetime
+# import plotly.graph_objects as go
+# import plotly.express as px
+# import plotly.subplots as sp
 
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from bs4 import BeautifulSoup
-from selenium.webdriver.common.by import By
-from statistics import mean
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service as ChromeService
+# from selenium.webdriver.chrome.options import Options as ChromeOptions
+# from bs4 import BeautifulSoup
+# from selenium.webdriver.common.by import By
+# from statistics import mean
+# from selenium.webdriver.chrome.service import Service
+# from webdriver_manager.chrome import ChromeDriverManager
+# from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.add_argument('--headless')  # Ejecutar en modo headless
-chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
+# chrome_options = Options()
+# chrome_options.add_argument('--headless')  # Ejecutar en modo headless
+# chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
 
-# Iniciar el navegador Chrome en modo "headless"
-PATH = ChromeDriverManager().install()
-driver = webdriver.Chrome(executable_path=PATH, options=chrome_options)
+# # Iniciar el navegador Chrome en modo "headless"
+# PATH = ChromeDriverManager().install()
+# driver = webdriver.Chrome(executable_path=PATH, options=chrome_options)
 
-# URL de la página web con la tabla
-url = 'https://eurovisionworld.com/odds/eurovision'
+# # URL de la página web con la tabla
+# url = 'https://eurovisionworld.com/odds/eurovision'
 
-st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game")
-#st.write('')
+# st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game")
+# #st.write('')
 
 def get_songs(cancion):
     
