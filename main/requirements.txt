@@ -15,6 +15,5 @@ beautifulsoup4==4.10.0
 asyncio==3.4.3
 websockets==10.0
 pytube==11.0.1
-plotly==5.3.1
 selenium==3.141.0
 webdriver_manager==3.5.2
