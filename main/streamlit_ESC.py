@@ -492,72 +492,43 @@ def predicciones_now(user_songs):
 
     st.write(f'Scrappeando cuota actual de apuestas a día {fecha_actual_str} a las {hora_actual_str}')
 
-    try:
-
-        # Configurar opciones de Chrome en modo "headless"
-        chrome_options = ChromeOptions()
-        chrome_options.add_argument('--headless')  # Ejecutar en modo headless
-        chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
-
-        # Iniciar el servicio de Chrome y el navegador en modo "headless"
-        PATH=ChromeDriverManager().install()
-        chrome_service = ChromeService(executable_path=PATH)  # Reemplaza con la ruta a tu driver de Chrome
-        driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
-
-        # URL de la página web con la tabla
-        url = 'https://eurovisionworld.com/odds/eurovision'
-
-        driver.get(url)
-        tabla = driver.find_element(By.CLASS_NAME, 'o_table.ob_none')
-        filas = tabla.find_elements(By.TAG_NAME, 'tr')
-
-        paises = []
-        bet_mean = []
-        for fila in filas[2:39]:
-            pais = fila.find_element(By.TAG_NAME, 'a').get_attribute('href')
-            paises.append(pais.split('/')[5].replace('-',' ').title())
-
-            bet_mean.append(mean([float(e) for e in fila.text.split('\n')[2].split()[1:]]))
-
-        scrap_odds = dict(zip(paises, bet_mean))
-    except:
-        scrap_odds = {'Sweden': 1.8405555555555555,
-         'Finland': 4.883333333333333,
-         'Ukraine': 7.361111111111111,
-         'Norway': 14.222222222222221,
-         'Spain': 14.833333333333334,
-         'Israel': 24.0,
-         'Austria': 28.22222222222222,
-         'Czechia': 31.77777777777778,
-         'France': 36.111111111111114,
-         'United Kingdom': 43.111111111111114,
-         'Italy': 61.5,
-         'Armenia': 75.61111111111111,
-         'Switzerland': 105.94444444444444,
-         'Georgia': 126.77777777777777,
-         'Netherlands': 120.33333333333333,
-         'Serbia': 119.44444444444444,
-         'Australia': 136.66666666666666,
-         'Croatia': 137.22222222222223,
-         'Moldova': 142.5,
-         'Germany': 155.83333333333334,
-         'Slovenia': 165.0,
-         'Estonia': 181.38888888888889,
-         'Ireland': 215.55555555555554,
-         'Cyprus': 211.94444444444446,
-         'Poland': 216.38888888888889,
-         'Iceland': 241.94444444444446,
-         'Portugal': 226.38888888888889,
-         'Denmark': 230.55555555555554,
-         'Greece': 255.83333333333334,
-         'Azerbaijan': 275.27777777777777,
-         'Belgium': 280.8333333333333,
-         'Lithuania': 273.6111111111111,
-         'Malta': 286.3888888888889,
-         'San Marino': 291.94444444444446,
-         'Latvia': 305.8333333333333,
-         'Romania': 322.5,
-         'Albania': 330.8333333333333}
+    scrap_odds = {'Sweden': 1.6811111111111112,
+     'Finland': 3.176111111111111,
+     'Ukraine': 13.555555555555555,
+     'France': 15.222222222222221,
+     'Spain': 15.944444444444445,
+     'Norway': 20.833333333333332,
+     'Israel': 28.27777777777778,
+     'Austria': 42.27777777777778,
+     'Italy': 42.94444444444444,
+     'United Kingdom': 58.77777777777778,
+     'Czechia': 90.16666666666667,
+     'Armenia': 112.61111111111111,
+     'Switzerland': 142.0,
+     'Australia': 137.77777777777777,
+     'Croatia': 163.05555555555554,
+     'Germany': 164.72222222222223,
+     'Serbia': 179.72222222222223,
+     'Netherlands': 190.83333333333334,
+     'Slovenia': 201.94444444444446,
+     'Moldova': 184.72222222222223,
+     'Georgia': 220.0,
+     'Cyprus': 239.44444444444446,
+     'Estonia': 266.3888888888889,
+     'Ireland': 269.44444444444446,
+     'Poland': 254.16666666666666,
+     'Portugal': 288.6111111111111,
+     'Lithuania': 296.94444444444446,
+     'Iceland': 313.6111111111111,
+     'Belgium': 316.3888888888889,
+     'Greece': 330.27777777777777,
+     'Denmark': 334.44444444444446,
+     'Azerbaijan': 369.1666666666667,
+     'Albania': 380.27777777777777,
+     'Malta': 380.27777777777777,
+     'Latvia': 388.6111111111111,
+     'San Marino': 396.94444444444446,
+     'Romania': 408.05555555555554}
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
