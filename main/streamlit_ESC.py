@@ -602,11 +602,11 @@ st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game"
 
 # app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicción Eurovisión 2023', '📊 Estadísticas 2002-2022'])
 
-# # ---------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------
 
-# if app_mode == '🎶 Juego Eurovisión':
+if app_mode == '🎶 Juego Eurovisión':
 
-#     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
 
 #     # CARGAMOS DATA TO TRAIN
 #     data = pd.read_excel("../Excels/Data_to_train.xlsx")
