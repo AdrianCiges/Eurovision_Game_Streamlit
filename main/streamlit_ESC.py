@@ -325,8 +325,17 @@ def row_data(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    time.sleep(1)
     st.write('Esto puede tardar unos minutos. Interval act time!')
-    st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
+    
+    st.markdown("""<h1 style='text-align: center'>Video con reproducción automática</h1>""", unsafe_allow_html=True)
+    video_url = 'https://www.youtube.com/watch?v=Cv6tgnx6jTQ' 
+    video_html = f"""<video width="100%" height="auto" autoplay loop><source src="{video_url}" type="video/mp4"></video>"""
+    st.markdown(video_html, unsafe_allow_html=True)
+    
+    
+    #time.sleep(0.5)
+    #st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs)(d) for d in user_songs)
 
@@ -342,7 +351,9 @@ def row_data_ESC23(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones de Eurovisión 2023 a día {fecha_actual_str} a las {hora_actual_str}')
+    time.sleep(1)
     st.write('Esto puede tardar un par de minutos. Interval Act time!')
+    time.sleep(0.5)
     st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
@@ -730,7 +741,7 @@ if app_mode == '🎶 Juego Eurovisión':
                     df_sorted = df_sorted[['song','singer','country','player','points']]
                     st.write('🖐🏻 Europe, stop scrapping now!')
                     time.sleep(4)
-                    st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player']}, ganadora con {df_sorted['song']} de {df_sorted['singer']} representando a {df_sorted['country']}")
+                    st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
                     df_sorted
                 except:
                     st.write('Ha habido algún error con las canciones que has introducido')
