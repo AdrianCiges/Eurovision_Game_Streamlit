@@ -326,7 +326,7 @@ def row_data(user_songs):
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     st.write('Esto puede tardar unos minutos. Interval act time!')
-    st.video('https://youtu.be/FVsvrFAWDTM') 
+    st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs)(d) for d in user_songs)
 
@@ -343,6 +343,7 @@ def row_data_ESC23(user_songs):
 
     st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones de Eurovisión 2023 a día {fecha_actual_str} a las {hora_actual_str}')
     st.write('Esto puede tardar un par de minutos. Interval Act time!')
+    st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
 
@@ -727,8 +728,9 @@ if app_mode == '🎶 Juego Eurovisión':
 
                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
-                    st.write('Europe, stop scrapping now!')
+                    st.write('🖐🏻 Europe, stop scrapping now!')
                     time.sleep(4)
+                    st.markdow(f'### 🥳 Enhorabuena a {df_sorted['player']}, ganadora con {df_sorted['song']} de {df_sorted['singer']} representando a {df_sorted['country']}')
                     df_sorted
                 except:
                     st.write('Ha habido algún error con las canciones que has introducido')
