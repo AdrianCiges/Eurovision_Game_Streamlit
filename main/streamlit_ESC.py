@@ -607,472 +607,472 @@ if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
 
-#     # CARGAMOS DATA TO TRAIN
-#     data = pd.read_excel("../Excels/Data_to_train.xlsx")
-#     data.drop("Unnamed: 0", axis=1, inplace=True)
-
-#     # PARTIMOS DATA
-#     X = data.drop("propo_puntos", axis=1)
-#     y = data.propo_puntos
-#     X_train, X_test, y_train, y_test = tts(
-#         X, y, train_size=0.99, test_size=0.01, random_state=22
-#     )
-#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
-
-#     # ENTRENAMOS
-#     ctr = CTR(iterations=5, verbose=False)
-#     ctr.fit(X_train, y_train)
-#     y_pred = ctr.predict(X_test)
-
-#     #st.write('### Elige el nº de participantes')
-#     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-#     participantes = col1.selectbox('Nº participantes', options=num_part)
-
-#     def create_form():
-#         selected_countries = []
-#         user_songs = []
-#         for i in range(participantes):
-#             col1, col2, col3, col4 = st.columns(4)
-#             song = col1.text_input(f'Canción {i+1}')
-#             singer = col2.text_input(f'Cantante {i+1}')
-#             available_countries = get_available_countries(selected_countries)
-#             country = col3.selectbox(f'País {i+1}', options=available_countries)
-#             selected_countries.append(country)
-#             manager = col4.text_input(f'Player {i+1}')
-#             user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
-#         return user_songs
-
-#     if __name__ == '__main__':
-#         st.title('Registro de canciones')
-#         user_songs = create_form()
-#         st.write('')
-#         st.write('')
-#         if st.button('Enviar'):
-#             user_songs = [song for song in user_songs if all(song.values())]
-#             if len(user_songs) < 3:
-#                 st.write('No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
-#                 #st.write(user_songs)
-#             else:
-#                 try:
-#                     #st.write(user_songs)
-#                     resultado = predicciones(user_songs)
-#                     df = pd.DataFrame(resultado)
-#                     df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
-#                     # df_sorted
-#                     # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
-
-#                     # if len(df_sorted) > 10:
-#                        # puntos_totales = sum(df_sorted['points'])
-#                        # puntos_deberian = len(df_sorted)*58
-#                        # diferencia = puntos_deberian-puntos_totales
-
-#                        # df_sorted.loc[0, 'points'] += diferencia
-
-#                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
-#                     df_sorted = df_sorted[['song','singer','country','player','points']]
-#                     df_sorted
-#                 except:
-#                     st.write('Ha habido algún error con las canciones que has introducido')
-
-# # ---------------------------------------------------------------------------------------------------------------------------
-
-# elif app_mode == '🤖 Predicción Eurovisión 2023':
-
-#     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
-
-#     # CARGAMOS DATA TO TRAIN
-#     data = pd.read_excel("../Excels/Data_to_train.xlsx")
-#     data.drop("Unnamed: 0", axis=1, inplace=True)
-
-#     # PARTIMOS DATA
-#     X = data.drop("propo_puntos", axis=1)
-#     y = data.propo_puntos
-#     X_train, X_test, y_train, y_test = tts(
-#         X, y, train_size=0.99, test_size=0.01, random_state=22
-#     )
-#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
-
-#     # ENTRENAMOS
-#     ctr = CTR(iterations=5, verbose=False)
-#     ctr.fit(X_train, y_train)
-#     y_pred = ctr.predict(X_test)
-
-#     if __name__ == '__main__':
-#         st.write('')
-#         st.write('')
-
-#         fecha_actual = datetime.datetime.now()
-#         fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
-
-#         if st.button(f'Predecir resultado a {fecha_formateada}'):
-#             user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania', 'manager': 'J1'}, {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany', 'manager': 'J2'}, {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia', 'manager': 'J3'}, {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia', 'manager': 'J4'}, {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria', 'manager': 'J5'}, {'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan', 'manager': 'J6'}, {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium', 'manager': 'J7'}, {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia', 'manager': 'J8'}, {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus', 'manager': 'J9'}, {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia', 'manager': 'J10'}, {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark', 'manager': 'J11'}, {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia', 'manager': 'J12'}, {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain', 'manager': 'J13'}, {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia', 'manager': 'J14'}, {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland', 'manager': 'J15'}, {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France', 'manager': 'J16'}, {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia', 'manager': 'J17'}, {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece', 'manager': 'J18'}, {'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland', 'manager': 'J19'}, {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland', 'manager': 'J20'}, {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel', 'manager': 'J21'}, {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy', 'manager': 'J22'}, {'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia', 'manager': 'J23'}, {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania', 'manager': 'J24'}, {'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta', 'manager': 'J25'}, {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova', 'manager': 'J26'}, {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway', 'manager': 'J27'}, {'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands', 'manager': 'J28'}, {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland', 'manager': 'J29'}, {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal', 'manager': 'J30'}, {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom', 'manager': 'J31'}, {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania', 'manager': 'J32'}, {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino', 'manager': 'J33'}, {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia', 'manager': 'J34'}, {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden', 'manager': 'J35'}, {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland', 'manager': 'J36'}, {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine', 'manager': 'J37'}]
-
-#             resultado = predicciones_now(user_songs)
+    # CARGAMOS DATA TO TRAIN
+    data = pd.read_excel("../Excels/Data_to_train.xlsx")
+    data.drop("Unnamed: 0", axis=1, inplace=True)
+
+    # PARTIMOS DATA
+    X = data.drop("propo_puntos", axis=1)
+    y = data.propo_puntos
+    X_train, X_test, y_train, y_test = tts(
+        X, y, train_size=0.99, test_size=0.01, random_state=22
+    )
+    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+    # ENTRENAMOS
+    ctr = CTR(iterations=5, verbose=False)
+    ctr.fit(X_train, y_train)
+    y_pred = ctr.predict(X_test)
+
+    #st.write('### Elige el nº de participantes')
+    col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+    participantes = col1.selectbox('Nº participantes', options=num_part)
+
+    def create_form():
+        selected_countries = []
+        user_songs = []
+        for i in range(participantes):
+            col1, col2, col3, col4 = st.columns(4)
+            song = col1.text_input(f'Canción {i+1}')
+            singer = col2.text_input(f'Cantante {i+1}')
+            available_countries = get_available_countries(selected_countries)
+            country = col3.selectbox(f'País {i+1}', options=available_countries)
+            selected_countries.append(country)
+            manager = col4.text_input(f'Player {i+1}')
+            user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
+        return user_songs
+
+    if __name__ == '__main__':
+        st.title('Registro de canciones')
+        user_songs = create_form()
+        st.write('')
+        st.write('')
+        if st.button('Enviar'):
+            user_songs = [song for song in user_songs if all(song.values())]
+            if len(user_songs) < 3:
+                st.write('No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
+                #st.write(user_songs)
+            else:
+                try:
+                    #st.write(user_songs)
+                    resultado = predicciones(user_songs)
+                    df = pd.DataFrame(resultado)
+                    df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+                    # df_sorted
+                    # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
+
+                    # if len(df_sorted) > 10:
+                       # puntos_totales = sum(df_sorted['points'])
+                       # puntos_deberian = len(df_sorted)*58
+                       # diferencia = puntos_deberian-puntos_totales
+
+                       # df_sorted.loc[0, 'points'] += diferencia
+
+                    df_sorted.rename(columns= {'manager':'player'}, inplace=True)
+                    df_sorted = df_sorted[['song','singer','country','player','points']]
+                    df_sorted
+                except:
+                    st.write('Ha habido algún error con las canciones que has introducido')
+
+# ---------------------------------------------------------------------------------------------------------------------------
+
+elif app_mode == '🤖 Predicción Eurovisión 2023':
+
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
+
+    # CARGAMOS DATA TO TRAIN
+    data = pd.read_excel("../Excels/Data_to_train.xlsx")
+    data.drop("Unnamed: 0", axis=1, inplace=True)
+
+    # PARTIMOS DATA
+    X = data.drop("propo_puntos", axis=1)
+    y = data.propo_puntos
+    X_train, X_test, y_train, y_test = tts(
+        X, y, train_size=0.99, test_size=0.01, random_state=22
+    )
+    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+    # ENTRENAMOS
+    ctr = CTR(iterations=5, verbose=False)
+    ctr.fit(X_train, y_train)
+    y_pred = ctr.predict(X_test)
+
+    if __name__ == '__main__':
+        st.write('')
+        st.write('')
+
+        fecha_actual = datetime.datetime.now()
+        fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
+
+        if st.button(f'Predecir resultado a {fecha_formateada}'):
+            user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania', 'manager': 'J1'}, {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany', 'manager': 'J2'}, {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia', 'manager': 'J3'}, {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia', 'manager': 'J4'}, {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria', 'manager': 'J5'}, {'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan', 'manager': 'J6'}, {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium', 'manager': 'J7'}, {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia', 'manager': 'J8'}, {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus', 'manager': 'J9'}, {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia', 'manager': 'J10'}, {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark', 'manager': 'J11'}, {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia', 'manager': 'J12'}, {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain', 'manager': 'J13'}, {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia', 'manager': 'J14'}, {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland', 'manager': 'J15'}, {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France', 'manager': 'J16'}, {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia', 'manager': 'J17'}, {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece', 'manager': 'J18'}, {'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland', 'manager': 'J19'}, {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland', 'manager': 'J20'}, {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel', 'manager': 'J21'}, {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy', 'manager': 'J22'}, {'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia', 'manager': 'J23'}, {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania', 'manager': 'J24'}, {'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta', 'manager': 'J25'}, {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova', 'manager': 'J26'}, {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway', 'manager': 'J27'}, {'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands', 'manager': 'J28'}, {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland', 'manager': 'J29'}, {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal', 'manager': 'J30'}, {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom', 'manager': 'J31'}, {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania', 'manager': 'J32'}, {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino', 'manager': 'J33'}, {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia', 'manager': 'J34'}, {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden', 'manager': 'J35'}, {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland', 'manager': 'J36'}, {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine', 'manager': 'J37'}]
+
+            resultado = predicciones_now(user_songs)
 
-#             df = pd.DataFrame(resultado)
-#             df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+            df = pd.DataFrame(resultado)
+            df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
 
-#             first_points = df_sorted['points'][0]
-#             last_points = df_sorted['points'][26]
+            first_points = df_sorted['points'][0]
+            last_points = df_sorted['points'][26]
 
-#             pendiente = first_points/(first_points-last_points)
-#             intercept = (first_points*last_points)/(first_points-last_points)
+            pendiente = first_points/(first_points-last_points)
+            intercept = (first_points*last_points)/(first_points-last_points)
 
-#             total_points = df_sorted['points'].sum()
+            total_points = df_sorted['points'].sum()
 
-#             for i,p in enumerate(df_sorted['points']):
-#                 df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+            for i,p in enumerate(df_sorted['points']):
+                df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-#             df_sorted.loc[26:, 'points'] = 0
+            df_sorted.loc[26:, 'points'] = 0
 
-#             total_points = df_sorted['points'].sum()
+            total_points = df_sorted['points'].sum()
 
-#             cociente = 4292/total_points
+            cociente = 4292/total_points
 
-#             for i,puntos in enumerate(df_sorted['points'][:26]):
-#                 df_sorted.loc[i, 'points'] = round(puntos*cociente)
+            for i,puntos in enumerate(df_sorted['points'][:26]):
+                df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
-#             total_points = df_sorted['points'].sum()
+            total_points = df_sorted['points'].sum()
 
-#             diferencia = 4292-total_points
+            diferencia = 4292-total_points
 
-#             # Me quedo con el último índice no nulo
-#             for i,p in enumerate(df_sorted['points']):
-#                 if p <= 0:
-#                     last_nonull = i-1
-#                     break
+            # Me quedo con el último índice no nulo
+            for i,p in enumerate(df_sorted['points']):
+                if p <= 0:
+                    last_nonull = i-1
+                    break
 
-#             if diferencia > 0:
-#                 for i in range(25-diferencia+1, 26):
-#                     df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+            if diferencia > 0:
+                for i in range(25-diferencia+1, 26):
+                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
 
-#             elif diferencia < 0:
-#                 for i in range(last_nonull+diferencia+1, last_nonull+1):
-#                     print(i)
-#                     df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+            elif diferencia < 0:
+                for i in range(last_nonull+diferencia+1, last_nonull+1):
+                    print(i)
+                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
 
-#             total_points = df_sorted['points'].sum()
+            total_points = df_sorted['points'].sum()
 
-#             df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-#             df_sorted = df_sorted[['song','singer','country','points']]            
-#             df_sorted
+            df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+            df_sorted = df_sorted[['song','singer','country','points']]            
+            df_sorted
 
-#             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
-#             #df_sorted
+            #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
+            #df_sorted
 
-#             # Obtener la fecha de hoy
-#             fecha_hoy = pd.Timestamp('today').date()
+            # Obtener la fecha de hoy
+            fecha_hoy = pd.Timestamp('today').date()
 
-#             # Crear un diccionario para especificar las columnas y sus valores
-#             columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
-#             valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
-#             data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
+            # Crear un diccionario para especificar las columnas y sus valores
+            columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
+            valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
+            data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
 
-# # --------------------------------------------------------------------------------------
-#             # st.write(row_data_ESC23(user_songs)) # Para ver las métricas
-# # --------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
+            # st.write(row_data_ESC23(user_songs)) # Para ver las métricas
+# --------------------------------------------------------------------------------------
 
-#             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
-#             df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
-#             df_nuevo = df_nuevo.sort_index(axis=1)
-#             #df_nuevo
+            # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
+            df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
+            df_nuevo = df_nuevo.sort_index(axis=1)
+            #df_nuevo
 
-#             df_prueba = pd.read_excel('./prueba_predicc_dia_dia.xlsx')
-#             df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
-#             df_prueba = df_prueba.set_index('date')
-#             # Cambiar el índice de fecha+hora a solo fecha
-#             df_prueba.index = df_prueba.index.date.astype(str)
-#             # Cambiar los valores numéricos de float a int
-#             df_prueba = df_prueba.astype(int)
-#             #df_prueba
+            df_prueba = pd.read_excel('./prueba_predicc_dia_dia.xlsx')
+            df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
+            df_prueba = df_prueba.set_index('date')
+            # Cambiar el índice de fecha+hora a solo fecha
+            df_prueba.index = df_prueba.index.date.astype(str)
+            # Cambiar los valores numéricos de float a int
+            df_prueba = df_prueba.astype(int)
+            #df_prueba
 
-#             df_prueba = pd.concat([df_nuevo, df_prueba])
-#             df_prueba.index = df_prueba.index.astype(str)
-#             df_prueba = df_prueba.sort_index(ascending=True)
-#             #df_prueba    
+            df_prueba = pd.concat([df_nuevo, df_prueba])
+            df_prueba.index = df_prueba.index.astype(str)
+            df_prueba = df_prueba.sort_index(ascending=True)
+            #df_prueba    
 
-#             # Crear el gráfico de líneas con Plotly
-#             fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
+            # Crear el gráfico de líneas con Plotly
+            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
 
-#             # Configurar formato de fecha en el eje X
-#             fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
-#             #fig.update_yaxes(title='Predicción de puntos')
+            # Configurar formato de fecha en el eje X
+            fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
+            #fig.update_yaxes(title='Predicción de puntos')
 
 
-#             # Configurar marcadores de puntos en las líneas
-#             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
-#             fecha_actual = datetime.datetime.now()
-#             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-#             fig.update_layout(legend_title_text='País',title={'text': f"Evolución de la predicción de puntos por país desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            # Configurar marcadores de puntos en las líneas
+            fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
+            fecha_actual = datetime.datetime.now()
+            fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución de la predicción de puntos por país desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
 
-#             # Mostrar el gráfico
-#             st.plotly_chart(fig, use_container_width=True)
+            # Mostrar el gráfico
+            st.plotly_chart(fig, use_container_width=True)
 
-# # ---------------------------------------------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------------------------------------------
 
-# elif app_mode == '📊 Estadísticas 2002-2022':
+elif app_mode == '📊 Estadísticas 2002-2022':
 
-#     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2022</u></h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2022</u></h1>', unsafe_allow_html=True)
 
-#     df_master = pd.read_excel('../Excels/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
-#     # st.write(df_master)
+    df_master = pd.read_excel('../Excels/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
+    # st.write(df_master)
 
-#     # Filtro por año
-#     year_range = st.slider('Selecciona un rango de años', 
-#                            min_value=df_master['year'].min(), 
-#                            max_value=df_master['year'].max(), 
-#                            value=(df_master['year'].min(), df_master['year'].max()))
-#     filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
+    # Filtro por año
+    year_range = st.slider('Selecciona un rango de años', 
+                           min_value=df_master['year'].min(), 
+                           max_value=df_master['year'].max(), 
+                           value=(df_master['year'].min(), df_master['year'].max()))
+    filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
 
-#     # Filtro por país
-#     selected_country = st.multiselect('Selecciona los países', options=df_master['country'].unique())
-#     if selected_country:
-#         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
+    # Filtro por país
+    selected_country = st.multiselect('Selecciona los países', options=df_master['country'].unique())
+    if selected_country:
+        filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
-#     # crear un diccionario de reemplazo
-#     replace_dict = {
-#         'The Netherlands': 'Netherlands',
-#         'Serbia and Montenegro': 'Serb. & Mont.',
-#         'Bosnia and Herzegovina': 'Bosn. & Herz.',
-#         'North Macedonia': 'N. Macedonia',
-#         'Czech Republic': 'Czechia',
-#         'United Kingdom': 'UK'
-#     }
+    # crear un diccionario de reemplazo
+    replace_dict = {
+        'The Netherlands': 'Netherlands',
+        'Serbia and Montenegro': 'Serb. & Mont.',
+        'Bosnia and Herzegovina': 'Bosn. & Herz.',
+        'North Macedonia': 'N. Macedonia',
+        'Czech Republic': 'Czechia',
+        'United Kingdom': 'UK'
+    }
 
-#     # actualizar la columna 'country' utilizando el método replace
-#     filtered_df['country'] = filtered_df['country'].replace(replace_dict)
+    # actualizar la columna 'country' utilizando el método replace
+    filtered_df['country'] = filtered_df['country'].replace(replace_dict)
 
-#     replace_dict_likes = {
-#         '2,9 M': 2900000,
-#         '1,5 M': 1500000
-#     }
-#     filtered_df['likes'] = filtered_df['likes'].replace(replace_dict_likes)
-#     filtered_df['likes'] = [int(li) for li in filtered_df['likes']]
-
-#     # Muestra el DataFrame filtrado
-#     st.write('\n')
-#     st.write('\n')
-#     with st.expander('_Ver Datos_', expanded=False): 
-#         st.write(filtered_df)
-#     st.write('\n')
+    replace_dict_likes = {
+        '2,9 M': 2900000,
+        '1,5 M': 1500000
+    }
+    filtered_df['likes'] = filtered_df['likes'].replace(replace_dict_likes)
+    filtered_df['likes'] = [int(li) for li in filtered_df['likes']]
+
+    # Muestra el DataFrame filtrado
+    st.write('\n')
+    st.write('\n')
+    with st.expander('_Ver Datos_', expanded=False): 
+        st.write(filtered_df)
+    st.write('\n')
 
 
-#   # ---- GRAFICOS PROMEDIO PUNTOS VS YOUTUBE ---------------------------------------------------------
+  # ---- GRAFICOS PROMEDIO PUNTOS VS YOUTUBE ---------------------------------------------------------
 
-#     with st.expander('_Promedio de PUNTOS vs YouTube_', expanded=True): 
+    with st.expander('_Promedio de PUNTOS vs YouTube_', expanded=True): 
 
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-#         # Crear figura con tres subplots
-#         fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+        # Crear figura con tres subplots
+        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-#         # Grafico 1: Promedio de puntos
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='puntos_corregidos',
-#                               color='puntos_corregidos').data[0],
-#                       row=1, col=1)
-#         fig.update_xaxes(title='Promedio de puntos', row=1, col=1)
-#         # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
+        # Grafico 1: Promedio de puntos
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='puntos_corregidos',
+                              color='puntos_corregidos').data[0],
+                      row=1, col=1)
+        fig.update_xaxes(title='Promedio de puntos', row=1, col=1)
+        # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
 
-#         # Grafico 2: Promedio de reproducciones en YouTube
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('views', ascending=False)
+        # Grafico 2: Promedio de reproducciones en YouTube
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('views', ascending=False)
 
-#         fig.add_trace(px.bar(grouped_df, x='views', y='country',
-#                               orientation='h', #text='views',
-#                               color='views').data[0],
-#                       row=1, col=2)
-#         fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
-#         # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
-
-#         # Grafico 3: Promedio de likes en YouTube
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('likes', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-#                               orientation='h', #text='likes',
-#                               color='likes').data[0],
-#                       row=1, col=3)
-#         fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3)
-#         fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
+        fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                              orientation='h', #text='views',
+                              color='views').data[0],
+                      row=1, col=2)
+        fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
+        # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
+
+        # Grafico 3: Promedio de likes en YouTube
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('likes', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                              orientation='h', #text='likes',
+                              color='likes').data[0],
+                      row=1, col=3)
+        fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3)
+        fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
 
-#         fig.update_yaxes(title='', row=1, col=1)
-#         fig.update_traces(marker_color='#32CD32')
-#         fig.update_layout(showlegend=False, height=1100)
-#         fig.update(layout_coloraxis_showscale = False)
-#         fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+        fig.update_yaxes(title='', row=1, col=1)
+        fig.update_traces(marker_color='#32CD32')
+        fig.update_layout(showlegend=False, height=1100)
+        fig.update(layout_coloraxis_showscale = False)
+        fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
 
-#         st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
 
-#   # ---- GRAFICOS SUMA PUNTOS VS YOUTUBE ---------------------------------------------------------
+  # ---- GRAFICOS SUMA PUNTOS VS YOUTUBE ---------------------------------------------------------
 
-#     with st.expander('_Suma de PUNTOS vs YouTube_', expanded=True): 
+    with st.expander('_Suma de PUNTOS vs YouTube_', expanded=True): 
 
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-#         # Crear figura con tres subplots
-#         fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+        # Crear figura con tres subplots
+        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-#         # Grafico 1: Acum de puntos
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='puntos_corregidos',
-#                               color='puntos_corregidos').data[0],
-#                       row=1, col=1)
-#         fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
-#         # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
-
-#         # Grafico 2: Acum de reproducciones en YouTube
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('views', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='views', y='country',
-#                               orientation='h', #text='views',
-#                               color='views').data[0],
-#                       row=1, col=2)
-#         fig.update_xaxes(title='Acumuado de reproducciones en YouTube', row=1, col=2)
-#         # fig.update_layout(title={'text': 'Acumulado de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
+        # Grafico 1: Acum de puntos
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='puntos_corregidos',
+                              color='puntos_corregidos').data[0],
+                      row=1, col=1)
+        fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
+        # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
+
+        # Grafico 2: Acum de reproducciones en YouTube
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('views', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                              orientation='h', #text='views',
+                              color='views').data[0],
+                      row=1, col=2)
+        fig.update_xaxes(title='Acumuado de reproducciones en YouTube', row=1, col=2)
+        # fig.update_layout(title={'text': 'Acumulado de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
 
-#         # Grafico 3: Acum de likes en YouTube
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('likes', ascending=False)
+        # Grafico 3: Acum de likes en YouTube
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('likes', ascending=False)
 
-#         fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-#                               orientation='h', #text='likes',
-#                               color='likes').data[0],
-#                       row=1, col=3)
-#         fig.update_xaxes(title='Acumuado de likes en YouTube', row=1, col=3)
-#         fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
+        fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                              orientation='h', #text='likes',
+                              color='likes').data[0],
+                      row=1, col=3)
+        fig.update_xaxes(title='Acumuado de likes en YouTube', row=1, col=3)
+        fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
 
-#         fig.update_yaxes(title='', row=1, col=1)
-#         fig.update_traces(marker_color='#32CD32')
-#         fig.update_layout(showlegend=False, height=1100)
-#         fig.update(layout_coloraxis_showscale = False)
-#         fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+        fig.update_yaxes(title='', row=1, col=1)
+        fig.update_traces(marker_color='#32CD32')
+        fig.update_layout(showlegend=False, height=1100)
+        fig.update(layout_coloraxis_showscale = False)
+        fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
 
-#         st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True)
 
-#   # ---- GRAFICOS PROMEDIO PUNTOS VS SHAZAM ---------------------------------------------------------
+  # ---- GRAFICOS PROMEDIO PUNTOS VS SHAZAM ---------------------------------------------------------
 
-#     with st.expander('_Promedio de PUNTOS vs Shazam_', expanded=True): 
-
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+    with st.expander('_Promedio de PUNTOS vs Shazam_', expanded=True): 
+
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-#         # Crear figura con tres subplots
-#         fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+        # Crear figura con tres subplots
+        fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-#         # Grafico 1: Acum de puntos
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='puntos_corregidos',
-#                               color='puntos_corregidos').data[0],
-#                       row=1, col=1)
-#         fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
-#         # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
+        # Grafico 1: Acum de puntos
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='puntos_corregidos',
+                              color='puntos_corregidos').data[0],
+                      row=1, col=1)
+        fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
+        # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
 
-#         # Grafico 2: Promedio de Shazams
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('shazams', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
-#                               orientation='h', #text='shazams',
-#                               color='shazams').data[0],
-#                       row=1, col=2)
-#         fig.update_xaxes(title='Promedio de Shazams', row=1, col=2)
-#         fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
-
-#         fig.update_yaxes(title='', row=1, col=1)
-#         fig.update_traces(marker_color='#89CFF0')
-#         fig.update_layout(showlegend=False, height=1100)
-#         fig.update(layout_coloraxis_showscale = False)
-#         fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
-
-#         st.plotly_chart(fig, use_container_width=True)
-
-#   # ---- GRAFICOS SUMA PUNTOS VS SHAZAM ---------------------------------------------------------
-
-#     with st.expander('_Suma de PUNTOS vs Shazam_', expanded=True): 
-
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
-
-#         # Crear figura con tres subplots
-#         fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
-
-#         # Grafico 1: Acum de puntos
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='puntos_corregidos',
-#                               color='puntos_corregidos').data[0],
-#                       row=1, col=1)
-#         fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
-#         fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
-
-#         # Grafico 2: Promedio de Shazams
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('shazams', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
-#                               orientation='h', #text='shazams',
-#                               color='shazams').data[0],
-#                       row=1, col=2)
-#         fig.update_xaxes(title='Acumuado de Shazams', row=1, col=2)
-#         # fig.update_layout(title={'text': 'Acumulado de Shazams por país 2002-2022', 'font_size': 24})
-
-#         fig.update_yaxes(title='', row=1, col=1)
-#         fig.update_traces(marker_color='#89CFF0')
-#         fig.update_layout(showlegend=False, height=1100)
-#         fig.update(layout_coloraxis_showscale = False)
-#         fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
-
-#         st.plotly_chart(fig, use_container_width=True)
-
-
-#   # ---- GRAFICOS PROMEDIO y SUMA PUNTOS VS VECINOS ---------------------------------------------------------
-
-#     with st.expander('_Promedio y Suma de PUNTOS vs Nº de Vecinos_', expanded=True): 
-
-#         grouped_df = filtered_df.groupby('country').mean().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
-
-#         # Crear figura con tres subplots
-#         fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
-
-#         # Grafico 1: Promedio de puntos
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='puntos_corregidos',
-#                               color='puntos_corregidos').data[0],
-#                       row=1, col=1)
-#         fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
-#         # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
-
-#         # Grafico 2: Suma de Puntos
-#         grouped_df = filtered_df.groupby('country').sum().reset_index()
-#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-#                               orientation='h', #text='views',
-#                               color='views').data[0],
-#                       row=1, col=2)
-#         fig.update_xaxes(title='Acumulado de Puntos', row=1, col=2)
-#         # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
-
-
-#         # Grafico 3: Nº de Vecinos
-#         grouped_df = filtered_df.groupby('country').max().reset_index()
-#         grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
-
-#         fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
-#                               orientation='h', #text='likes',
-#                               color='vecinos_participantes').data[0],
-#                       row=1, col=3)
-#         fig.update_xaxes(title='Nº Vecinos Participantes', row=1, col=3)
-#         fig.update_layout(title={'text': 'Promedio y Suma de puntos en Eurovisión + Vecinos por país 2002-2022', 'font_size': 24})
-
-#         fig.update_yaxes(title='', row=1, col=1)
-#         fig.update_traces(marker_color='#DDA0DD')
-#         fig.update_layout(showlegend=False, height=1100)
-#         fig.update(layout_coloraxis_showscale = False)
-#         fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
-
-#         st.plotly_chart(fig, use_container_width=True)
+        # Grafico 2: Promedio de Shazams
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('shazams', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
+                              orientation='h', #text='shazams',
+                              color='shazams').data[0],
+                      row=1, col=2)
+        fig.update_xaxes(title='Promedio de Shazams', row=1, col=2)
+        fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
+
+        fig.update_yaxes(title='', row=1, col=1)
+        fig.update_traces(marker_color='#89CFF0')
+        fig.update_layout(showlegend=False, height=1100)
+        fig.update(layout_coloraxis_showscale = False)
+        fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+
+        st.plotly_chart(fig, use_container_width=True)
+
+  # ---- GRAFICOS SUMA PUNTOS VS SHAZAM ---------------------------------------------------------
+
+    with st.expander('_Suma de PUNTOS vs Shazam_', expanded=True): 
+
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+        # Crear figura con tres subplots
+        fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+        # Grafico 1: Acum de puntos
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='puntos_corregidos',
+                              color='puntos_corregidos').data[0],
+                      row=1, col=1)
+        fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
+        fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
+
+        # Grafico 2: Promedio de Shazams
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('shazams', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
+                              orientation='h', #text='shazams',
+                              color='shazams').data[0],
+                      row=1, col=2)
+        fig.update_xaxes(title='Acumuado de Shazams', row=1, col=2)
+        # fig.update_layout(title={'text': 'Acumulado de Shazams por país 2002-2022', 'font_size': 24})
+
+        fig.update_yaxes(title='', row=1, col=1)
+        fig.update_traces(marker_color='#89CFF0')
+        fig.update_layout(showlegend=False, height=1100)
+        fig.update(layout_coloraxis_showscale = False)
+        fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+
+        st.plotly_chart(fig, use_container_width=True)
+
+
+  # ---- GRAFICOS PROMEDIO y SUMA PUNTOS VS VECINOS ---------------------------------------------------------
+
+    with st.expander('_Promedio y Suma de PUNTOS vs Nº de Vecinos_', expanded=True): 
+
+        grouped_df = filtered_df.groupby('country').mean().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+        # Crear figura con tres subplots
+        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+
+        # Grafico 1: Promedio de puntos
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='puntos_corregidos',
+                              color='puntos_corregidos').data[0],
+                      row=1, col=1)
+        fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
+        # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
+
+        # Grafico 2: Suma de Puntos
+        grouped_df = filtered_df.groupby('country').sum().reset_index()
+        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                              orientation='h', #text='views',
+                              color='views').data[0],
+                      row=1, col=2)
+        fig.update_xaxes(title='Acumulado de Puntos', row=1, col=2)
+        # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
+
+
+        # Grafico 3: Nº de Vecinos
+        grouped_df = filtered_df.groupby('country').max().reset_index()
+        grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
+
+        fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
+                              orientation='h', #text='likes',
+                              color='vecinos_participantes').data[0],
+                      row=1, col=3)
+        fig.update_xaxes(title='Nº Vecinos Participantes', row=1, col=3)
+        fig.update_layout(title={'text': 'Promedio y Suma de puntos en Eurovisión + Vecinos por país 2002-2022', 'font_size': 24})
+
+        fig.update_yaxes(title='', row=1, col=1)
+        fig.update_traces(marker_color='#DDA0DD')
+        fig.update_layout(showlegend=False, height=1100)
+        fig.update(layout_coloraxis_showscale = False)
+        fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+        st.plotly_chart(fig, use_container_width=True)
