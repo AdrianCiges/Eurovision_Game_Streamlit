@@ -790,9 +790,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     # Filtro por año
     year_range = st.slider('Selecciona un rango de años', 
-                           min_value=df_master['year'].min(), 
-                           max_value=df_master['year'].max(), 
-                           value=(df_master['year'].min(), df_master['year'].max()))
+                           #min_value=df_master['year'].min(), 
+                           min_value = 2002,
+                           #max_value=df_master['year'].max(), 
+                           max_value = 2022,
+                           #value=(df_master['year'].min(), df_master['year'].max())
+                           value = (2002, 2022)
+                          )
     filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
 
     # Filtro por país
