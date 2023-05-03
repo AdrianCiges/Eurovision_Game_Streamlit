@@ -1006,6 +1006,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     with st.expander('_Promedio y Suma de PUNTOS vs Nº de Vecinos_', expanded=True): 
 
+        filtered_df['vecinos_participantes'] = filtered_df['vecinos_participantes'].replace(0, 0.00001)
         grouped_df = filtered_df.groupby('country').mean().reset_index()
         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
