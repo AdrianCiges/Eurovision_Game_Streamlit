@@ -676,6 +676,51 @@ if app_mode == '🎶 Juego Eurovisión':
 
                         df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
 
+                    elif len(df_sorted) > 10:
+#                         first_points = df_sorted['points'][0]
+#                         last_points = df_sorted['points'][26]
+
+#                         pendiente = first_points/(first_points-last_points)
+#                         intercept = (first_points*last_points)/(first_points-last_points)
+
+#                         total_points = df_sorted['points'].sum()
+
+#                         for i,p in enumerate(df_sorted['points']):
+#                             df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+
+#                         df_sorted.loc[26:, 'points'] = 0
+
+                        total_points = df_sorted['points'].sum()
+
+                        cociente = (116*len(df_sorted))/total_points
+        
+                        for i,puntos in enumerate(df_sorted['points'][:len(df_sorted)]):
+                            df_sorted.loc[i, 'points'] = round(puntos*cociente)
+
+                        total_points = df_sorted['points'].sum()
+
+                        diferencia = 116*len(df_sorted)-total_points
+
+                        # Me quedo con el último índice no nulo
+                        for i,p in enumerate(df_sorted['points']):
+                            if p <= 0:
+                                last_nonull = i-1
+                                break
+
+                        if diferencia > 0:
+                            for i in range((len(df_sorted)-1)-diferencia+1, len(df_sorted)):
+                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+
+                        elif diferencia < 0:
+                            for i in range(last_nonull+diferencia+1, last_nonull+1):
+                                print(i)
+                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+
+                        total_points = df_sorted['points'].sum()
+
+                        df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+                    
+                    
 
                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
