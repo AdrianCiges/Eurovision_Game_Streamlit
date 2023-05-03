@@ -724,6 +724,8 @@ if app_mode == '🎶 Juego Eurovisión':
 
                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
+                    st.write('Tenemos resultados...')
+                    time.sleep(5)
                     df_sorted
                 except:
                     st.write('Ha habido algún error con las canciones que has introducido')
