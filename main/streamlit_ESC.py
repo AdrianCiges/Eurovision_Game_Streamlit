@@ -736,12 +736,14 @@ if app_mode == '🎶 Juego Eurovisión':
 
                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
-                    st.write('🖐🏻 Europe, stop scrapping now!')
+                    st.markdown('##### 🖐🏻 Europe, stop scrapping now!')
+                    st.write('')
                     time.sleep(4)
                     st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
+                    st.write('')
                     df_sorted
                 except:
-                    st.write('Ha habido algún error con las canciones que has introducido')
+                    st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
@@ -823,7 +825,9 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             total_points = df_sorted['points'].sum()
 
             df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-            df_sorted = df_sorted[['song','singer','country','points']]            
+            df_sorted = df_sorted[['song','singer','country','points']]       
+            st.markdown('##### 😱 ¡Tenemos resultados!')
+            st.write('')
             df_sorted
 
             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
