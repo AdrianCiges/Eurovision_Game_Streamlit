@@ -817,8 +817,8 @@ if app_mode == '🎶 Juego Eurovisión':
                     
                     st.markdown('##### ¿Te gustaría crear una lista de Spotify con las canciones que has introducido? ¡Dale un nombre a tu lista y disfruta! 😊')
                     list_name = st.text_input("Título de tu lista:")
-                        if list_name:
-                            add_to_playlist(resultado)
+                    if list_name:
+                        add_to_playlist(resultado)
                 except:
                     st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
 
