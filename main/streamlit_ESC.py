@@ -267,15 +267,8 @@ def get_songs_ESC23(cancion):
     st.write('Buscando en YouTube')
 
     try:
-        # url = ('https://www.youtube.com/results?search_query=' + cancion['song'] +'+'+ cancion['singer'] +'+'+ ' ("eurovisionsongcontest' +'+'+ '"2023"' +'+'+ '("official video" | "official music video" | "national")' +'+'+ '-sanremo-euphoria-#EurovisionALBM-RTVE Musica')
-
-        # url = ('https://www.youtube.com/results?search_query=' + '"' + cancion['song'] + '"' +'+'+ '"' + cancion['singer'] + '"' +'+'+ '"Eurovision"' +'+'+ 'Final' +'+'+ '2023' +'+'+ '-sanremo' + '&list=PLmWYEDTNOGUIr757MlL8s9iyvYx-0lToh' + '&sp=CAM%253D&sort=views')
-
-        # url = ('https://www.youtube.com/results?search_query=' + cancion['song'] +'+'+ cancion['singer'] +'+'+ 'playlist:Eurovision+2023+All+Songs+Playlist+user:euroivisonsongcontest')
-
+        
         link_video = 'https://www.youtube.com/watch?v=' + youtube_codes_dics[cancion['country']] + '&list=PLVf2bg851geTD_adqUqpSvGDVTqQwLZW6'
-
-        # link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
         html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
         video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
         video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
@@ -346,11 +339,15 @@ def row_data_ESC23(user_songs):
     fecha_actual = datetime.datetime.now()
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
-
-    st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones de Eurovisión 2023 a día {fecha_actual_str} a las {hora_actual_str}')
+    
+    st.write('')
+    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
-    st.write('Esto puede tardar un par de minutos. Interval Act time!')
-    time.sleep(0.5)
+    st.write('')
+    st.markdown('##### Esto puede tardar unos minutos. Interval act time!')
+    
+    time.sleep(1)
+    st.write('')
     st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
@@ -502,7 +499,7 @@ def predicciones_now(user_songs):
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
-    st.write(f'Scrappeando cuota actual de apuestas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
 
     scrap_odds = {'Sweden': 1.7066666666666668,
                  'Finland': 3.151111111111111,
@@ -557,7 +554,7 @@ def predicciones_now(user_songs):
     #print(tabla0)
 
 
-    st.write('Prediciendo resultados...')
+    st.markdown('##### Prediciendo resultados...')
     st.write('')
 
     # PREDICCIONES
@@ -651,7 +648,7 @@ def add_to_playlist(tracks):
     
     link_spoty = f'https://open.spotify.com/playlist/{playlist_id}'
     enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
-    return HTML(enlace_clicable)
+    return st.markdown(f'Lista de reproducción creada: [{link_spoty}]({link_spoty})')
 
 countries = ['Albania', 'Andorra', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Latvia', 'Lithuania', 'Malta', 'Moldova', 'Montenegro', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'The Netherlands', 'Turkey', 'Ukraine', 'United Kingdom']
 
@@ -692,10 +689,11 @@ if app_mode == '🎶 Juego Eurovisión':
 
     #st.write('### Elige el nº de participantes')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-    participantes = col1.selectbox('Nº participantes', options=num_part)
 
     if list_name:
-        
+
+        participantes = col1.selectbox('Nº participantes', options=num_part)
+
         try:
             
             def create_form():
