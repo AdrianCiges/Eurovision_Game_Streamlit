@@ -324,11 +324,14 @@ def row_data(user_songs):
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
-    st.write(f'Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.write('')
+    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
-    st.write('Esto puede tardar unos minutos. Interval act time!')
+    st.write('')
+    st.markdown('##### Esto puede tardar unos minutos. Interval act time!')
     
-    time.sleep(0.5)
+    time.sleep(1)
+    st.write('')
     st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs)(d) for d in user_songs)
