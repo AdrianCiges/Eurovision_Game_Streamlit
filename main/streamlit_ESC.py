@@ -668,6 +668,10 @@ app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicc
 if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
+    
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 20px;"></span> <u>¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</u></h1>', unsafe_allow_html=True)
+    
+    list_name = st.text_input("Me llamo...")
 
     # CARGAMOS DATA TO TRAIN
     data = pd.read_excel("./data/Data_to_train.xlsx")
@@ -690,19 +694,20 @@ if app_mode == '🎶 Juego Eurovisión':
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
     participantes = col1.selectbox('Nº participantes', options=num_part)
 
-    def create_form():
-        selected_countries = []
-        user_songs = []
-        for i in range(participantes):
-            col1, col2, col3, col4 = st.columns(4)
-            song = col1.text_input(f'Canción {i+1}')
-            singer = col2.text_input(f'Cantante {i+1}')
-            available_countries = get_available_countries(selected_countries)
-            country = col3.selectbox(f'País {i+1}', options=available_countries)
-            selected_countries.append(country)
-            manager = col4.text_input(f'Player {i+1}')
-            user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
-        return user_songs
+    if list_name:
+        def create_form():
+            selected_countries = []
+            user_songs = []
+            for i in range(participantes):
+                col1, col2, col3, col4 = st.columns(4)
+                song = col1.text_input(f'Canción {i+1}')
+                singer = col2.text_input(f'Cantante {i+1}')
+                available_countries = get_available_countries(selected_countries)
+                country = col3.selectbox(f'País {i+1}', options=available_countries)
+                selected_countries.append(country)
+                manager = col4.text_input(f'Player {i+1}')
+                user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
+            return user_songs
 
     if __name__ == '__main__':
         st.title('Registro de canciones')
@@ -816,9 +821,7 @@ if app_mode == '🎶 Juego Eurovisión':
                     df_sorted
                     
                     st.markdown('##### ¿Te gustaría crear una lista de Spotify con las canciones que has introducido? ¡Dale un nombre a tu lista y disfruta! 😊')
-                    list_name = st.text_input("Título de tu lista:")
-                    if list_name:
-                        add_to_playlist(resultado)
+                    add_to_playlist(resultado)
                 except:
                     st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
 
