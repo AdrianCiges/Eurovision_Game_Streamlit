@@ -609,7 +609,7 @@ def create_playlist(name):
 def add_to_playlist(tracks):
     tracks = list(reversed(tracks))
     token = spotify_access_token()
-    list_name = input("Título de tu lista: ")
+    list_name = st.text_input("Título de tu lista:")
     playlist_id = create_playlist(list_name)
     
     headers = {
