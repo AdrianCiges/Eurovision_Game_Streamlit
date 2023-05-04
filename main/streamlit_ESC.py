@@ -668,7 +668,8 @@ if app_mode == '🎶 Juego Eurovisión':
     
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> <u>¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
-    list_name = st.text_input("Me llamo...")
+    participante = st.text_input("Me llamo...")
+    list_name = participante + " The Eurovision Game"
 
     # CARGAMOS DATA TO TRAIN
     data = pd.read_excel("./data/Data_to_train.xlsx")
@@ -821,7 +822,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             st.write('')
                             df_sorted
 
-                            st.markdown('##### ¿Te gustaría crear una lista de Spotify con las canciones que has introducido? ¡Dale un nombre a tu lista y disfruta! 😊')
+                            st.markdown('##### De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
                             add_to_playlist(resultado)
                         except:
                             st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
