@@ -318,10 +318,10 @@ def row_data(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
     st.write('')
-    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
     st.write('')
-    st.markdown('##### Esto puede tardar unos minutos. Interval act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos minutos. Interval act time!')
     
     time.sleep(1)
     st.write('')
@@ -341,10 +341,10 @@ def row_data_ESC23(user_songs):
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
     
     st.write('')
-    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
     st.write('')
-    st.markdown('##### Esto puede tardar unos minutos. Interval act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos minutos. Interval act time!')
     
     time.sleep(1)
     st.write('')
@@ -554,7 +554,7 @@ def predicciones_now(user_songs):
     #print(tabla0)
 
 
-    st.markdown('##### Prediciendo resultados...')
+    st.markdown('##### 🤔 Prediciendo resultados...')
     st.write('')
 
     # PREDICCIONES
@@ -666,7 +666,7 @@ if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
-    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> <u>¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
     participante = st.text_input("Me llamo...")
     list_name = participante + " The Eurovision Game"
@@ -822,7 +822,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             st.write('')
                             df_sorted
 
-                            st.markdown('##### De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
+                            st.markdown('##### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
                             add_to_playlist(resultado)
                         except:
                             st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
