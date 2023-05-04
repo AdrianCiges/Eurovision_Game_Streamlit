@@ -817,6 +817,7 @@ if app_mode == '🎶 Juego Eurovisión':
                     df_sorted
                     
                     st.markdown('##### ¿Te gustaría crear una lista de Spotify con las canciones que has introducido? ¡Dale un nombre a tu lista y disfruta! 😊')
+                    resultado = df_sorted.to_dict()
                     add_to_playlist(resultado)
                 except:
                     st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
