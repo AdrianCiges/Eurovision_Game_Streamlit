@@ -669,7 +669,7 @@ if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
-    st.markdown('<h1 style="text-align:center"><span style="font-size: 20px;"></span> <u>¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</u></h1>', unsafe_allow_html=True)
+    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> <u>¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</u></h2>', unsafe_allow_html=True)
     
     list_name = st.text_input("Me llamo...")
 
@@ -708,6 +708,9 @@ if app_mode == '🎶 Juego Eurovisión':
                 manager = col4.text_input(f'Player {i+1}')
                 user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
             return user_songs
+        
+    else:
+        pass
 
     if __name__ == '__main__':
         st.title('Registro de canciones')
