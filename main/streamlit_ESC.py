@@ -631,114 +631,116 @@ if app_mode == '🎶 Juego Eurovisión':
         st.write('')
         st.write('')
         if st.button('Enviar'):
-            user_songs = [song for song in user_songs if all(song.values())]
-            if len(user_songs) < 3:
-                st.write('No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
-                #st.write(user_songs)
-            else:
-                try:
+            with st.spinner('Procesando...'):
+                user_songs = [song for song in user_songs if all(song.values())]
+                if len(user_songs) < 3:
+                    st.write('No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
                     #st.write(user_songs)
-                    resultado = predicciones(user_songs)
-                    df = pd.DataFrame(resultado)
-                    df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
-                    # df_sorted
-                    # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
+                else:
+                    try:
+                        #st.write(user_songs)
+                        resultado = predicciones(user_songs)
+                        df = pd.DataFrame(resultado)
+                        df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+                        # df_sorted
+                        # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
 
-                    if len(df_sorted) > 26:
-                        first_points = df_sorted['points'][0]
-                        last_points = df_sorted['points'][26]
+                        if len(df_sorted) > 26:
+                            first_points = df_sorted['points'][0]
+                            last_points = df_sorted['points'][26]
 
-                        pendiente = first_points/(first_points-last_points)
-                        intercept = (first_points*last_points)/(first_points-last_points)
+                            pendiente = first_points/(first_points-last_points)
+                            intercept = (first_points*last_points)/(first_points-last_points)
 
-                        total_points = df_sorted['points'].sum()
+                            total_points = df_sorted['points'].sum()
 
-                        for i,p in enumerate(df_sorted['points']):
-                            df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+                            for i,p in enumerate(df_sorted['points']):
+                                df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-                        df_sorted.loc[26:, 'points'] = 0
+                            df_sorted.loc[26:, 'points'] = 0
 
-                        total_points = df_sorted['points'].sum()
+                            total_points = df_sorted['points'].sum()
 
-                        cociente = (116*len(df_sorted))/total_points
+                            cociente = (116*len(df_sorted))/total_points
 
-                        for i,puntos in enumerate(df_sorted['points'][:26]):
-                            df_sorted.loc[i, 'points'] = round(puntos*cociente)
+                            for i,puntos in enumerate(df_sorted['points'][:26]):
+                                df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
-                        total_points = df_sorted['points'].sum()
+                            total_points = df_sorted['points'].sum()
 
-                        diferencia = 116*len(df_sorted)-total_points
+                            diferencia = 116*len(df_sorted)-total_points
 
-                        # Me quedo con el último índice no nulo
-                        for i,p in enumerate(df_sorted['points']):
-                            if p <= 0:
-                                last_nonull = i-1
-                                break
+                            # Me quedo con el último índice no nulo
+                            for i,p in enumerate(df_sorted['points']):
+                                if p <= 0:
+                                    last_nonull = i-1
+                                    break
 
-                        if diferencia > 0:
-                            for i in range(25-diferencia+1, 26):
-                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+                            if diferencia > 0:
+                                for i in range(25-diferencia+1, 26):
+                                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
 
-                        elif diferencia < 0:
-                            for i in range(last_nonull+diferencia+1, last_nonull+1):
-                                print(i)
-                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+                            elif diferencia < 0:
+                                for i in range(last_nonull+diferencia+1, last_nonull+1):
+                                    print(i)
+                                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
 
-                        total_points = df_sorted['points'].sum()
+                            total_points = df_sorted['points'].sum()
 
-                        df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+                            df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
 
-                    elif len(df_sorted) > 10:
-#                         first_points = df_sorted['points'][0]
-#                         last_points = df_sorted['points'][26]
+                        elif len(df_sorted) > 10:
+    #                         first_points = df_sorted['points'][0]
+    #                         last_points = df_sorted['points'][26]
 
-#                         pendiente = first_points/(first_points-last_points)
-#                         intercept = (first_points*last_points)/(first_points-last_points)
+    #                         pendiente = first_points/(first_points-last_points)
+    #                         intercept = (first_points*last_points)/(first_points-last_points)
 
-#                         total_points = df_sorted['points'].sum()
+    #                         total_points = df_sorted['points'].sum()
 
-#                         for i,p in enumerate(df_sorted['points']):
-#                             df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+    #                         for i,p in enumerate(df_sorted['points']):
+    #                             df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-#                         df_sorted.loc[26:, 'points'] = 0
+    #                         df_sorted.loc[26:, 'points'] = 0
 
-                        total_points = df_sorted['points'].sum()
+                            total_points = df_sorted['points'].sum()
 
-                        cociente = (116*len(df_sorted))/total_points
-        
-                        for i,puntos in enumerate(df_sorted['points'][:len(df_sorted)]):
-                            df_sorted.loc[i, 'points'] = round(puntos*cociente)
+                            cociente = (116*len(df_sorted))/total_points
 
-                        total_points = df_sorted['points'].sum()
+                            for i,puntos in enumerate(df_sorted['points'][:len(df_sorted)]):
+                                df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
-                        diferencia = 116*len(df_sorted)-total_points
+                            total_points = df_sorted['points'].sum()
 
-                        # Me quedo con el último índice no nulo
-                        for i,p in enumerate(df_sorted['points']):
-                            if p <= 0:
-                                last_nonull = i-1
-                                break
+                            diferencia = 116*len(df_sorted)-total_points
 
-                        if diferencia > 0:
-                            for i in range((len(df_sorted)-1)-diferencia+1, len(df_sorted)):
-                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+                            # Me quedo con el último índice no nulo
+                            for i,p in enumerate(df_sorted['points']):
+                                if p <= 0:
+                                    last_nonull = i-1
+                                    break
 
-                        elif diferencia < 0:
-                            for i in range(last_nonull+diferencia+1, last_nonull+1):
-                                print(i)
-                                df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+                            if diferencia > 0:
+                                for i in range((len(df_sorted)-1)-diferencia+1, len(df_sorted)):
+                                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
 
-                        total_points = df_sorted['points'].sum()
+                            elif diferencia < 0:
+                                for i in range(last_nonull+diferencia+1, last_nonull+1):
+                                    print(i)
+                                    df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
 
-                        df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+                            total_points = df_sorted['points'].sum()
+
+                            df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
                     
                     
 
                     df_sorted.rename(columns= {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
-                    st.markdown('##### 🖐🏻 Europe, stop scrapping now!')
+                    st.markdown('##### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁')
                     st.write('')
                     time.sleep(4)
+                    st.balloons()
                     st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
                     st.write('')
                     df_sorted
