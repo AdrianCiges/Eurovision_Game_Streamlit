@@ -504,43 +504,43 @@ def predicciones_now(user_songs):
 
     st.write(f'Scrappeando cuota actual de apuestas a día {fecha_actual_str} a las {hora_actual_str}')
 
-    scrap_odds = {'Sweden': 1.6811111111111112,
-     'Finland': 3.176111111111111,
-     'Ukraine': 13.555555555555555,
-     'France': 15.222222222222221,
-     'Spain': 15.944444444444445,
-     'Norway': 20.833333333333332,
-     'Israel': 28.27777777777778,
-     'Austria': 42.27777777777778,
-     'Italy': 42.94444444444444,
-     'United Kingdom': 58.77777777777778,
-     'Czechia': 90.16666666666667,
-     'Armenia': 112.61111111111111,
-     'Switzerland': 142.0,
-     'Australia': 137.77777777777777,
-     'Croatia': 163.05555555555554,
-     'Germany': 164.72222222222223,
-     'Serbia': 179.72222222222223,
-     'Netherlands': 190.83333333333334,
-     'Slovenia': 201.94444444444446,
-     'Moldova': 184.72222222222223,
-     'Georgia': 220.0,
-     'Cyprus': 239.44444444444446,
-     'Estonia': 266.3888888888889,
-     'Ireland': 269.44444444444446,
-     'Poland': 254.16666666666666,
-     'Portugal': 288.6111111111111,
-     'Lithuania': 296.94444444444446,
-     'Iceland': 313.6111111111111,
-     'Belgium': 316.3888888888889,
-     'Greece': 330.27777777777777,
-     'Denmark': 334.44444444444446,
-     'Azerbaijan': 369.1666666666667,
-     'Albania': 380.27777777777777,
-     'Malta': 380.27777777777777,
-     'Latvia': 388.6111111111111,
-     'San Marino': 396.94444444444446,
-     'Romania': 408.05555555555554}
+    scrap_odds = {'Sweden': 1.7066666666666668,
+                 'Finland': 3.151111111111111,
+                 'Ukraine': 13.5,
+                 'France': 14.166666666666666,
+                 'Spain': 14.61111111111111,
+                 'Norway': 20.27777777777778,
+                 'Israel': 29.38888888888889,
+                 'Austria': 41.388888888888886,
+                 'Italy': 40.77777777777778,
+                 'United Kingdom': 57.666666666666664,
+                 'Czechia': 102.83333333333333,
+                 'Armenia': 109.83333333333333,
+                 'Switzerland': 149.22222222222223,
+                 'Australia': 150.0,
+                 'Croatia': 169.72222222222223,
+                 'Germany': 168.05555555555554,
+                 'Serbia': 187.77777777777777,
+                 'Netherlands': 198.88888888888889,
+                 'Slovenia': 206.11111111111111,
+                 'Moldova': 190.55555555555554,
+                 'Ireland': 202.55555555555554,
+                 'Georgia': 250.0,
+                 'Cyprus': 223.88888888888889,
+                 'Estonia': 274.72222222222223,
+                 'Poland': 264.72222222222223,
+                 'Portugal': 296.94444444444446,
+                 'Lithuania': 299.72222222222223,
+                 'Belgium': 324.72222222222223,
+                 'Iceland': 338.6111111111111,
+                 'Denmark': 358.05555555555554,
+                 'Greece': 369.1666666666667,
+                 'Azerbaijan': 408.05555555555554,
+                 'Malta': 416.3888888888889,
+                 'San Marino': 433.05555555555554,
+                 'Albania': 435.8333333333333,
+                 'Latvia': 444.1666666666667,
+                 'Romania': 463.6111111111111}
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
@@ -726,8 +726,11 @@ if app_mode == '🎶 Juego Eurovisión':
                     st.markdown('##### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁')
                     st.write('')
                     time.sleep(4)
+                    winner_url = ("https://www.youtube.com/results?search_query=" + df_sorted['player'][0] +"+" + df_sorted['singer'][0] + "+official")
+                    winner_link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{winner_url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
                     st.balloons()
                     st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
+                    st.video('winner_link_video')
                     st.write('')
                     df_sorted
                 except:
