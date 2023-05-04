@@ -574,6 +574,86 @@ def predicciones_now(user_songs):
 
     return prediction_result
 
+def spotify_access_token():
+    url = "https://accounts.spotify.com/api/token"
+
+    payload=f"grant_type=refresh_token&refresh_token=AQAdp_4ZFLhLDSe3m6hvmqXfxZFWf2TQkfE35br2EGIFQ80N9t8BWihlDx-f21EgtWIff0TY95mEhNiwq_ryerMSIovlWfrd4q2CiWU-UfpP--UhnqeixNB6Wfj797bfV9M"
+    headers = {
+      'Authorization': 'Basic ZjA4ZTdkYjM3NTQzNGYzMjllNzMzMjkzMjIzNWFlOWM6YWE0NGE4YjhmODM4NGViYzhhMmNkMGFiYTY1Zjc4YjM=',
+      'Content-Type': 'application/x-www-form-urlencoded',
+    }
+
+    response = req.request("POST", url, headers=headers, data=payload).json()
+
+    return response['access_token']
+
+def create_playlist(name):
+    token = spotify_access_token()
+    headers = {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+        "Authorization" : f"Bearer {token}"
+        }
+    data = {
+        "name": name,
+        "description": "Lista de reproducción autogenerada con las canciones de tu Eurovision Prediction Game",
+        "public": False
+        }
+    response = req.post("https://api.spotify.com/v1/me/playlists", headers=headers, data=json.dumps(data))
+    if response.status_code == 201:
+        playlist_id = response.json()["id"]
+        return playlist_id
+    else:
+        print(f"Failed to create playlist: {response.status_code} {response.reason}")
+
+def add_to_playlist(tracks):
+    tracks = list(reversed(tracks))
+    token = spotify_access_token()
+    list_name = input("Título de tu lista: ")
+    playlist_id = create_playlist(list_name)
+    
+    headers = {
+        "Accept" : "application/json",
+        "Content-Type" : "application/json",
+        "Authorization" : f"Bearer {token}"
+        }
+    
+    
+    params_search = {
+        "type" : "track",
+        "limit":"1"     
+        }
+    uris_raw = []
+    for track in tracks:
+        # print(f'adding track {track} to spotify playlist')
+        params_search['q'] = track['song'] + " " + track['singer']
+        
+        try:
+            response = req.get("https://api.spotify.com/v1/search", headers=headers, params=params_search)
+        
+            search_content = json.loads(response.text)
+            uris_raw.append(search_content['tracks']['items'][0]['uri'])
+        except:
+            print(f'No es posible añadir canción {track} en lista de spoty')
+            pass
+        
+
+    uris = ','.join(uris_raw)
+    
+    
+    params_add_track = {
+        "position" : "0",
+        "uris" : uris # La uri de la canción (canciones)
+
+    }
+    playlist_id = playlist_id
+
+    response = req.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks", headers=headers, params=params_add_track)
+    
+    link_spoty = f'https://open.spotify.com/playlist/{playlist_id}'
+    enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
+    return HTML(enlace_clicable)
+
 countries = ['Albania', 'Andorra', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Latvia', 'Lithuania', 'Malta', 'Moldova', 'Montenegro', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'The Netherlands', 'Turkey', 'Ukraine', 'United Kingdom']
 
 num_part = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
@@ -735,6 +815,9 @@ if app_mode == '🎶 Juego Eurovisión':
                     st.video(winner_link_video)
                     st.write('')
                     df_sorted
+                    
+                    st.markdown('##### ¿Te gustaría crear una lista de Spotify con las canciones que has introducido? ¡Dale un nombre a tu lista y disfruta! 😊')
+                    add_to_playlist(resultado)
                 except:
                     st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
 
