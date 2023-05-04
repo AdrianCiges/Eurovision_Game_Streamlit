@@ -720,7 +720,10 @@ if app_mode == '🎶 Juego Eurovisión':
                             total_points = df_sorted['points'].sum()
 
                             df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-                                           
+                            
+                        else:
+                            pass
+                        
                     df_sorted.rename(columns = {'manager':'player'}, inplace=True)
                     df_sorted = df_sorted[['song','singer','country','player','points']]
                     st.markdown('##### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁')
