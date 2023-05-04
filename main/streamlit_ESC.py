@@ -647,8 +647,8 @@ def add_to_playlist(tracks):
     response = req.post(f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks", headers=headers, params=params_add_track)
     
     link_spoty = f'https://open.spotify.com/playlist/{playlist_id}'
-    enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
-    return st.markdown(f'Lista de reproducción creada: [{link_spoty}]({link_spoty})')
+    #enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
+    return st.markdown(f'🎶 A disfrutar: [{link_spoty}]({link_spoty})')
 
 countries = ['Albania', 'Andorra', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Latvia', 'Lithuania', 'Malta', 'Moldova', 'Montenegro', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'The Netherlands', 'Turkey', 'Ukraine', 'United Kingdom']
 
