@@ -117,9 +117,7 @@ def get_songs(cancion):
     st.write('Buscando en YouTube')
 
     try:
-        cancion = cancion["song"].replace(' ','+')
-        cantante = cancion["singer"].replace(' ','+')
-        url = ("https://www.youtube.com/results?search_query=" + cancion +"+"+ cantante + '+official'
+        url = ("https://www.youtube.com/results?search_query=" + cancion["song"].replace(' ','+') +"+"+ cancion["singer"].replace(' ','+') +"+"+ "Official")
         link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
         html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
         video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
