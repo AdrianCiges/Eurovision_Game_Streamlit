@@ -725,7 +725,7 @@ if app_mode == '🎶 Juego Eurovisión':
     
         participantes = col1.selectbox('Nº participantes', options=num_part)
         
-        if participantes < 12:
+        if participantes < 11:
             st.warning('⚠️ Las puntuaciones no serán 100% representativas al haber menos de 11 participantes, pero sí lo serán las posiciones obtenidas')
      
         try:
