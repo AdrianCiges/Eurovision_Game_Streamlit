@@ -824,10 +824,9 @@ if app_mode == '🎶 Juego Eurovisión':
                             df_sorted_check.reset_index(drop=True, inplace=True)
                             df_sorted_check.index += 1
                             st.table(df_sorted_check)
-                            st.table(df_sorted_check)
                             st.video(winner_link_video)
 
-                            st.markdown('##### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
+                            st.markdown('#### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
                             add_to_playlist(resultado)
                         except:
                             st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
