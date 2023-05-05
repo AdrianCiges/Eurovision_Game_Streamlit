@@ -916,11 +916,11 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_sorted = df_sorted[['song','singer','country','points']] 
             
             st.balloons()
-            st.write('')
             st.markdown('##### 😱 ¡Tenemos resultados! Y son los siguientes... 🥁🥁🥁🥁')
+            time.sleep(4)
             
             st.write('')
-            df_sorted
+            st.table(df_sorted)
 
             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
             #df_sorted
