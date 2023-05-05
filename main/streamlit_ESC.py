@@ -820,7 +820,11 @@ if app_mode == '🎶 Juego Eurovisión':
                             st.balloons()
                             st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
                             st.write('')
-                            st.table(df_sorted)
+                            df_sorted_check = df_sorted.copy()
+                            df_sorted_check.reset_index(drop=True, inplace=True)
+                            df_sorted_check.index += 1
+                            st.table(df_sorted_check)
+                            st.table(df_sorted_check)
                             st.video(winner_link_video)
 
                             st.markdown('##### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
@@ -920,7 +924,10 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             time.sleep(4)
             
             st.write('')
-            st.table(df_sorted)
+            df_sorted_check = df_sorted.copy()
+            df_sorted_check.reset_index(drop=True, inplace=True)
+            df_sorted_check.index += 1
+            st.table(df_sorted_check)
 
             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
             #df_sorted
