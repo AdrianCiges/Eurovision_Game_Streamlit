@@ -691,10 +691,15 @@ if app_mode == '🎶 Juego Eurovisión':
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
     st.write('')
-    with st.expander('Cómo cambiar de apartado', expanded=False):
+    with st.expander('Cómo usar la página adecuadamente', expanded=False):
         st.write('⬅️ Utiliza el **panel de la izquierda** para navegar por las diferentes secciones de la página')
         st.image(f"data:image/png;base64,{b64_1}", use_column_width=True) 
-          
+        st.write('')
+        st.write('🔁 Si accedes desde un móvil rota la pantalla para una mejor visibilidad')
+        st.write('')
+        st.write('🗒 Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones no tienen por qué haber participado en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
+    
+
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
     participante = st.text_input("Me llamo...")
@@ -747,8 +752,7 @@ if app_mode == '🎶 Juego Eurovisión':
             if __name__ == '__main__':
                 st.title('🗒️ Registro de canciones')
                 st.write('')
-                st.success('Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones no tienen por qué haber participado en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
-                st.write('')
+              
                 user_songs = create_form()
                 st.write('')
                 st.write('')
@@ -1026,7 +1030,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # st.write(df_master)
     
     st.write('')
-    st.warning('Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
+    st.warning('⚠️ Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
     st.write('')
     
     # Filtro por año
