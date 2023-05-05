@@ -695,9 +695,9 @@ if app_mode == '🎶 Juego Eurovisión':
         st.write('⬅️ Utiliza el **panel de la izquierda** para navegar por las diferentes secciones de la página')
         st.image(f"data:image/png;base64,{b64_1}", use_column_width=True) 
         st.write('')
-        st.write('🔁 Si accedes desde un móvil rota la pantalla para una mejor visibilidad')
+        st.write('🔁 Si accedes desde un móvil **rota la pantalla** para una mejor visibilidad')
         st.write('')
-        st.write('🗒 Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones no tienen por qué haber participado en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
+        st.write('🗒 Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones **no tienen por qué haber participado** en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
     
 
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
