@@ -988,6 +988,10 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
     
+    st.write('')
+    st.warning('Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación. \n Prueba')
+    st.write('')
+    
     # Filtro por año
     year_range = st.slider('Selecciona un rango de años', 
                            #min_value=df_master['year'].min(), 
@@ -1234,7 +1238,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='vecinos_participantes').data[0],
                       row=1, col=3)
         fig.update_xaxes(title='Nº vecinos participantes', row=1, col=3)
-        fig.update_layout(title={'text': 'Promedio y Acum. Puntos + Nº Vecinos 2002-2022', 'font_size': 24})
+        fig.update_layout(title={'text': 'Prom. y Acum. Puntos + Nº Vecinos 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#DDA0DD')
