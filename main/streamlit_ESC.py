@@ -724,7 +724,10 @@ if app_mode == '🎶 Juego Eurovisión':
     if participante:
     
         participantes = col1.selectbox('Nº participantes', options=num_part)
-
+        
+        if participantes < 12:
+            st.warning('⚠️ Las puntuaciones no serán 100% representativas al haber menos de 11 participantes, pero sí lo serán las posiciones obtenidas')
+     
         try:
             
             def create_form():
@@ -749,7 +752,7 @@ if app_mode == '🎶 Juego Eurovisión':
                 if st.button('Enviar'):
                     user_songs = [song for song in user_songs if all(song.values())]
                     if len(user_songs) < 3:
-                        st.write('No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
+                        st.warning('⚠️ No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
                         #st.write(user_songs)
                     else:
                         try:
