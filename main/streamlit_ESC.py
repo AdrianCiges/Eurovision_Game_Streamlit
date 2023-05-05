@@ -692,7 +692,7 @@ if app_mode == '🎶 Juego Eurovisión':
     #st.write('### Elige el nº de participantes')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
 
-    if list_name != 'The Eurovision Game':
+    if participante:
     
         participantes = col1.selectbox('Nº participantes', options=num_part)
 
