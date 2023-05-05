@@ -836,7 +836,8 @@ if app_mode == '🎶 Juego Eurovisión':
 elif app_mode == '🤖 Predicción Eurovisión 2023':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
-
+    st.warning('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la predicción en fecha y hora actual y un gráfico con la evolución de dicha predicción a lo largo de los 30 días previos al concurso.')
+    
     # CARGAMOS DATA TO TRAIN
     data = pd.read_excel("./data/Data_to_train.xlsx")
     data.drop("Unnamed: 0", axis=1, inplace=True)
@@ -943,7 +944,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_prueba.index = df_prueba.index.date.astype(str)
             # Cambiar los valores numéricos de float a int
             df_prueba = df_prueba.astype(int)
-            df_prueba
+            #df_prueba
 
             df_prueba = pd.concat([df_nuevo, df_prueba])
             df_prueba.index = df_prueba.index.astype(str)
