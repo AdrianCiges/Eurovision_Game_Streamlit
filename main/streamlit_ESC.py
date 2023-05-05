@@ -36,6 +36,10 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
+from PIL import Image
+import base64
+import io
+
 # chrome_options = Options()
 # chrome_options.add_argument('--headless')  # Ejecutar en modo headless
 # chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
@@ -678,9 +682,18 @@ app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicc
 # ---------------------------------------------------------------------------------------------------------------------------
 
 if app_mode == '🎶 Juego Eurovisión':
+    
+    image_inicio = Image.open("../img/panel.png")
+    with io.BytesIO() as output:
+        image_inicio.save(output, format="PNG")
+        b64_1 = base64.b64encode(output.getvalue()).decode()
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
+    with st.expander('_La diversión empieza aquí_', expanded=False):
+        st.write('⬅️ Utiliza el **panel de la izquierda** para navegar por las diferentes secciones de la página')
+        st.image(f"data:image/png;base64,{b64_1}", use_column_width=True) 
+          
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
     participante = st.text_input("Me llamo...")
