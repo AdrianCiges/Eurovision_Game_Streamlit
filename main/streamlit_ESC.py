@@ -683,7 +683,7 @@ app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicc
 
 if app_mode == '🎶 Juego Eurovisión':
     
-    image_inicio = Image.open("../img/panel.png")
+    image_inicio = Image.open("./img/panel.png")
     with io.BytesIO() as output:
         image_inicio.save(output, format="PNG")
         b64_1 = base64.b64encode(output.getvalue()).decode()
