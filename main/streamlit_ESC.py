@@ -941,7 +941,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_sorted_check = df_sorted.copy()
             df_sorted_check.reset_index(drop=True, inplace=True)
             df_sorted_check.index += 1
-            st.table(df_sorted_check)
+            st.table(df_sorted_check.style.apply(highlight_rows, axis=1))
 
             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
             #df_sorted
