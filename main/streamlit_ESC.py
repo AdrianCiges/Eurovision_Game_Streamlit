@@ -745,7 +745,7 @@ if app_mode == '🎶 Juego Eurovisión':
                     available_countries = get_available_countries(selected_countries)
                     country = col3.selectbox(f'País {i+1}', options=available_countries)
                     selected_countries.append(country)
-                    manager = col4.text_input(f'Player {i+1}')
+                    manager = col4.text_input(f'Jugador {i+1}')
                     user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
                 return user_songs
 
@@ -846,8 +846,8 @@ if app_mode == '🎶 Juego Eurovisión':
 
                                 df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
 
-                            df_sorted.rename(columns = {'manager':'player'}, inplace=True)
-                            df_sorted = df_sorted[['song','singer','country','player','points']]
+                            df_sorted.rename(columns = {'manager':'jugador'}, inplace=True)
+                            df_sorted = df_sorted[['song','singer','country','jugador','points']]
                             st.write('')
                             st.markdown('#### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁🥁🥁🥁')
                             st.write('')
@@ -857,7 +857,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             winner_url = ("https://www.youtube.com/results?search_query=" + song +"+"+ singer + "+official")
                             winner_link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{winner_url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
                             st.balloons()
-                            st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
+                            st.markdown(f"### 🥳 Enhorabuena a {df_sorted['jugador'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
                             st.write('')
                             df_sorted_check = df_sorted.copy()
                             df_sorted_check.reset_index(drop=True, inplace=True)
