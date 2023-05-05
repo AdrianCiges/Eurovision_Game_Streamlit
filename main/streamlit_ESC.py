@@ -1049,7 +1049,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
         if movil:
-            fig.update_xaxes(title='Promedio de puntos', row=1, col=1, tickangle=30)
+            fig.update_xaxes(title='Promedio de puntos', row=1, col=1, standoff=30, textangle=-30)
         else:
             fig.update_xaxes(title='Promedio de puntos', row=1, col=1)
             
@@ -1064,7 +1064,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='views').data[0],
                       row=1, col=2)
         if movil:
-            fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2, tickangle=30)
+            fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2, standoff=30, textangle=-30)
         else:
             fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
             
@@ -1079,7 +1079,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='likes').data[0],
                       row=1, col=3)
         if movil:
-            fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3, tickangle=30)
+            fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3, standoff=30, textangle=-30)
         else:          
             fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3)
 
