@@ -50,6 +50,21 @@ url = 'https://eurovisionworld.com/odds/eurovision'
 st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game")
 st.write('')
 
+def highlight_rows(s):
+    '''
+    Esta función aplica estilos CSS a las primeras tres filas de la tabla.
+    '''
+    if s.name == 0:
+        return ['background-color: gold'] * len(s)
+    elif s.name == 1:
+        return ['background-color: silver'] * len(s)
+    elif s.name == 2:
+        return ['background-color: #e1c3b5'] * len(s)
+    elif s.name in [3,4,5,6,7,8,9]:
+        return ['background-color: #d5edf1'] * len(s)
+    else:
+        return [''] * len(s)
+
 def get_songs(cancion):
     
     headers = {
@@ -823,7 +838,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             df_sorted_check = df_sorted.copy()
                             df_sorted_check.reset_index(drop=True, inplace=True)
                             df_sorted_check.index += 1
-                            st.table(df_sorted_check)
+                            st.table(df_sorted_check.style.apply(highlight_rows, axis=1))
                             st.video(winner_link_video)
 
                             st.markdown('#### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
