@@ -987,6 +987,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
+    
+    movil = st.sidebar.checkbox("Accedo desde un móvil")
 
     # Filtro por año
     year_range = st.slider('Selecciona un rango de años', 
@@ -1047,6 +1049,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
         fig.update_xaxes(title='Promedio de puntos', row=1, col=1)
+        if movil:
+            fig.update_xaxes(tickangle=30, row=1, col=1)
+            
         # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
 
         # Grafico 2: Promedio de reproducciones en YouTube
@@ -1058,6 +1063,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='views').data[0],
                       row=1, col=2)
         fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
+        if movil:
+            fig.update_xaxes(tickangle=30, row=1, col=2)
+            
         # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
 
         # Grafico 3: Promedio de likes en YouTube
@@ -1069,6 +1077,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               color='likes').data[0],
                       row=1, col=3)
         fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3)
+        if movil:
+            fig.update_xaxes(tickangle=30, row=1, col=1)
         fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
