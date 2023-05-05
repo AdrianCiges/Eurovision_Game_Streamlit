@@ -79,7 +79,7 @@ def get_songs(cancion):
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
     }
     label_codes = {
-        "Albania": 0,
+        "Albania 🇦🇱 ": 0,
         "Andorra": 1,
         "Armenia": 2,
         "Australia": 3,
@@ -190,7 +190,7 @@ def get_songs_ESC23(cancion):
         "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
     }
     label_codes = {
-        "Albania": 0,
+        "Albania 🇦🇱 ": 0,
         "Andorra": 1,
         "Armenia": 2,
         "Australia": 3,
@@ -274,7 +274,7 @@ def get_songs_ESC23(cancion):
          'San Marino': 'Hjfq-T-8WHw',
          'Latvia': 'PQkKJNLuO_Y',
          'Romania': 'NRxv-AUCinQ',
-         'Albania': 'aZxe3Ce6yEI'}
+         'Albania 🇦🇱 ': 'aZxe3Ce6yEI'}
 
     song = []
     pais = []
@@ -511,7 +511,7 @@ def predicciones_now(user_songs):
 
     # SCRAPPEO LA CUOTA DE APUESTAS ACTUALIZADA
     
-    pais_odds = {'Albania': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Azerbaijan': 5, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Ireland': 22, 'Israel': 23, 'Italy': 24, 'Latvia': 25, 'Lithuania': 26, 'Malta': 27, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Netherlands': 45, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
+    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Azerbaijan': 5, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Ireland': 22, 'Israel': 23, 'Italy': 24, 'Latvia': 25, 'Lithuania': 26, 'Malta': 27, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Netherlands': 45, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
     
 
     fecha_actual = datetime.datetime.now()
@@ -554,7 +554,7 @@ def predicciones_now(user_songs):
                  'Azerbaijan': 408.05555555555554,
                  'Malta': 416.3888888888889,
                  'San Marino': 433.05555555555554,
-                 'Albania': 435.8333333333333,
+                 'Albania 🇦🇱 ': 435.8333333333333,
                  'Latvia': 444.1666666666667,
                  'Romania': 463.6111111111111}
 
@@ -669,7 +669,7 @@ def add_to_playlist(tracks):
     #enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
     return st.markdown(f'🎶 A disfrutar: [{link_spoty}]({link_spoty})')
 
-countries = ['Albania', 'Andorra', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Latvia', 'Lithuania', 'Malta', 'Moldova', 'Montenegro', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'The Netherlands', 'Turkey', 'Ukraine', 'United Kingdom']
+countries = ['Albania 🇦🇱 ', 'Andorra', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Belarus', 'Belgium', 'Bosnia and Herzegovina', 'Bulgaria', 'Croatia', 'Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Georgia', 'Germany', 'Greece', 'Hungary', 'Iceland', 'Ireland', 'Israel', 'Italy', 'Latvia', 'Lithuania', 'Malta', 'Moldova', 'Montenegro', 'North Macedonia', 'Norway', 'Poland', 'Portugal', 'Romania', 'Russia', 'San Marino', 'Serbia', 'Slovakia', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'The Netherlands', 'Turkey', 'Ukraine', 'United Kingdom']
 
 num_part = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
 
@@ -906,7 +906,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
         fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
 
         if st.button(f'Predecir resultado a {fecha_formateada}'):
-            user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania', 'manager': 'J1'}, {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany', 'manager': 'J2'}, {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia', 'manager': 'J3'}, {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia', 'manager': 'J4'}, {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria', 'manager': 'J5'}, {'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan', 'manager': 'J6'}, {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium', 'manager': 'J7'}, {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia', 'manager': 'J8'}, {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus', 'manager': 'J9'}, {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia', 'manager': 'J10'}, {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark', 'manager': 'J11'}, {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia', 'manager': 'J12'}, {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain', 'manager': 'J13'}, {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia', 'manager': 'J14'}, {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland', 'manager': 'J15'}, {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France', 'manager': 'J16'}, {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia', 'manager': 'J17'}, {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece', 'manager': 'J18'}, {'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland', 'manager': 'J19'}, {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland', 'manager': 'J20'}, {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel', 'manager': 'J21'}, {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy', 'manager': 'J22'}, {'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia', 'manager': 'J23'}, {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania', 'manager': 'J24'}, {'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta', 'manager': 'J25'}, {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova', 'manager': 'J26'}, {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway', 'manager': 'J27'}, {'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands', 'manager': 'J28'}, {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland', 'manager': 'J29'}, {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal', 'manager': 'J30'}, {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom', 'manager': 'J31'}, {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania', 'manager': 'J32'}, {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino', 'manager': 'J33'}, {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia', 'manager': 'J34'}, {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden', 'manager': 'J35'}, {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland', 'manager': 'J36'}, {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine', 'manager': 'J37'}]
+            user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany', 'manager': 'J2'}, {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia', 'manager': 'J3'}, {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia', 'manager': 'J4'}, {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria', 'manager': 'J5'}, {'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan', 'manager': 'J6'}, {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium', 'manager': 'J7'}, {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia', 'manager': 'J8'}, {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus', 'manager': 'J9'}, {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia', 'manager': 'J10'}, {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark', 'manager': 'J11'}, {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia', 'manager': 'J12'}, {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain', 'manager': 'J13'}, {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia', 'manager': 'J14'}, {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland', 'manager': 'J15'}, {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France', 'manager': 'J16'}, {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia', 'manager': 'J17'}, {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece', 'manager': 'J18'}, {'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland', 'manager': 'J19'}, {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland', 'manager': 'J20'}, {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel', 'manager': 'J21'}, {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy', 'manager': 'J22'}, {'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia', 'manager': 'J23'}, {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania', 'manager': 'J24'}, {'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta', 'manager': 'J25'}, {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova', 'manager': 'J26'}, {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway', 'manager': 'J27'}, {'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands', 'manager': 'J28'}, {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland', 'manager': 'J29'}, {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal', 'manager': 'J30'}, {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom', 'manager': 'J31'}, {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania', 'manager': 'J32'}, {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino', 'manager': 'J33'}, {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia', 'manager': 'J34'}, {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden', 'manager': 'J35'}, {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland', 'manager': 'J36'}, {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine', 'manager': 'J37'}]
 
             resultado = predicciones_now(user_songs)
 
