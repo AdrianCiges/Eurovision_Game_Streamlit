@@ -666,7 +666,7 @@ if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
-    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quien tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
     participante = st.text_input("Me llamo...")
     list_name = participante + " The Eurovision Game"
@@ -712,7 +712,7 @@ if app_mode == '🎶 Juego Eurovisión':
                 return user_songs
 
             if __name__ == '__main__':
-                st.title('Registro de canciones')
+                st.title('🗒️ Registro de canciones')
                 user_songs = create_form()
                 st.write('')
                 st.write('')
@@ -820,7 +820,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             st.markdown(f"### 🥳 Enhorabuena a {df_sorted['player'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
                             st.video(winner_link_video)
                             st.write('')
-                            df_sorted
+                            st.table(df_sorted)
 
                             st.markdown('##### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
                             add_to_playlist(resultado)
