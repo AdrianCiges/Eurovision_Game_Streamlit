@@ -1067,6 +1067,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2, title_standoff=30, tickangle=-30)
         else:
             fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
+        fig.update_annotations(yshift=20)
             
         # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
 
