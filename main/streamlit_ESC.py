@@ -836,6 +836,8 @@ if app_mode == '🎶 Juego Eurovisión':
 elif app_mode == '🤖 Predicción Eurovisión 2023':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
+    st.write('')
+    st.write('')
     st.warning('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la predicción en fecha y hora actual y un gráfico con la evolución de dicha predicción a lo largo de los 30 días previos al concurso.')
     
     # CARGAMOS DATA TO TRAIN
