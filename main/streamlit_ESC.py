@@ -54,13 +54,13 @@ def highlight_rows(s):
     '''
     Esta función aplica estilos CSS a las primeras tres filas de la tabla.
     '''
-    if s.name == 0:
+    if s.name == 1:
         return ['background-color: gold'] * len(s)
-    elif s.name == 1:
-        return ['background-color: silver'] * len(s)
     elif s.name == 2:
+        return ['background-color: silver'] * len(s)
+    elif s.name == 3:
         return ['background-color: #e1c3b5'] * len(s)
-    elif s.name in [3,4,5,6,7,8,9]:
+    elif s.name in [4,5,6,7,8,9,10]:
         return ['background-color: #d5edf1'] * len(s)
     else:
         return [''] * len(s)
