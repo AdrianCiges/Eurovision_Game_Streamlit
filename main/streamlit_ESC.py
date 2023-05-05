@@ -499,7 +499,7 @@ def predicciones_now(user_songs):
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
     hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
-    st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    # st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
 
     scrap_odds = {'Sweden': 1.7066666666666668,
                  'Finland': 3.151111111111111,
@@ -553,7 +553,7 @@ def predicciones_now(user_songs):
     tabla0["shazams_propos"] = [s / tabla0["shazams_propos"].sum() for s in tabla0["shazams_propos"]]
     #print(tabla0)
 
-
+    st.write('')
     st.markdown('##### 🤔 Prediciendo resultados...')
     st.write('')
 
@@ -810,7 +810,7 @@ if app_mode == '🎶 Juego Eurovisión':
                             df_sorted.rename(columns = {'manager':'player'}, inplace=True)
                             df_sorted = df_sorted[['song','singer','country','player','points']]
                             st.write('')
-                            st.markdown('#### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁')
+                            st.markdown('#### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁🥁🥁🥁')
                             st.write('')
                             time.sleep(4)
                             song = df_sorted['song'][0].replace(' ','+')
@@ -858,7 +858,6 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     y_pred = ctr.predict(X_test)
 
     if __name__ == '__main__':
-        st.write('')
         st.write('')
 
         fecha_actual = datetime.datetime.now()
@@ -914,8 +913,12 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             total_points = df_sorted['points'].sum()
 
             df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-            df_sorted = df_sorted[['song','singer','country','points']]       
-            st.markdown('##### 😱 ¡Tenemos resultados!')
+            df_sorted = df_sorted[['song','singer','country','points']] 
+            
+            st.balloons()
+            st.write('')
+            st.markdown('##### 😱 ¡Tenemos resultados! Y son los siguientes... 🥁🥁🥁🥁')
+            
             st.write('')
             df_sorted
 
