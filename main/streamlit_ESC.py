@@ -746,6 +746,7 @@ if app_mode == '🎶 Juego Eurovisión':
 
             if __name__ == '__main__':
                 st.title('🗒️ Registro de canciones')
+                st.success('Prueba')
                 user_songs = create_form()
                 st.write('')
                 st.write('')
