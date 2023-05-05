@@ -1056,7 +1056,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         'Bosnia and Herzegovina': 'Bosn. & Herz. 🇧🇦 ',
         'North Macedonia': 'N. Macedonia 🇲🇰 ',
         'Czech Republic': 'Czechia 🇨🇿 ',
-        'United Kingdom': 'UK  🇬🇧 ',
+        'United Kingdom': 'UK 🇬🇧 ',
         'Albania':'Albania 🇦🇱 ',
         'Andorra':"Andorra 🇦🇩 ",
         'Armenia':"Armenia 🇦🇲 ",
