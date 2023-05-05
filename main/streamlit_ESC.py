@@ -876,7 +876,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
     st.write('')
     st.write('')
-    st.warning('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la predicción en fecha y hora actual y un gráfico con la evolución de dicha predicción a lo largo de los 30 días previos al concurso.')
+    st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la predicción en fecha y hora actual y un gráfico con la evolución de dicha predicción a lo largo de los 30 días previos al concurso.')
     
     # CARGAMOS DATA TO TRAIN
     data = pd.read_excel("./data/Data_to_train.xlsx")
@@ -1011,7 +1011,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
             fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
 
-            st.warning('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha la parte superior del gráfico')
+            st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha la parte superior del gráfico')
             
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
