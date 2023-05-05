@@ -690,7 +690,8 @@ if app_mode == '🎶 Juego Eurovisión':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
     
-    with st.expander('_La diversión empieza aquí_', expanded=False):
+    st.write('')
+    with st.expander('Cómo cambiar de apartado', expanded=False):
         st.write('⬅️ Utiliza el **panel de la izquierda** para navegar por las diferentes secciones de la página')
         st.image(f"data:image/png;base64,{b64_1}", use_column_width=True) 
           
