@@ -688,11 +688,11 @@ if app_mode == '🎶 Juego Eurovisión':
     ctr.fit(X_train, y_train)
     y_pred = ctr.predict(X_test)
 
+    st.write('')
     #st.write('### Elige el nº de participantes')
     col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
 
     if list_name:
-        st.write('')
         participantes = col1.selectbox('Nº participantes', options=num_part)
 
         try:
