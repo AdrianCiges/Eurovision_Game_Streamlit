@@ -974,7 +974,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución de la predicción de puntos por país desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución de la predicción desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
 
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
@@ -988,8 +988,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
     
-    movil = st.checkbox("Accedo desde un móvil")
-
     # Filtro por año
     year_range = st.slider('Selecciona un rango de años', 
                            #min_value=df_master['year'].min(), 
@@ -1048,10 +1046,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='puntos_corregidos',
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
-        if movil:
-            fig.update_xaxes(title='Promedio de puntos', row=1, col=1, title_standoff=30, tickangle=-30)
-        else:
-            fig.update_xaxes(title='Promedio de puntos', row=1, col=1)
+        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
             
         # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
 
@@ -1063,10 +1058,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='views',
                               color='views').data[0],
                       row=1, col=2)
-        if movil:
-            fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2, title_standoff=30, tickangle=-30)
-        else:
-            fig.update_xaxes(title='Promedio de reproducciones en YouTube', row=1, col=2)
+        fig.update_xaxes(title='Prom. views YT', row=1, col=2)
         fig.update_annotations(yshift=20)
             
         # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
@@ -1079,12 +1071,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='likes',
                               color='likes').data[0],
                       row=1, col=3)
-        if movil:
-            fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3, title_standoff=30, tickangle=-30)
-        else:          
-            fig.update_xaxes(title='Promedio de likes en YouTube', row=1, col=3)
+        fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
 
-        fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
+        fig.update_layout(title={'text': 'Promedio de puntos + views y likes en YouTube por país 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#32CD32')
@@ -1109,7 +1098,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='puntos_corregidos',
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
-        fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
+        fig.update_xaxes(title='Acum. puntos', row=1, col=1)
         # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
 
         # Grafico 2: Acum de reproducciones en YouTube
@@ -1120,7 +1109,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='views',
                               color='views').data[0],
                       row=1, col=2)
-        fig.update_xaxes(title='Acumuado de reproducciones en YouTube', row=1, col=2)
+        fig.update_xaxes(title='Acum. views YT', row=1, col=2)
         # fig.update_layout(title={'text': 'Acumulado de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
 
         # Grafico 3: Acum de likes en YouTube
@@ -1131,8 +1120,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='likes',
                               color='likes').data[0],
                       row=1, col=3)
-        fig.update_xaxes(title='Acumuado de likes en YouTube', row=1, col=3)
-        fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + reproducciones y likes en YouTube por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
+        fig.update_layout(title={'text': 'Acum. Puntos + Views y Likes YouTube por país 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#32CD32')
@@ -1157,8 +1146,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='puntos_corregidos',
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
-        fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
-        # fig.update_layout(title={'text': 'Acumulado de puntos por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
         # Grafico 2: Promedio de Shazams
         grouped_df = filtered_df.groupby('country').mean().reset_index()
@@ -1168,8 +1156,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='shazams',
                               color='shazams').data[0],
                       row=1, col=2)
-        fig.update_xaxes(title='Promedio de Shazams', row=1, col=2)
-        fig.update_layout(title={'text': 'Promedio de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Prom. shazams', row=1, col=2)
+        fig.update_layout(title={'text': 'Prom. Puntos + Shazams por país 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#89CFF0')
@@ -1194,8 +1182,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='puntos_corregidos',
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
-        fig.update_xaxes(title='Acumuado de Puntos', row=1, col=1)
-        fig.update_layout(title={'text': 'Acumulado de puntos en Eurovisión + Shazams por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+        fig.update_layout(title={'text': 'Acum. Puntos + Shazams por país 2002-2022', 'font_size': 24})
 
         # Grafico 2: Promedio de Shazams
         grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1205,8 +1193,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='shazams',
                               color='shazams').data[0],
                       row=1, col=2)
-        fig.update_xaxes(title='Acumuado de Shazams', row=1, col=2)
-        # fig.update_layout(title={'text': 'Acumulado de Shazams por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Acum. shazams', row=1, col=2)
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#89CFF0')
@@ -1232,8 +1219,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='puntos_corregidos',
                               color='puntos_corregidos').data[0],
                       row=1, col=1)
-        fig.update_xaxes(title='Promedio de Puntos', row=1, col=1)
-        # fig.update_layout(title={'text': 'Promedio de puntos por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
         # Grafico 2: Suma de Puntos
         grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1243,9 +1229,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='views',
                               color='views').data[0],
                       row=1, col=2)
-        fig.update_xaxes(title='Acumulado de Puntos', row=1, col=2)
-        # fig.update_layout(title={'text': 'Promedio de reproducciones en YouTube por país 2002-2022', 'font_size': 24})
-
+        fig.update_xaxes(title='Acum. de puntos', row=1, col=2)
 
         # Grafico 3: Nº de Vecinos
         grouped_df = filtered_df.groupby('country').mean().reset_index()
@@ -1255,8 +1239,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               orientation='h', #text='likes',
                               color='vecinos_participantes').data[0],
                       row=1, col=3)
-        fig.update_xaxes(title='Nº Vecinos Participantes', row=1, col=3)
-        fig.update_layout(title={'text': 'Promedio y Suma de puntos en Eurovisión + Vecinos por país 2002-2022', 'font_size': 24})
+        fig.update_xaxes(title='Nº vecinos participantes', row=1, col=3)
+        fig.update_layout(title={'text': 'Promedio y Acum. de puntos + Vecinos por país 2002-2022', 'font_size': 24})
 
         fig.update_yaxes(title='', row=1, col=1)
         fig.update_traces(marker_color='#DDA0DD')
