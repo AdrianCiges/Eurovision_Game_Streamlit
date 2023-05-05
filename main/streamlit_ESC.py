@@ -1056,7 +1056,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         'Bosnia and Herzegovina': 'Bosn. & Herz.',
         'North Macedonia': 'N. Macedonia',
         'Czech Republic': 'Czechia',
-        'United Kingdom': 'UK'
+        'United Kingdom': 'UK',
+        'Albania':'Albania 🇦🇱 '
     }
     # actualizar la columna 'country' utilizando el método replace
     filtered_df['country'] = filtered_df['country'].replace(replace_dict)
