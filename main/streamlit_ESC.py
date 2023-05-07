@@ -51,7 +51,7 @@ import io
 # URL de la página web con la tabla
 url = 'https://eurovisionworld.com/odds/eurovision'
 
-st.set_page_config(layout="wide", page_icon="🎶", page_title="Eurovision Game")
+st.set_page_config(layout="wide", page_title="Eurovision Game", page_icon="🎶", initial_sidebar_state="expanded")
 st.write('')
 
 def highlight_rows(s):
