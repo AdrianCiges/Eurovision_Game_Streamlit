@@ -1489,7 +1489,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#32CD32')
+            fig.update_traces(marker_color='#8AF385')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
@@ -1525,7 +1525,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#32CD32')
+            fig.update_traces(marker_color='#8AF385')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
