@@ -1119,6 +1119,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     st.write('\n')
 
 
+# ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
   # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
 
     with st.expander('PUNTOS vs YouTube 🔢📹', expanded=True): 
@@ -1163,7 +1164,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#32CD32')
+            fig.update_traces(marker_color='#E97451')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
@@ -1209,7 +1210,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Prom. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#32CD32')
+            fig.update_traces(marker_color='#E97451')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
@@ -1373,4 +1374,160 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             st.plotly_chart(fig, use_container_width=True) 
         
         
- 
+ # -------ECONOMÍA ----------------------------------------------------------------------
+  # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
+
+    with st.expander('PUNTOS vs GDP (PIB) 🔢🪙', expanded=True): 
+        
+        st.write('')
+        Acum3 = st.checkbox("Ver en datos acumulados  ")
+        
+        if Acum3:
+                 
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+
+            # Grafico 2: GDP
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('GDP', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='GDP', y='country',
+                                  orientation='h', #text='likes',
+                                  color='GDP').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='GDP', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Acum. Puntos vs GDP 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+
+        
+        else:
+            
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+
+            # Grafico 2: GDP
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('GDP', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='GDP', y='country',
+                                  orientation='h', #text='likes',
+                                  color='GDP').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='GDP', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Prom. Puntos vs GDP 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+            
+          
+  # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
+
+    with st.expander('PUNTOS vs Ranking Relativo GDP (PIB) 🔢🪙', expanded=True): 
+        
+        st.write('')
+        Acum3 = st.checkbox("Ver en datos acumulados  ")
+        
+        if Acum3:
+                 
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+
+            # Grafico 2: Orden Relativo GDP
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('orden_relativo_GDP', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='orden_relativo_GDP', y='country',
+                                  orientation='h', #text='likes',
+                                  color='orden_relativo_GDP').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Ranking Relativo GDP', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+
+        
+        else:
+            
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+
+            # Grafico 2: GDP
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('orden_relativo_GDP', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='orden_relativo_GDP', y='country',
+                                  orientation='h', #text='likes',
+                                  color='orden_relativo_GDP').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Ranking Relativo GDP', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
