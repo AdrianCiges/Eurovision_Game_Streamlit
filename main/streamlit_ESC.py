@@ -1380,7 +1380,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs GDP (PIB) 🔢🪙', expanded=True): 
         
         st.write('')
-        Acum3 = st.checkbox("Ver en datos acumulados   ")
+        Acum4 = st.checkbox("Ver en datos acumulados   ")
         
         if Acum4:
                  
@@ -1461,7 +1461,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         st.write('')
         Acum5 = st.checkbox("Ver en datos acumulados    ")
         
-        if Acum3:
+        if Acum5:
                  
             grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
