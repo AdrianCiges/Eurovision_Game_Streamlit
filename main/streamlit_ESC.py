@@ -1123,7 +1123,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     with st.expander('PUNTOS vs YouTube', expanded=True): 
         
-        Acum = st.sidebar.checkbox("Ver en datos acumulados")
+        Acum = st.checkbox("Ver en datos acumulados")
         
         if Acum:
             
