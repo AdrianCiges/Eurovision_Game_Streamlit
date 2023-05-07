@@ -1222,7 +1222,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs Shazam 🔢🔊', expanded=True): 
 
         st.write('')
-        Acum2 = st.checkbox("Ver en datos acumulados")
+        Acum2 = st.checkbox("Ver en datos acumulados ")
         
         if Acum2:
         
@@ -1299,7 +1299,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs Nº de Vecinos 🔢🌍', expanded=True): 
         
         st.write('')
-        Acum3 = st.checkbox("Ver en datos acumulados")
+        Acum3 = st.checkbox("Ver en datos acumulados  ")
         
         if Acum3:
         
