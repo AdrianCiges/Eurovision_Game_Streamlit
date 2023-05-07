@@ -1114,7 +1114,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # Muestra el DataFrame filtrado
     st.write('\n')
     st.write('\n')
-    with st.expander('Ver Datos', expanded=False): 
+    with st.expander('👀 Ver Datos', expanded=False): 
         st.write(filtered_df)
     st.write('\n')
 
@@ -1123,6 +1123,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     with st.expander('PUNTOS vs YouTube', expanded=True): 
         
+        st.write('')
         Acum = st.checkbox("Ver en datos acumulados")
         
         if Acum:
