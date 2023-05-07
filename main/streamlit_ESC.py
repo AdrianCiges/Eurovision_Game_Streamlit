@@ -406,7 +406,7 @@ def predicciones(user_songs):
             shazams_bien.append(int(shz))
     tabla0["shazams"] = shazams_bien
 
-    # DAMOS VALOR DE APUESTA DE LA MEDIA HISTÓRICA (20 AÑOS) DEL PAÍS SELECCIONADO
+    # DAMOS DE APUESTA DE LA MEDIA HISTÓRICA (20 AÑOS) DEL PAÍS SELECCIONADO
     dictio_odds = {
         0: 342.37403011887017,
         1: 550.0,
@@ -1302,22 +1302,19 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         Acum3 = st.checkbox("Ver en datos acumulados  ")
         
         if Acum3:
-        
+                 
             grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
             # Crear figura con tres subplots
             fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-            # Grafico 1: Acum de puntos
-            grouped_df = filtered_df.groupby('country').sum().reset_index()
-            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
-
+            # Grafico 1: Sum de puntos
             fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                                  orientation='h', #text='views',
-                                  color='views').data[0],
-                          row=1, col=2)
-            fig.update_xaxes(title='Acum. puntos', row=1, col=2)
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
             # Grafico 2: Nº de Vecinos
             grouped_df = filtered_df.groupby('country').mean().reset_index()
