@@ -1380,9 +1380,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs GDP (PIB) 🔢🪙', expanded=True): 
         
         st.write('')
-        Acum3 = st.checkbox("Ver en datos acumulados  ")
+        Acum3 = st.checkbox("Ver en datos acumulados   ")
         
-        if Acum3:
+        if Acum4:
                  
             grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
@@ -1459,7 +1459,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs Ranking Relativo GDP (PIB) 🔢🪙', expanded=True): 
         
         st.write('')
-        Acum3 = st.checkbox("Ver en datos acumulados  ")
+        Acum5 = st.checkbox("Ver en datos acumulados    ")
         
         if Acum3:
                  
