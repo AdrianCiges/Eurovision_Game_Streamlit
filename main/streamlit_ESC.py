@@ -1222,9 +1222,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs Shazam 🔢🔊', expanded=True): 
 
         st.write('')
-        Acum = st.checkbox("Ver en datos acumulados")
+        Acum2 = st.checkbox("Ver en datos acumulados")
         
-        if Acum:
+        if Acum2:
         
             grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
@@ -1299,9 +1299,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     with st.expander('PUNTOS vs Nº de Vecinos 🔢🌍', expanded=True): 
         
         st.write('')
-        Acum = st.checkbox("Ver en datos acumulados")
+        Acum3 = st.checkbox("Ver en datos acumulados")
         
-        if Acum:
+        if Acum3:
         
             grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
