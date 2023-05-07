@@ -1570,7 +1570,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#F0EDAA')
+            fig.update_traces(marker_color='#D8D335')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
@@ -1604,7 +1604,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#F0EDAA')
+            fig.update_traces(marker_color='#D8D335')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
