@@ -1601,7 +1601,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                           row=1, col=2)
             fig.update_xaxes(title='Puntuación de Influencia', row=1, col=2)
 
-            fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
+            fig.update_layout(title={'text': 'Prom. Puntos vs Influencia 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
             fig.update_traces(marker_color='#D8D335')
@@ -1618,7 +1618,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         
         st.write('')
         Acum7 = st.checkbox("Ver en datos acumulados        ")
-        st.write('❗ El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país en materia entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
+        st.write('❗ El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
 
         if Acum7:
             grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1678,7 +1678,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                           row=1, col=2)
             fig.update_xaxes(title='Ranking Reputación', row=1, col=2)
 
-            fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
+            fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
             fig.update_traces(marker_color='#EDB753')
