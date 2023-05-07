@@ -1121,7 +1121,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
   # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
 
-    with st.expander('PUNTOS vs YouTube', expanded=True): 
+    with st.expander('PUNTOS vs YouTube 🔢📹', expanded=True): 
         
         st.write('')
         Acum = st.checkbox("Ver en datos acumulados")
@@ -1217,121 +1217,208 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             st.plotly_chart(fig, use_container_width=True)
 
 
-  # ---- GRAFICOS PROMEDIO PUNTOS VS SHAZAM ---------------------------------------------------------
+  # ---- GRAFICOS PUNTOS VS SHAZAM ---------------------------------------------------------
 
-    with st.expander('_Promedio de PUNTOS vs Shazam_', expanded=True): 
+    with st.expander('PUNTOS vs Shazam 🔢🔊', expanded=True): 
 
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+        st.write('')
+        Acum = st.checkbox("Ver en datos acumulados")
+        
+        if Acum:
+        
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-        # Crear figura con tres subplots
-        fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-        # Grafico 1: Acum de puntos
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='puntos_corregidos',
-                              color='puntos_corregidos').data[0],
-                      row=1, col=1)
-        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+            fig.update_layout(title={'text': 'Acum. Puntos + Shazams 2002-2022', 'font_size': 24})
 
-        # Grafico 2: Promedio de Shazams
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('shazams', ascending=False)
+            # Grafico 2: Promedio de Shazams
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('shazams', ascending=False)
 
-        fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
-                              orientation='h', #text='shazams',
-                              color='shazams').data[0],
-                      row=1, col=2)
-        fig.update_xaxes(title='Prom. shazams', row=1, col=2)
-        fig.update_layout(title={'text': 'Prom. Puntos + Shazams 2002-2022', 'font_size': 24})
+            fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
+                                  orientation='h', #text='shazams',
+                                  color='shazams').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Acum. shazams', row=1, col=2)
 
-        fig.update_yaxes(title='', row=1, col=1)
-        fig.update_traces(marker_color='#89CFF0')
-        fig.update_layout(showlegend=False, height=1100)
-        fig.update(layout_coloraxis_showscale = False)
-        fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#89CFF0')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
 
-        st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
 
-  # ---- GRAFICOS SUMA PUNTOS VS SHAZAM ---------------------------------------------------------
+        
+        else:
+            
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-    with st.expander('_Suma de PUNTOS vs Shazam_', expanded=True): 
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
-        # Crear figura con tres subplots
-        fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+            # Grafico 2: Promedio de Shazams
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('shazams', ascending=False)
 
-        # Grafico 1: Acum de puntos
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='puntos_corregidos',
-                              color='puntos_corregidos').data[0],
-                      row=1, col=1)
-        fig.update_xaxes(title='Acum. puntos', row=1, col=1)
-        fig.update_layout(title={'text': 'Acum. Puntos + Shazams 2002-2022', 'font_size': 24})
+            fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
+                                  orientation='h', #text='shazams',
+                                  color='shazams').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Prom. shazams', row=1, col=2)
+            fig.update_layout(title={'text': 'Prom. Puntos + Shazams 2002-2022', 'font_size': 24})
 
-        # Grafico 2: Promedio de Shazams
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('shazams', ascending=False)
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#89CFF0')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
 
-        fig.add_trace(px.bar(grouped_df, x='shazams', y='country',
-                              orientation='h', #text='shazams',
-                              color='shazams').data[0],
-                      row=1, col=2)
-        fig.update_xaxes(title='Acum. shazams', row=1, col=2)
+            st.plotly_chart(fig, use_container_width=True)
+            
 
-        fig.update_yaxes(title='', row=1, col=1)
-        fig.update_traces(marker_color='#89CFF0')
-        fig.update_layout(showlegend=False, height=1100)
-        fig.update(layout_coloraxis_showscale = False)
-        fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+  # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
-        st.plotly_chart(fig, use_container_width=True)
+    with st.expander('PUNTOS vs Nº de Vecinos 🔢🌍', expanded=True): 
+        
+        st.write('')
+        Acum = st.checkbox("Ver en datos acumulados")
+        
+        if Acum:
+        
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-  # ---- GRAFICOS PROMEDIO y SUMA PUNTOS VS VECINOS ---------------------------------------------------------
+            # Grafico 1: Acum de puntos
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-    with st.expander('_Promedio y Suma de PUNTOS vs Nº de Vecinos_', expanded=True): 
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='views',
+                                  color='views').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=2)
 
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+            # Grafico 2: Nº de Vecinos
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
 
-        # Crear figura con tres subplots
-        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+            fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
+                                  orientation='h', #text='likes',
+                                  color='vecinos_participantes').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Nº vecinos participantes', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Prom. Puntos vs Nº Vecinos 2002-2022', 'font_size': 24})
 
-        # Grafico 1: Promedio de puntos
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='puntos_corregidos',
-                              color='puntos_corregidos').data[0],
-                      row=1, col=1)
-        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#DDA0DD')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
 
-        # Grafico 2: Suma de Puntos
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+            st.plotly_chart(fig, use_container_width=True) 
 
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='views',
-                              color='views').data[0],
-                      row=1, col=2)
-        fig.update_xaxes(title='Acum. puntos', row=1, col=2)
+        
+        else:
+            
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-        # Grafico 3: Nº de Vecinos
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
 
-        fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
-                              orientation='h', #text='likes',
-                              color='vecinos_participantes').data[0],
-                      row=1, col=3)
-        fig.update_xaxes(title='Nº vecinos participantes', row=1, col=3)
-        fig.update_layout(title={'text': 'Prom. y Acum. Puntos + Nº Vecinos 2002-2022', 'font_size': 24})
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
-        fig.update_yaxes(title='', row=1, col=1)
-        fig.update_traces(marker_color='#DDA0DD')
-        fig.update_layout(showlegend=False, height=1100)
-        fig.update(layout_coloraxis_showscale = False)
-        fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+            # Grafico 2: Nº de Vecinos
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
 
-        st.plotly_chart(fig, use_container_width=True)
+            fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
+                                  orientation='h', #text='likes',
+                                  color='vecinos_participantes').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Nº vecinos participantes', row=1, col=2)
+            
+            fig.update_layout(title={'text': 'Prom. Puntos vs Nº Vecinos 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#DDA0DD')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+        
+        
+        
+     
+        
+
+#         grouped_df = filtered_df.groupby('country').mean().reset_index()
+#         grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+#         # Crear figura con tres subplots
+#         fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+
+#         # Grafico 1: Promedio de puntos
+#             fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+#                                   orientation='h', #text='puntos_corregidos',
+#                                   color='puntos_corregidos').data[0],
+#                           row=1, col=1)
+#             fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+
+#         # Grafico 2: Suma de Puntos
+#             grouped_df = filtered_df.groupby('country').sum().reset_index()
+#             grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+#             fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+#                                   orientation='h', #text='views',
+#                                   color='views').data[0],
+#                           row=1, col=2)
+#             fig.update_xaxes(title='Acum. puntos', row=1, col=2)
+
+#             # Grafico 3: Nº de Vecinos
+#             grouped_df = filtered_df.groupby('country').mean().reset_index()
+#             grouped_df = grouped_df.sort_values('vecinos_participantes', ascending=False)
+
+#             fig.add_trace(px.bar(grouped_df, x='vecinos_participantes', y='country',
+#                                   orientation='h', #text='likes',
+#                                   color='vecinos_participantes').data[0],
+#                           row=1, col=3)
+#             fig.update_xaxes(title='Nº vecinos participantes', row=1, col=3)
+            
+#             fig.update_layout(title={'text': 'Prom. y Acum. Puntos + Nº Vecinos 2002-2022', 'font_size': 24})
+
+#             fig.update_yaxes(title='', row=1, col=1)
+#             fig.update_traces(marker_color='#DDA0DD')
+#             fig.update_layout(showlegend=False, height=1100)
+#             fig.update(layout_coloraxis_showscale = False)
+#             fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+#             st.plotly_chart(fig, use_container_width=True)
