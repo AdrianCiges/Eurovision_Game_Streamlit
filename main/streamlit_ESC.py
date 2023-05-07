@@ -1398,14 +1398,14 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
             # Grafico 2: GDP
-            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('GDP', ascending=False)
 
             fig.add_trace(px.bar(grouped_df, x='GDP', y='country',
                                   orientation='h', #text='likes',
                                   color='GDP').data[0],
                           row=1, col=2)
-            fig.update_xaxes(title='GDP', row=1, col=2)
+            fig.update_xaxes(title='Acum. GDP', row=1, col=2)
             
             fig.update_layout(title={'text': 'Acum. Puntos vs GDP 2002-2022', 'font_size': 24})
 
@@ -1441,7 +1441,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                   orientation='h', #text='likes',
                                   color='GDP').data[0],
                           row=1, col=2)
-            fig.update_xaxes(title='GDP', row=1, col=2)
+            fig.update_xaxes(title='Prom. GDP', row=1, col=2)
             
             fig.update_layout(title={'text': 'Prom. Puntos vs GDP 2002-2022', 'font_size': 24})
 
@@ -1477,14 +1477,14 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
             # Grafico 2: Orden Relativo GDP
-            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
             grouped_df = grouped_df.sort_values('orden_relativo_GDP', ascending=False)
 
             fig.add_trace(px.bar(grouped_df, x='orden_relativo_GDP', y='country',
                                   orientation='h', #text='likes',
                                   color='orden_relativo_GDP').data[0],
                           row=1, col=2)
-            fig.update_xaxes(title='Ranking Relativo GDP', row=1, col=2)
+            fig.update_xaxes(title='Acum. Ranking GDP', row=1, col=2)
             
             fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
 
@@ -1520,7 +1520,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                   orientation='h', #text='likes',
                                   color='orden_relativo_GDP').data[0],
                           row=1, col=2)
-            fig.update_xaxes(title='Ranking Relativo GDP', row=1, col=2)
+            fig.update_xaxes(title='Prom. Ranking GDP', row=1, col=2)
             
             fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP 2002-2022', 'font_size': 24})
 
