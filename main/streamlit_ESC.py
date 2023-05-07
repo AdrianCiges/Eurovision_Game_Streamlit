@@ -51,7 +51,7 @@ import io
 # URL de la página web con la tabla
 url = 'https://eurovisionworld.com/odds/eurovision'
 
-st.set_page_config(layout="wide", page_title="Eurovision Game", page_icon="🎶", initial_sidebar_state="expanded")
+st.set_page_config(layout="wide", page_title="Eurovision Game", page_icon="🎶")
 st.write('')
 
 def highlight_rows(s):
@@ -1114,104 +1114,107 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # Muestra el DataFrame filtrado
     st.write('\n')
     st.write('\n')
-    with st.expander('_Ver Datos_', expanded=False): 
+    with st.expander('Ver Datos', expanded=False): 
         st.write(filtered_df)
     st.write('\n')
 
 
-  # ---- GRAFICOS PROMEDIO PUNTOS VS YOUTUBE ---------------------------------------------------------
+  # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
 
-    with st.expander('_Promedio de PUNTOS vs YouTube_', expanded=True): 
-
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
-
-        # Crear figura con tres subplots
-        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
-
-        # Grafico 1: Promedio de puntos
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='puntos_corregidos',
-                              color='puntos_corregidos').data[0],
-                      row=1, col=1)
-        fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+    with st.expander('PUNTOS vs YouTube', expanded=True): 
+        
+        Acum = st.sidebar.checkbox("Ver en datos acumulados")
+        
+        if Acum:
             
-        # Grafico 2: Promedio de reproducciones en YouTube
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('views', ascending=False)
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-        fig.add_trace(px.bar(grouped_df, x='views', y='country',
-                              orientation='h', #text='views',
-                              color='views').data[0],
-                      row=1, col=2)
-        fig.update_xaxes(title='Prom. views YT', row=1, col=2)
-        fig.update_annotations(yshift=20)
-            
-        # Grafico 3: Promedio de likes en YouTube
-        grouped_df = filtered_df.groupby('country').mean().reset_index()
-        grouped_df = grouped_df.sort_values('likes', ascending=False)
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-        fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-                              orientation='h', #text='likes',
-                              color='likes').data[0],
-                      row=1, col=3)
-        fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
+            # Grafico 1: Acum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
-        fig.update_layout(title={'text': 'Prom. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
+            # Grafico 2: Acum de reproducciones en YouTube
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('views', ascending=False)
 
-        fig.update_yaxes(title='', row=1, col=1)
-        fig.update_traces(marker_color='#32CD32')
-        fig.update_layout(showlegend=False, height=1100)
-        fig.update(layout_coloraxis_showscale = False)
-        fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+            fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                                  orientation='h', #text='views',
+                                  color='views').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Acum. views YT', row=1, col=2)
 
-        st.plotly_chart(fig, use_container_width=True)
+            # Grafico 3: Acum de likes en YouTube
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('likes', ascending=False)
 
-  # ---- GRAFICOS SUMA PUNTOS VS YOUTUBE ---------------------------------------------------------
+            fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                                  orientation='h', #text='likes',
+                                  color='likes').data[0],
+                          row=1, col=3)
+            fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
+            fig.update_layout(title={'text': 'Acum. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
 
-    with st.expander('_Suma de PUNTOS vs YouTube_', expanded=True): 
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
 
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+            st.plotly_chart(fig, use_container_width=True)
+        
+        else:
 
-        # Crear figura con tres subplots
-        fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-        # Grafico 1: Acum de puntos
-        fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                              orientation='h', #text='puntos_corregidos',
-                              color='puntos_corregidos').data[0],
-                      row=1, col=1)
-        fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-        # Grafico 2: Acum de reproducciones en YouTube
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('views', ascending=False)
+            # Grafico 1: Promedio de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
-        fig.add_trace(px.bar(grouped_df, x='views', y='country',
-                              orientation='h', #text='views',
-                              color='views').data[0],
-                      row=1, col=2)
-        fig.update_xaxes(title='Acum. views YT', row=1, col=2)
+            # Grafico 2: Promedio de reproducciones en YouTube
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('views', ascending=False)
 
-        # Grafico 3: Acum de likes en YouTube
-        grouped_df = filtered_df.groupby('country').sum().reset_index()
-        grouped_df = grouped_df.sort_values('likes', ascending=False)
+            fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                                  orientation='h', #text='views',
+                                  color='views').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Prom. views YT', row=1, col=2)
+            fig.update_annotations(yshift=20)
 
-        fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-                              orientation='h', #text='likes',
-                              color='likes').data[0],
-                      row=1, col=3)
-        fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
-        fig.update_layout(title={'text': 'Acum. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
+            # Grafico 3: Promedio de likes en YouTube
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('likes', ascending=False)
 
-        fig.update_yaxes(title='', row=1, col=1)
-        fig.update_traces(marker_color='#32CD32')
-        fig.update_layout(showlegend=False, height=1100)
-        fig.update(layout_coloraxis_showscale = False)
-        fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+            fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                                  orientation='h', #text='likes',
+                                  color='likes').data[0],
+                          row=1, col=3)
+            fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
 
-        st.plotly_chart(fig, use_container_width=True)
+            fig.update_layout(title={'text': 'Prom. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#32CD32')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True)
+
 
   # ---- GRAFICOS PROMEDIO PUNTOS VS SHAZAM ---------------------------------------------------------
 
