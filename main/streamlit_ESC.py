@@ -1522,7 +1522,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                           row=1, col=2)
             fig.update_xaxes(title='Prom. Ranking GDP', row=1, col=2)
             
-            fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP 2002-2022', 'font_size': 24})
+            fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
             fig.update_traces(marker_color='#5CC176')
@@ -1540,7 +1540,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         
         st.write('')
         Acum6 = st.checkbox("Ver en datos acumulados      ")
-        st.write('La puntuación de INFLUENCIA no tiene evolución histórica como tal, si no que es un valor estimado sobre la influencia de cada país sobre el resto en los últimos 30 años')
+        st.write('❗ La puntuación de INFLUENCIA no tiene evolución histórica como tal, si no que es un valor estimado sobre la influencia de cada país sobre el resto en los últimos 30 años')
                          
         if Acum6:
             
@@ -1570,7 +1570,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#EDED53')
+            fig.update_traces(marker_color='#F0EDAA')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
@@ -1604,7 +1604,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
 
             fig.update_yaxes(title='', row=1, col=1)
-            fig.update_traces(marker_color='#EDED53')
+            fig.update_traces(marker_color='#F0EDAA')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
             fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
@@ -1618,7 +1618,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         
         st.write('')
         Acum7 = st.checkbox("Ver en datos acumulados        ")
-        st.write('El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país en materia entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
+        st.write('❗ El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país en materia entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
 
         if Acum7:
             grouped_df = filtered_df.groupby('country').sum().reset_index()
