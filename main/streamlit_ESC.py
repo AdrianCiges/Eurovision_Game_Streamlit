@@ -1220,7 +1220,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
   # ---- GRAFICOS PUNTOS VS SHAZAM ---------------------------------------------------------
 
-    with st.expander('PUNTOS vs Shazam 🔢🔊', expanded=True): 
+    with st.expander('PUNTOS vs SHAZAM 🔢🔊', expanded=True): 
 
         st.write('')
         Acum2 = st.checkbox("Ver en datos acumulados ")
@@ -1297,7 +1297,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
   # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
-    with st.expander('PUNTOS vs Nº de Vecinos 🔢🌍', expanded=True): 
+    with st.expander('PUNTOS vs Nº de VECINOS 🔢🌍', expanded=True): 
         
         st.write('')
         Acum3 = st.checkbox("Ver en datos acumulados  ")
@@ -1531,3 +1531,161 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True) 
+
+            
+  # -------POLÍTICA ----------------------------------------------------------------------
+  # ---- GRAFICOS PUNTOS VS INFLUENCIA ---------------------------------------------------------
+
+    with st.expander('PUNTOS vs INFLUENCIA 🔢💪🏻', expanded=True): 
+        
+        st.write('')
+        Acum6 = st.checkbox("Ver en datos acumulados      ")
+        st.write('La puntuación de INFLUENCIA no tiene evolución histórica como tal, si no que es un valor estimado sobre la influencia de cada país sobre el resto en los últimos 30 años')
+                         
+        if Acum6:
+            
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+
+            # Grafico 2: Influencia
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('influ_score', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='influ_score', y='country',
+                                  orientation='h', #text='likes',
+                                  color='influ_score').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Puntuación de Influencia', row=1, col=2)
+
+            fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#EDED53')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+            
+        else:
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+
+            # Grafico 2: Influencia
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('influ_score', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='influ_score', y='country',
+                                  orientation='h', #text='likes',
+                                  color='influ_score').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Puntuación de Influencia', row=1, col=2)
+
+            fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#EDED53')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+            
+          
+  # ---- GRAFICOS PUNTOS VS REPUTACIÓN ---------------------------------------------------------
+
+    with st.expander('PUNTOS vs REPUTACIÓN 🔢👍🏻', expanded=True): 
+        
+        st.write('')
+        Acum7 = st.checkbox("Ver en datos acumulados        ")
+        st.write('El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país en materia entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
+
+        if Acum7:
+            grouped_df = filtered_df.groupby('country').sum().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+
+            # Grafico 2: Reputación
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('reput_ranking', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='reput_ranking', y='country',
+                                  orientation='h', #text='likes',
+                                  color='reput_ranking').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Ranking de Reputación', row=1, col=2)
+
+            fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#EDB753')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+            
+        else:
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+
+            # Crear figura con tres subplots
+            fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+            # Grafico 1: Sum de puntos
+            fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                  orientation='h', #text='puntos_corregidos',
+                                  color='puntos_corregidos').data[0],
+                          row=1, col=1)
+            fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+
+            # Grafico 2: Reputación
+            grouped_df = filtered_df.groupby('country').mean().reset_index()
+            grouped_df = grouped_df.sort_values('reput_ranking', ascending=False)
+
+            fig.add_trace(px.bar(grouped_df, x='reput_ranking', y='country',
+                                  orientation='h', #text='likes',
+                                  color='reput_ranking').data[0],
+                          row=1, col=2)
+            fig.update_xaxes(title='Ranking Reputación', row=1, col=2)
+
+            fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#EDB753')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True) 
+
+        
