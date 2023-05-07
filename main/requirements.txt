@@ -9,7 +9,7 @@ ipython
 selenium==3.141.0
 webdriver_manager==3.5.2
 beautifulsoup4==4.10.0
-streamlit==1.19.0
+streamlit==1.4.0
 streamlit_extras==0.2.4
 openpyxl
 user-agents
