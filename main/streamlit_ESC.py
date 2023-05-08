@@ -1169,7 +1169,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='likes').data[0],
                               row=1, col=3)
                 fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
-                fig.update_layout(title={'text': 'Acum. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#E97451')
