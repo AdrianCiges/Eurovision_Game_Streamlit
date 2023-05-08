@@ -2011,13 +2011,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
 
             # -- Grafico Shortest Tiempo ---
-            fig = px.bar(shortestT_df, x='segundos', y='paisano', hover_data=['entry', 'segundos'],
+            fig = px.bar(shortestT_df, x='segundos', y='paisano', hover_data=['entry', 'segundos', 'duracion_eurovision'],
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración (segundos)')
             fig.update_layout(xaxis=dict(range=[0, 180]))
             fig.update_traces(marker_color='#ECB94B')
             fig.update_yaxes(title='')
-            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Duración = %{value}')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Duración = %{value}<br>Duración = %{customdata[1]}')
 
             st.plotly_chart(fig, use_container_width=True)
