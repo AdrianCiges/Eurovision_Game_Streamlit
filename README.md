@@ -146,7 +146,7 @@
 
 #
 ## 6 - INTERFAZ WEB INTERACTIVA 🔥 <a name="SC"/>
-#### Contruimos la arquitectura para el scrappeo en caliente con intención de obtener las variables clave de un número X de canciones de manera instantánea, realizar las conversiones pertinentes de las mismas, predecir puntuaciones y elaborar un ranking en vivo. Utilizamos Streamlit <img src="https://github.com/AdrianCiges/Eurovision_Game_Streamlit/blob/main/img/streamlit_logo.jpg" width="30" height="18">
+#### Contruimos la arquitectura para el scrappeo en caliente con intención de obtener las variables clave de un número X de canciones de manera instantánea, realizar las conversiones pertinentes de las mismas, predecir puntuaciones y elaborar un ranking en vivo. Utilizamos Streamlit <img src="https://github.com/AdrianCiges/Eurovision_Game_Streamlit/blob/main/img/streamlit_logo.jpg" width="25" height="18">
 
 ⤵️ Recibimos canciones intruducidas por el usuario en la plataforma o las canciones participantes en el festival del 13 de mayo de 2023.
 
