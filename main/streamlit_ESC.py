@@ -1786,7 +1786,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             concat_df = filtered_df.copy()
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' ' + concat_df['country'] + ' ' + concat_df['year'].astype(str)
             
-            df_count = concat_df.groupby('estilos', 'entry').size().reset_index(name='count')
+            df_count = concat_df.groupby(['estilos', 'entry']).size().reset_index(name='count')
             
             fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'entry'], values='count')
 
