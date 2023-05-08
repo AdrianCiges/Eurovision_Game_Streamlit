@@ -1862,7 +1862,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                       
     # ---- GRAFICOS PALABRAS ---------------------------------------------------------
 
-        with st.expander('Palabras más usadas 🗣️', expanded=True):
+        with st.expander('Palabras más usadas 🔤', expanded=True):
             
             image_eu = Image.open("./img/palabras_UE-removebg.png")
             with io.BytesIO() as output:
@@ -2021,3 +2021,44 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Duración = %{customdata[1]}')
 
             st.plotly_chart(fig, use_container_width=True)
+            
+            
+  # ---- GRAFICOS IDIOMAS ---------------------------------------------------------
+
+        with st.expander('IDIOMAS vs PAÍS 🗣️🌍', expanded=True):
+            
+            st.write('')
+            sin_pop3 = st.checkbox("Visualizar sin POP    ")
+            
+            if sin_pop3:
+                
+                concat_df = filtered_df.copy()
+                
+                concat_df2 = concat_df.loc[concat_df['estilos'] != 'Pop']
+                
+                concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
+
+                df_count = concat_df2.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
+
+                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
+                                 values='count', height = 1000 
+                                 )
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                st.plotly_chart(fig, use_container_width=True) 
+                
+                
+            else:
+            
+                concat_df = filtered_df.copy()
+
+                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+
+                df_count = concat_df.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
+
+                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
+                                 values='count', height = 1000 
+                                 )
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                st.plotly_chart(fig, use_container_width=True) 
