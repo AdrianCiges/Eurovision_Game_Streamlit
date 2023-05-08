@@ -1956,18 +1956,14 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20].reset_index()
             shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
-#             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
-
-            largestP_df[['entry', 'paisano','lyrics_long']]
-            shortestP_df[['entry', 'paisano','lyrics_long']]
-        
+#             shortestU_df = concat_df.sort_values('unic_words', ascending=True)       
 
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Prom. Palabras + Palabras Únicas 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
-            fig.update_traces(marker_color='#2277BA')
-            fig.update_traces(hovertemplate='pais = %{values}<br>')
+            fig.update_traces(marker_color='#7A17B6')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
 
             st.plotly_chart(fig, use_container_width=True)
 
