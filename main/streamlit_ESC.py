@@ -1838,7 +1838,10 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'country', 'estilos', 'entry'], 
                                  values='count', height = 1000 
                                  )
-                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>Estilos: %{color}')
+                #fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br> Estilos: %{color}')
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br> Estilos: %{customdata[0]}', 
+                  customdata=np.vstack((df_count['estilos'].unique(), np.zeros(len(df_count['estilos'].unique())))).T)
+
 
                 st.plotly_chart(fig, use_container_width=True) 
                 
