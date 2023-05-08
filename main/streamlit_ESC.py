@@ -2061,45 +2061,48 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             sin_ing = st.checkbox("Visualizar sin INGLÉS")
             st.write('❗ Solo se ha podido registrar el idioma de las canciones finalistas debido a que no existían datos consistentes de todas las canciones')
 
-            if sin_ing:
+            try: 
+                if sin_ing:
                 
-                concat_df = filtered_df.copy()
+                    concat_df = filtered_df.copy()
                 
-                concat_df2 = concat_df.loc[concat_df['idioma1'] != 'English']
+                    concat_df2 = concat_df.loc[concat_df['idioma1'] != 'English']
                 
-                concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
+                    concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
 
-                df_count = concat_df2.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
+                    df_count = concat_df2.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
 
-                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
+                    fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
                                  values='count', height = 1000 
                                  )
-                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                    fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
-                fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
-
-                st.plotly_chart(fig, use_container_width=True) 
+                    fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+ 
+                    st.plotly_chart(fig, use_container_width=True) 
                 
                 
-            else:
+                else:
             
-                concat_df = filtered_df.copy()
+                    concat_df = filtered_df.copy()
 
-                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+                    concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
 
-                df_count = concat_df.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
+                    df_count = concat_df.groupby(['idioma1', 'country', 'entry']).size().reset_index(name='count')
 
-                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
+                    fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'idioma1', 'country', 'entry'], 
                                  values='count', height = 1000 
                                  )
-                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                    fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                                          
-                fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
-                st.plotly_chart(fig, use_container_width=True) 
+                    st.plotly_chart(fig, use_container_width=True) 
 
+            except:
+                st.write('#### ❌ Este gráfico no se puede generar si has seleccionado solo el año 2020')
                 
-    # ---- GRAFICOS IDIOMAS ---------------------------------------------------------
+    # ---- GRAFICOS ESTRUCTURA ---------------------------------------------------------
 
         with st.expander('ESTRUCTURA vs PAÍS 🔠🌍', expanded=True):
             
@@ -2127,7 +2130,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True) 
                 
             except:
-                st.write('#### ❌ Este gráfico necesita de, al menos, dos países en los filtros para poder generarse')
+                st.write('#### ❌ Este gráfico necesita de, al menos, dos países y dos años en los filtros para poder generarse')
             
             
             
