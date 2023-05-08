@@ -2007,6 +2007,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             
             # -- Grafico Shortest Tiempo ---
+            shortestT_df
             fig = px.bar(shortestT_df, x='duracion_eurovision', y='paisano', hover_data=['entry', 'duracion_eurovision'],
                 orientation='h', height=600)
 
