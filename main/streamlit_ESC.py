@@ -1955,8 +1955,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20].reset_index()
             shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
-            largestU_df = concat_df.sort_values('unic_words', ascending=False)
-            shortestU_df = concat_df.sort_values('unic_words', ascending=True)       
+            largestU_df = concat_df.sort_values('unic_words', ascending=False)[:20].reset_index()
+            shortestU_df = concat_df.sort_values('unic_words', ascending=True)[:20].reset_index()       
 
             # -- Grafico Largest ---
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
@@ -1970,7 +1970,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                        
                 
             # -- Grafico Shortest ---
-            fig = px.bar(shortestU_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
+            fig = px.bar(shortestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
@@ -1991,7 +1991,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                        
                 
             # -- Grafico Shortest Unics---
-            fig = px.bar(shortestP_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
+            fig = px.bar(shortestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
