@@ -1788,11 +1788,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             if sin_pop:
                 
-                concat_df = filtered_df.loc[filtered_df['estilos'] != 'pop']
+                concat_df = filtered_df.copy()
                 
-                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+                concat_df2 = concat_df.loc[concat_df['estilos'] != 'pop']
+                
+                concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
 
-                df_count = concat_df.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
+                df_count = concat_df2.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
 
                 fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'country', 'entry'], 
                                  values='count', height = 1000 
