@@ -1790,6 +1790,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                   values=[1]*len(concat_df),
                   color='estilos',
                   color_discrete_sequence=px.colors.qualitative.Pastel)
+            fig.update_traces(branchvalues='total')
             
             st.plotly_chart(fig, use_container_width=True) 
 
