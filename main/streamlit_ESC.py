@@ -1133,6 +1133,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             st.write('')
             Acum = st.checkbox("Ver en datos acumulados")
+            st.write('❗ Tenga en cuenta que los promedios se calculan dividiendo entre los años de participación, por lo que hay países con pocas participaciones pero buenos registros en ellas que muestran altos promedios')
 
             if Acum:
 
@@ -1390,6 +1391,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             st.write('')
             Acum3 = st.checkbox("Ver en datos acumulados  ")
+            st.write('❗ Los datos de "Nº Vecinos" se muestran siempre como valor promedio, ya que carece de sentido calcular un acumulado')
 
             if Acum3:
 
@@ -1578,7 +1580,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
-                fig.update_traces(marker_color='#5CC176')
+                fig.update_traces(marker_color='#053BB6')
                 fig.update_layout(showlegend=False, height=1100)
                 fig.update(layout_coloraxis_showscale = False)
                 fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
@@ -1614,7 +1616,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
-                fig.update_traces(marker_color='#5CC176')
+                fig.update_traces(marker_color='#053BB6')
                 fig.update_layout(showlegend=False, height=1100)
                 fig.update(layout_coloraxis_showscale = False)
                 fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
