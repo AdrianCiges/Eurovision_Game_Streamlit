@@ -1877,7 +1877,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('Palabras más usadas 🔤', expanded=True):
             st.write('')
             st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
-            st.markdown('#### Palabras más usadas 2002-2022')
+            st.markdown('####       Palabras más usadas 2002-2022')
             
             image_eu = Image.open("./img/palabras_UE-removebg.png")
             with io.BytesIO() as output:
