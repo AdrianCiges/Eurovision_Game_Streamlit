@@ -1958,7 +1958,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
-            fig.add_trace(px.bar(largestP_df, x='lyrics_long', y='paisano',
+            fig.add_trace(px.bar(largestP_df[:20], x='lyrics_long', y='paisano',
                       orientation='h',
                       color='lyrics_long').data[0]
                       )
