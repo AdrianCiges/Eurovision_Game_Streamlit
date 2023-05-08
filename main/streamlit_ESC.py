@@ -1879,17 +1879,17 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
         with st.expander('Palabras más usadas 🔤', expanded=True):
             st.write('')
-            st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
+            st.write('❗ La imagen que observarás abajo se acaba de generar de manera dinámica con las palabras más usadas (si filtras los datos se generará una nueva)')
             st.write('<p style="font-size: 24px; text-align: left;">Palabras más usadas 2002-2022</p>', unsafe_allow_html=True)
             
-            image_eu = Image.open("./img/palabras_UE-removebg.png")
-            with io.BytesIO() as output:
-                image_eu.save(output, format="PNG")
-                b64_2 = base64.b64encode(output.getvalue()).decode()
-            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
-            
+#             image_eu = Image.open("./img/palabras_UE-removebg.png")
+#             with io.BytesIO() as output:
+#                 image_eu.save(output, format="PNG")
+#                 b64_2 = base64.b64encode(output.getvalue()).decode()
+#             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
             
             dict_prueba = filtered_df['top1word'].value_counts().to_dict()
+            st.write(dict_prueba)
             img = cv2.imread('./img/europe.jpg')
             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
             wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
@@ -1897,10 +1897,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             plt.axis("off")
             img_pil = Image.fromarray(wordcloud.to_array())
             st.image(img_pil, use_column_width=True)
-
-
-
-            
+        
 
     # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
@@ -2114,17 +2111,22 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             concat_df2 = concat_df.loc[concat_df['estruc_resum'] != 'UNKNOWN']
 
             concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
+            
+            try:
 
-            df_count = concat_df2.groupby(['estruc_resum', 'country', 'entry']).size().reset_index(name='count')
+                df_count = concat_df2.groupby(['estruc_resum', 'country', 'entry']).size().reset_index(name='count')
 
-            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estruc_resum', 'country', 'entry'], 
-                             values='count', height = 1000 
-                             )
-            fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
-                                         
-            fig.update_layout(title={'text': f'Estructura de la canción por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estruc_resum', 'country', 'entry'], 
+                                 values='count', height = 1000 
+                                 )
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
 
-            st.plotly_chart(fig, use_container_width=True) 
+                fig.update_layout(title={'text': f'Estructura de la canción por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+
+                st.plotly_chart(fig, use_container_width=True) 
+                
+            except:
+                st.write('#### ❌ Este gráfico necesita de, al menos, dos países en los filtros para poder generarse')
             
             
             
