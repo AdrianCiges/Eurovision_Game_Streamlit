@@ -2104,7 +2104,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                              )
             fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                                          
-                fig.update_layout(title={'text': f'Estructura de la canción por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+            fig.update_layout(title={'text': f'Estructura de la canción por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
             st.plotly_chart(fig, use_container_width=True) 
             
