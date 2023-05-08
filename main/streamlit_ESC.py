@@ -344,7 +344,7 @@ def row_data(user_songs):
     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
     st.write('')
-    st.markdown('##### 🤯 Esto puede tardar unos minutos. Interval act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
     
     time.sleep(1)
     st.write('')
@@ -367,7 +367,7 @@ def row_data_ESC23(user_songs):
     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
     time.sleep(1)
     st.write('')
-    st.markdown('##### 🤯 Esto puede tardar unos minutos. Interval act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
     
     time.sleep(1)
     st.write('')
@@ -1891,7 +1891,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
             words = words_df.tolist()
             dict_prueba = {word: words_df.tolist().count(word) for word in words}            
-            st.write(dict_prueba)
             img = cv2.imread('./img/europe.jpg')
             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
             wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
