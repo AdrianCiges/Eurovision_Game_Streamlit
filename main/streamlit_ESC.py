@@ -1784,11 +1784,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('ESTILOS 🤘🏻', expanded=True):
             
             concat_df = filtered_df.copy()
-            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' ' + concat_df['country'] + ' ' + concat_df['year'].astype(str)
+            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
             
-            df_count = concat_df.groupby(['estilos', 'entry']).size().reset_index(name='count')
+            df_count = concat_df.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
             
-            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'entry'], values='count')
+            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'country', 'entry'], values='count', height = 1000)
+            fig.update_traces(root_color="lightgrey")
+            fig.add_trace(hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br> Estilo: %{color:.2f}')
 
             st.plotly_chart(fig, use_container_width=True) 
 
