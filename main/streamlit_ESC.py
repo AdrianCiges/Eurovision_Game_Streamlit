@@ -1965,6 +1965,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
-            fig.update_layout(title='Top 20 canciones con más palabras', xaxis_title='Nº Palabras')
+            fig.update_layout(title={'text': 'Prom. Palabras + Palabras Únicas 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
+            fig.update_traces(marker_color='#2277BA')
+            fig.update_traces(hovertemplate='pais = %{values}<br>')
+
             st.plotly_chart(fig, use_container_width=True)
 
