@@ -1863,7 +1863,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('Palabras más usadas 🗣️', expanded=True):
             
             concat_df = filtered_df.copy()
-
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['country'] + ' ' + concat_df['year'].astype(str) + ')'
             
             palabra_names = ['1ª palabra más usada', '2ª palabra más usada', '3ª palabra más usada', '4ª palabra más usada', '5ª palabra más usada']
@@ -1880,7 +1879,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             else:
                 palabra = 'top5word'
             
-            df_count = filtered_df.groupby([palabra, 'entry']).size().reset_index(name='count')
+            df_count = concat_df.groupby([palabra, 'entry']).size().reset_index(name='count')
 
             fig = px.sunburst(df_count, path=[palabra, 'entry'], values='count')
             
