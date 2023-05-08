@@ -1877,13 +1877,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('Palabras más usadas 🔤', expanded=True):
             st.write('')
             st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
-            st.markdown('    #### Palabras más usadas 2002-2022')
+            st.write('<p style="font-size: 24px; text-align: left;">Palabras más usadas 2002-2022</p>', unsafe_allow_html=True)
             
             image_eu = Image.open("./img/palabras_UE-removebg.png")
             with io.BytesIO() as output:
                 image_eu.save(output, format="PNG")
                 b64_2 = base64.b64encode(output.getvalue()).decode()
-            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True, caption={'text': 'Palabras más usadas 2002-2022', 'font_size': 24}) 
+            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
     # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
