@@ -2012,6 +2012,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración')
+            fig.update_layout(xaxis=dict(range=[0, max(shortestT_df['duracion_eurovision'])]))
             fig.update_traces(marker_color='#ECB94B')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Duración = %{value}')
