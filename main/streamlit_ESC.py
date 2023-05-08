@@ -1890,7 +1890,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
             words = words_df.tolist()
-            dict_prueba = {word: words_df.tolist().count(word) for word in unique_words}            
+            dict_prueba = {word: words_df.tolist().count(word) for word in words}            
             st.write(dict_prueba)
             img = cv2.imread('./img/europe.jpg')
             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
