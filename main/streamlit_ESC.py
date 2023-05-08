@@ -1959,4 +1959,4 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
             largestP_df[['entry', 'country','lyrics_long']]
-            shortestP_df[['entry', 'country','lyrics_long']
+            shortestP_df[['entry', 'country','lyrics_long']]
