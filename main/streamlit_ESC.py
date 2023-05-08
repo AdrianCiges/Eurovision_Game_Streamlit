@@ -5,6 +5,9 @@ import warnings
 import time
 import statistics as stats
 from operator import itemgetter
+import matplotlib.pyplot as plt
+from wordcloud import WordCloud
+import cv2
 
 warnings.filterwarnings("ignore")
 # from sklearn.metrics import mean_squared_error as mse
@@ -1884,6 +1887,17 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 image_eu.save(output, format="PNG")
                 b64_2 = base64.b64encode(output.getvalue()).decode()
             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
+            
+            dict_prueba = filtered_df['top1word'].value_counts().to_dict()
+            img = cv2.imread('./img/europe.jpg')
+            gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
+            #plt.figure(figsize=(40,20))
+            plt.axis("off")
+            st.plotly_chart(wordcloud, use_container_width=True) 
+
+
+            
 
     # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
