@@ -1958,5 +1958,5 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
-            largestP_df
-            shortestP_df
+            largestP_df[:20]
+            shortestP_df[:20]
