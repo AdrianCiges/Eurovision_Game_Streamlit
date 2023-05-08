@@ -1870,7 +1870,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 b64_2 = base64.b64encode(output.getvalue()).decode()
             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
-    # ---- GRAFICOS ESTILOS ---------------------------------------------------------
+    # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
         with st.expander('Longitud de la cación ⏩', expanded=True):
 
@@ -1945,4 +1945,29 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
 
                 st.plotly_chart(fig, use_container_width=True)
+                
 
+        with st.expander('Top Canciones según LONGITUD 🔝', expanded=True):
+            
+            concat_df = filtered_df.copy()
+            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+            
+            largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20]
+            shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20]
+#             largestU_df = concat_df.sort_values('unic_words', ascending=False)
+#             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
+
+            fig.add_trace(px.bar(largestP_df, x='lyrics_long', y='entry',
+                      orientation='h',
+                      color='lyrics_long').data[0],
+              row=1, col=2)
+            fig.update_xaxes(title='Cantidad de Palabras', row=1, col=2)
+            fig.update_layout(title={'text': 'Top 20 canciones con más palabras 2002-2022', 'font_size': 24})
+
+            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_traces(marker_color='#2277BA')
+            fig.update_layout(showlegend=False, height=1100)
+            fig.update(layout_coloraxis_showscale = False)
+            fig.update_traces(hovertemplate='Canción = %{label}<br>Palabras = %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True)
