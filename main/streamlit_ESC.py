@@ -1784,14 +1784,10 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('ESTILOS 🤘🏻', expanded=True):
             
             concat_df = filtered_df.copy()
-            concat_df['entry'] = concat_df['country'] + ' ' + concat_df['year'].astype(str)
+            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['singer'] + ' ' + concat_df['country'] + ' ' + concat_df['year'].astype(str)
             
-            fig = px.sunburst(concat_df, path=['estilos', 'entry'],
-                  values=[1]*len(concat_df),
-                  color='estilos',
-                  color_discrete_sequence=px.colors.qualitative.Pastel,
-                  branchvalues="total")
-            
+            fig = px.treemap(filtered_df, path=['estilos', 'entry'], values='count')
+
             st.plotly_chart(fig, use_container_width=True) 
 
         
