@@ -1381,7 +1381,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True)
 
         
-    elif graf == 'Política'
+    elif graf == 'Política':
 
       # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
