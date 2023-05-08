@@ -2007,7 +2007,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             
             # -- Grafico Shortest Tiempo ---
-            fig = px.bar(shortestU_df, x='duracion_eurovision', y='paisano', hover_data=['entry', 'duracion_eurovision'],
+            fig = px.bar(shortestT_df, x='duracion_eurovision', y='paisano', hover_data=['entry', 'duracion_eurovision'],
                 orientation='h', height=600)
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración')
