@@ -1823,7 +1823,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('PAÍS vs ESTILOS 🌍🤘🏻', expanded=True):
             
             st.write('')
-            sin_pop = st.checkbox("Visualizar sin POP")
+            sin_pop2 = st.checkbox("Visualizar sin POP ")
             
             if sin_pop:
                 
