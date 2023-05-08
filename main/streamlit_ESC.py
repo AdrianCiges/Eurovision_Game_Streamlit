@@ -1957,8 +1957,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
             largestU_df = concat_df.sort_values('unic_words', ascending=False)[:20].reset_index()
             shortestU_df = concat_df.sort_values('unic_words', ascending=True)[:20].reset_index()  
-            shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index() 
-            shortestT_df['segundos'] = int(shortestT_df['duracion_eurovision'].split(':')[0])*60 + int(shortestT_df['duracion_eurovision'].split(':')[1])
+            shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
+            shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
 
             # -- Grafico Largest ---
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
