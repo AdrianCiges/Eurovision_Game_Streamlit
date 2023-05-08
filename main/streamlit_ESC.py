@@ -1883,7 +1883,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             with io.BytesIO() as output:
                 image_eu.save(output, format="PNG")
                 b64_2 = base64.b64encode(output.getvalue()).decode()
-            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
+            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True, caption={'text': 'Palabras más usadas 2002-2022', 'font_size': 24})) 
 
     # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
