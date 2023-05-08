@@ -1774,4 +1774,23 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_traces(hovertemplate='pais = %{label}<br>valor = %{value:.0f}')
 
                 st.plotly_chart(fig, use_container_width=True) 
+                
+                
+     elif graf == 'Aspectos Técnicos':
+        
+    # -------ECONOMÍA ----------------------------------------------------------------------
+      # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
+
+        with st.expander('ESTILOS 🤘🏻', expanded=True):
+            
+            
+            fig = px.sunburst(filtered_df, path=['estilos', 'country', 'year'],
+                  values=[1]*len(filtered_df),
+                  color='estilos',
+                  color_discrete_sequence=px.colors.qualitative.Pastel)
+            
+            st.plotly_chart(fig, use_container_width=True) 
+
+        
+
 
