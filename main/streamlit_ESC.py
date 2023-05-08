@@ -1783,18 +1783,39 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
         with st.expander('ESTILOS 🤘🏻', expanded=True):
             
-            concat_df = filtered_df.copy()
-            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+            st.write('')
+            sin_pop = st.checkbox("Visualizar sin POP")
             
-            df_count = concat_df.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
-            
-            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'country', 'entry'], 
-                             values='count', height = 1000 
-                             )
-            fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
-            
+            if sin_pop:
+                
+                concat_df = filtered_df.loc[filtered_df['estilos'] != 'pop']
+                
+                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
 
-            st.plotly_chart(fig, use_container_width=True) 
+                df_count = concat_df.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
+
+                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'country', 'entry'], 
+                                 values='count', height = 1000 
+                                 )
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                st.plotly_chart(fig, use_container_width=True) 
+                
+                
+            else:
+            
+                concat_df = filtered_df.copy()
+
+                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+
+                df_count = concat_df.groupby(['estilos', 'country', 'entry']).size().reset_index(name='count')
+
+                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'country', 'entry'], 
+                                 values='count', height = 1000 
+                                 )
+                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                st.plotly_chart(fig, use_container_width=True) 
 
         
 
