@@ -1973,7 +1973,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(shortestU_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS 2002-2022'', 'font_size': 24}, xaxis_title='Nº Palabras')
+            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
             fig.update_traces(marker_color='#1F9CC4')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
 
@@ -1994,7 +1994,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(shortestP_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS ÚNICAS 2002-2022'', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
+            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
             fig.update_traces(marker_color='#1F9CC4')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
 
