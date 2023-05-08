@@ -1953,10 +1953,10 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist']
             concat_df['paisano'] = concat_df['country'] + ' ' + concat_df['year'].astype(str) 
             
-            largestP_df = concat_df.sort_values('lyrics_long', ascending=False)
-            shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)
+            largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20].reset_index()
+            shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
-            largestP_df[:20]
-            shortestP_df[:20]
+            largestP_df[['entry', 'country','lyrics_long']]
+            shortestP_df[['entry', 'country','lyrics_long']
