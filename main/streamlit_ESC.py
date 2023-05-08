@@ -1783,9 +1783,11 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
         with st.expander('ESTILOS 🤘🏻', expanded=True):
             
+            concat_df = filtered_df.copy()
+            concat_df['entry'] = concat_df['country'] + ' ' + concat_df['year']
             
-            fig = px.sunburst(filtered_df, path=['estilos', 'country', 'year'],
-                  values=[1]*len(filtered_df),
+            fig = px.sunburst(concat_df, path=['estilos', 'entry'],
+                  values=[1]*len(concat_df),
                   color='estilos',
                   color_discrete_sequence=px.colors.qualitative.Pastel)
             
