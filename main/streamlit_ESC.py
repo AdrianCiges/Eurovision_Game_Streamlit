@@ -1123,7 +1123,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     st.write('')
     
 
-    if graf = 'Comportamiento Digital':
+    if graf == 'Comportamiento Digital':
         
     # ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
@@ -1301,7 +1301,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True)
             
 
-    elif graf = 'Apuestas':
+    elif graf == 'Apuestas':
         
      # ----- APUESTAS --------------------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS APUESTAS ---------------------------------------------------------
@@ -1381,7 +1381,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True)
 
         
-    elif graf = 'Política'
+    elif graf == 'Política'
 
       # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
