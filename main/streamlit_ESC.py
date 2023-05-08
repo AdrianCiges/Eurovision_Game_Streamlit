@@ -1779,8 +1779,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 
     elif graf == 'Aspectos Técnicos':
         
-    # -------ECONOMÍA ----------------------------------------------------------------------
-      # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
+    # -------TÉCNICOS ----------------------------------------------------------------------
+      # ---- GRAFICOS ESTILOS ---------------------------------------------------------
 
         with st.expander('ESTILOS vs PAÍS 🤘🏻🌍', expanded=True):
             
@@ -1859,6 +1859,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
                 st.plotly_chart(fig, use_container_width=True) 
 
+                      
+    # ---- GRAFICOS ESTILOS ---------------------------------------------------------
 
         with st.expander('Palabras más usadas 🗣️', expanded=True):
             
@@ -1868,5 +1870,79 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 b64_2 = base64.b64encode(output.getvalue()).decode()
             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
-            
+    # ---- GRAFICOS ESTILOS ---------------------------------------------------------
+
+        with st.expander('Longitud de la cación ⏩', expanded=True):
+
+            st.write('')
+            Acum9 = st.checkbox("Ver en datos acumulados                    ")
+
+            if Acum9:
+
+                grouped_df = filtered_df.groupby('country').sum().reset_index()
+                grouped_df = grouped_df.sort_values('lyrics_long', ascending=False)
+
+                # Crear figura con tres subplots
+                fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+                # Grafico 1: Acum de Palabras
+                fig.add_trace(px.bar(grouped_df, x='lyrics_long', y='country',
+                                      orientation='h',
+                                      color='lyrics_long').data[0],
+                              row=1, col=1)
+                fig.update_xaxes(title='Acum. Palabras', row=1, col=1)
+                fig.update_layout(title={'text': 'Acum. Palabras + Palabras Únicas 2002-2022', 'font_size': 24})
+
+                # Grafico 2: Acum de Palabras Únicas
+                grouped_df = filtered_df.groupby('country').sum().reset_index()
+                grouped_df = grouped_df.sort_values('unic_words', ascending=False)
+
+                fig.add_trace(px.bar(grouped_df, x='unic_words', y='country',
+                                      orientation='h',
+                                      color='unic_words').data[0],
+                              row=1, col=2)
+                fig.update_xaxes(title='Acum. Palabras Únicas', row=1, col=2)
+
+                fig.update_yaxes(title='', row=1, col=1)
+                fig.update_traces(marker_color='#2277BA')
+                fig.update_layout(showlegend=False, height=1100)
+                fig.update(layout_coloraxis_showscale = False)
+                fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+
+                st.plotly_chart(fig, use_container_width=True)
+
+
+            else:
+
+                grouped_df = filtered_df.groupby('country').mean().reset_index()
+                grouped_df = grouped_df.sort_values('lyrics_long', ascending=False)
+
+                # Crear figura con tres subplots
+                fig = sp.make_subplots(rows=1, cols=2, shared_yaxes=True, horizontal_spacing=0.01)
+
+                # Grafico 1: Acum de Palabras
+                fig.add_trace(px.bar(grouped_df, x='lyrics_long', y='country',
+                                      orientation='h', #text='puntos_corregidos',
+                                      color='lyrics_long').data[0],
+                              row=1, col=1)
+                fig.update_xaxes(title='Prom. Palabras', row=1, col=1)
+
+                # Grafico 2: Promedio de Palabras Únicas
+                grouped_df = filtered_df.groupby('country').mean().reset_index()
+                grouped_df = grouped_df.sort_values('unic_words', ascending=False)
+
+                fig.add_trace(px.bar(grouped_df, x='unic_words', y='country',
+                                      orientation='h',
+                                      color='unic_words').data[0],
+                              row=1, col=2)
+                fig.update_xaxes(title='Prom. Palabras Únicas', row=1, col=2)
+                fig.update_layout(title={'text': 'Prom. Palabras + Palabras Únicas 2002-2022', 'font_size': 24})
+
+                fig.update_yaxes(title='', row=1, col=1)
+                fig.update_traces(marker_color='#2277BA')
+                fig.update_layout(showlegend=False, height=1100)
+                fig.update(layout_coloraxis_showscale = False)
+                fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+
+                st.plotly_chart(fig, use_container_width=True)
 
