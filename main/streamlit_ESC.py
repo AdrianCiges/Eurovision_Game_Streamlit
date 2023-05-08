@@ -1906,7 +1906,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='lyrics_long').data[0],
                               row=1, col=1)
                 fig.update_xaxes(title='Acum. Palabras', row=1, col=1)
-                fig.update_layout(title={'text': 'Acum. Palabras + Palabras Únicas 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Palabras + Palabras Únicas {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 # Grafico 2: Acum de Palabras Únicas
                 grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1951,7 +1951,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='unic_words').data[0],
                               row=1, col=2)
                 fig.update_xaxes(title='Prom. Palabras Únicas', row=1, col=2)
-                fig.update_layout(title={'text': 'Prom. Palabras + Palabras Únicas 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Palabras + Palabras Únicas {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#2277BA')
@@ -1977,7 +1977,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MÁS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
+            fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras')
             fig.update_traces(marker_color='#BB34AD')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
@@ -1989,7 +1989,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(shortestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
+            fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras')
             fig.update_traces(marker_color='#1F9CC4')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
@@ -2000,7 +2000,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(largestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MÁS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
+            fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
             fig.update_traces(marker_color='#BB34AD')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas = %{value:.0f}')
@@ -2012,7 +2012,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(shortestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
+            fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
             fig.update_traces(marker_color='#1F9CC4')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
@@ -2029,7 +2029,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig = px.bar(shortestT_df, x='segundos', y='paisano', hover_data=['entry', 'segundos', 'duracion_eurovision'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Segundos')
+            fig.update_layout(title={'text': f'Top 20 Canciones con MENOR DURACIÓN {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Segundos')
             fig.update_layout(xaxis=dict(range=[0, 180]))
             fig.update_traces(marker_color='#ECB94B')
             fig.update_yaxes(title='')
@@ -2060,6 +2060,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  values='count', height = 1000 
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                
+                fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}')
 
                 st.plotly_chart(fig, use_container_width=True) 
                 
@@ -2076,6 +2078,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  values='count', height = 1000 
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                                         
+                fig.update_layout(title={'text': f'Idiomas por País {year_range[0]}-{year_range[1]}')
 
                 st.plotly_chart(fig, use_container_width=True) 
 
@@ -2099,6 +2103,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                              values='count', height = 1000 
                              )
             fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                                         
+            fig.update_layout(title={'text': f'Estructura de la Canción por País {year_range[0]}-{year_range[1]}')
 
             st.plotly_chart(fig, use_container_width=True) 
             
