@@ -1788,7 +1788,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             df_count = concat_df.groupby('estilos', 'entry').size().reset_index(name='count')
             
-            fig = px.treemap(concat_df, path=[px.Constant('TODOS'), 'estilos', 'entry'], values='count')
+            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estilos', 'entry'], values='count')
 
             st.plotly_chart(fig, use_container_width=True) 
 
