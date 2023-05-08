@@ -1888,7 +1888,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #                 b64_2 = base64.b64encode(output.getvalue()).decode()
 #             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
             
-            dict_prueba = filtered_df['top1word'].value_counts().to_dict()
+            words_df = pd.concat([df['top1word'], df['top2word'], df['top3word']])
+            words = words_df.tolist()
+            dict_prueba = {word: words_df.tolist().count(word) for word in unique_words}            
             st.write(dict_prueba)
             img = cv2.imread('./img/europe.jpg')
             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
