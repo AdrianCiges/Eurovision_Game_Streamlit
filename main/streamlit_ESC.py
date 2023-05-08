@@ -2029,7 +2029,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             st.write('')
             sin_ing = st.checkbox("Visualizar sin INGLÉS")
-            
+            st.write('❗ Solo se ha podido registrar el idioma de las canciones finalistas debido a que no existían datos consistentes de todas las canciones')
+
             if sin_ing:
                 
                 concat_df = filtered_df.copy()
@@ -2062,3 +2063,31 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
 
                 st.plotly_chart(fig, use_container_width=True) 
+
+                
+    # ---- GRAFICOS IDIOMAS ---------------------------------------------------------
+
+        with st.expander('ESTRUCTURA vs PAÍS 🔠🌍', expanded=True):
+            
+            st.write('')
+            st.write('❗ En este gráfico solo se visualizan aquellas canciones cuya estructura ha podido ser registrada, dado que no existían datos consistentes sobre ello')
+
+            concat_df = filtered_df.copy()
+
+            concat_df2 = concat_df.loc[concat_df['estruc_resum'] != 'UNKNOWN']
+
+            concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
+
+            df_count = concat_df2.groupby(['estruc_resum', 'country', 'entry']).size().reset_index(name='count')
+
+            fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'estruc_resum', 'country', 'entry'], 
+                             values='count', height = 1000 
+                             )
+            fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+            st.plotly_chart(fig, use_container_width=True) 
+            
+            
+            
+            
+            
