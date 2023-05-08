@@ -1964,7 +1964,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MÁS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
             fig.update_traces(marker_color='#BB34AD')
-            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>promedio = %{value:.0f}')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True)
                        
@@ -1975,7 +1975,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras')
             fig.update_traces(marker_color='#1F9CC4')
-            fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True)
 
@@ -1985,7 +1985,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MÁS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
             fig.update_traces(marker_color='#BB34AD')
-            fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas = %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True)
                        
@@ -1996,6 +1996,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             fig.update_layout(title={'text': 'Top 20 Canciones con MENOS PALABRAS ÚNICAS 2002-2022', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
             fig.update_traces(marker_color='#1F9CC4')
-            fig.update_traces(hovertemplate='Canción = %{customdata[0]}')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True)
