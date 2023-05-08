@@ -1881,7 +1881,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             df_count = concat_df.groupby([palabra, 'entry']).size().reset_index(name='count')
 
-            fig = px.sunburst(df_count, path=[palabra, 'entry'], values='count', maxdepth=1)
+            fig = px.sunburst(df_count, path=[palabra, 'entry'], values='count', maxdepth=2)
             
             st.plotly_chart(fig, use_container_width=True) 
 
