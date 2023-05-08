@@ -1825,7 +1825,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             st.write('')
             sin_pop2 = st.checkbox("Visualizar sin POP ")
             
-            if sin_pop:
+            if sin_pop2:
                 
                 concat_df = filtered_df.copy()
                 
