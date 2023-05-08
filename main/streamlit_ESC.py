@@ -1880,7 +1880,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('Palabras más usadas 🔤', expanded=True):
             st.write('')
             st.write('❗ La imagen que observarás abajo se acaba de generar de manera dinámica con las palabras más usadas (si filtras los datos se generará una nueva)')
-            st.write('<p style="font-size: 24px; text-align: left;">Palabras más usadas 2002-2022</p>', unsafe_allow_html=True)
+            st.write(f'<p style="font-size: 24px; text-align: left;">Palabras más usadas {year_range[0]}-{year_range[1]}</p>', unsafe_allow_html=True)
             
 #             image_eu = Image.open("./img/palabras_UE-removebg.png")
 #             with io.BytesIO() as output:
@@ -1888,7 +1888,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #                 b64_2 = base64.b64encode(output.getvalue()).decode()
 #             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
             
-            words_df = pd.concat([df['top1word'], df['top2word'], df['top3word']])
+            words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
             words = words_df.tolist()
             dict_prueba = {word: words_df.tolist().count(word) for word in unique_words}            
             st.write(dict_prueba)
