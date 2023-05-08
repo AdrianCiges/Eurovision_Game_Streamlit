@@ -2090,7 +2090,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             
             st.write('')
             st.write('❗ En este gráfico solo se visualizan aquellas canciones cuya estructura ha podido ser registrada, dado que no existían datos consistentes sobre ello')
-            st.write('❗ Los valores del gráfico con acrónimos de Introducció (I), Verso (V), Estrofa (E), Puente (P), Coda (C) e Instrumental (B)')
+            st.write('❗ Los valores del gráfico son acrónimos de Introducció (I), Verso (V), Estrofa (E), Puente (P), Coda (C) e Instrumental (B)')
 
             concat_df = filtered_df.copy()
 
