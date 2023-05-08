@@ -1888,13 +1888,19 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 b64_2 = base64.b64encode(output.getvalue()).decode()
             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
             
-            dict_prueba = filtered_df['top1word'].value_counts().to_dict()
-            img = cv2.imread('./img/europe.jpg')
-            gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-            wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
-            #plt.figure(figsize=(40,20))
-            plt.axis("off")
-            st.plotly_chart(wordcloud, use_container_width=True) 
+            image_eu2 = Image.open("./img/europe.jpg")
+            with io.BytesIO() as output:
+                image_eu2.save(output, format="JPG")
+                b64_3 = base64.b64encode(output.getvalue()).decode()
+            st.image(f"data:image/png;base64,{b64_3}", use_column_width=True) 
+            
+#             dict_prueba = filtered_df['top1word'].value_counts().to_dict()
+#             img = cv2.imread('./img/europe.jpg')
+#             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+#             wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
+#             #plt.figure(figsize=(40,20))
+#             plt.axis("off")
+#             st.plotly_chart(wordcloud, use_container_width=True) 
 
 
             
