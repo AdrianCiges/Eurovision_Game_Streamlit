@@ -1958,5 +1958,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
-            largestP_df[['entry', 'country','lyrics_long']]
-            shortestP_df[['entry', 'country','lyrics_long']]
+            largestP_df[['entry', 'paisano','lyrics_long']]
+            shortestP_df[['entry', 'paisano','lyrics_long']]
+        
+
+            fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
+                orientation='h', height=600)
+
+            fig.update_layout(title='Top 20 canciones con más palabras', xaxis_title='Nº Palabras')
+                st.plotly_chart(fig, use_container_width=True)
+
