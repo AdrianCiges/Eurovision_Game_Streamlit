@@ -1116,7 +1116,11 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     st.write('\n')
     with st.expander('👀 Ver Datos', expanded=False): 
         st.write(filtered_df)
-    st.write('\n')
+    st.write('')
+    
+    graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
+    graf = st.radio('Tipo de gráfico a visualizar', graf_names)
+    st.write('')
 
 
 # ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
