@@ -1956,7 +1956,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20].reset_index()
             shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
             largestU_df = concat_df.sort_values('unic_words', ascending=False)[:20].reset_index()
-            shortestU_df = concat_df.sort_values('unic_words', ascending=True)[:20].reset_index()       
+            shortestU_df = concat_df.sort_values('unic_words', ascending=True)[:20].reset_index()  
+            shustestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index() 
 
             # -- Grafico Largest ---
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
@@ -2001,5 +2002,17 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             fig.update_traces(marker_color='#1F9CC4')
             fig.update_yaxes(title='')
             fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
+
+            st.plotly_chart(fig, use_container_width=True)
+            
+            
+            # -- Grafico Shortest Tiempo ---
+            fig = px.bar(shortestU_df, x='duracion_eurovision', y='paisano', hover_data=['entry', 'duracion_eurovision'],
+                orientation='h', height=600)
+
+            fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración')
+            fig.update_traces(marker_color='#ECB94B')
+            fig.update_yaxes(title='')
+            fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Duración = %{value:.0f}')
 
             st.plotly_chart(fig, use_container_width=True)
