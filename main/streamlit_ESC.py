@@ -1862,26 +1862,11 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
         with st.expander('Palabras más usadas 🗣️', expanded=True):
             
-            concat_df = filtered_df.copy()
-            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['country'] + ' ' + concat_df['year'].astype(str) + ')'
-            
-            palabra_names = ['1ª palabra más usada', '2ª palabra más usada', '3ª palabra más usada', '4ª palabra más usada', '5ª palabra más usada']
-            palabra_selec = st.radio('', palabra_names)
-            
-            if palabra_selec == '1ª palabra más usada':
-                palabra = 'top1word'
-            elif palabra_selec == '2ª palabra más usada':
-                palabra = 'top2word'
-            elif palabra_selec == '3ª palabra más usada':
-                palabra = 'top3word'
-            elif palabra_selec == '4ª palabra más usada':
-                palabra = 'top4word'
-            else:
-                palabra = 'top5word'
-            
-            df_count = concat_df.groupby([palabra, 'entry']).size().reset_index(name='count')
+            image_eu = Image.open("./img/palabras_UE-removebg.png")
+            with io.BytesIO() as output:
+                image_eu.save(output, format="PNG")
+                b64_2 = base64.b64encode(output.getvalue()).decode()
+            st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
-            fig = px.sunburst(df_count, path=[palabra, 'entry'], values='count', maxdepth=2)
             
-            st.plotly_chart(fig, use_container_width=True) 
 
