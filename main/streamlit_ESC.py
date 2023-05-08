@@ -1790,7 +1790,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 
                 concat_df = filtered_df.copy()
                 
-                concat_df2 = concat_df.loc[concat_df['estilos'] != 'pop']
+                concat_df2 = concat_df.loc[concat_df['estilos'] != 'Pop']
                 
                 concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
 
