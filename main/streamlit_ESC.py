@@ -2028,13 +2028,13 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('IDIOMAS vs PAÍS 🗣️🌍', expanded=True):
             
             st.write('')
-            sin_pop3 = st.checkbox("Visualizar sin POP    ")
+            sin_ing = st.checkbox("Visualizar sin INGLÉS")
             
-            if sin_pop3:
+            if sin_ing:
                 
                 concat_df = filtered_df.copy()
                 
-                concat_df2 = concat_df.loc[concat_df['estilos'] != 'Pop']
+                concat_df2 = concat_df.loc[concat_df['idioma1'] != 'English']
                 
                 concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
 
