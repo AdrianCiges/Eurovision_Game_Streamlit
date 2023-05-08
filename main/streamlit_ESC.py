@@ -1966,5 +1966,5 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 orientation='h', height=600)
 
             fig.update_layout(title='Top 20 canciones con más palabras', xaxis_title='Nº Palabras')
-                st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, use_container_width=True)
 
