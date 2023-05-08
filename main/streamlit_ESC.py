@@ -1867,6 +1867,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                     fig.update_layout(title={'text': f'Cantidad de Países + Canciones por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                     st.plotly_chart(fig, use_container_width=True) 
+                    
+            except:
+                st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
         
         with st.expander('PAÍS vs ESTILOS 🌍🤘🏻', expanded=True):
@@ -1874,43 +1877,45 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             st.write('')
             sin_pop2 = st.checkbox("Visualizar sin POP ")
             
-            if sin_pop2:
-                
-                concat_df = filtered_df.copy()
-                
-                concat_df2 = concat_df.loc[concat_df['estilos'] != 'Pop']
-                
-                concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
-
-                df_count = concat_df2.groupby(['country', 'estilos', 'entry']).size().reset_index(name='count')
-
-                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'country', 'estilos', 'entry'], 
-                                 values='count', height = 1000 
-                                 )
-                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
-                
-                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
-                
-                st.plotly_chart(fig, use_container_width=True) 
-                
-                
-            else:
+            try:
             
-                concat_df = filtered_df.copy()
+                if sin_pop2:
 
-                concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+                    concat_df = filtered_df.copy()
 
-                df_count = concat_df.groupby(['country', 'estilos', 'entry']).size().reset_index(name='count')
+                    concat_df2 = concat_df.loc[concat_df['estilos'] != 'Pop']
 
-                fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'country', 'estilos', 'entry'], 
-                                 values='count', height = 1000 
-                                 )
-                fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
-                
-                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    concat_df2['entry'] = concat_df2['song'] + ' - ' + concat_df2['artist'] + ' (' + concat_df2['year'].astype(str) + ')'
+
+                    df_count = concat_df2.groupby(['country', 'estilos', 'entry']).size().reset_index(name='count')
+
+                    fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'country', 'estilos', 'entry'], 
+                                     values='count', height = 1000 
+                                     )
+                    fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                    fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+
+                    st.plotly_chart(fig, use_container_width=True) 
 
 
-                st.plotly_chart(fig, use_container_width=True) 
+                else:
+
+                    concat_df = filtered_df.copy()
+
+                    concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+
+                    df_count = concat_df.groupby(['country', 'estilos', 'entry']).size().reset_index(name='count')
+
+                    fig = px.treemap(df_count, path=[px.Constant('TODOS'), 'country', 'estilos', 'entry'], 
+                                     values='count', height = 1000 
+                                     )
+                    fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+
+                    fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+
+
+                    st.plotly_chart(fig, use_container_width=True) 
 
             except:
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
