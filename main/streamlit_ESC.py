@@ -1947,7 +1947,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True)
                 
 
-        with st.expander('Top 20 Canciones según LONGITUD 🔝', expanded=True):
+        with st.expander('Top 20 Canciones según LONGITUD PALABRAS🔝', expanded=True):
             
             concat_df = filtered_df.copy()
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist']
@@ -1957,8 +1957,6 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20].reset_index()
             largestU_df = concat_df.sort_values('unic_words', ascending=False)[:20].reset_index()
             shortestU_df = concat_df.sort_values('unic_words', ascending=True)[:20].reset_index()  
-            shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
-            shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
 
             # -- Grafico Largest ---
             fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
@@ -2007,11 +2005,16 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             st.plotly_chart(fig, use_container_width=True)
             
             
+        with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=True):
+            
+            shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
+            shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
+
             # -- Grafico Shortest Tiempo ---
             fig = px.bar(shortestT_df, x='segundos', y='paisano', hover_data=['entry', 'segundos'],
                 orientation='h', height=600)
 
-            fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración')
+            fig.update_layout(title={'text': 'Top 20 Canciones con MENOR DURACIÓN 2002-2022', 'font_size': 24}, xaxis_title='Duración (segundos)')
             fig.update_layout(xaxis=dict(range=[0, 180]))
             fig.update_traces(marker_color='#ECB94B')
             fig.update_yaxes(title='')
