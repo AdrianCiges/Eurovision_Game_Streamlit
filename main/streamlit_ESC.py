@@ -1895,7 +1895,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
             #plt.figure(figsize=(40,20))
             plt.axis("off")
-            st.plotly_chart(wordcloud, use_container_width=True) 
+            img_pil = Image.fromarray(wordcloud.to_array())
+            st.image(img_pil, use_column_width=True)
+
 
 
             
