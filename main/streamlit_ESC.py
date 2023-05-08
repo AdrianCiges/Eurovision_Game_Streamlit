@@ -1950,21 +1950,22 @@ elif app_mode == '📊 Estadísticas 2002-2022':
         with st.expander('Top Canciones según LONGITUD 🔝', expanded=True):
             
             concat_df = filtered_df.copy()
-            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['year'].astype(str) + ')'
+            concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist']
+            concat_df['paisano'] = concat_df['country'] + ' ' + concat_df['year'].astype(str) 
             
-            largestP_df = concat_df.sort_values('lyrics_long', ascending=False)[:20]
-            shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)[:20]
+            largestP_df = concat_df.sort_values('lyrics_long', ascending=False)
+            shortestP_df = concat_df.sort_values('lyrics_long', ascending=True)
 #             largestU_df = concat_df.sort_values('unic_words', ascending=False)
 #             shortestU_df = concat_df.sort_values('unic_words', ascending=True)
 
-            fig.add_trace(px.bar(largestP_df, x='lyrics_long', y='entry',
+            fig.add_trace(px.bar(largestP_df, x='lyrics_long', y='paisano',
                       orientation='h',
-                      color='lyrics_long').data[0],
-              row=1, col=2)
-            fig.update_xaxes(title='Cantidad de Palabras', row=1, col=2)
+                      color='lyrics_long').data[0]
+                      )
+            fig.update_xaxes(title='Cantidad de Palabras')
             fig.update_layout(title={'text': 'Top 20 canciones con más palabras 2002-2022', 'font_size': 24})
 
-            fig.update_yaxes(title='', row=1, col=1)
+            fig.update_yaxes(title='')
             fig.update_traces(marker_color='#2277BA')
             fig.update_layout(showlegend=False, height=1100)
             fig.update(layout_coloraxis_showscale = False)
