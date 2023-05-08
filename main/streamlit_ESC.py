@@ -2088,12 +2088,17 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
 
                 st.plotly_chart(fig, use_container_width=True)
+                
+            except:
+                st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
 
-            with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=True):
+        with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=True):
 
-                shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
-                shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
+            shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
+            shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
+            
+            try:
 
                 # -- Grafico Shortest Tiempo ---
                 fig = px.bar(shortestT_df, x='segundos', y='paisano', hover_data=['entry', 'segundos', 'duracion_eurovision'],
