@@ -1867,7 +1867,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist'] + ' (' + concat_df['country'] + ' ' + concat_df['year'].astype(str) + ')'
             
             palabra_names = ['1ª palabra más usada', '2ª palabra más usada', '3ª palabra más usada', '4ª palabra más usada', '5ª palabra más usada']
-            palabra_selec = st.radio('', palabras_names)
+            palabra_selec = st.radio('', palabra_names)
             
             if palabra_selec == '1ª palabra más usada':
                 palabra = 'top1word'
