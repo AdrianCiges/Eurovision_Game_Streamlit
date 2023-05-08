@@ -1804,7 +1804,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
-                fig.update_layout(title={'text': f'Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig.update_layout(title={'text': f'Cantidad de Países + Canciones por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
 
                 st.plotly_chart(fig, use_container_width=True) 
@@ -1823,7 +1823,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
-                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig.update_layout(title={'text': f'Cantidad de Países + Canciones por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 st.plotly_chart(fig, use_container_width=True) 
 
@@ -1848,7 +1848,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
-                fig.update_layout(title={'text': f'Cantidad de Países por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 
                 st.plotly_chart(fig, use_container_width=True) 
                 
@@ -1866,7 +1866,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
-                fig.update_layout(title={'text': f'Cantidad de Países por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
 
                 st.plotly_chart(fig, use_container_width=True) 
@@ -1875,7 +1875,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # ---- GRAFICOS PALABRAS ---------------------------------------------------------
 
         with st.expander('Palabras más usadas 🔤', expanded=True):
-            st.markdonw('#### Palabras más usadas 2002-2022')
+            st.markdonwn('#### Palabras más usadas 2002-2022')
             st.write('')
             st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
             
