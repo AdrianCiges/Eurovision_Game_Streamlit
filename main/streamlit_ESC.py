@@ -1875,7 +1875,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # ---- GRAFICOS PALABRAS ---------------------------------------------------------
 
         with st.expander('Palabras más usadas 🔤', expanded=True):
-            st.markdonwn('#### Palabras más usadas 2002-2022')
+            st.markdown('#### Palabras más usadas 2002-2022')
             st.write('')
             st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
             
