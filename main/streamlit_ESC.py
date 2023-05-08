@@ -1947,7 +1947,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 st.plotly_chart(fig, use_container_width=True)
                 
 
-        with st.expander('Top Canciones según LONGITUD 🔝', expanded=True):
+        with st.expander('Top 20 Canciones según LONGITUD 🔝', expanded=True):
             
             concat_df = filtered_df.copy()
             concat_df['entry'] = concat_df['song'] + ' - ' + concat_df['artist']
