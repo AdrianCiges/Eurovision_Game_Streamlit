@@ -1215,7 +1215,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=3)
                 fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
 
-                fig.update_layout(title={'text': 'Prom. Puntos + Views y Likes en YT 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#E97451')
@@ -1247,7 +1247,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='puntos_corregidos').data[0],
                               row=1, col=1)
                 fig.update_xaxes(title='Acum. puntos', row=1, col=1)
-                fig.update_layout(title={'text': 'Acum. Puntos vs Shazams 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Shazams {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 # Grafico 2: Promedio de Shazams
                 grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1292,7 +1292,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='shazams').data[0],
                               row=1, col=2)
                 fig.update_xaxes(title='Prom. shazams', row=1, col=2)
-                fig.update_layout(title={'text': 'Prom. Puntos vs Shazams 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Shazams {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#89CFF0')
@@ -1327,7 +1327,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='puntos_corregidos').data[0],
                               row=1, col=1)
                 fig.update_xaxes(title='Acum. puntos', row=1, col=1)
-                fig.update_layout(title={'text': 'Acum. Puntos vs Apuestas 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Apuestas {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 # Grafico 2: Promedio de Shazams
                 grouped_df = filtered_df.groupby('country').sum().reset_index()
@@ -1372,7 +1372,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                       color='bet_mean').data[0],
                               row=1, col=2)
                 fig.update_xaxes(title='Prom. Apuestas', row=1, col=2)
-                fig.update_layout(title={'text': 'Prom. Puntos vs Apuestas 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Apuestas {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#22BAB5')
@@ -1418,7 +1418,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Nº vecinos participantes', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Acum. Puntos vs Nº Vecinos 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Nº Vecinos {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#DDA0DD')
@@ -1454,7 +1454,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Nº vecinos participantes', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Prom. Puntos vs Nº Vecinos 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Nº Vecinos {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#DDA0DD')
@@ -1498,7 +1498,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Acum. GDP', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Acum. Puntos vs GDP 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs GDP {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#08B434')
@@ -1534,7 +1534,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Prom. GDP', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Prom. Puntos vs GDP 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs GDP {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#08B434')
@@ -1577,7 +1577,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Acum. Ranking GDP', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Ranking Relativo GDP (PIB) {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#053BB6')
@@ -1613,7 +1613,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Prom. Ranking GDP', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Relativo GDP (PIB) 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Ranking Relativo GDP (PIB) {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#053BB6')
@@ -1657,7 +1657,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Puntuación de Influencia', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Acum. Puntos vs Influencia 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Influencia {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#D8D335')
@@ -1691,7 +1691,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Puntuación de Influencia', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Prom. Puntos vs Influencia 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Influencia {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#D8D335')
@@ -1734,7 +1734,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Ranking de Reputación', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Acum. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Acum. Puntos vs Ranking Reputación {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#EDB753')
@@ -1768,7 +1768,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                               row=1, col=2)
                 fig.update_xaxes(title='Ranking Reputación', row=1, col=2)
 
-                fig.update_layout(title={'text': 'Prom. Puntos vs Ranking Reputación 2002-2022', 'font_size': 24})
+                fig.update_layout(title={'text': f'Prom. Puntos vs Ranking Reputación {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 fig.update_yaxes(title='', row=1, col=1)
                 fig.update_traces(marker_color='#EDB753')
@@ -1803,6 +1803,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  values='count', height = 1000 
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                
+                fig.update_layout(title={'text': f'Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
+
 
                 st.plotly_chart(fig, use_container_width=True) 
                 
@@ -1819,6 +1822,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  values='count', height = 1000 
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                
+                fig.update_layout(title={'text': f'Cantidad de Estilos por País {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                 st.plotly_chart(fig, use_container_width=True) 
 
@@ -1843,6 +1848,8 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
                 
+                fig.update_layout(title={'text': f'Cantidad de Países por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                
                 st.plotly_chart(fig, use_container_width=True) 
                 
                 
@@ -1858,6 +1865,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                  values='count', height = 1000 
                                  )
                 fig.update_traces(root_color="lightgrey", hovertemplate='<b>%{label} </b> <br> Canciones: %{value}<br>')
+                
+                fig.update_layout(title={'text': f'Cantidad de Países por Estilo {year_range[0]}-{year_range[1]}', 'font_size': 24})
+
 
                 st.plotly_chart(fig, use_container_width=True) 
 
@@ -1865,6 +1875,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
     # ---- GRAFICOS PALABRAS ---------------------------------------------------------
 
         with st.expander('Palabras más usadas 🔤', expanded=True):
+            st.markdonw('#### Palabras más usadas 2002-2022')
+            st.write('')
+            st.write('❗ No es posible generar esta imágen de manera dinámica por lo que la representación de los datos es estática para el periodo 2002-2022')
             
             image_eu = Image.open("./img/palabras_UE-removebg.png")
             with io.BytesIO() as output:
