@@ -555,7 +555,12 @@ def predicciones_now(user_songs):
                      'Greece': 407.88235294117646,
                      'Albania': 484.3529411764706,
                      'Romania': 522.5882352941177,
-                     'San Marino': 525.5294117647059}
+                     'San Marino': 525.5294117647059,
+                    'Netherlands':1000,
+                    'Ireland':1000,
+                    'Azerbaijan':1000,
+                    'Latvia':1000,
+                    'Malta':1000}
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
