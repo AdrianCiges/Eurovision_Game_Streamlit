@@ -908,7 +908,6 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
         fecha_hoy = pd.Timestamp('today').date()
         fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
-        fecha_formateada
 
         if st.button(f'Predecir resultado a {fecha_formateada}'):
             user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
