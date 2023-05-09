@@ -1488,7 +1488,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
      # -------ECONOMÍA ----------------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs GDP (PIB) 🔢🪙', expanded=True): 
+        with st.expander('PUNTOS vs PIB 🔢🪙', expanded=True): 
 
             st.write('')
             Acum4 = st.checkbox("Ver en datos acumulados   ")
@@ -1518,9 +1518,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                           orientation='h', #text='likes',
                                           color='GDP').data[0],
                                   row=1, col=2)
-                    fig.update_xaxes(title='Acum. GDP', row=1, col=2)
+                    fig.update_xaxes(title='Acum. PIB', row=1, col=2)
 
-                    fig.update_layout(title={'text': f'Acum. Puntos vs GDP {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Acum. Puntos vs PIB {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                     fig.update_yaxes(title='', row=1, col=1)
                     fig.update_traces(marker_color='#08B434')
@@ -1554,9 +1554,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                           orientation='h', #text='likes',
                                           color='GDP').data[0],
                                   row=1, col=2)
-                    fig.update_xaxes(title='Prom. GDP', row=1, col=2)
+                    fig.update_xaxes(title='Prom. PIB', row=1, col=2)
 
-                    fig.update_layout(title={'text': f'Prom. Puntos vs GDP {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Prom. Puntos vs PIB {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                     fig.update_yaxes(title='', row=1, col=1)
                     fig.update_traces(marker_color='#08B434')
@@ -1571,7 +1571,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
       # ---- GRAFICOS PUNTOS VS RANKING PIB ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs Ranking Relativo GDP (PIB) 🔢🪙', expanded=True): 
+        with st.expander('PUNTOS vs Ranking Relativo PIB 🔢🪙', expanded=True): 
 
             st.write('')
             Acum5 = st.checkbox("Ver en datos acumulados    ")
@@ -1593,7 +1593,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                   row=1, col=1)
                     fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
-                    # Grafico 2: Orden Relativo GDP
+                    # Grafico 2: Orden Relativo PIB
                     grouped_df = filtered_df.groupby('country').sum().reset_index()
                     grouped_df = grouped_df.sort_values('orden_relativo_GDP', ascending=False)
 
@@ -1601,9 +1601,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                           orientation='h', #text='likes',
                                           color='orden_relativo_GDP').data[0],
                                   row=1, col=2)
-                    fig.update_xaxes(title='Acum. Ranking GDP', row=1, col=2)
+                    fig.update_xaxes(title='Acum. Ranking PIB', row=1, col=2)
 
-                    fig.update_layout(title={'text': f'Acum. Puntos vs Ranking Relativo GDP (PIB) {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Acum. Puntos vs Ranking Relativo PIB {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                     fig.update_yaxes(title='', row=1, col=1)
                     fig.update_traces(marker_color='#053BB6')
@@ -1637,9 +1637,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                                           orientation='h', #text='likes',
                                           color='orden_relativo_GDP').data[0],
                                   row=1, col=2)
-                    fig.update_xaxes(title='Prom. Ranking GDP', row=1, col=2)
+                    fig.update_xaxes(title='Prom. Ranking PIB', row=1, col=2)
 
-                    fig.update_layout(title={'text': f'Prom. Puntos vs Ranking Relativo GDP (PIB) {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Prom. Puntos vs Ranking Relativo PIB {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
                     fig.update_yaxes(title='', row=1, col=1)
                     fig.update_traces(marker_color='#053BB6')
@@ -1659,7 +1659,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             st.write('')
             Acum6 = st.checkbox("Ver en datos acumulados      ")
-            st.write('❗ La puntuación de INFLUENCIA no tiene evolución histórica como tal, si no que es un valor estimado sobre la influencia de cada país sobre el resto en los últimos 30 años')
+            st.write('❗ La puntuación de INFLUENCIA no tiene evolución histórica como tal, si no que es un valor estimado sobre la influencia de cada país sobre el resto en los últimos 30 años a partir de encuestas de GlobeScan/PIPA')
 
             try:
                 
@@ -1742,7 +1742,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
             st.write('')
             Acum7 = st.checkbox("Ver en datos acumulados        ")
-            st.write('❗ El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar')
+            st.write('❗ El Ranking de REPUTACIÓN Internacional no tiene evolución histórica como tal, si no que es un valor calculado sobre la reputación de cada país entorno a ciencia, tecnología, cultura, paz, seguridad, medio ambiente, política, derechos humanos, igualdad, salud y bienestar. Estos datos han sido extraídos a partir de los índices de TheGoodCountry')
 
             try:
                 
