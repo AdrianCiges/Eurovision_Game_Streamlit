@@ -27,6 +27,8 @@
 
 ## 2 - EXTRACCIÓN, TRANSFORMACIÓN Y CARGA ⚙️ <a name="ETL"/>
 ### Obtenemos datos de diferentes fuentes (9) utilizando 4 métodos de extracción.
+#### Códigos y archivos de scrapping almacenados en: https://github.com/AdrianCiges/Eurovision-Project
+
 🎶 Scrappeo Spotify: Duraciones Canciones.
 
 💯 BBDD puntos (ESC DataBase + Wikipedia): Puntos, Idioma, Clasificación, Orden actuación + P% puntos.
