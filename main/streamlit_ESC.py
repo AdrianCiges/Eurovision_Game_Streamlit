@@ -906,8 +906,9 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     if __name__ == '__main__':
         st.write('')
 
-        fecha_actual = datetime.datetime.now()
-        fecha_formateada = fecha_actual.strftime("%d/%m/%Y")
+        fecha_hoy = pd.Timestamp('today').date()
+        fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
+        fecha_formateada
 
         if st.button(f'Predecir resultado a {fecha_formateada}'):
             user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
@@ -1012,6 +1013,8 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
             # Obtener la fecha de hoy
             fecha_hoy = pd.Timestamp('today').date()
+            fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
+            fecha_formateada
 
             # Crear un diccionario para especificar las columnas y sus valores
             columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
@@ -1023,7 +1026,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 # --------------------------------------------------------------------------------------
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
-            df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
+            df_nuevo = pd.DataFrame(data, index=[fecha_formateada])
             df_nuevo = df_nuevo.sort_index(axis=1)
             #df_nuevo
 
@@ -1053,7 +1056,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_actual_str}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha la parte superior del gráfico')
             
