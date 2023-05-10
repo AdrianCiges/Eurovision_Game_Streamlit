@@ -1056,6 +1056,29 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
             fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            fig.update_layout(shapes=[dict(
+                                            type='line',
+                                            xref='x',
+                                            yref='y',
+                                            x0='2023-04-24',
+                                            y0=0,
+                                            x1='2023-04-24',
+                                            y1=max(list(df_prueba.max()))+100,
+                                            line=dict(color='black', width=2, dash='dash'),
+                                            )
+                                          ], 
+                               annotations=[dict(
+                                            x='2023-04-24',
+                                            y=max(list(df_prueba.max()))+50,
+                                            xref='x',
+                                            yref='y',
+                                            text='Cambio de algoritmo ',
+                                            showarrow=False,
+                                            font=dict(size=14, color='red'),
+                                            xanchor='right'
+                                            )
+                                        ]
+                                    )
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha la parte superior del gráfico')
             
