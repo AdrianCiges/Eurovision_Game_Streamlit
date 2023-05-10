@@ -1025,7 +1025,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 # --------------------------------------------------------------------------------------
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
-            df_nuevo = pd.DataFrame(data, index=[fecha_formateada])
+            df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
             df_nuevo = df_nuevo.sort_index(axis=1)
             #df_nuevo
 
