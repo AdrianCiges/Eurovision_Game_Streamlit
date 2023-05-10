@@ -2553,140 +2553,140 @@ elif app_mode == '🤫 Oculto':
 
         # st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
 
-        # Configurar opciones de Chrome en modo "headless"
-        chrome_options = ChromeOptions()
-        chrome_options.add_argument('--headless')  # Ejecutar en modo headless
-        chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
+#         # Configurar opciones de Chrome en modo "headless"
+#         chrome_options = ChromeOptions()
+#         chrome_options.add_argument('--headless')  # Ejecutar en modo headless
+#         chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
 
-        # Iniciar el servicio de Chrome y el navegador en modo "headless"
-        PATH=ChromeDriverManager().install()
-        chrome_service = ChromeService(executable_path=PATH)  # Reemplaza con la ruta a tu driver de Chrome
-        driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
+#         # Iniciar el servicio de Chrome y el navegador en modo "headless"
+#         PATH=ChromeDriverManager().install()
+#         chrome_service = ChromeService(executable_path=PATH)  # Reemplaza con la ruta a tu driver de Chrome
+#         driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-        # URL de la página web con la tabla
-        url = 'https://eurovisionworld.com/odds/eurovision'
+#         # URL de la página web con la tabla
+#         url = 'https://eurovisionworld.com/odds/eurovision'
 
-        pais_odds = {'Albania': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Israel': 23, 'Italy': 24, 'Lithuania': 26, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
+#         pais_odds = {'Albania': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Israel': 23, 'Italy': 24, 'Lithuania': 26, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
 
-        driver.get(url)
-        tabla = driver.find_element(By.CLASS_NAME, 'o_table.ob_none')
-        filas = tabla.find_elements(By.TAG_NAME, 'tr')
+#         driver.get(url)
+#         tabla = driver.find_element(By.CLASS_NAME, 'o_table.ob_none')
+#         filas = tabla.find_elements(By.TAG_NAME, 'tr')
 
-        paises = []
-        bet_mean = []
-        for fila in filas[2:34]:
-            pais = fila.find_element(By.TAG_NAME, 'a').get_attribute('href')
-            paises.append(pais.split('/')[5].replace('-',' ').title())
+#         paises = []
+#         bet_mean = []
+#         for fila in filas[2:34]:
+#             pais = fila.find_element(By.TAG_NAME, 'a').get_attribute('href')
+#             paises.append(pais.split('/')[5].replace('-',' ').title())
 
-            bet_mean.append(mean([float(e) for e in fila.text.split('\n')[2].split()[1:]]))
+#             bet_mean.append(mean([float(e) for e in fila.text.split('\n')[2].split()[1:]]))
 
-        scrap_odds = dict(zip(paises, bet_mean))
+#         scrap_odds = dict(zip(paises, bet_mean))
 
-        dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
+#         dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
-        codes = list(dictio_odds.keys())
-        odds = list(dictio_odds.values())
-        df = pd.DataFrame()
-        df['codes'] = codes
-        df['odds'] = odds
+#         codes = list(dictio_odds.keys())
+#         odds = list(dictio_odds.values())
+#         df = pd.DataFrame()
+#         df['codes'] = codes
+#         df['odds'] = odds
 
-        replace_dict = {
-                'Netherlands': 'Netherlands 🇳🇱 ',
-                'North Macedonia': 'Nort Macedonia 🇲🇰 ',
-                'Czechia': 'Czechia 🇨🇿 ',
-                'United Kingdom': 'United Kingdom 🇬🇧 ',
-                'Albania':'Albania 🇦🇱 ',
-                'Andorra':"Andorra 🇦🇩 ",
-                'Armenia':"Armenia 🇦🇲 ",
-                'Australia':"Australia 🇦🇺 ",
-                'Austria':"Austria 🇦🇹 ",
-                'Azerbaijan':"Azerbaijan 🇦🇿 ",
-                'Belarus':"Belarus 🇧🇾 ",
-                'Belgium':"Belgium 🇧🇪 ",
-                'Bulgaria':"Bulgaria 🇧🇬 ",
-                'Croatia':"Croatia 🇭🇷 ",
-                'Cyprus':"Cyprus 🇨🇾 ",
-                'Denmark':"Denmark 🇩🇰 ",
-                'Estonia':"Estonia 🇪🇪 ",
-                'Finland':"Finland 🇫🇮 ",
-                'France':"France 🇫🇷 ",
-                'Georgia':"Georgia 🇬🇪 ",
-                'Germany':"Germany 🇩🇪 ",
-                'Greece':"Greece 🇬🇷 ",
-                'Hungary':"Hungary 🇭🇺 ",
-                'Iceland':"Iceland 🇮🇸 ",
-                'Ireland':"Ireland 🇮🇪 ",
-                'Israel':"Israel 🇮🇱 ",
-                'Italy':"Italy 🇮🇹 ",
-                'Latvia':"Latvia 🇱🇻 ",
-                'Lithuania':"Lithuania 🇱🇹 ",
-                'Malta':"Malta 🇲🇹 ",
-                'Moldova':"Moldova 🇲🇩 ",
-                'Monaco':"Monaco 🇲🇨 ",
-                'Montenegro':"Montenegro 🇲🇪 ",
-                'Norway':"Norway 🇳🇴 ",
-                'Poland':"Poland 🇵🇱 ",
-                'Portugal':"Portugal 🇵🇹 ",
-                'Romania':"Romania 🇷🇴 ",
-                'Russia':"Russia 🇷🇺 ",
-                'San Marino':"San Marino 🇸🇲 ",
-                'Serbia':"Serbia 🇷🇸 ",
-                'Slovakia':"Slovakia 🇸🇰 ",
-                'Slovenia':"Slovenia 🇸🇮 ",
-                'Spain':"Spain 🇪🇸 ",
-                'Sweden':"Sweden 🇸🇪 ",
-                'Switzerland':"Switzerland 🇨🇭 ",
-                'Turkey':"Turkey 🇹🇷 ",
-                'Ukraine':"Ukraine 🇺🇦 "
-            }
+#         replace_dict = {
+#                 'Netherlands': 'Netherlands 🇳🇱 ',
+#                 'North Macedonia': 'Nort Macedonia 🇲🇰 ',
+#                 'Czechia': 'Czechia 🇨🇿 ',
+#                 'United Kingdom': 'United Kingdom 🇬🇧 ',
+#                 'Albania':'Albania 🇦🇱 ',
+#                 'Andorra':"Andorra 🇦🇩 ",
+#                 'Armenia':"Armenia 🇦🇲 ",
+#                 'Australia':"Australia 🇦🇺 ",
+#                 'Austria':"Austria 🇦🇹 ",
+#                 'Azerbaijan':"Azerbaijan 🇦🇿 ",
+#                 'Belarus':"Belarus 🇧🇾 ",
+#                 'Belgium':"Belgium 🇧🇪 ",
+#                 'Bulgaria':"Bulgaria 🇧🇬 ",
+#                 'Croatia':"Croatia 🇭🇷 ",
+#                 'Cyprus':"Cyprus 🇨🇾 ",
+#                 'Denmark':"Denmark 🇩🇰 ",
+#                 'Estonia':"Estonia 🇪🇪 ",
+#                 'Finland':"Finland 🇫🇮 ",
+#                 'France':"France 🇫🇷 ",
+#                 'Georgia':"Georgia 🇬🇪 ",
+#                 'Germany':"Germany 🇩🇪 ",
+#                 'Greece':"Greece 🇬🇷 ",
+#                 'Hungary':"Hungary 🇭🇺 ",
+#                 'Iceland':"Iceland 🇮🇸 ",
+#                 'Ireland':"Ireland 🇮🇪 ",
+#                 'Israel':"Israel 🇮🇱 ",
+#                 'Italy':"Italy 🇮🇹 ",
+#                 'Latvia':"Latvia 🇱🇻 ",
+#                 'Lithuania':"Lithuania 🇱🇹 ",
+#                 'Malta':"Malta 🇲🇹 ",
+#                 'Moldova':"Moldova 🇲🇩 ",
+#                 'Monaco':"Monaco 🇲🇨 ",
+#                 'Montenegro':"Montenegro 🇲🇪 ",
+#                 'Norway':"Norway 🇳🇴 ",
+#                 'Poland':"Poland 🇵🇱 ",
+#                 'Portugal':"Portugal 🇵🇹 ",
+#                 'Romania':"Romania 🇷🇴 ",
+#                 'Russia':"Russia 🇷🇺 ",
+#                 'San Marino':"San Marino 🇸🇲 ",
+#                 'Serbia':"Serbia 🇷🇸 ",
+#                 'Slovakia':"Slovakia 🇸🇰 ",
+#                 'Slovenia':"Slovenia 🇸🇮 ",
+#                 'Spain':"Spain 🇪🇸 ",
+#                 'Sweden':"Sweden 🇸🇪 ",
+#                 'Switzerland':"Switzerland 🇨🇭 ",
+#                 'Turkey':"Turkey 🇹🇷 ",
+#                 'Ukraine':"Ukraine 🇺🇦 "
+#             }
 
-        scrap_odds_nuevo = {}
-        for clave in scrap_odds:
-            if clave in replace_dict:
-                nueva_clave = replace_dict[clave]
-            else:
-                print('Falta una')
-                nueva_clave = clave
-            scrap_odds_nuevo[nueva_clave] = scrap_odds[clave]
+#         scrap_odds_nuevo = {}
+#         for clave in scrap_odds:
+#             if clave in replace_dict:
+#                 nueva_clave = replace_dict[clave]
+#             else:
+#                 print('Falta una')
+#                 nueva_clave = clave
+#             scrap_odds_nuevo[nueva_clave] = scrap_odds[clave]
         # scrap_odds
 
-    #     scrap_odds =    {'Sweden 🇸🇪 ': 1.6394117647058823,
-    #                      'Finland 🇫🇮 ': 3.3494117647058825,
-    #                      'Ukraine 🇺🇦 ': 10.058823529411764,
-    #                      'France 🇫🇷 ': 14.647058823529411,
-    #                      'Spain 🇪🇸 ': 20.470588235294116,
-    #                      'Norway 🇳🇴 ': 25.647058823529413,
-    #                      'Israel 🇮🇱 ': 26.058823529411764,
-    #                      'United Kingdom 🇬🇧 ': 57.705882352941174,
-    #                      'Italy 🇮🇹 ': 60.470588235294116,
-    #                      'Austria 🇦🇹 ': 83.41176470588235,
-    #                      'Czechia 🇨🇿 ': 87.94117647058823,
-    #                      'Armenia 🇦🇲 ': 120.47058823529412,
-    #                      'Switzerland 🇨🇭 ': 158.1764705882353,
-    #                      'Germany 🇩🇪 ': 173.76470588235293,
-    #                      'Australia 🇦🇺 ': 172.0,
-    #                      'Serbia 🇷🇸 ': 188.76470588235293,
-    #                      'Croatia 🇭🇷 ': 181.41176470588235,
-    #                      'Slovenia 🇸🇮 ': 241.7058823529412,
-    #                      'Moldova 🇲🇩 ': 205.23529411764707,
-    #                      'Portugal 🇵🇹 ': 271.11764705882354,
-    #                      'Cyprus 🇨🇾 ': 281.4117647058824,
-    #                      'Poland 🇵🇱 ': 265.8235294117647,
-    #                      'Estonia 🇪🇪 ': 307.88235294117646,
-    #                      'Georgia 🇬🇪 ': 315.2352941176471,
-    #                      'Belgium 🇧🇪 ': 352.0,
-    #                      'Lithuania 🇱🇹 ': 361.4375,
-    #                      'Denmark 🇩🇰 ': 377.0,
-    #                      'Iceland 🇮🇸 ': 379.94117647058823,
-    #                      'Greece 🇬🇷 ': 407.88235294117646,
-    #                      'Albania 🇦🇱 ': 484.3529411764706,
-    #                      'Romania 🇷🇴 ': 522.5882352941177,
-    #                      'San Marino 🇸🇲 ': 525.5294117647059,
-    #                     'Netherlands 🇳🇱 ' : 1000,
-    #                     'Ireland 🇮🇪 ' : 1000,
-    #                     'Latvia 🇱🇻 ' : 1000,
-    #                     'Azerbaijan 🇦🇿 ' : 1000,
-    #                     'Malta 🇲🇹 ' : 1000}
+        scrap_odds =    {'Sweden 🇸🇪 ': 1.6394117647058823,
+                         'Finland 🇫🇮 ': 3.3494117647058825,
+                         'Ukraine 🇺🇦 ': 10.058823529411764,
+                         'France 🇫🇷 ': 14.647058823529411,
+                         'Spain 🇪🇸 ': 20.470588235294116,
+                         'Norway 🇳🇴 ': 25.647058823529413,
+                         'Israel 🇮🇱 ': 26.058823529411764,
+                         'United Kingdom 🇬🇧 ': 57.705882352941174,
+                         'Italy 🇮🇹 ': 60.470588235294116,
+                         'Austria 🇦🇹 ': 83.41176470588235,
+                         'Czechia 🇨🇿 ': 87.94117647058823,
+                         'Armenia 🇦🇲 ': 120.47058823529412,
+                         'Switzerland 🇨🇭 ': 158.1764705882353,
+                         'Germany 🇩🇪 ': 173.76470588235293,
+                         'Australia 🇦🇺 ': 172.0,
+                         'Serbia 🇷🇸 ': 188.76470588235293,
+                         'Croatia 🇭🇷 ': 181.41176470588235,
+                         'Slovenia 🇸🇮 ': 241.7058823529412,
+                         'Moldova 🇲🇩 ': 205.23529411764707,
+                         'Portugal 🇵🇹 ': 271.11764705882354,
+                         'Cyprus 🇨🇾 ': 281.4117647058824,
+                         'Poland 🇵🇱 ': 265.8235294117647,
+                         'Estonia 🇪🇪 ': 307.88235294117646,
+                         'Georgia 🇬🇪 ': 315.2352941176471,
+                         'Belgium 🇧🇪 ': 352.0,
+                         'Lithuania 🇱🇹 ': 361.4375,
+                         'Denmark 🇩🇰 ': 377.0,
+                         'Iceland 🇮🇸 ': 379.94117647058823,
+                         'Greece 🇬🇷 ': 407.88235294117646,
+                         'Albania 🇦🇱 ': 484.3529411764706,
+                         'Romania 🇷🇴 ': 522.5882352941177,
+                         'San Marino 🇸🇲 ': 525.5294117647059,
+                        'Netherlands 🇳🇱 ' : 1000,
+                        'Ireland 🇮🇪 ' : 1000,
+                        'Latvia 🇱🇻 ' : 1000,
+                        'Azerbaijan 🇦🇿 ' : 1000,
+                        'Malta 🇲🇹 ' : 1000}
 
         dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
