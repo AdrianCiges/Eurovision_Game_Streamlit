@@ -335,13 +335,15 @@ def get_songs_ESC23(cancion):
     return tabla0
 
 def row_data(user_songs):
-
+    
     fecha_actual = datetime.datetime.now()
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
-    hora_actual_str = fecha_actual.strftime("%H:%M:%S")
+    hora_actual = fecha_actual.time()
+    hora_actual_mas_2h = (datetime.datetime.combine(datetime.date.min, hora_actual) + datetime.timedelta(hours=2)).time()
+    hora_actual_mas_2h_str = hora_actual_mas_2h.strftime("%H:%M:%S")
 
     st.write('')
-    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
     time.sleep(1)
     st.write('')
     st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
@@ -361,10 +363,12 @@ def row_data_ESC23(user_songs):
 
     fecha_actual = datetime.datetime.now()
     fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
-    hora_actual_str = fecha_actual.strftime("%H:%M:%S")
+    hora_actual = fecha_actual.time()
+    hora_actual_mas_2h = (datetime.datetime.combine(datetime.date.min, hora_actual) + datetime.timedelta(hours=2)).time()
+    hora_actual_mas_2h_str = hora_actual_mas_2h.strftime("%H:%M:%S")
     
     st.write('')
-    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+    st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
     time.sleep(1)
     st.write('')
     st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
