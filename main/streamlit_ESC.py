@@ -1028,7 +1028,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
         
             elims = ['Azerbaijan 🇦🇿 ', 'Ireland 🇮🇪 ', 'Latvia 🇱🇻 ', 'Malta 🇲🇹 ', 'Netherlands 🇳🇱 ']
-            df_elims = pd.DataFrame(0, index=[hoy], columns=elims)
+            df_elims = pd.DataFrame(0, index=[fecha_hoy], columns=elims)
             st.write('df_elims')
             df_elims
 
