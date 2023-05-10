@@ -2720,72 +2720,73 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
         return prediction_result
 
-    resultado = predicciones_now(user_songs)
+    if st.button('predecir'):
+        resultado = predicciones_now(user_songs)
 
-    df = pd.DataFrame(resultado)
-    df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+        df = pd.DataFrame(resultado)
+        df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
 
-    first_points = df_sorted['points'][0]
-    last_points = df_sorted['points'][26]
+        first_points = df_sorted['points'][0]
+        last_points = df_sorted['points'][26]
 
-    pendiente = first_points/(first_points-last_points)
-    intercept = (first_points*last_points)/(first_points-last_points)
+        pendiente = first_points/(first_points-last_points)
+        intercept = (first_points*last_points)/(first_points-last_points)
 
-    total_points = df_sorted['points'].sum()
+        total_points = df_sorted['points'].sum()
 
-    for i,p in enumerate(df_sorted['points']):
-        df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+        for i,p in enumerate(df_sorted['points']):
+            df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-    df_sorted.loc[26:, 'points'] = 0
+        df_sorted.loc[26:, 'points'] = 0
 
-    total_points = df_sorted['points'].sum()
+        total_points = df_sorted['points'].sum()
 
-    cociente = 4292/total_points
+        cociente = 4292/total_points
 
-    for i,puntos in enumerate(df_sorted['points'][:26]):
-        df_sorted.loc[i, 'points'] = round(puntos*cociente)
+        for i,puntos in enumerate(df_sorted['points'][:26]):
+            df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
-    total_points = df_sorted['points'].sum()
+        total_points = df_sorted['points'].sum()
 
-    diferencia = 4292-total_points
+        diferencia = 4292-total_points
 
-    # Me quedo con el último índice no nulo
-    for i,p in enumerate(df_sorted['points']):
-        if p <= 0:
-            last_nonull = i-1
-            break
+        # Me quedo con el último índice no nulo
+        for i,p in enumerate(df_sorted['points']):
+            if p <= 0:
+                last_nonull = i-1
+                break
 
-    if diferencia > 0:
-        for i in range(25-diferencia+1, 26):
-            df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+        if diferencia > 0:
+            for i in range(25-diferencia+1, 26):
+                df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
 
-    elif diferencia < 0:
-        for i in range(last_nonull+diferencia+1, last_nonull+1):
-            print(i)
-            df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+        elif diferencia < 0:
+            for i in range(last_nonull+diferencia+1, last_nonull+1):
+                print(i)
+                df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
 
-    total_points = df_sorted['points'].sum()
+        total_points = df_sorted['points'].sum()
 
-    df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-    df_sorted = df_sorted[['song','singer','country','points']] 
+        df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+        df_sorted = df_sorted[['song','singer','country','points']] 
 
-    df_sorted_check = df_sorted.copy()
-    df_sorted_check.reset_index(drop=True, inplace=True)
-    df_sorted_check.index += 1
-    df_sorted_check.style.apply(highlight_rows, axis=1)
+        df_sorted_check = df_sorted.copy()
+        df_sorted_check.reset_index(drop=True, inplace=True)
+        df_sorted_check.index += 1
+        df_sorted_check.style.apply(highlight_rows, axis=1)
 
-    # Obtener la fecha de hoy
-    fecha_hoy = pd.Timestamp('today').date()
-    fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
+        # Obtener la fecha de hoy
+        fecha_hoy = pd.Timestamp('today').date()
+        fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
 
-    # Crear un diccionario para especificar las columnas y sus valores
-    columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
-    valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
-    data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
+        # Crear un diccionario para especificar las columnas y sus valores
+        columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
+        valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
+        data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
 
-    # --------------------------------------------------------------------------------------
-    df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
-    df_metricas
+        # --------------------------------------------------------------------------------------
+        df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
+        df_metricas
 
 
  
