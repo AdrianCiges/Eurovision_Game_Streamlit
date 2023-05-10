@@ -2802,7 +2802,9 @@ elif app_mode == '🤫 Oculto':
 
         # --------------------------------------------------------------------------------------
         df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
-        df_metricas
+        st.table(df_metricas)
+        
+
 
 
  
