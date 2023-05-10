@@ -2356,7 +2356,8 @@ elif app_mode == '🤫 Oculto':
                           {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
                           {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
                           {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland 🇨🇭 ', 'manager': 'J36'}, 
-#                           {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine 🇺🇦 ', 'manager': 'J37'}]
+#                           {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine 🇺🇦 ', 'manager': 'J37'}
+                            ]
     
     def get_songs_ESC23(cancion):
     
