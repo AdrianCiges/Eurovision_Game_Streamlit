@@ -2806,6 +2806,20 @@ elif app_mode == '🤫 Oculto':
         df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
         st.table(df_metricas)
         
+        @st.cache
+        def convert_df(df_metricas):
+            # IMPORTANT: Cache the conversion to prevent computation on every rerun
+            return df_metricas.to_csv().encode('utf-8')
+
+        csv = convert_df(my_large_df)
+
+        st.download_button(
+            label="Download data as CSV",
+            data=csv,
+            file_name='large_df.csv',
+            mime='text/csv',
+        )
+        
 
 
 
