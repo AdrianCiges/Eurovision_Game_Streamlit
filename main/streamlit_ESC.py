@@ -1024,7 +1024,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
 
 # --------------------------------------------------------------------------------------
-            # st.write(row_data_ESC23(user_songs)) # Para ver las métricas
+            st.write(row_data_ESC23(user_songs)) # Para ver las métricas
 # --------------------------------------------------------------------------------------
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
