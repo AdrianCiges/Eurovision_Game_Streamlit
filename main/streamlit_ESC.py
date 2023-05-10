@@ -1032,7 +1032,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             st.write('df_elims')
             df_elims
 
-            df_nuevo = pd.concat([df_nuevo, df], axis=0, sort=False)
+            df_nuevo = pd.concat([df_nuevo, df_elims], axis=0, sort=False)
         
             df_nuevo = df_nuevo.sort_index(axis=1)
             st.write('df_nuevo')
