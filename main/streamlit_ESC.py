@@ -2303,43 +2303,43 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 # -------------------------------------------------------------------------------------------------------------------------------------------------------
 elif app_mode == '🤖 Predicción Eurovisión 2023':
     
-#     user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
-#                           {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany 🇩🇪 ', 'manager': 'J2'}, 
-#                           {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia 🇦🇲 ', 'manager': 'J3'}, 
-#                           {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia 🇦🇺 ', 'manager': 'J4'}, 
-#                           {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria 🇦🇹 ', 'manager': 'J5'}, 
-#                           #{'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
-#                           {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
-#                           {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia 🇨🇿 ', 'manager': 'J8'}, 
-#                           {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus 🇨🇾 ', 'manager': 'J9'}, 
-#                           {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia 🇭🇷 ', 'manager': 'J10'}, 
-#                           {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark 🇩🇰 ', 'manager': 'J11'}, 
-#                           {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia 🇸🇮 ', 'manager': 'J12'}, 
-#                           {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain 🇪🇸 ', 'manager': 'J13'}, 
-#                           {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia 🇪🇪 ', 'manager': 'J14'}, 
-#                           {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland 🇫🇮 ', 'manager': 'J15'}, 
-#                           {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France 🇫🇷 ', 'manager': 'J16'}, 
-#                           {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia 🇬🇪 ', 'manager': 'J17'}, 
-#                           {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece 🇬🇷 ', 'manager': 'J18'}, 
-#                           #{'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland 🇮🇪 ', 'manager': 'J19'}, 
-#                           {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland 🇮🇸 ', 'manager': 'J20'}, 
-#                           {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel 🇮🇱 ', 'manager': 'J21'}, 
-#                           {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy 🇮🇹 ', 'manager': 'J22'}, 
-#                           #{'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia 🇱🇻 ', 'manager': 'J23'}, 
-#                           {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania 🇱🇹 ', 'manager': 'J24'}, 
-#                           #{'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta 🇲🇹 ', 'manager': 'J25'}, 
-#                           {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova 🇲🇩 ', 'manager': 'J26'}, 
-#                           {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway 🇳🇴 ', 'manager': 'J27'}, 
-#                           #{'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands 🇳🇱 ', 'manager': 'J28'}, 
-#                           {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland 🇵🇱 ', 'manager': 'J29'}, 
-#                           {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal 🇵🇹 ', 'manager': 'J30'}, 
-#                           {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom 🇬🇧 ', 'manager': 'J31'}, 
-#                           {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
-#                           {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
-#                           {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
-#                           {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
-#                           {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland 🇨🇭 ', 'manager': 'J36'}, 
-#                           {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine 🇺🇦 ', 'manager': 'J37'}]
+    user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
+                          {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany 🇩🇪 ', 'manager': 'J2'}, 
+                          {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia 🇦🇲 ', 'manager': 'J3'}, 
+                          {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia 🇦🇺 ', 'manager': 'J4'}, 
+                          {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria 🇦🇹 ', 'manager': 'J5'}, 
+                          #{'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
+                          {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
+                          {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia 🇨🇿 ', 'manager': 'J8'}, 
+                          {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus 🇨🇾 ', 'manager': 'J9'}, 
+                          {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia 🇭🇷 ', 'manager': 'J10'}, 
+                          {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark 🇩🇰 ', 'manager': 'J11'}, 
+                          {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia 🇸🇮 ', 'manager': 'J12'}, 
+                          {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain 🇪🇸 ', 'manager': 'J13'}, 
+                          {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia 🇪🇪 ', 'manager': 'J14'}, 
+                          {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland 🇫🇮 ', 'manager': 'J15'}, 
+                          {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France 🇫🇷 ', 'manager': 'J16'}, 
+                          {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia 🇬🇪 ', 'manager': 'J17'}, 
+                          {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece 🇬🇷 ', 'manager': 'J18'}, 
+                          #{'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland 🇮🇪 ', 'manager': 'J19'}, 
+                          {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland 🇮🇸 ', 'manager': 'J20'}, 
+                          {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel 🇮🇱 ', 'manager': 'J21'}, 
+                          {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy 🇮🇹 ', 'manager': 'J22'}, 
+                          #{'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia 🇱🇻 ', 'manager': 'J23'}, 
+                          {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania 🇱🇹 ', 'manager': 'J24'}, 
+                          #{'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta 🇲🇹 ', 'manager': 'J25'}, 
+                          {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova 🇲🇩 ', 'manager': 'J26'}, 
+                          {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway 🇳🇴 ', 'manager': 'J27'}, 
+                          #{'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands 🇳🇱 ', 'manager': 'J28'}, 
+                          {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland 🇵🇱 ', 'manager': 'J29'}, 
+                          {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal 🇵🇹 ', 'manager': 'J30'}, 
+                          {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom 🇬🇧 ', 'manager': 'J31'}, 
+                          {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
+                          {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
+                          {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
+                          {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
+                          {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland 🇨🇭 ', 'manager': 'J36'}, 
+                          {'song': 'Heart of steel', 'singer': 'Tvorchi', 'country': 'Ukraine 🇺🇦 ', 'manager': 'J37'}]
     
     def get_songs_ESC23(cancion):
     
@@ -2487,305 +2487,305 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
         return tabla0
 
-def row_data_ESC23(user_songs):
+    def row_data_ESC23(user_songs):
 
-    fecha_actual = datetime.datetime.now()
-    fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
-    hora_actual = fecha_actual.time()
-    hora_actual_mas_2h = (datetime.datetime.combine(datetime.date.min, hora_actual) + datetime.timedelta(hours=2)).time()
-    hora_actual_mas_2h_str = hora_actual_mas_2h.strftime("%H:%M:%S")
-    
-#     st.write('')
-#     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
-#     time.sleep(1)
-#     st.write('')
-#     st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
-    
-#     time.sleep(1)
-#     st.write('')
-#     st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
+        fecha_actual = datetime.datetime.now()
+        fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
+        hora_actual = fecha_actual.time()
+        hora_actual_mas_2h = (datetime.datetime.combine(datetime.date.min, hora_actual) + datetime.timedelta(hours=2)).time()
+        hora_actual_mas_2h_str = hora_actual_mas_2h.strftime("%H:%M:%S")
 
-    tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
+    #     st.write('')
+    #     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
+    #     time.sleep(1)
+    #     st.write('')
+    #     st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
 
-    tabla0 = pd.DataFrame()
-    tabla0 = pd.concat(tablas_songs, axis=0)
+    #     time.sleep(1)
+    #     st.write('')
+    #     st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
 
-    return tabla0
+        tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
 
-def puntos_reales(propo12, num_paises):
-    return round(2*((0.0009984580569663269+11.961021107218633*propo12)*num_paises))
+        tabla0 = pd.DataFrame()
+        tabla0 = pd.concat(tablas_songs, axis=0)
 
-def predicciones_now(user_songs):
+        return tabla0
 
-    tabla0 = row_data_ESC23(user_songs)
+    def puntos_reales(propo12, num_paises):
+        return round(2*((0.0009984580569663269+11.961021107218633*propo12)*num_paises))
 
-    # LIMPIEZA
+    def predicciones_now(user_songs):
 
-    # LIMPIEZA SHAZAMS
+        tabla0 = row_data_ESC23(user_songs)
 
-    int_shazams = []
-    for shz in tabla0["shazams"]:
-        if shz == "" or shz == 0:
-            pass
-        elif (type(shz) != int) and ("." in shz):
-            int_shazams.append(int(shz.replace(".", "")))
-        else:
-            int_shazams.append(int(shz))
+        # LIMPIEZA
 
-    shazams_bien = []
-    for shz in tabla0["shazams"]:
-        if type(shz) != int:
-            shazams_bien.append(int(shz.replace(".", "")))
-        elif (shz == 0 and type(shz) == int) or (shz == "" and type(shz) != int):
-            shazams_bien.append(stats.mean(int_shazams))
-        else:
-            shazams_bien.append(int(shz))
-    tabla0["shazams"] = shazams_bien
+        # LIMPIEZA SHAZAMS
 
-    # SCRAPPEO LA CUOTA DE APUESTAS ACTUALIZADA
-    
-    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48}
-    
+        int_shazams = []
+        for shz in tabla0["shazams"]:
+            if shz == "" or shz == 0:
+                pass
+            elif (type(shz) != int) and ("." in shz):
+                int_shazams.append(int(shz.replace(".", "")))
+            else:
+                int_shazams.append(int(shz))
 
-    fecha_actual = datetime.datetime.now()
-    fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
-    hora_actual_str = fecha_actual.strftime("%H:%M:%S")
+        shazams_bien = []
+        for shz in tabla0["shazams"]:
+            if type(shz) != int:
+                shazams_bien.append(int(shz.replace(".", "")))
+            elif (shz == 0 and type(shz) == int) or (shz == "" and type(shz) != int):
+                shazams_bien.append(stats.mean(int_shazams))
+            else:
+                shazams_bien.append(int(shz))
+        tabla0["shazams"] = shazams_bien
 
-    # st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
+        # SCRAPPEO LA CUOTA DE APUESTAS ACTUALIZADA
 
-    # Configurar opciones de Chrome en modo "headless"
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Ejecutar en modo headless
-    chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
+        pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48}
 
-    # Iniciar el servicio de Chrome y el navegador en modo "headless"
-    PATH=ChromeDriverManager().install()
-    chrome_service = ChromeService(executable_path=PATH)  # Reemplaza con la ruta a tu driver de Chrome
-    driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-    # URL de la página web con la tabla
-    url = 'https://eurovisionworld.com/odds/eurovision'
+        fecha_actual = datetime.datetime.now()
+        fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
+        hora_actual_str = fecha_actual.strftime("%H:%M:%S")
 
-    pais_odds = {'Albania': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Israel': 23, 'Italy': 24, 'Lithuania': 26, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
+        # st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
 
-    driver.get(url)
-    tabla = driver.find_element(By.CLASS_NAME, 'o_table.ob_none')
-    filas = tabla.find_elements(By.TAG_NAME, 'tr')
+        # Configurar opciones de Chrome en modo "headless"
+        chrome_options = ChromeOptions()
+        chrome_options.add_argument('--headless')  # Ejecutar en modo headless
+        chrome_options.add_argument('--disable-gpu')  # Desactivar aceleración de GPU
 
-    paises = []
-    bet_mean = []
-    for fila in filas[2:34]:
-        pais = fila.find_element(By.TAG_NAME, 'a').get_attribute('href')
-        paises.append(pais.split('/')[5].replace('-',' ').title())
+        # Iniciar el servicio de Chrome y el navegador en modo "headless"
+        PATH=ChromeDriverManager().install()
+        chrome_service = ChromeService(executable_path=PATH)  # Reemplaza con la ruta a tu driver de Chrome
+        driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
-        bet_mean.append(mean([float(e) for e in fila.text.split('\n')[2].split()[1:]]))
+        # URL de la página web con la tabla
+        url = 'https://eurovisionworld.com/odds/eurovision'
 
-    scrap_odds = dict(zip(paises, bet_mean))
+        pais_odds = {'Albania': 0, 'Andorra': 1, 'Armenia': 2, 'Australia': 3, 'Austria': 4, 'Belarus': 6, 'Belgium': 7, 'Bosnia and Herzegovina': 8, 'Bulgaria': 9, 'Croatia': 10, 'Cyprus': 11, 'Czechia': 12, 'Denmark': 13, 'Estonia': 14, 'Finland': 15, 'France': 16, 'Georgia': 17, 'Germany': 18, 'Greece': 19, 'Hungary': 20, 'Iceland': 21, 'Israel': 23, 'Italy': 24, 'Lithuania': 26, 'Moldova': 28, 'Monaco': 29, 'Montenegro': 30, 'North Macedonia': 31, 'Norway': 32, 'Poland': 33, 'Portugal': 34, 'Romania': 35, 'Russia': 36, 'San Marino': 37, 'Serbia': 38, 'Slovakia': 40, 'Slovenia': 41, 'Spain': 42, 'Sweden': 43, 'Switzerland': 44, 'Turkey': 46, 'Ukraine': 47, 'United Kingdom': 48}
 
-    dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
+        driver.get(url)
+        tabla = driver.find_element(By.CLASS_NAME, 'o_table.ob_none')
+        filas = tabla.find_elements(By.TAG_NAME, 'tr')
 
-    codes = list(dictio_odds.keys())
-    odds = list(dictio_odds.values())
-    df = pd.DataFrame()
-    df['codes'] = codes
-    df['odds'] = odds
+        paises = []
+        bet_mean = []
+        for fila in filas[2:34]:
+            pais = fila.find_element(By.TAG_NAME, 'a').get_attribute('href')
+            paises.append(pais.split('/')[5].replace('-',' ').title())
 
-    replace_dict = {
-            'Netherlands': 'Netherlands 🇳🇱 ',
-            'North Macedonia': 'Nort Macedonia 🇲🇰 ',
-            'Czechia': 'Czechia 🇨🇿 ',
-            'United Kingdom': 'United Kingdom 🇬🇧 ',
-            'Albania':'Albania 🇦🇱 ',
-            'Andorra':"Andorra 🇦🇩 ",
-            'Armenia':"Armenia 🇦🇲 ",
-            'Australia':"Australia 🇦🇺 ",
-            'Austria':"Austria 🇦🇹 ",
-            'Azerbaijan':"Azerbaijan 🇦🇿 ",
-            'Belarus':"Belarus 🇧🇾 ",
-            'Belgium':"Belgium 🇧🇪 ",
-            'Bulgaria':"Bulgaria 🇧🇬 ",
-            'Croatia':"Croatia 🇭🇷 ",
-            'Cyprus':"Cyprus 🇨🇾 ",
-            'Denmark':"Denmark 🇩🇰 ",
-            'Estonia':"Estonia 🇪🇪 ",
-            'Finland':"Finland 🇫🇮 ",
-            'France':"France 🇫🇷 ",
-            'Georgia':"Georgia 🇬🇪 ",
-            'Germany':"Germany 🇩🇪 ",
-            'Greece':"Greece 🇬🇷 ",
-            'Hungary':"Hungary 🇭🇺 ",
-            'Iceland':"Iceland 🇮🇸 ",
-            'Ireland':"Ireland 🇮🇪 ",
-            'Israel':"Israel 🇮🇱 ",
-            'Italy':"Italy 🇮🇹 ",
-            'Latvia':"Latvia 🇱🇻 ",
-            'Lithuania':"Lithuania 🇱🇹 ",
-            'Malta':"Malta 🇲🇹 ",
-            'Moldova':"Moldova 🇲🇩 ",
-            'Monaco':"Monaco 🇲🇨 ",
-            'Montenegro':"Montenegro 🇲🇪 ",
-            'Norway':"Norway 🇳🇴 ",
-            'Poland':"Poland 🇵🇱 ",
-            'Portugal':"Portugal 🇵🇹 ",
-            'Romania':"Romania 🇷🇴 ",
-            'Russia':"Russia 🇷🇺 ",
-            'San Marino':"San Marino 🇸🇲 ",
-            'Serbia':"Serbia 🇷🇸 ",
-            'Slovakia':"Slovakia 🇸🇰 ",
-            'Slovenia':"Slovenia 🇸🇮 ",
-            'Spain':"Spain 🇪🇸 ",
-            'Sweden':"Sweden 🇸🇪 ",
-            'Switzerland':"Switzerland 🇨🇭 ",
-            'Turkey':"Turkey 🇹🇷 ",
-            'Ukraine':"Ukraine 🇺🇦 "
-        }
+            bet_mean.append(mean([float(e) for e in fila.text.split('\n')[2].split()[1:]]))
 
-    scrap_odds_nuevo = {}
-    for clave in scrap_odds:
-        if clave in replace_dict:
-            nueva_clave = replace_dict[clave]
-        else:
-            print('Falta una')
-            nueva_clave = clave
-        scrap_odds_nuevo[nueva_clave] = scrap_odds[clave]
-    # scrap_odds
-    
-#     scrap_odds =    {'Sweden 🇸🇪 ': 1.6394117647058823,
-#                      'Finland 🇫🇮 ': 3.3494117647058825,
-#                      'Ukraine 🇺🇦 ': 10.058823529411764,
-#                      'France 🇫🇷 ': 14.647058823529411,
-#                      'Spain 🇪🇸 ': 20.470588235294116,
-#                      'Norway 🇳🇴 ': 25.647058823529413,
-#                      'Israel 🇮🇱 ': 26.058823529411764,
-#                      'United Kingdom 🇬🇧 ': 57.705882352941174,
-#                      'Italy 🇮🇹 ': 60.470588235294116,
-#                      'Austria 🇦🇹 ': 83.41176470588235,
-#                      'Czechia 🇨🇿 ': 87.94117647058823,
-#                      'Armenia 🇦🇲 ': 120.47058823529412,
-#                      'Switzerland 🇨🇭 ': 158.1764705882353,
-#                      'Germany 🇩🇪 ': 173.76470588235293,
-#                      'Australia 🇦🇺 ': 172.0,
-#                      'Serbia 🇷🇸 ': 188.76470588235293,
-#                      'Croatia 🇭🇷 ': 181.41176470588235,
-#                      'Slovenia 🇸🇮 ': 241.7058823529412,
-#                      'Moldova 🇲🇩 ': 205.23529411764707,
-#                      'Portugal 🇵🇹 ': 271.11764705882354,
-#                      'Cyprus 🇨🇾 ': 281.4117647058824,
-#                      'Poland 🇵🇱 ': 265.8235294117647,
-#                      'Estonia 🇪🇪 ': 307.88235294117646,
-#                      'Georgia 🇬🇪 ': 315.2352941176471,
-#                      'Belgium 🇧🇪 ': 352.0,
-#                      'Lithuania 🇱🇹 ': 361.4375,
-#                      'Denmark 🇩🇰 ': 377.0,
-#                      'Iceland 🇮🇸 ': 379.94117647058823,
-#                      'Greece 🇬🇷 ': 407.88235294117646,
-#                      'Albania 🇦🇱 ': 484.3529411764706,
-#                      'Romania 🇷🇴 ': 522.5882352941177,
-#                      'San Marino 🇸🇲 ': 525.5294117647059,
-#                     'Netherlands 🇳🇱 ' : 1000,
-#                     'Ireland 🇮🇪 ' : 1000,
-#                     'Latvia 🇱🇻 ' : 1000,
-#                     'Azerbaijan 🇦🇿 ' : 1000,
-#                     'Malta 🇲🇹 ' : 1000}
+        scrap_odds = dict(zip(paises, bet_mean))
 
-    dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
+        dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
-    tabla0["bet_mean"] = [dictio_odds[c] for c in tabla0["pais"]]
+        codes = list(dictio_odds.keys())
+        odds = list(dictio_odds.values())
+        df = pd.DataFrame()
+        df['codes'] = codes
+        df['odds'] = odds
 
-    # REORDENO TABLA
-    tabla0 = tabla0[["pais", "bet_mean", "views", "likes", "shazams"]]
-    tabla0.rename(columns={"pais": "country","views": "views_propos","likes": "likes_propos","shazams": "shazams_propos",},inplace=True,)
+        replace_dict = {
+                'Netherlands': 'Netherlands 🇳🇱 ',
+                'North Macedonia': 'Nort Macedonia 🇲🇰 ',
+                'Czechia': 'Czechia 🇨🇿 ',
+                'United Kingdom': 'United Kingdom 🇬🇧 ',
+                'Albania':'Albania 🇦🇱 ',
+                'Andorra':"Andorra 🇦🇩 ",
+                'Armenia':"Armenia 🇦🇲 ",
+                'Australia':"Australia 🇦🇺 ",
+                'Austria':"Austria 🇦🇹 ",
+                'Azerbaijan':"Azerbaijan 🇦🇿 ",
+                'Belarus':"Belarus 🇧🇾 ",
+                'Belgium':"Belgium 🇧🇪 ",
+                'Bulgaria':"Bulgaria 🇧🇬 ",
+                'Croatia':"Croatia 🇭🇷 ",
+                'Cyprus':"Cyprus 🇨🇾 ",
+                'Denmark':"Denmark 🇩🇰 ",
+                'Estonia':"Estonia 🇪🇪 ",
+                'Finland':"Finland 🇫🇮 ",
+                'France':"France 🇫🇷 ",
+                'Georgia':"Georgia 🇬🇪 ",
+                'Germany':"Germany 🇩🇪 ",
+                'Greece':"Greece 🇬🇷 ",
+                'Hungary':"Hungary 🇭🇺 ",
+                'Iceland':"Iceland 🇮🇸 ",
+                'Ireland':"Ireland 🇮🇪 ",
+                'Israel':"Israel 🇮🇱 ",
+                'Italy':"Italy 🇮🇹 ",
+                'Latvia':"Latvia 🇱🇻 ",
+                'Lithuania':"Lithuania 🇱🇹 ",
+                'Malta':"Malta 🇲🇹 ",
+                'Moldova':"Moldova 🇲🇩 ",
+                'Monaco':"Monaco 🇲🇨 ",
+                'Montenegro':"Montenegro 🇲🇪 ",
+                'Norway':"Norway 🇳🇴 ",
+                'Poland':"Poland 🇵🇱 ",
+                'Portugal':"Portugal 🇵🇹 ",
+                'Romania':"Romania 🇷🇴 ",
+                'Russia':"Russia 🇷🇺 ",
+                'San Marino':"San Marino 🇸🇲 ",
+                'Serbia':"Serbia 🇷🇸 ",
+                'Slovakia':"Slovakia 🇸🇰 ",
+                'Slovenia':"Slovenia 🇸🇮 ",
+                'Spain':"Spain 🇪🇸 ",
+                'Sweden':"Sweden 🇸🇪 ",
+                'Switzerland':"Switzerland 🇨🇭 ",
+                'Turkey':"Turkey 🇹🇷 ",
+                'Ukraine':"Ukraine 🇺🇦 "
+            }
 
-    # CREANDO PROPORCIONES
-    tabla0["views_propos"] = [v / tabla0["views_propos"].sum() for v in tabla0["views_propos"]]
-    tabla0["likes_propos"] = [l / tabla0["likes_propos"].sum() for l in tabla0["likes_propos"]]
-    tabla0["shazams_propos"] = [s / tabla0["shazams_propos"].sum() for s in tabla0["shazams_propos"]]
-    #print(tabla0)
+        scrap_odds_nuevo = {}
+        for clave in scrap_odds:
+            if clave in replace_dict:
+                nueva_clave = replace_dict[clave]
+            else:
+                print('Falta una')
+                nueva_clave = clave
+            scrap_odds_nuevo[nueva_clave] = scrap_odds[clave]
+        # scrap_odds
 
-#     st.write('')
-#     st.markdown('##### 🤔 Prediciendo resultados...')
-#     st.write('')
+    #     scrap_odds =    {'Sweden 🇸🇪 ': 1.6394117647058823,
+    #                      'Finland 🇫🇮 ': 3.3494117647058825,
+    #                      'Ukraine 🇺🇦 ': 10.058823529411764,
+    #                      'France 🇫🇷 ': 14.647058823529411,
+    #                      'Spain 🇪🇸 ': 20.470588235294116,
+    #                      'Norway 🇳🇴 ': 25.647058823529413,
+    #                      'Israel 🇮🇱 ': 26.058823529411764,
+    #                      'United Kingdom 🇬🇧 ': 57.705882352941174,
+    #                      'Italy 🇮🇹 ': 60.470588235294116,
+    #                      'Austria 🇦🇹 ': 83.41176470588235,
+    #                      'Czechia 🇨🇿 ': 87.94117647058823,
+    #                      'Armenia 🇦🇲 ': 120.47058823529412,
+    #                      'Switzerland 🇨🇭 ': 158.1764705882353,
+    #                      'Germany 🇩🇪 ': 173.76470588235293,
+    #                      'Australia 🇦🇺 ': 172.0,
+    #                      'Serbia 🇷🇸 ': 188.76470588235293,
+    #                      'Croatia 🇭🇷 ': 181.41176470588235,
+    #                      'Slovenia 🇸🇮 ': 241.7058823529412,
+    #                      'Moldova 🇲🇩 ': 205.23529411764707,
+    #                      'Portugal 🇵🇹 ': 271.11764705882354,
+    #                      'Cyprus 🇨🇾 ': 281.4117647058824,
+    #                      'Poland 🇵🇱 ': 265.8235294117647,
+    #                      'Estonia 🇪🇪 ': 307.88235294117646,
+    #                      'Georgia 🇬🇪 ': 315.2352941176471,
+    #                      'Belgium 🇧🇪 ': 352.0,
+    #                      'Lithuania 🇱🇹 ': 361.4375,
+    #                      'Denmark 🇩🇰 ': 377.0,
+    #                      'Iceland 🇮🇸 ': 379.94117647058823,
+    #                      'Greece 🇬🇷 ': 407.88235294117646,
+    #                      'Albania 🇦🇱 ': 484.3529411764706,
+    #                      'Romania 🇷🇴 ': 522.5882352941177,
+    #                      'San Marino 🇸🇲 ': 525.5294117647059,
+    #                     'Netherlands 🇳🇱 ' : 1000,
+    #                     'Ireland 🇮🇪 ' : 1000,
+    #                     'Latvia 🇱🇻 ' : 1000,
+    #                     'Azerbaijan 🇦🇿 ' : 1000,
+    #                     'Malta 🇲🇹 ' : 1000}
 
-    # PREDICCIONES
-    pred = list(ctr.predict(tabla0))
-    participantes = len(user_songs)
+        dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
 
-    prediction_result = []
-    for i, dictio in enumerate(user_songs):
+        tabla0["bet_mean"] = [dictio_odds[c] for c in tabla0["pais"]]
 
-        dictio["points"] = puntos_reales(pred[i], participantes-1)       
-        prediction_result.append(dictio)
+        # REORDENO TABLA
+        tabla0 = tabla0[["pais", "bet_mean", "views", "likes", "shazams"]]
+        tabla0.rename(columns={"pais": "country","views": "views_propos","likes": "likes_propos","shazams": "shazams_propos",},inplace=True,)
 
-    prediction_result = sorted(prediction_result, key=itemgetter("points"), reverse=False)
+        # CREANDO PROPORCIONES
+        tabla0["views_propos"] = [v / tabla0["views_propos"].sum() for v in tabla0["views_propos"]]
+        tabla0["likes_propos"] = [l / tabla0["likes_propos"].sum() for l in tabla0["likes_propos"]]
+        tabla0["shazams_propos"] = [s / tabla0["shazams_propos"].sum() for s in tabla0["shazams_propos"]]
+        #print(tabla0)
 
-    return prediction_result
+    #     st.write('')
+    #     st.markdown('##### 🤔 Prediciendo resultados...')
+    #     st.write('')
 
-resultado = predicciones_now(user_songs)
+        # PREDICCIONES
+        pred = list(ctr.predict(tabla0))
+        participantes = len(user_songs)
 
-df = pd.DataFrame(resultado)
-df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+        prediction_result = []
+        for i, dictio in enumerate(user_songs):
 
-first_points = df_sorted['points'][0]
-last_points = df_sorted['points'][26]
+            dictio["points"] = puntos_reales(pred[i], participantes-1)       
+            prediction_result.append(dictio)
 
-pendiente = first_points/(first_points-last_points)
-intercept = (first_points*last_points)/(first_points-last_points)
+        prediction_result = sorted(prediction_result, key=itemgetter("points"), reverse=False)
 
-total_points = df_sorted['points'].sum()
+        return prediction_result
 
-for i,p in enumerate(df_sorted['points']):
-    df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+    resultado = predicciones_now(user_songs)
 
-df_sorted.loc[26:, 'points'] = 0
+    df = pd.DataFrame(resultado)
+    df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
 
-total_points = df_sorted['points'].sum()
+    first_points = df_sorted['points'][0]
+    last_points = df_sorted['points'][26]
 
-cociente = 4292/total_points
+    pendiente = first_points/(first_points-last_points)
+    intercept = (first_points*last_points)/(first_points-last_points)
 
-for i,puntos in enumerate(df_sorted['points'][:26]):
-    df_sorted.loc[i, 'points'] = round(puntos*cociente)
+    total_points = df_sorted['points'].sum()
 
-total_points = df_sorted['points'].sum()
+    for i,p in enumerate(df_sorted['points']):
+        df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-diferencia = 4292-total_points
+    df_sorted.loc[26:, 'points'] = 0
 
-# Me quedo con el último índice no nulo
-for i,p in enumerate(df_sorted['points']):
-    if p <= 0:
-        last_nonull = i-1
-        break
+    total_points = df_sorted['points'].sum()
 
-if diferencia > 0:
-    for i in range(25-diferencia+1, 26):
-        df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+    cociente = 4292/total_points
 
-elif diferencia < 0:
-    for i in range(last_nonull+diferencia+1, last_nonull+1):
-        print(i)
-        df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+    for i,puntos in enumerate(df_sorted['points'][:26]):
+        df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
-total_points = df_sorted['points'].sum()
+    total_points = df_sorted['points'].sum()
 
-df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-df_sorted = df_sorted[['song','singer','country','points']] 
+    diferencia = 4292-total_points
 
-df_sorted_check = df_sorted.copy()
-df_sorted_check.reset_index(drop=True, inplace=True)
-df_sorted_check.index += 1
-df_sorted_check.style.apply(highlight_rows, axis=1)
+    # Me quedo con el último índice no nulo
+    for i,p in enumerate(df_sorted['points']):
+        if p <= 0:
+            last_nonull = i-1
+            break
 
-# Obtener la fecha de hoy
-fecha_hoy = pd.Timestamp('today').date()
-fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
+    if diferencia > 0:
+        for i in range(25-diferencia+1, 26):
+            df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
 
-# Crear un diccionario para especificar las columnas y sus valores
-columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
-valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
-data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
+    elif diferencia < 0:
+        for i in range(last_nonull+diferencia+1, last_nonull+1):
+            print(i)
+            df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
 
-# --------------------------------------------------------------------------------------
-df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
-df_metricas
-    
+    total_points = df_sorted['points'].sum()
+
+    df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+    df_sorted = df_sorted[['song','singer','country','points']] 
+
+    df_sorted_check = df_sorted.copy()
+    df_sorted_check.reset_index(drop=True, inplace=True)
+    df_sorted_check.index += 1
+    df_sorted_check.style.apply(highlight_rows, axis=1)
+
+    # Obtener la fecha de hoy
+    fecha_hoy = pd.Timestamp('today').date()
+    fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
+
+    # Crear un diccionario para especificar las columnas y sus valores
+    columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
+    valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
+    data = {col: [valores.get(col, None)] for col in columnas}  # Crear un diccionario con los valores correspondientes a las columnas
+
+    # --------------------------------------------------------------------------------------
+    df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
+    df_metricas
+
 
  
