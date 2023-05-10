@@ -2301,7 +2301,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
                 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------
-elif app_mode == '🤖 Predicción Eurovisión 2023':
+elif app_mode == '🤫 Oculto':
     
     user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
                           {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany 🇩🇪 ', 'manager': 'J2'}, 
