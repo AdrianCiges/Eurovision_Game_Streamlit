@@ -2342,149 +2342,149 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     
     def get_songs_ESC23(cancion):
     
-    headers = {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Max-Age": "3600",
-        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
-    }
-    label_codes = {
-        "Albania 🇦🇱 ": 0,
-        "Andorra 🇦🇩 ": 1,
-        "Armenia 🇦🇲 ": 2,
-        "Australia 🇦🇺 ": 3,
-        "Austria 🇦🇹 ": 4,
-        "Azerbaijan 🇦🇿 ": 5,
-        "Belarus 🇧🇾 ": 6,
-        "Belgium 🇧🇪 ": 7,
-        "Bosnia and Herzegovina 🇧🇦 ": 8,
-        "Bulgaria 🇧🇬 ": 9,
-        "Croatia 🇭🇷 ": 10,
-        "Cyprus 🇨🇾 ": 11,
-        "Czechia 🇨🇿 ": 12,
-        "Denmark 🇩🇰 ": 13,
-        "Estonia 🇪🇪 ": 14,
-        "Finland 🇫🇮 ": 15,
-        "France 🇫🇷 ": 16,
-        "Georgia 🇬🇪 ": 17,
-        "Germany 🇩🇪 ": 18,
-        "Greece 🇬🇷 ": 19,
-        "Hungary 🇭🇺 ": 20,
-        "Iceland 🇮🇸 ": 21,
-        "Ireland 🇮🇪 ": 22,
-        "Israel 🇮🇱 ": 23,
-        "Italy 🇮🇹 ": 24,
-        "Latvia 🇱🇻 ": 25,
-        "Lithuania 🇱🇹 ": 26,
-        "Malta 🇲🇹 ": 27,
-        "Moldova 🇲🇩 ": 28,
-        "Montenegro 🇲🇪 ": 30,
-        "North Macedonia 🇲🇰 ": 31,
-        "Norway 🇳🇴 ": 32,
-        "Poland 🇵🇱 ": 33,
-        "Portugal 🇵🇹 ": 34,
-        "Romania 🇷🇴 ": 35,
-        "Russia 🇷🇺 ": 36,
-        "San Marino 🇸🇲 ": 37,
-        "Serbia 🇷🇸 ": 38,
-        "Slovakia 🇸🇰 ": 40,
-        "Slovenia 🇸🇮 ": 41,
-        "Spain 🇪🇸 ": 42,
-        "Sweden 🇸🇪 ": 43,
-        "Switzerland 🇨🇭 ": 44,
-        "Netherlands 🇳🇱 ": 45,
-        "Turkey 🇹🇷 ": 46,
-        "Ukraine 🇺🇦 ": 47,
-        "United Kingdom 🇬🇧 ": 48 }
+        headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Max-Age": "3600",
+            "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0",
+        }
+        label_codes = {
+            "Albania 🇦🇱 ": 0,
+            "Andorra 🇦🇩 ": 1,
+            "Armenia 🇦🇲 ": 2,
+            "Australia 🇦🇺 ": 3,
+            "Austria 🇦🇹 ": 4,
+            "Azerbaijan 🇦🇿 ": 5,
+            "Belarus 🇧🇾 ": 6,
+            "Belgium 🇧🇪 ": 7,
+            "Bosnia and Herzegovina 🇧🇦 ": 8,
+            "Bulgaria 🇧🇬 ": 9,
+            "Croatia 🇭🇷 ": 10,
+            "Cyprus 🇨🇾 ": 11,
+            "Czechia 🇨🇿 ": 12,
+            "Denmark 🇩🇰 ": 13,
+            "Estonia 🇪🇪 ": 14,
+            "Finland 🇫🇮 ": 15,
+            "France 🇫🇷 ": 16,
+            "Georgia 🇬🇪 ": 17,
+            "Germany 🇩🇪 ": 18,
+            "Greece 🇬🇷 ": 19,
+            "Hungary 🇭🇺 ": 20,
+            "Iceland 🇮🇸 ": 21,
+            "Ireland 🇮🇪 ": 22,
+            "Israel 🇮🇱 ": 23,
+            "Italy 🇮🇹 ": 24,
+            "Latvia 🇱🇻 ": 25,
+            "Lithuania 🇱🇹 ": 26,
+            "Malta 🇲🇹 ": 27,
+            "Moldova 🇲🇩 ": 28,
+            "Montenegro 🇲🇪 ": 30,
+            "North Macedonia 🇲🇰 ": 31,
+            "Norway 🇳🇴 ": 32,
+            "Poland 🇵🇱 ": 33,
+            "Portugal 🇵🇹 ": 34,
+            "Romania 🇷🇴 ": 35,
+            "Russia 🇷🇺 ": 36,
+            "San Marino 🇸🇲 ": 37,
+            "Serbia 🇷🇸 ": 38,
+            "Slovakia 🇸🇰 ": 40,
+            "Slovenia 🇸🇮 ": 41,
+            "Spain 🇪🇸 ": 42,
+            "Sweden 🇸🇪 ": 43,
+            "Switzerland 🇨🇭 ": 44,
+            "Netherlands 🇳🇱 ": 45,
+            "Turkey 🇹🇷 ": 46,
+            "Ukraine 🇺🇦 ": 47,
+            "United Kingdom 🇬🇧 ": 48 }
 
-    youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=XBNfNJZ660o',
-                     'Finland 🇫🇮 ': 'https://www.youtube.com/watch?v=7ferYXj9vAA',
-#                      'Ukraine 🇺🇦 ': 'q6QFVqWX2gM',
-                     'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=DMRNUyG86Qs',
-#                      'Spain 🇪🇸 ': 'yxuO0qZITko',
-                     'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=dT9K7RCHxus',
-#                      'Austria 🇦🇹 ': 'ZMmLeV47Au4',
-                     'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=5nuypbLMfNQ',
-                     'France 🇫🇷 ': 'https://www.youtube.com/watch?v=0DQH8CkuCQk',
-#                      'United Kingdom 🇬🇧 ': 'tJ21grjN6wU',
-                     'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=_zTpCGtCufw',
-#                      'Armenia 🇦🇲 ': 'Co8ZJIejXBA',
-                     'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=LWiW2GDNZ0s',
-#                      'Georgia 🇬🇪 ': 'E8kO-QPippo',
-                     'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=E89gtz9rdBM',
-#                      'Australia 🇦🇺 ': 'aqtu2GspT80',
-                     'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=JPiY1v3EfNc',
-                     'Moldova 🇲🇩 ': 'https://www.youtube.com/watch?v=4ZGpbQ83l4s',
-                     'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=x2DFDllgsfM',
-#                      'Slovenia 🇸🇮 ': 'vfTiuZaESKs',
-#                      'Estonia 🇪🇪 ': 'lbEj29AjB-c',
-#                      'Cyprus 🇨🇾 ': 'zrFUKqTy4zI',
-#                      'Poland 🇵🇱 ': 'ANM4CwbE0Is',
-#                      'Iceland 🇮🇸 ': 'BhlJXcCv7gw',
-                     'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=_NmF5otCtqU',
-#                      'Denmark 🇩🇰 ': 'kY5QNC2LkG8',
-#                      'Greece 🇬🇷 ': 'qL0EkId_sTY',
-#                      'Belgium 🇧🇪 ': 'uYWhh-E_VPo',
-#                      'Lithuania 🇱🇹 ': '68lbEUDuWUQ',
-#                      'San Marino 🇸🇲 ': 'Hjfq-T-8WHw',
-#                      'Romania 🇷🇴 ': 'NRxv-AUCinQ',
-#                      'Albania 🇦🇱 ': 'aZxe3Ce6yEI'
-                     }
+        youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=XBNfNJZ660o',
+                         'Finland 🇫🇮 ': 'https://www.youtube.com/watch?v=7ferYXj9vAA',
+    #                      'Ukraine 🇺🇦 ': 'q6QFVqWX2gM',
+                         'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=DMRNUyG86Qs',
+    #                      'Spain 🇪🇸 ': 'yxuO0qZITko',
+                         'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=dT9K7RCHxus',
+    #                      'Austria 🇦🇹 ': 'ZMmLeV47Au4',
+                         'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=5nuypbLMfNQ',
+                         'France 🇫🇷 ': 'https://www.youtube.com/watch?v=0DQH8CkuCQk',
+    #                      'United Kingdom 🇬🇧 ': 'tJ21grjN6wU',
+                         'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=_zTpCGtCufw',
+    #                      'Armenia 🇦🇲 ': 'Co8ZJIejXBA',
+                         'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=LWiW2GDNZ0s',
+    #                      'Georgia 🇬🇪 ': 'E8kO-QPippo',
+                         'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=E89gtz9rdBM',
+    #                      'Australia 🇦🇺 ': 'aqtu2GspT80',
+                         'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=JPiY1v3EfNc',
+                         'Moldova 🇲🇩 ': 'https://www.youtube.com/watch?v=4ZGpbQ83l4s',
+                         'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=x2DFDllgsfM',
+    #                      'Slovenia 🇸🇮 ': 'vfTiuZaESKs',
+    #                      'Estonia 🇪🇪 ': 'lbEj29AjB-c',
+    #                      'Cyprus 🇨🇾 ': 'zrFUKqTy4zI',
+    #                      'Poland 🇵🇱 ': 'ANM4CwbE0Is',
+    #                      'Iceland 🇮🇸 ': 'BhlJXcCv7gw',
+                         'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=_NmF5otCtqU',
+    #                      'Denmark 🇩🇰 ': 'kY5QNC2LkG8',
+    #                      'Greece 🇬🇷 ': 'qL0EkId_sTY',
+    #                      'Belgium 🇧🇪 ': 'uYWhh-E_VPo',
+    #                      'Lithuania 🇱🇹 ': '68lbEUDuWUQ',
+    #                      'San Marino 🇸🇲 ': 'Hjfq-T-8WHw',
+    #                      'Romania 🇷🇴 ': 'NRxv-AUCinQ',
+    #                      'Albania 🇦🇱 ': 'aZxe3Ce6yEI'
+                         }
 
-    song = []
-    pais = []
-    views = []
-    likes = []
-    shazams = []
+        song = []
+        pais = []
+        views = []
+        likes = []
+        shazams = []
 
 
-    #st.write('Buscando en YouTube')
+        #st.write('Buscando en YouTube')
 
-    try:
-        
-        link_video = youtube_codes_dics[cancion['country']]
-        html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
-        video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
-        video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
-        song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
-        pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
-        time.sleep(random.randint(5, 7))
-        views.append(video_views)
-        likes.append(video_likes)
-    except:
-        views.append(0)
-        likes.append(0)
-        song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
-        pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
+        try:
 
-    #st.write('Buscando en Shazam')
+            link_video = youtube_codes_dics[cancion['country']]
+            html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
+            video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
+            video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
+            song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
+            pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
+            time.sleep(random.randint(5, 7))
+            views.append(video_views)
+            likes.append(video_likes)
+        except:
+            views.append(0)
+            likes.append(0)
+            song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
+            pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
 
-    try:
-        link_shazam_search = 'https://www.shazam.com/services/search/v4/es/ES/web/search?term='+cancion['song']+'%20'+cancion['singer']+'&numResults=1&offset=0&types=artists,songs&limit=1'
-        json_shazam = json.loads(req.get(link_shazam_search).text)
+        #st.write('Buscando en Shazam')
 
-        song_id = json_shazam['tracks']['hits'][0]['track']['key']
-        print(song_id)
-        link_shazam_search = 'https://www.shazam.com/services/count/v2/web/track/'+song_id
+        try:
+            link_shazam_search = 'https://www.shazam.com/services/search/v4/es/ES/web/search?term='+cancion['song']+'%20'+cancion['singer']+'&numResults=1&offset=0&types=artists,songs&limit=1'
+            json_shazam = json.loads(req.get(link_shazam_search).text)
 
-        json_shazam = json.loads(req.get(link_shazam_search).text)
-        shazams_count = json_shazam['total']
+            song_id = json_shazam['tracks']['hits'][0]['track']['key']
+            print(song_id)
+            link_shazam_search = 'https://www.shazam.com/services/count/v2/web/track/'+song_id
 
-        #meter aqui la cantidad
-        shazams.append(shazams_count)
-    except:
-        print(f"Cancion {cancion} no encontrada en Shazam")
-        shazams.append(0)
+            json_shazam = json.loads(req.get(link_shazam_search).text)
+            shazams_count = json_shazam['total']
 
-    tabla0 = pd.DataFrame()
-    tabla0["cancion"] = song
-    tabla0["pais"] = pais
-    tabla0["views"] = views
-    tabla0["likes"] = likes
-    tabla0["shazams"] = shazams
+            #meter aqui la cantidad
+            shazams.append(shazams_count)
+        except:
+            print(f"Cancion {cancion} no encontrada en Shazam")
+            shazams.append(0)
 
-    return tabla0
+        tabla0 = pd.DataFrame()
+        tabla0["cancion"] = song
+        tabla0["pais"] = pais
+        tabla0["views"] = views
+        tabla0["likes"] = likes
+        tabla0["shazams"] = shazams
+
+        return tabla0
 
 def row_data_ESC23(user_songs):
 
