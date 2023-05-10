@@ -2302,6 +2302,22 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------
 elif app_mode == '🤫 Oculto':
+    # CARGAMOS DATA TO TRAIN
+    data = pd.read_excel("./data/Data_to_train.xlsx")
+    data.drop("Unnamed: 0", axis=1, inplace=True)
+
+    # PARTIMOS DATA
+    X = data.drop("propo_puntos", axis=1)
+    y = data.propo_puntos
+    X_train, X_test, y_train, y_test = tts(
+        X, y, train_size=0.99, test_size=0.01, random_state=22
+    )
+    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+    # ENTRENAMOS
+    ctr = CTR(iterations=5, verbose=False)
+    ctr.fit(X_train, y_train)
+    y_pred = ctr.predict(X_test)
     
     user_songs = [{'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
                           {'song': 'Blood & Glitter', 'singer': 'Lord of the Lost', 'country': 'Germany 🇩🇪 ', 'manager': 'J2'}, 
