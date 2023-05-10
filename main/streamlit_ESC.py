@@ -1026,8 +1026,17 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
             df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
+        
+            elims = ['Azerbaijan 🇦🇿 ', 'Ireland 🇮🇪 ', 'Latvia 🇱🇻 ', 'Malta 🇲🇹 ', 'Netherlands 🇳🇱 ']
+            df_elims = pd.DataFrame(0, index=[hoy], columns=elims)
+            st.write('df_elims')
+            df_elims
+
+            df_nuevo = pd.concat([df_nuevo, df], axis=0, sort=False)
+        
             df_nuevo = df_nuevo.sort_index(axis=1)
-            #df_nuevo
+            st.write('df_nuevo')
+            df_nuevo
 
             df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
             df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
@@ -1036,7 +1045,8 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_prueba.index = df_prueba.index.date.astype(str)
             # Cambiar los valores numéricos de float a int
             df_prueba = df_prueba.astype(int)
-            #df_prueba
+            st.write('df_prueba')
+            df_prueba
 
             df_prueba = pd.concat([df_nuevo, df_prueba])
             df_prueba.index = df_prueba.index.astype(str)
@@ -1060,19 +1070,43 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
                                             type='line',
                                             xref='x',
                                             yref='y',
-                                            x0='2023-04-24',
+                                            x0='2023-04-25',
                                             y0=0,
-                                            x1='2023-04-24',
+                                            x1='2023-04-25',
                                             y1=max(list(df_prueba.max()))+100,
                                             line=dict(color='black', width=2, dash='dash'),
                                             )
                                           ], 
                                annotations=[dict(
-                                            x='2023-04-24',
+                                            x='2023-04-25',
                                             y=max(list(df_prueba.max()))+50,
                                             xref='x',
                                             yref='y',
                                             text='Cambio de algoritmo ',
+                                            showarrow=False,
+                                            font=dict(size=14, color='red'),
+                                            xanchor='right'
+                                            )
+                                        ]
+                                    )
+            
+            fig.update_layout(shapes=[dict(
+                                            type='line',
+                                            xref='x',
+                                            yref='y',
+                                            x0='2023-05-09',
+                                            y0=0,
+                                            x1='2023-05-09',
+                                            y1=max(list(df_prueba.max()))+100,
+                                            line=dict(color='black', width=2, dash='dash'),
+                                            )
+                                          ], 
+                               annotations=[dict(
+                                            x='2023-05-09',
+                                            y=max(list(df_prueba.max()))+50,
+                                            xref='x',
+                                            yref='y',
+                                            text='1ª Semi ',
                                             showarrow=False,
                                             font=dict(size=14, color='red'),
                                             xanchor='right'
