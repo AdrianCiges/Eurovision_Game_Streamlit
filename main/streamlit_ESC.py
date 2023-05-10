@@ -1017,8 +1017,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             # Obtener la fecha de hoy
             fecha_hoy = pd.Timestamp('today').date()
             fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
-            fecha_formateada
-
+           
             # Crear un diccionario para especificar las columnas y sus valores
             columnas = df_sorted['country'].tolist()  # Obtener los valores de la columna 'country'
             valores = df_sorted.set_index('country')['points'].to_dict()  # Crear un diccionario con los valores de 'points' indexados por 'country'
@@ -1117,7 +1116,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            
+            st.warning('❗ El 25/04/2023 hubo un cambio en el algoritmo de búsqueda de las variables de YouTube, analizándose desde entonces los videos más representativos de cada candidatura. Tras la 2ª Semi (11/05/2023) habrá un nuevo cambio, tomando desde entonces los videos de las puestas en escena de las semifinales (y el ensayo oficial para el Big 5 + Ucrania)')
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
 
