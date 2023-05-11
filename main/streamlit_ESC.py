@@ -1063,7 +1063,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df_prueba = df_prueba.fillna(0)
 
             # Crear el gráfico de líneas con Plotly
-            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns, hovertemplate='País: %{customdata[0]}<br>Fecha: %{x}<br>Puntos: %{y}')
+            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
 
             # Configurar formato de fecha en el eje X
             fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
@@ -1072,7 +1072,6 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
             # Configurar marcadores de puntos en las líneas
             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
-            fig.update_traces(customdata=df_prueba['country'])
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
             fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
