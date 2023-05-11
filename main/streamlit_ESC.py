@@ -1075,7 +1075,6 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
             fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
-            fig.update_traces(hovertemplate='País = %{text}<br>Fecha = %{x}<br>Puntos = %{y}',text=df_prueba.columns)
             
             fig.update_layout(
                 shapes=[
