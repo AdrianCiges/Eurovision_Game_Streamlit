@@ -1098,7 +1098,6 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
                         y1=max(list(df_prueba.max()))+100,
                         line=dict(color='black', width=1.4, dash='dash'),
                     ),
-                     ),
                     dict(
                         type='line',
                         xref='x',
