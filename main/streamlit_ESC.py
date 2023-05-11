@@ -957,18 +957,18 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
             df = pd.DataFrame(resultado)
             df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
 
-#             first_points = df_sorted['points'][0]
-#             last_points = df_sorted['points'][26]
+            first_points = df_sorted['points'][0]
+            last_points = df_sorted['points'][25]
 
-#             pendiente = first_points/(first_points-last_points)
-#             intercept = (first_points*last_points)/(first_points-last_points)
+            pendiente = first_points/(first_points-last_points)
+            intercept = (first_points*last_points)/(first_points-last_points)
 
-#             total_points = df_sorted['points'].sum()
+            total_points = df_sorted['points'].sum()
 
-#             for i,p in enumerate(df_sorted['points']):
-#                 df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+            for i,p in enumerate(df_sorted['points']):
+                df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-#             df_sorted.loc[26:, 'points'] = 0
+            #df_sorted.loc[25:, 'points'] = 0
 
             total_points = df_sorted['points'].sum()
 
