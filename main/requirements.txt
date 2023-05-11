@@ -7,6 +7,7 @@ opencv-python-headless==4.5.5.64
 click==7.1.2
 catboost==1.0.0
 scikit-learn==1.1.0
+altair==5.0.0rc1
 ipython
 selenium==3.141.0
 webdriver_manager==3.5.2
