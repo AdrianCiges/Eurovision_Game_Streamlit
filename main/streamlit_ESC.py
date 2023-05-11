@@ -1155,8 +1155,16 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2022</u></h1>', unsafe_allow_html=True)
 
-    df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
+#     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
+    
+    @st.cache
+    def load_data_stats():
+        df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
+        return df_master
+
+    df_master = load_data_stats()
+
     
     st.write('')
     st.warning('⚠️ Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
