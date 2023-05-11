@@ -714,21 +714,47 @@ if app_mode == '🎶 Juego Eurovisión':
     list_name = participante + " The Eurovision Game"
 
     # CARGAMOS DATA TO TRAIN
-    data = pd.read_excel("./data/Data_to_train.xlsx")
-    data.drop("Unnamed: 0", axis=1, inplace=True)
+    @st.cache
+    def load_data():
+        data = pd.read_excel("./data/Data_to_train.xlsx")
+        data.drop("Unnamed: 0", axis=1, inplace=True)
+        return data
 
-    # PARTIMOS DATA
-    X = data.drop("propo_puntos", axis=1)
-    y = data.propo_puntos
-    X_train, X_test, y_train, y_test = tts(
-        X, y, train_size=0.99, test_size=0.01, random_state=22
-    )
-    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+    @st.cache
+    def split_data(data):
+        X = data.drop("propo_puntos", axis=1)
+        y = data.propo_puntos
+        X_train, X_test, y_train, y_test = tts(
+            X, y, train_size=0.99, test_size=0.01, random_state=22
+        )
+        return X_train, X_test, y_train, y_test
 
-    # ENTRENAMOS
-    ctr = CTR(iterations=5, verbose=False)
-    ctr.fit(X_train, y_train)
+    @st.cache
+    def train_model(X_train, y_train):
+        ctr = CTR(iterations=5, verbose=False)
+        ctr.fit(X_train, y_train)
+        return ctr
+
+    data = load_data()
+    X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
     y_pred = ctr.predict(X_test)
+    
+#     data = pd.read_excel("./data/Data_to_train.xlsx")
+#     data.drop("Unnamed: 0", axis=1, inplace=True)
+
+#     # PARTIMOS DATA
+#     X = data.drop("propo_puntos", axis=1)
+#     y = data.propo_puntos
+#     X_train, X_test, y_train, y_test = tts(
+#         X, y, train_size=0.99, test_size=0.01, random_state=22
+#     )
+#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+#     # ENTRENAMOS
+#     ctr = CTR(iterations=5, verbose=False)
+#     ctr.fit(X_train, y_train)
+#     y_pred = ctr.predict(X_test)
 
     st.write('')
     #st.write('### Elige el nº de participantes')
@@ -891,21 +917,47 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
     
     # CARGAMOS DATA TO TRAIN
-    data = pd.read_excel("./data/Data_to_train.xlsx")
-    data.drop("Unnamed: 0", axis=1, inplace=True)
+    @st.cache
+    def load_data():
+        data = pd.read_excel("./data/Data_to_train.xlsx")
+        data.drop("Unnamed: 0", axis=1, inplace=True)
+        return data
 
-    # PARTIMOS DATA
-    X = data.drop("propo_puntos", axis=1)
-    y = data.propo_puntos
-    X_train, X_test, y_train, y_test = tts(
-        X, y, train_size=0.99, test_size=0.01, random_state=22
-    )
-    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+    @st.cache
+    def split_data(data):
+        X = data.drop("propo_puntos", axis=1)
+        y = data.propo_puntos
+        X_train, X_test, y_train, y_test = tts(
+            X, y, train_size=0.99, test_size=0.01, random_state=22
+        )
+        return X_train, X_test, y_train, y_test
 
-    # ENTRENAMOS
-    ctr = CTR(iterations=5, verbose=False)
-    ctr.fit(X_train, y_train)
+    @st.cache
+    def train_model(X_train, y_train):
+        ctr = CTR(iterations=5, verbose=False)
+        ctr.fit(X_train, y_train)
+        return ctr
+
+    data = load_data()
+    X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
     y_pred = ctr.predict(X_test)
+    
+#     data = pd.read_excel("./data/Data_to_train.xlsx")
+#     data.drop("Unnamed: 0", axis=1, inplace=True)
+
+#     # PARTIMOS DATA
+#     X = data.drop("propo_puntos", axis=1)
+#     y = data.propo_puntos
+#     X_train, X_test, y_train, y_test = tts(
+#         X, y, train_size=0.99, test_size=0.01, random_state=22
+#     )
+#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+#     # ENTRENAMOS
+#     ctr = CTR(iterations=5, verbose=False)
+#     ctr.fit(X_train, y_train)
+#     y_pred = ctr.predict(X_test)
 
     if __name__ == '__main__':
         st.write('')
@@ -1049,13 +1101,24 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 #             st.write('df_nuevo')
 #             df_nuevo
 
-            df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
-            df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
-            df_prueba = df_prueba.set_index('date')
-            # Cambiar el índice de fecha+hora a solo fecha
-            df_prueba.index = df_prueba.index.date.astype(str)
-            # Cambiar los valores numéricos de float a int
-            df_prueba = df_prueba.astype(int)
+            @st.cache
+            def load_data_graf():
+                df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
+                df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
+                df_prueba = df_prueba.set_index('date')
+                df_prueba.index = df_prueba.index.date.astype(str)
+                df_prueba = df_prueba.astype(int)
+                return df_prueba
+
+            df_prueba = load_data_graf()
+
+#             df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
+#             df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
+#             df_prueba = df_prueba.set_index('date')
+#             # Cambiar el índice de fecha+hora a solo fecha
+#             df_prueba.index = df_prueba.index.date.astype(str)
+#             # Cambiar los valores numéricos de float a int
+#             df_prueba = df_prueba.astype(int)
             
             df_prueba = pd.concat([df_nuevo, df_prueba])
             df_prueba.index = df_prueba.index.astype(str)
@@ -2332,21 +2395,47 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 # -------------------------------------------------------------------------------------------------------------------------------------------------------
 elif app_mode == '🤫 Oculto':
     # CARGAMOS DATA TO TRAIN
-    data = pd.read_excel("./data/Data_to_train.xlsx")
-    data.drop("Unnamed: 0", axis=1, inplace=True)
+    @st.cache
+    def load_data():
+        data = pd.read_excel("./data/Data_to_train.xlsx")
+        data.drop("Unnamed: 0", axis=1, inplace=True)
+        return data
 
-    # PARTIMOS DATA
-    X = data.drop("propo_puntos", axis=1)
-    y = data.propo_puntos
-    X_train, X_test, y_train, y_test = tts(
-        X, y, train_size=0.99, test_size=0.01, random_state=22
-    )
-    # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+    @st.cache
+    def split_data(data):
+        X = data.drop("propo_puntos", axis=1)
+        y = data.propo_puntos
+        X_train, X_test, y_train, y_test = tts(
+            X, y, train_size=0.99, test_size=0.01, random_state=22
+        )
+        return X_train, X_test, y_train, y_test
 
-    # ENTRENAMOS
-    ctr = CTR(iterations=5, verbose=False)
-    ctr.fit(X_train, y_train)
+    @st.cache
+    def train_model(X_train, y_train):
+        ctr = CTR(iterations=5, verbose=False)
+        ctr.fit(X_train, y_train)
+        return ctr
+
+    data = load_data()
+    X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
     y_pred = ctr.predict(X_test)
+    
+#     data = pd.read_excel("./data/Data_to_train.xlsx")
+#     data.drop("Unnamed: 0", axis=1, inplace=True)
+
+#     # PARTIMOS DATA
+#     X = data.drop("propo_puntos", axis=1)
+#     y = data.propo_puntos
+#     X_train, X_test, y_train, y_test = tts(
+#         X, y, train_size=0.99, test_size=0.01, random_state=22
+#     )
+#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+#     # ENTRENAMOS
+#     ctr = CTR(iterations=5, verbose=False)
+#     ctr.fit(X_train, y_train)
+#     y_pred = ctr.predict(X_test)
     
     user_songs = [
                           {'song': 'Duje', 'singer': 'Albina & Familja Kelmendi', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
