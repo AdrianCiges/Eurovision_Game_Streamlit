@@ -2566,7 +2566,12 @@ elif app_mode == '🤫 Oculto':
                          'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=g6dUTkgN8K0',
                          'San Marino 🇸🇲 ': 'https://www.youtube.com/watch?v=pIdHjcqyLfo',
                          'Romania 🇷🇴 ': 'https://www.youtube.com/watch?v=Bf3iPXU1RYU',
-                         'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=748J3WWznds'
+                         'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=748J3WWznds',
+                         'Netherlands 🇳🇱 ' : 'https://www.youtube.com/watch?v=3XAsam043OY',
+                         'Ireland 🇮🇪 ' : 'https://www.youtube.com/watch?v=80-4_rjW10U',
+                         'Latvia 🇱🇻 ' : 'https://www.youtube.com/watch?v=SEykwl9X9SY',
+                         'Azerbaijan 🇦🇿 ' : 'https://www.youtube.com/watch?v=8BNtaW1IEtA',
+                         'Malta 🇲🇹 ' : 'https://www.youtube.com/watch?v=zVmVt9qmg9g'
                          }
 
         song = []
