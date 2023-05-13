@@ -287,7 +287,7 @@ def get_songs_ESC23(cancion):
                          'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=sZAEBbwDKMY',
                          'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=DMRNUyG86Qs',
                         # 'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=yxuO0qZITko',
-                          Spain 🇪🇸 ': 'https://youtu.be/Rt78Zv357oc',
+                          'Spain 🇪🇸 ': 'https://youtu.be/Rt78Zv357oc',
                          'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=dT9K7RCHxus',
                          'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=G83_lXkc6nM',
                          'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=5nuypbLMfNQ',
