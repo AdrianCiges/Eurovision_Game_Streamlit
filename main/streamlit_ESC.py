@@ -1280,7 +1280,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
                         y=max(list(df_prueba.max()))+50,
                         xref='x',
                         yref='y',
-                        text='Final (real) ',
+                        text=' Final (real)',
                         showarrow=False,
                         font=dict(size=14, color='red'),
                         xanchor='left'
@@ -1290,7 +1290,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            st.warning('❗ El 25/04/2023 hubo un cambio en el algoritmo de búsqueda de las variables de YouTube, analizándose desde entonces los videos más representativos de cada candidatura. Tras la 2ª Semi (11/05/2023) habrá un nuevo cambio, tomando desde entonces los videos de las puestas en escena de las semifinales (y el ensayo oficial para el Big 5 + Ucrania)')
+            st.warning('❗ El 25/04/2023 hubo un cambio en el algoritmo de búsqueda de las variables de YouTube, analizándose desde entonces los videos más representativos de cada candidatura. Tras la 2ª Semi (11/05/2023) habrá un nuevo cambio, tomando desde entonces los videos de las puestas en escena de las semifinales (y el ensayo oficial para el Big 5 + Ucrania). Las predicciones que se realicen tras la final (13/05/2023) tienen en cuenta las cuotas de apuestas del 13/05/2023 por la mañana y calcularán el resultado predicho en caso de no haberse celebrado aún el concurso.')
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
 
