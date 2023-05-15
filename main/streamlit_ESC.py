@@ -1212,6 +1212,26 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
                         x1='2023-05-11',
                         y1=max(list(df_prueba.max()))+100,
                         line=dict(color='black', width=1.4, dash='dash'),
+                    ),
+                    dict(
+                        type='line',
+                        xref='x',
+                        yref='y',
+                        x0='2023-05-13',
+                        y0=0,
+                        x1='2023-05-11',
+                        y1=max(list(df_prueba.max()))+100,
+                        line=dict(color='black', width=1.4, dash='dash'),
+                    ),
+                    dict(
+                        type='line',
+                        xref='x',
+                        yref='y',
+                        x0='2023-05-14',
+                        y0=0,
+                        x1='2023-05-11',
+                        y1=max(list(df_prueba.max()))+100,
+                        line=dict(color='black', width=1.4, dash='dash'),
                     )
                 ], 
                 annotations=[
@@ -1241,6 +1261,26 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
                         xref='x',
                         yref='y',
                         text='2ª Semi ',
+                        showarrow=False,
+                        font=dict(size=14, color='red'),
+                        xanchor='right'
+                    ),
+                    dict(
+                        x='2023-05-13',
+                        y=max(list(df_prueba.max()))+50,
+                        xref='x',
+                        yref='y',
+                        text='Final (predicho) ',
+                        showarrow=False,
+                        font=dict(size=14, color='red'),
+                        xanchor='right'
+                    ),
+                    dict(
+                        x='2023-05-14',
+                        y=max(list(df_prueba.max()))+50,
+                        xref='x',
+                        yref='y',
+                        text='Final (real) ',
                         showarrow=False,
                         font=dict(size=14, color='red'),
                         xanchor='right'
