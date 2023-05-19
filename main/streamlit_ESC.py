@@ -769,15 +769,17 @@ if app_mode == '🎶 Juego Eurovisión':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache
-    def train_model(X_train, y_train):
-        ctr = CTR(iterations=5, verbose=False)
-        ctr.fit(X_train, y_train)
-        return ctr
+#     @st.cache
+#     def train_model(X_train, y_train):
+    ctr = CTR(iterations=5, verbose=False)
+    ctr.fit(X_train, y_train)
+#         return ctr
 
     data = load_data()
     X_train, X_test, y_train, y_test = split_data(data)
-    ctr = train_model(X_train, y_train)
+#     ctr = train_model(X_train, y_train)
+    ctr = CTR(iterations=5, verbose=False)
+    ctr.fit(X_train, y_train)
     y_pred = ctr.predict(X_test)
     
 #     data = pd.read_excel("./data/Data_to_train.xlsx")
