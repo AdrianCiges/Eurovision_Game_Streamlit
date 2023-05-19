@@ -771,8 +771,8 @@ if app_mode == '🎶 Juego Eurovisión':
 
 #     @st.cache
 #     def train_model(X_train, y_train):
-    ctr = CTR(iterations=5, verbose=False)
-    ctr.fit(X_train, y_train)
+    #     ctr = CTR(iterations=5, verbose=False)
+    #     ctr.fit(X_train, y_train)
 #         return ctr
 
     data = load_data()
