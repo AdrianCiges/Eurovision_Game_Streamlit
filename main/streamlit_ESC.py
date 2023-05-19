@@ -282,39 +282,38 @@ def get_songs_ESC23(cancion):
     
     
 
-    youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=XBNfNJZ660o',
-                         'Finland 🇫🇮 ': 'https://www.youtube.com/watch?v=7ferYXj9vAA',
-                         'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=sZAEBbwDKMY',
-                         'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=DMRNUyG86Qs',
-                        # 'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=yxuO0qZITko',
-                          'Spain 🇪🇸 ': 'https://youtu.be/Rt78Zv357oc',
-                         'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=dT9K7RCHxus',
-                         'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=G83_lXkc6nM',
-                         'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=5nuypbLMfNQ',
-                         'France 🇫🇷 ': 'https://www.youtube.com/watch?v=0DQH8CkuCQk',
-                         'United Kingdom 🇬🇧 ': 'https://www.youtube.com/watch?v=lj79kC9vtXI',
-                         'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=_zTpCGtCufw',
-                         'Armenia 🇦🇲 ': 'https://www.youtube.com/watch?v=SiE7o96nTRY',
-                         'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=LWiW2GDNZ0s',
+    youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=BE2Fj0W4jP4&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG',
+                         'Finland 🇫🇮 ': 'https://www.youtube.com/watch?v=l6rS8Dv5g-8&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=2',
+                         'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=I2oqDpefJ1s&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=6',
+                         'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=PUHSM_vTqTI&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=5',
+                          'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=Vw6qPWhjevk&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=20',
+                         'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=Z3mIcCllJXY&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=3',
+                         'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=8uk64V9h0Ko&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=13',
+                         'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=ag8qxpvTTy0&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=9',
+                         'France 🇫🇷 ': 'https://www.youtube.com/watch?v=fOtQJ4o-HoA&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=17',
+                         'United Kingdom 🇬🇧 ': 'https://www.youtube.com/watch?v=tvJEE2ryCRQ&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=28',
+                         'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=d6IiOSut_4M&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=4',
+                         'Armenia 🇦🇲 ': 'https://www.youtube.com/watch?v=h0q7AkYk2hY&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=22',
+                         'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=l4NDErv49mk&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=15',
                          'Georgia 🇬🇪 ': 'https://www.youtube.com/watch?v=HNvGZeEQvfc',
-                         'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=E89gtz9rdBM',
-                         'Australia 🇦🇺 ': 'https://www.youtube.com/watch?v=p1ohtx5Ul6I',
-                         'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=JPiY1v3EfNc',
-                         'Moldova 🇲🇩 ': 'https://www.youtube.com/watch?v=4ZGpbQ83l4s',
-                         'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=x2DFDllgsfM',
-                         'Slovenia 🇸🇮 ': 'https://www.youtube.com/watch?v=vfTiuZaESKs',
-                         'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=VMpQMpqdawc',
-                         'Cyprus 🇨🇾 ': 'https://www.youtube.com/watch?v=r3Y5E8_kYsQ',
-                         'Poland 🇵🇱 ': 'https://www.youtube.com/watch?v=075F41yFvqU',
+                         'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=gPRfg9wzbpw&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=16',
+                         'Australia 🇦🇺 ': 'https://www.youtube.com/watch?v=GSoy_mJMlMY&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=10',
+                         'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=hGuGfdEJ5Pw&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=27',
+                         'Moldova 🇲🇩 ': 'https://www.youtube.com/watch?v=SABOfYgGk8M&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=23',
+                         'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=dyGR4YWlPEs&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=24',
+                         'Slovenia 🇸🇮 ': 'https://www.youtube.com/watch?v=3LXlPviGiWc&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=26',
+                         'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=HsbC-OYMA3s&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=8',
+                         'Cyprus 🇨🇾 ': 'https://www.youtube.com/watch?v=49YiimKeyDI&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=19',
+                         'Poland 🇵🇱 ': 'https://www.youtube.com/watch?v=SEgF1aP-U1o&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=18',
                          'Iceland 🇮🇸 ': 'https://www.youtube.com/watch?v=lzlTcA0OC5s',
-                         'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=_NmF5otCtqU',
+                         'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=HYfkxX4PFyw&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=14',
                          'Denmark 🇩🇰 ': 'https://www.youtube.com/watch?v=XVZvzZF1JOk',
                          'Greece 🇬🇷 ': 'https://www.youtube.com/watch?v=gJSZA0Zh2xU',
-                         'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=enaSSMIo8AY',
-                         'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=g6dUTkgN8K0',
+                         'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=U1xD14IMKtg&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=7',
+                         'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=QsgouAEd34U&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=25',
                          'San Marino 🇸🇲 ': 'https://www.youtube.com/watch?v=pIdHjcqyLfo',
                          'Romania 🇷🇴 ': 'https://www.youtube.com/watch?v=Bf3iPXU1RYU',
-                         'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=748J3WWznds',
+                         'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=TI9rSDhXwyc&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG&index=21',
                          'Netherlands 🇳🇱 ' : 'https://www.youtube.com/watch?v=3XAsam043OY',
                          'Ireland 🇮🇪 ' : 'https://www.youtube.com/watch?v=80-4_rjW10U',
                          'Latvia 🇱🇻 ' : 'https://www.youtube.com/watch?v=SEykwl9X9SY',
@@ -1499,99 +1498,99 @@ elif app_mode == '📊 Estadísticas 2002-2022':
             Acum = st.checkbox("Ver en datos acumulados")
             st.write('❗ Tenga en cuenta que los promedios se calculan dividiendo entre los años de participación, por lo que hay países con pocas participaciones pero buenos registros en ellas que muestran altos promedios')
 
-#             try:
-            if Acum:
+            try:
+                if Acum:
 
-                grouped_df = filtered_df.groupby('country').sum().reset_index()
-                grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+                    grouped_df = filtered_df.groupby('country').sum().reset_index()
+                    grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-                # Crear figura con tres subplots
-                fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+                    # Crear figura con tres subplots
+                    fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-                # Grafico 1: Acum de puntos
-                fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                                      orientation='h', #text='puntos_corregidos',
-                                      color='puntos_corregidos').data[0],
-                              row=1, col=1)
-                fig.update_xaxes(title='Acum. puntos', row=1, col=1)
+                    # Grafico 1: Acum de puntos
+                    fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                          orientation='h', #text='puntos_corregidos',
+                                          color='puntos_corregidos').data[0],
+                                  row=1, col=1)
+                    fig.update_xaxes(title='Acum. puntos', row=1, col=1)
 
-                # Grafico 2: Acum de reproducciones en YouTube
-                grouped_df = filtered_df.groupby('country').sum().reset_index()
-                grouped_df = grouped_df.sort_values('views', ascending=False)
+                    # Grafico 2: Acum de reproducciones en YouTube
+                    grouped_df = filtered_df.groupby('country').sum().reset_index()
+                    grouped_df = grouped_df.sort_values('views', ascending=False)
 
-                fig.add_trace(px.bar(grouped_df, x='views', y='country',
-                                      orientation='h', #text='views',
-                                      color='views').data[0],
-                              row=1, col=2)
-                fig.update_xaxes(title='Acum. views YT', row=1, col=2)
+                    fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                                          orientation='h', #text='views',
+                                          color='views').data[0],
+                                  row=1, col=2)
+                    fig.update_xaxes(title='Acum. views YT', row=1, col=2)
 
-                # Grafico 3: Acum de likes en YouTube
-                grouped_df = filtered_df.groupby('country').sum().reset_index()
-                grouped_df = grouped_df.sort_values('likes', ascending=False)
+                    # Grafico 3: Acum de likes en YouTube
+                    grouped_df = filtered_df.groupby('country').sum().reset_index()
+                    grouped_df = grouped_df.sort_values('likes', ascending=False)
 
-                fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-                                      orientation='h', #text='likes',
-                                      color='likes').data[0],
-                              row=1, col=3)
-                fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
-                fig.update_layout(title={'text': f'Acum. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                                          orientation='h', #text='likes',
+                                          color='likes').data[0],
+                                  row=1, col=3)
+                    fig.update_xaxes(title='Acum. likes YT', row=1, col=3)
+                    fig.update_layout(title={'text': f'Acum. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
-                fig.update_yaxes(title='', row=1, col=1)
-                fig.update_traces(marker_color='#E97451')
-                fig.update_layout(showlegend=False, height=1100)
-                fig.update(layout_coloraxis_showscale = False)
-                fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
+                    fig.update_yaxes(title='', row=1, col=1)
+                    fig.update_traces(marker_color='#E97451')
+                    fig.update_layout(showlegend=False, height=1100)
+                    fig.update(layout_coloraxis_showscale = False)
+                    fig.update_traces(hovertemplate='pais = %{label}<br>acumulado = %{value:.0f}')
 
-                st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, use_container_width=True)
 
-            else:
+                else:
 
-                grouped_df = filtered_df.groupby('country').mean().reset_index()
-                grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
+                    grouped_df = filtered_df.groupby('country').mean().reset_index()
+                    grouped_df = grouped_df.sort_values('puntos_corregidos', ascending=False)
 
-                # Crear figura con tres subplots
-                fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
+                    # Crear figura con tres subplots
+                    fig = sp.make_subplots(rows=1, cols=3, shared_yaxes=True, horizontal_spacing=0.01)
 
-                # Grafico 1: Promedio de puntos
-                fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
-                                      orientation='h', #text='puntos_corregidos',
-                                      color='puntos_corregidos').data[0],
-                              row=1, col=1)
-                fig.update_xaxes(title='Prom. puntos', row=1, col=1)
+                    # Grafico 1: Promedio de puntos
+                    fig.add_trace(px.bar(grouped_df, x='puntos_corregidos', y='country',
+                                          orientation='h', #text='puntos_corregidos',
+                                          color='puntos_corregidos').data[0],
+                                  row=1, col=1)
+                    fig.update_xaxes(title='Prom. puntos', row=1, col=1)
 
-                # Grafico 2: Promedio de reproducciones en YouTube
-                grouped_df = filtered_df.groupby('country').mean().reset_index()
-                grouped_df = grouped_df.sort_values('views', ascending=False)
+                    # Grafico 2: Promedio de reproducciones en YouTube
+                    grouped_df = filtered_df.groupby('country').mean().reset_index()
+                    grouped_df = grouped_df.sort_values('views', ascending=False)
 
-                fig.add_trace(px.bar(grouped_df, x='views', y='country',
-                                      orientation='h', #text='views',
-                                      color='views').data[0],
-                              row=1, col=2)
-                fig.update_xaxes(title='Prom. views YT', row=1, col=2)
-                fig.update_annotations(yshift=20)
+                    fig.add_trace(px.bar(grouped_df, x='views', y='country',
+                                          orientation='h', #text='views',
+                                          color='views').data[0],
+                                  row=1, col=2)
+                    fig.update_xaxes(title='Prom. views YT', row=1, col=2)
+                    fig.update_annotations(yshift=20)
 
-                # Grafico 3: Promedio de likes en YouTube
-                grouped_df = filtered_df.groupby('country').mean().reset_index()
-                grouped_df = grouped_df.sort_values('likes', ascending=False)
+                    # Grafico 3: Promedio de likes en YouTube
+                    grouped_df = filtered_df.groupby('country').mean().reset_index()
+                    grouped_df = grouped_df.sort_values('likes', ascending=False)
 
-                fig.add_trace(px.bar(grouped_df, x='likes', y='country',
-                                      orientation='h', #text='likes',
-                                      color='likes').data[0],
-                              row=1, col=3)
-                fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
+                    fig.add_trace(px.bar(grouped_df, x='likes', y='country',
+                                          orientation='h', #text='likes',
+                                          color='likes').data[0],
+                                  row=1, col=3)
+                    fig.update_xaxes(title='Prom. likes YT', row=1, col=3)
 
-                fig.update_layout(title={'text': f'Prom. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                    fig.update_layout(title={'text': f'Prom. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
 
-                fig.update_yaxes(title='', row=1, col=1)
-                fig.update_traces(marker_color='#E97451')
-                fig.update_layout(showlegend=False, height=1100)
-                fig.update(layout_coloraxis_showscale = False)
-                fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
+                    fig.update_yaxes(title='', row=1, col=1)
+                    fig.update_traces(marker_color='#E97451')
+                    fig.update_layout(showlegend=False, height=1100)
+                    fig.update(layout_coloraxis_showscale = False)
+                    fig.update_traces(hovertemplate='pais = %{label}<br>promedio = %{value:.0f}')
 
-                st.plotly_chart(fig, use_container_width=True)
+                    st.plotly_chart(fig, use_container_width=True)
                     
-#             except:
-#                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
+            except:
+                st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
 
       # ---- GRAFICOS PUNTOS VS SHAZAM ---------------------------------------------------------
