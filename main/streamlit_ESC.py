@@ -1015,7 +1015,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache_data(allow_output_mutation=True)
+    @st.cache_data
     def train_model(X_train, y_train):
         ctr = CTR(iterations=5, verbose=False)
         ctr.fit(X_train, y_train)
