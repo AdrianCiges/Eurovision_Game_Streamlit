@@ -753,7 +753,7 @@ if app_mode == '🎶 Juego Eurovisión':
     participante = st.text_input("Me llamo...")
     list_name = participante + " The Eurovision Game"
 
-    CARGAMOS DATA TO TRAIN
+    # CARGAMOS DATA TO TRAIN
     @st.cache
     def load_data():
         data = pd.read_excel("./data/Data_to_train.xlsx")
