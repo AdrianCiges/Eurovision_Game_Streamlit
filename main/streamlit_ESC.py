@@ -769,7 +769,7 @@ if app_mode == '🎶 Juego Eurovisión':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def train_model(X_train, y_train):
         ctr = CTR(iterations=5, verbose=False)
         ctr.fit(X_train, y_train)
@@ -777,9 +777,9 @@ if app_mode == '🎶 Juego Eurovisión':
 
     data = load_data()
     X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
+    y_pred = ctr.predict(X_test)
 
-    train_pool = Pool(X_train, y_train)
-    ctr = train_model(train_pool)
     # y_pred = ctr.predict(X_test)
 
 # ---------------------------------------------------------------------------
@@ -1015,7 +1015,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache
+    @st.cache(allow_output_mutation=True)
     def train_model(X_train, y_train):
         ctr = CTR(iterations=5, verbose=False)
         ctr.fit(X_train, y_train)
@@ -1023,9 +1023,9 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
     data = load_data()
     X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
+    y_pred = ctr.predict(X_test)
 
-    train_pool = Pool(X_train, y_train)
-    ctr = train_model(train_pool)
 #     y_pred = ctr.predict(X_test)
 
 # ---------------------------------------------------------------------------------
