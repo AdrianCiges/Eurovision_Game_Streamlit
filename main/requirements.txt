@@ -4,7 +4,7 @@ plotly==5.4.0
 wordcloud==1.8.1
 opencv-python-headless==4.5.5.62
 click==8.0.3
-catboost==1.0.0
+catboost==1.2.0
 scikit-learn==1.1.0
 altair==4.1.0
 ipython
