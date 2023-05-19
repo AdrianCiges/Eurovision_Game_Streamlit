@@ -754,6 +754,32 @@ if app_mode == '🎶 Juego Eurovisión':
     list_name = participante + " The Eurovision Game"
 
     # CARGAMOS DATA TO TRAIN
+#     @st.cache
+#     def load_data():
+#         data = pd.read_excel("./data/Data_to_train.xlsx")
+#         data.drop("Unnamed: 0", axis=1, inplace=True)
+#         return data
+
+#     @st.cache
+#     def split_data(data):
+#         X = data.drop("propo_puntos", axis=1)
+#         y = data.propo_puntos
+#         X_train, X_test, y_train, y_test = tts(
+#             X, y, train_size=0.99, test_size=0.01, random_state=22
+#         )
+#         return X_train, X_test, y_train, y_test
+
+#     @st.cache
+#     def train_model(X_train, y_train):
+#         ctr = CTR(iterations=5, verbose=False)
+#         ctr.fit(X_train, y_train)
+#         return ctr
+
+#     data = load_data()
+#     X_train, X_test, y_train, y_test = split_data(data)
+#     ctr = train_model(X_train, y_train)
+#     y_pred = ctr.predict(X_test)
+
     @st.cache
     def load_data():
         data = pd.read_excel("./data/Data_to_train.xlsx")
@@ -769,18 +795,27 @@ if app_mode == '🎶 Juego Eurovisión':
         )
         return X_train, X_test, y_train, y_test
 
-#     @st.cache
-#     def train_model(X_train, y_train):
-    #     ctr = CTR(iterations=5, verbose=False)
-    #     ctr.fit(X_train, y_train)
-#         return ctr
+    @st.cache
+    def train_model(X_train, y_train):
+        ctr = CTR(iterations=5, verbose=False)
+        ctr.fit(X_train, y_train)
+        return ctr
 
     data = load_data()
     X_train, X_test, y_train, y_test = split_data(data)
-#     ctr = train_model(X_train, y_train)
-    ctr = CTR(iterations=5, verbose=False)
-    ctr.fit(X_train, y_train)
-    y_pred = ctr.predict(X_test)
+
+    # Convertir X_train y y_train a listas
+    X_train_list = X_train.values.tolist()
+    y_train_list = y_train.values.tolist()
+
+    ctr = train_model(X_train_list, y_train_list)
+
+    # Convertir X_test a lista
+    X_test_list = X_test.values.tolist()
+
+    # Predecir utilizando el modelo entrenado
+    y_pred = [ctr.predict(x) for x in X_test_list]
+
     
 #     data = pd.read_excel("./data/Data_to_train.xlsx")
 #     data.drop("Unnamed: 0", axis=1, inplace=True)
