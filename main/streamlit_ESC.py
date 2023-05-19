@@ -754,13 +754,13 @@ if app_mode == '🎶 Juego Eurovisión':
     list_name = participante + " The Eurovision Game"
 
     # CARGAMOS DATA TO TRAIN
-    @st.cache
+    @st.cache_data
     def load_data():
         data = pd.read_excel("./data/Data_to_train.xlsx")
         data.drop("Unnamed: 0", axis=1, inplace=True)
         return data
 
-    @st.cache
+    @st.cache_data
     def split_data(data):
         X = data.drop("propo_puntos", axis=1)
         y = data.propo_puntos
@@ -769,7 +769,7 @@ if app_mode == '🎶 Juego Eurovisión':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache(allow_output_mutation=True)
+    @st.cache_data(allow_output_mutation=True)
     def train_model(X_train, y_train):
         ctr = CTR(iterations=5, verbose=False)
         ctr.fit(X_train, y_train)
@@ -1000,13 +1000,13 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
     st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 13 de mayo de 2023. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
     
     # CARGAMOS DATA TO TRAIN
-    @st.cache
+    @st.cache_data
     def load_data():
         data = pd.read_excel("./data/Data_to_train.xlsx")
         data.drop("Unnamed: 0", axis=1, inplace=True)
         return data
 
-    @st.cache
+    @st.cache_data
     def split_data(data):
         X = data.drop("propo_puntos", axis=1)
         y = data.propo_puntos
@@ -1015,7 +1015,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
         )
         return X_train, X_test, y_train, y_test
 
-    @st.cache(allow_output_mutation=True)
+    @st.cache_data(allow_output_mutation=True)
     def train_model(X_train, y_train):
         ctr = CTR(iterations=5, verbose=False)
         ctr.fit(X_train, y_train)
@@ -1386,7 +1386,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
     
-    @st.cache
+    @st.cache_data
     def load_data_stats():
         df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
         return df_master
