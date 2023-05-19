@@ -1,5 +1,5 @@
 matplotlib==3.4.3
-pandas==2.0.1
+pandas==1.5.3
 plotly==5.8.2
 wordcloud==1.8.1
 opencv-python-headless==4.5.5.62
