@@ -1402,9 +1402,9 @@ elif app_mode == '📊 Estadísticas 2002-2022':
                            #min_value=df_master['year'].min(), 
                            min_value = 2002,
                            #max_value=df_master['year'].max(), 
-                           max_value = 2022,
+                           max_value = 2023,
                            #value=(df_master['year'].min(), df_master['year'].max())
-                           value = (2002, 2022)
+                           value = (2002, 2023)
                           )
     filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
 
