@@ -1385,7 +1385,7 @@ elif app_mode == '📊 Estadísticas 2002-2022':
 #     df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
     # st.write(df_master)
     
-    # @st.cache_data
+    @st.cache_data
     def load_data_stats():
         df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
         return df_master
