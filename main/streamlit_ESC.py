@@ -1410,6 +1410,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     # Filtro por país
     selected_country = st.multiselect('Selecciona los países', options=df_master['country'].unique())
+    st.write('-----------')
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
