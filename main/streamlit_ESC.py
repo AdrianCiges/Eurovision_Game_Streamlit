@@ -1517,7 +1517,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 
                 "% Puntos": st.column_config.ProgressColumn(
                     "% Puntos",
-                    format="%f",
+                    format="%2f",
                     min_value=0,
                     max_value=1,
                 ),
