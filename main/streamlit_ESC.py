@@ -1399,8 +1399,22 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
     
-    # Título del radio button en formato Markdown
-    st.markdown("<h3 style='text-align: center; font-weight: bold;'>Tipo de gráfico a visualizar</h3>", unsafe_allow_html=True)
+  # Inyectar CSS personalizado para ajustar el margen
+    st.markdown("""
+    <style>
+    # /* Reducir el margen inferior del título Markdown */
+    # div[data-testid="stMarkdownContainer"] {
+    #     margin-bottom: -20px !important;
+    # }
+    /* Reducir el margen superior del widget radio para acercarlo al título */
+    .stRadio > div {
+        margin-top: -30px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # Utilizando Markdown para añadir estilo al título
+    st.markdown('#### ¿Para llevar?')
     
     # Radio button para seleccionar el tipo de gráfico
     graf = st.radio('', graf_names)
