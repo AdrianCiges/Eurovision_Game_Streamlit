@@ -1512,8 +1512,11 @@ elif app_mode == '📊 Estadísticas 2002-2023':
             return int(val) 
 
         def corregir_text(val):
-            return val.strip()
-        
+            try:
+                return val.strip()
+            except:
+                st.write(val)
+                return val
         def sustituir_valor_emoji(val):
             if val == "Yes":
                 return "✅"
