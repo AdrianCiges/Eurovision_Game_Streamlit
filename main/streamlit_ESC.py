@@ -1507,6 +1507,24 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                                  'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
                                  'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         df_to_show.columns = nuevos_nombres
+
+                st.data_editor(
+            sorted_df_show,
+            column_config={
+                "Link": st.column_config.LinkColumn(
+                    "🔗 Link", display_text = "🌐 Video YT"
+                ),
+                
+                "% Puntos": st.column_config.ProgressColumn(
+                    "% Puntos",
+                    format="%f",
+                    min_value=0,
+                    max_value=1,
+                ),
+
+            },
+            hide_index=True,
+        )
         st.write(df_to_show)
     st.write('')
     
