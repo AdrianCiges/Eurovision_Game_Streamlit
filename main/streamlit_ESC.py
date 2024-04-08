@@ -733,6 +733,8 @@ def get_available_countries(selected_countries):
 tab1, tab2, tab3 = st.tabs(["🎶 Juego Eurovisión", "🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023"])
 
 with tab1:
+    
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
 
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
