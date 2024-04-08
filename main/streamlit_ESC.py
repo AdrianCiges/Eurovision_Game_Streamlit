@@ -280,7 +280,7 @@ def get_songs_ESC23(cancion):
                          'Ireland 🇮🇪 ' : 'https://www.youtube.com/watch?v=ZGRXRrlIspY&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=18',
                          'Latvia 🇱🇻 ' : 'https://www.youtube.com/watch?v=p8FNO0DtBng&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=21',
                          'Azerbaijan 🇦🇿 ' : 'https://www.youtube.com/watch?v=NNhAk4rVgNc&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=5',
-                         'Malta 🇲🇹 ' : 'https://www.youtube.com/watch?v=l6eS60n4wg8&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=24'
+                         'Malta 🇲🇹 ' : 'https://www.youtube.com/watch?v=l6eS60n4wg8&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=24',
                          'Luxembourg 🇱🇺 ' : 'https://www.youtube.com/watch?v=6CNuXpdyYmE&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=23'
                          }
 
