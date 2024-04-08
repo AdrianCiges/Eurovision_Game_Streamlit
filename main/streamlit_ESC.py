@@ -1396,6 +1396,10 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('')
     st.warning('⚠️ Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
     st.write('')
+
+    graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
+    graf = st.radio('Tipo de gráfico a visualizar', graf_names)
+    st.write('')
     
     # Filtro por año
     year_range = st.slider('Selecciona un rango de años', 
@@ -1410,7 +1414,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     # Filtro por país
     selected_country = st.multiselect('Selecciona los países', options=df_master['country'].unique())
-    st.write('-----------')
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
@@ -1481,10 +1484,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('\n')
     with st.expander('👀 Ver Datos', expanded=False): 
         st.write(filtered_df)
-    st.write('')
-    
-    graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
-    graf = st.radio('Tipo de gráfico a visualizar', graf_names)
     st.write('')
     
 
