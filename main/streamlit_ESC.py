@@ -848,14 +848,15 @@ with tab1:
 
 # --------------------------------------------------------------------------------------
             df_metricas = row_data_ESC23(user_songs) # Para ver las métricas
-            pais_met = list(df_metricas['pais'])
-            views_met = list(df_metricas['views'])
-            likes_met = list(df_metricas['likes'])
-            shaz_met = list(df_metricas['shazams'])
-            st.write(pais_met)
-            st.write(views_met)
-            st.write(likes_met)
-            st.write(shaz_met)
+            st.write(df_metricas)
+            # pais_met = list(df_metricas['pais'])
+            # views_met = list(df_metricas['views'])
+            # likes_met = list(df_metricas['likes'])
+            # shaz_met = list(df_metricas['shazams'])
+            # st.write(pais_met)
+            # st.write(views_met)
+            # st.write(likes_met)
+            # st.write(shaz_met)
 # --------------------------------------------------------------------------------------
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
