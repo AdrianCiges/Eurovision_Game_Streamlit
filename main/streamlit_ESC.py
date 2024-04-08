@@ -732,253 +732,6 @@ def get_available_countries(selected_countries):
 
 tab1, tab2, tab3 = st.tabs(["🎶 Juego Eurovisión", "🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023"])
 
-with tab1:
-    
-    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
-
-    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
-    
-    participante = st.text_input("Me llamo...")
-    list_name = participante + " The Eurovision Game"
-
-    # CARGAMOS DATA TO TRAIN
-    @st.cache_data
-    def load_data():
-        data = pd.read_excel("./data/Data_to_train.xlsx")
-        data.drop("Unnamed: 0", axis=1, inplace=True)
-        return data
-
-    @st.cache_data
-    def split_data(data):
-        X = data.drop("propo_puntos", axis=1)
-        y = data.propo_puntos
-        X_train, X_test, y_train, y_test = tts(
-            X, y, train_size=0.99, test_size=0.01, random_state=22
-        )
-        return X_train, X_test, y_train, y_test
-
-    @st.cache_data
-    def train_model(X_train, y_train):
-        ctr = CTR(iterations=5, verbose=False)
-        ctr.fit(X_train, y_train)
-        return ctr
-
-    data = load_data()
-    X_train, X_test, y_train, y_test = split_data(data)
-    ctr = train_model(X_train, y_train)
-    y_pred = ctr.predict(X_test)
-
-    # y_pred = ctr.predict(X_test)
-
-# ---------------------------------------------------------------------------
-#     @st.cache
-#     def load_data():
-#         data = pd.read_excel("./data/Data_to_train.xlsx")
-#         data.drop("Unnamed: 0", axis=1, inplace=True)
-#         return data
-
-#     @st.cache
-#     def split_data(data):
-#         X = data.drop("propo_puntos", axis=1)
-#         y = data.propo_puntos
-#         X_train, X_test, y_train, y_test = tts(
-#             X, y, train_size=0.99, test_size=0.01, random_state=22
-#         )
-#         return X_train, X_test, y_train, y_test
-
-#     @st.cache
-#     def train_model(X_train, y_train):
-#         ctr = CTR(iterations=5, verbose=False)
-#         ctr.fit(X_train, y_train)
-#         return ctr
-
-#     data = load_data()
-#     X_train, X_test, y_train, y_test = split_data(data)
-
-#     # Convertir X_train y y_train a listas
-#     X_train_list = X_train.values.tolist()
-#     y_train_list = y_train.values.tolist()
-
-#     ctr = train_model(X_train_list, y_train_list)
-
-#     # Convertir X_test a lista
-#     X_test_list = X_test.values.tolist()
-
-#     # Predecir utilizando el modelo entrenado
-#     y_pred = [ctr.predict(x) for x in X_test_list]
-    
-# -----------------------------------------------------------------------
-    
-#     data = pd.read_excel("./data/Data_to_train.xlsx")
-#     data.drop("Unnamed: 0", axis=1, inplace=True)
-
-#     # PARTIMOS DATA
-#     X = data.drop("propo_puntos", axis=1)
-#     y = data.propo_puntos
-#     X_train, X_test, y_train, y_test = tts(
-#         X, y, train_size=0.99, test_size=0.01, random_state=22
-#     )
-#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
-
-#     # ENTRENAMOS
-#     ctr = CTR(iterations=5, verbose=False)
-#     ctr.fit(X_train, y_train)
-#     y_pred = ctr.predict(X_test)
-
-    st.write('')
-    #st.write('### Elige el nº de participantes')
-    col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
-
-    if participante:
-        
-        st.success('🧡 Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones **no tienen por qué haber participado** en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
-
-        participantes = col1.selectbox('Nº participantes', options=num_part)
-        
-        if participantes < 11:
-            st.warning('⚠️ Las puntuaciones no serán 100% representativas al haber menos de 11 participantes, pero sí lo serán las posiciones obtenidas')
-     
-        try:
-            
-            def create_form():
-                selected_countries = []
-                user_songs = []
-                for i in range(participantes):
-                    col1, col2, col3, col4 = st.columns(4)
-                    song = col1.text_input(f'Canción {i+1}')
-                    singer = col2.text_input(f'Cantante {i+1}')
-                    available_countries = get_available_countries(selected_countries)
-                    country = col3.selectbox(f'País {i+1}', options=available_countries)
-                    selected_countries.append(country)
-                    manager = col4.text_input(f'Jugador {i+1}')
-                    user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
-                    st.write('-----')
-                return user_songs
-
-            if __name__ == '__main__':
-                st.title('🗒️ Registro de canciones')
-                st.write('')
-              
-                user_songs = create_form()
-                st.write('')
-                st.write('')
-                if st.button('Enviar'):
-                    user_songs = [song for song in user_songs if all(song.values())]
-                    if len(user_songs) < 3:
-                        st.warning('⚠️ No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
-                        #st.write(user_songs)
-                    else:
-                        try:
-                            #st.write(user_songs)
-                            resultado = predicciones(user_songs)
-                            df = pd.DataFrame(resultado)
-                            df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
-                            # df_sorted
-                            # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
-
-                            if len(df_sorted) > 26:
-                                first_points = df_sorted['points'][0]
-                                last_points = df_sorted['points'][26]
-
-                                pendiente = first_points/(first_points-last_points)
-                                intercept = (first_points*last_points)/(first_points-last_points)
-
-                                total_points = df_sorted['points'].sum()
-
-                                for i,p in enumerate(df_sorted['points']):
-                                    df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
-
-                                df_sorted.loc[26:, 'points'] = 0
-
-                                total_points = df_sorted['points'].sum()
-
-                                cociente = (116*len(df_sorted))/total_points
-
-                                for i,puntos in enumerate(df_sorted['points'][:26]):
-                                    df_sorted.loc[i, 'points'] = round(puntos*cociente)
-
-                                total_points = df_sorted['points'].sum()
-
-                                diferencia = 116*len(df_sorted)-total_points
-
-                                # Me quedo con el último índice no nulo
-                                for i,p in enumerate(df_sorted['points']):
-                                    if p <= 0:
-                                        last_nonull = i-1
-                                        break
-
-                                if diferencia > 0:
-                                    for i in range(25-diferencia+1, 26):
-                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
-
-                                elif diferencia < 0:
-                                    for i in range(last_nonull+diferencia+1, last_nonull+1):
-                                        print(i)
-                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
-
-                                total_points = df_sorted['points'].sum()
-
-                                df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-
-                            elif len(df_sorted) > 10:
-
-                                total_points = df_sorted['points'].sum()
-
-                                cociente = (116*len(df_sorted))/total_points
-
-                                for i,puntos in enumerate(df_sorted['points'][:len(df_sorted)]):
-                                    df_sorted.loc[i, 'points'] = round(puntos*cociente)
-
-                                total_points = df_sorted['points'].sum()
-
-                                diferencia = 116*len(df_sorted)-total_points
-
-                                # Me quedo con el último índice no nulo
-                                for i,p in enumerate(df_sorted['points']):
-                                    if p <= 0:
-                                        last_nonull = i-1
-                                        break
-
-                                if diferencia > 0:
-                                    for i in range((len(df_sorted)-1)-diferencia+1, len(df_sorted)):
-                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
-
-                                elif diferencia < 0:
-                                    for i in range(last_nonull+diferencia+1, last_nonull+1):
-                                        print(i)
-                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
-
-                                total_points = df_sorted['points'].sum()
-
-                                df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
-
-                            df_sorted.rename(columns = {'manager':'jugador'}, inplace=True)
-                            df_sorted = df_sorted[['song','singer','country','jugador','points']]
-                            st.write('')
-                            st.markdown('#### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁🥁🥁🥁')
-                            st.write('')
-                            time.sleep(4)
-                            song = df_sorted['song'][0].replace(' ','+')
-                            singer = df_sorted['singer'][0].replace(' ','+')
-                            winner_url = ("https://www.youtube.com/results?search_query=" + song +"+"+ singer + "+official")
-                            winner_link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{winner_url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
-                            st.balloons()
-                            st.markdown(f"### 🥳 Enhorabuena a {df_sorted['jugador'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
-                            st.write('')
-                            df_sorted_check = df_sorted.copy()
-                            df_sorted_check.reset_index(drop=True, inplace=True)
-                            df_sorted_check.index += 1
-                            st.table(df_sorted_check.style.apply(highlight_rows, axis=1))
-                            st.video(winner_link_video)
-
-                            st.markdown('#### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
-                            add_to_playlist(resultado)
-                        except:
-                            st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
-                            
-        except:
-            pass
-
 # ---------------------------------------------------------------------------------------------------------------------------
 
 with tab2:
@@ -2627,4 +2380,253 @@ with tab3:
             except:
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
-                
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------
+
+with tab1:
+    
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
+
+    st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
+    
+    participante = st.text_input("Me llamo...")
+    list_name = participante + " The Eurovision Game"
+
+    # CARGAMOS DATA TO TRAIN
+    @st.cache_data
+    def load_data():
+        data = pd.read_excel("./data/Data_to_train.xlsx")
+        data.drop("Unnamed: 0", axis=1, inplace=True)
+        return data
+
+    @st.cache_data
+    def split_data(data):
+        X = data.drop("propo_puntos", axis=1)
+        y = data.propo_puntos
+        X_train, X_test, y_train, y_test = tts(
+            X, y, train_size=0.99, test_size=0.01, random_state=22
+        )
+        return X_train, X_test, y_train, y_test
+
+    @st.cache_data
+    def train_model(X_train, y_train):
+        ctr = CTR(iterations=5, verbose=False)
+        ctr.fit(X_train, y_train)
+        return ctr
+
+    data = load_data()
+    X_train, X_test, y_train, y_test = split_data(data)
+    ctr = train_model(X_train, y_train)
+    y_pred = ctr.predict(X_test)
+
+    # y_pred = ctr.predict(X_test)
+
+# ---------------------------------------------------------------------------
+#     @st.cache
+#     def load_data():
+#         data = pd.read_excel("./data/Data_to_train.xlsx")
+#         data.drop("Unnamed: 0", axis=1, inplace=True)
+#         return data
+
+#     @st.cache
+#     def split_data(data):
+#         X = data.drop("propo_puntos", axis=1)
+#         y = data.propo_puntos
+#         X_train, X_test, y_train, y_test = tts(
+#             X, y, train_size=0.99, test_size=0.01, random_state=22
+#         )
+#         return X_train, X_test, y_train, y_test
+
+#     @st.cache
+#     def train_model(X_train, y_train):
+#         ctr = CTR(iterations=5, verbose=False)
+#         ctr.fit(X_train, y_train)
+#         return ctr
+
+#     data = load_data()
+#     X_train, X_test, y_train, y_test = split_data(data)
+
+#     # Convertir X_train y y_train a listas
+#     X_train_list = X_train.values.tolist()
+#     y_train_list = y_train.values.tolist()
+
+#     ctr = train_model(X_train_list, y_train_list)
+
+#     # Convertir X_test a lista
+#     X_test_list = X_test.values.tolist()
+
+#     # Predecir utilizando el modelo entrenado
+#     y_pred = [ctr.predict(x) for x in X_test_list]
+    
+# -----------------------------------------------------------------------
+    
+#     data = pd.read_excel("./data/Data_to_train.xlsx")
+#     data.drop("Unnamed: 0", axis=1, inplace=True)
+
+#     # PARTIMOS DATA
+#     X = data.drop("propo_puntos", axis=1)
+#     y = data.propo_puntos
+#     X_train, X_test, y_train, y_test = tts(
+#         X, y, train_size=0.99, test_size=0.01, random_state=22
+#     )
+#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
+
+#     # ENTRENAMOS
+#     ctr = CTR(iterations=5, verbose=False)
+#     ctr.fit(X_train, y_train)
+#     y_pred = ctr.predict(X_test)
+
+    st.write('')
+    #st.write('### Elige el nº de participantes')
+    col1, col2, col3, col4, col5, col6, col7, col8 = st.columns(8)
+
+    if participante:
+        
+        st.success('🧡 Introduce las canciones que desees para jugar a The Eurovision Game. Las canciones **no tienen por qué haber participado** en el festival. El objetivo del juego es aplicar un modelo de machine learning entrenado con los últimos 20 años de concurso y simular cómo quedaría cualquier selección de canciones en caso de participar hoy en Eurovisión')
+
+        participantes = col1.selectbox('Nº participantes', options=num_part)
+        
+        if participantes < 11:
+            st.warning('⚠️ Las puntuaciones no serán 100% representativas al haber menos de 11 participantes, pero sí lo serán las posiciones obtenidas')
+     
+        try:
+            
+            def create_form():
+                selected_countries = []
+                user_songs = []
+                for i in range(participantes):
+                    col1, col2, col3, col4 = st.columns(4)
+                    song = col1.text_input(f'Canción {i+1}')
+                    singer = col2.text_input(f'Cantante {i+1}')
+                    available_countries = get_available_countries(selected_countries)
+                    country = col3.selectbox(f'País {i+1}', options=available_countries)
+                    selected_countries.append(country)
+                    manager = col4.text_input(f'Jugador {i+1}')
+                    user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
+                    st.write('-----')
+                return user_songs
+
+            if __name__ == '__main__':
+                st.title('🗒️ Registro de canciones')
+                st.write('')
+              
+                user_songs = create_form()
+                st.write('')
+                st.write('')
+                if st.button('Enviar'):
+                    user_songs = [song for song in user_songs if all(song.values())]
+                    if len(user_songs) < 3:
+                        st.warning('⚠️ No puede haber un concurso "modo Eurovisión" con menos de 3 participantes.')
+                        #st.write(user_songs)
+                    else:
+                        try:
+                            #st.write(user_songs)
+                            resultado = predicciones(user_songs)
+                            df = pd.DataFrame(resultado)
+                            df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
+                            # df_sorted
+                            # df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
+
+                            if len(df_sorted) > 26:
+                                first_points = df_sorted['points'][0]
+                                last_points = df_sorted['points'][26]
+
+                                pendiente = first_points/(first_points-last_points)
+                                intercept = (first_points*last_points)/(first_points-last_points)
+
+                                total_points = df_sorted['points'].sum()
+
+                                for i,p in enumerate(df_sorted['points']):
+                                    df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
+
+                                df_sorted.loc[26:, 'points'] = 0
+
+                                total_points = df_sorted['points'].sum()
+
+                                cociente = (116*len(df_sorted))/total_points
+
+                                for i,puntos in enumerate(df_sorted['points'][:26]):
+                                    df_sorted.loc[i, 'points'] = round(puntos*cociente)
+
+                                total_points = df_sorted['points'].sum()
+
+                                diferencia = 116*len(df_sorted)-total_points
+
+                                # Me quedo con el último índice no nulo
+                                for i,p in enumerate(df_sorted['points']):
+                                    if p <= 0:
+                                        last_nonull = i-1
+                                        break
+
+                                if diferencia > 0:
+                                    for i in range(25-diferencia+1, 26):
+                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+
+                                elif diferencia < 0:
+                                    for i in range(last_nonull+diferencia+1, last_nonull+1):
+                                        print(i)
+                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+
+                                total_points = df_sorted['points'].sum()
+
+                                df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+
+                            elif len(df_sorted) > 10:
+
+                                total_points = df_sorted['points'].sum()
+
+                                cociente = (116*len(df_sorted))/total_points
+
+                                for i,puntos in enumerate(df_sorted['points'][:len(df_sorted)]):
+                                    df_sorted.loc[i, 'points'] = round(puntos*cociente)
+
+                                total_points = df_sorted['points'].sum()
+
+                                diferencia = 116*len(df_sorted)-total_points
+
+                                # Me quedo con el último índice no nulo
+                                for i,p in enumerate(df_sorted['points']):
+                                    if p <= 0:
+                                        last_nonull = i-1
+                                        break
+
+                                if diferencia > 0:
+                                    for i in range((len(df_sorted)-1)-diferencia+1, len(df_sorted)):
+                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]+1
+
+                                elif diferencia < 0:
+                                    for i in range(last_nonull+diferencia+1, last_nonull+1):
+                                        print(i)
+                                        df_sorted.loc[i, 'points'] = df_sorted['points'][i]-1
+
+                                total_points = df_sorted['points'].sum()
+
+                                df_sorted = df_sorted.sort_values('points', ascending=False).reset_index(drop=True)
+
+                            df_sorted.rename(columns = {'manager':'jugador'}, inplace=True)
+                            df_sorted = df_sorted[['song','singer','country','jugador','points']]
+                            st.write('')
+                            st.markdown('#### 🖐🏻 Europe, stop scrapping now! Tenemos resultados... 🥁🥁🥁🥁')
+                            st.write('')
+                            time.sleep(4)
+                            song = df_sorted['song'][0].replace(' ','+')
+                            singer = df_sorted['singer'][0].replace(' ','+')
+                            winner_url = ("https://www.youtube.com/results?search_query=" + song +"+"+ singer + "+official")
+                            winner_link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{winner_url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
+                            st.balloons()
+                            st.markdown(f"### 🥳 Enhorabuena a {df_sorted['jugador'][0]}, ganadora con {df_sorted['song'][0]} de {df_sorted['singer'][0]} representando a {df_sorted['country'][0]}")
+                            st.write('')
+                            df_sorted_check = df_sorted.copy()
+                            df_sorted_check.reset_index(drop=True, inplace=True)
+                            df_sorted_check.index += 1
+                            st.table(df_sorted_check.style.apply(highlight_rows, axis=1))
+                            st.video(winner_link_video)
+
+                            st.markdown('#### 🎁 De regalo, aquí te dejamos una lista de reproducción con las canciones que has elegido para jugar a The Eurovision Game 😊')
+                            add_to_playlist(resultado)
+                        except:
+                            st.markdown('##### 😥 Ha habido algún error con las canciones que has introducido')
+                            
+        except:
+            pass
+
