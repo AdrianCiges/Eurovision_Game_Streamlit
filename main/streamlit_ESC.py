@@ -1503,7 +1503,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     # Muestra el DataFrame filtrado
     st.write('\n')
-    st.write('\n')
 
     st.markdown("<h4 style='margin-bottom: 5px;'>Tabla de datos</h4>", unsafe_allow_html=True)
     with st.expander('👀 Ver Datos', expanded=False): 
