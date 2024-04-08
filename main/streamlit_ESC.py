@@ -2307,14 +2307,38 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 #             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
             # try:
+            # words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
+            # words = words_df.tolist()
+            # dict_prueba = {word: words_df.tolist().count(word) for word in words}            
+            # img = cv2.imread('./img/europe.jpg')
+            # gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            # wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
+            # #plt.figure(figsize=(40,20))
+            # plt.axis("off")
+            # img_pil = Image.fromarray(wordcloud.to_array())
+            # st.image(img_pil, use_column_width=True)
+
             words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
             words = words_df.tolist()
             dict_prueba = {word: words_df.tolist().count(word) for word in words}            
+            
+            # Load image as grayscale
             img = cv2.imread('./img/europe.jpg')
             gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-            wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
-            #plt.figure(figsize=(40,20))
-            plt.axis("off")
+            
+            # Create WordCloud object
+            wordcloud = WordCloud(width=1000, height=500, background_color='white', mask=gray_img)
+            
+            # Generate word cloud
+            wordcloud.generate_from_frequencies(dict_prueba)
+            
+            # Calculate height of the text
+            font_size = wordcloud.height // len(words_df)
+            
+            # Set font size for word cloud
+            wordcloud = wordcloud.recompute(font_size=font_size)
+            
+            # Display the word cloud
             img_pil = Image.fromarray(wordcloud.to_array())
             st.image(img_pil, use_column_width=True)
             # except:
