@@ -1510,6 +1510,9 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
         def corregir_numero(val):
             return int(val) 
+
+        def corregir_text(val):
+            return val.strip()
         
         def sustituir_valor_emoji(val):
             if val == "Yes":
@@ -1523,7 +1526,10 @@ elif app_mode == '📊 Estadísticas 2002-2023':
         for columna in columnas_a_modificar:
             df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
 
-        
+        columnas_a_modificar_2 = ['Cantante/s', 'Canción', 'Estilo', '1º Idioma', '2º Idioma', '3º Idioma', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura']
+        for columna in columnas_a_modificar_2:
+            df_to_show[columna] = df_to_show[columna].apply(corregir_text)
+            
         df_to_show['Likes YT'] = df_to_show['Likes YT'].apply(corregir_numero)
 
 
@@ -1545,6 +1551,13 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                     format="%f",
                     min_value=0,
                     max_value=1,
+                ),
+
+                "Puntos Influencia": st.column_config.ProgressColumn(
+                    "% Puntos",
+                    format="%f",
+                    min_value=0,
+                    max_value=100,
                 ),
 
             },
