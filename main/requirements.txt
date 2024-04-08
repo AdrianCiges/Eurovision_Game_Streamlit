@@ -1,7 +1,7 @@
 matplotlib==3.4.3
 pandas==1.5.3
 plotly==5.8.2
-wordcloud==1.8.1
+wordcloud==1.9.3
 opencv-python-headless==4.5.5.62
 click==8.0.3
 catboost==1.2.0
