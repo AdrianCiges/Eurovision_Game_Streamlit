@@ -1420,16 +1420,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     graf = st.radio('', graf_names)
     st.write('')
 
-
-    # Inyectar CSS personalizado para ajustar el margen
-    st.markdown("""
-    <style>
-    /* Reducir el margen superior del widget markdown para acercarlo al título */
-    .stMarkdown > div {
-        margin-top: -40px !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
     
     st.markdown('#### Selecciona un rango de años')
     # Filtro por año
