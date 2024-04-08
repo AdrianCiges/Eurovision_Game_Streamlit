@@ -797,7 +797,7 @@ with tab1:
 
             cociente = 4292/total_points
 
-            for i,puntos in enumerate(df_sorted['points'][:26]):
+            for i,puntos in enumerate(df_sorted['points']):
                 df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
             total_points = df_sorted['points'].sum()
