@@ -1407,7 +1407,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('')
 
     # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -40px;'>📆 Selecciona un rango de años</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
 
     # Filtro por año
     year_range = st.slider('', 
