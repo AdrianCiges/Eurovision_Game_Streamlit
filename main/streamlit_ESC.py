@@ -469,7 +469,8 @@ def predicciones(user_songs):
         46: 76.81818181818181,
         47: 63.61367202729045,
         48: 67.0881239250086,
-        49: 550.0
+        49: 550.0}
+    
     tabla0["bet_mean"] = [dictio_odds[c] for c in tabla0["pais"]]
 
     # REORDENO TABLA
