@@ -882,6 +882,7 @@ with tab1:
             df_prueba.index = df_prueba.index.astype(str)
             df_prueba = df_prueba.sort_index(ascending=True)
             df_prueba = df_prueba.fillna(0)
+            st.write(df_prueba)
             
             # Crear el gráfico de líneas con Plotly
             fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
