@@ -2297,8 +2297,26 @@ with tab2:
         fig = px.line(df, x='year', y='puntos_acumulados', color='country', 
                       title='Evolución de la suma acumulativa de puntos corregidos por país',
                       labels={'puntos_acumulados': 'Suma Acumulativa de Puntos Corregidos', 'year': 'Año'},
-                      hover_name='country')
+                      hover_name='country', markers=True)
         st.plotly_chart(fig, use_container_width=True)
+
+
+        df2 = df['country', 'year', 'puntos_corregidos'] # Me quedo solo con las columnas necesarias
+
+        # Pivotar los datos para tener el sumatorio acumulado de puntos por país y año
+        df_pivot = df2.pivot(index='year', columns='country', values='puntos_corregidos').fillna(0).cumsum()
+        
+        # Limitar el número de países para la visualización
+        # Si tienes muchos países, puedes limitar el número de países a mostrar para que la visualización sea más clara
+        # Aquí, por ejemplo, mostraremos solo los 10 países con la suma acumulada más alta
+        top_countries = df_pivot.sum().nlargest(10).index
+        df_pivot = df_pivot[top_countries]
+        
+        # Generar el gráfico de carrera
+        race_chart = bcr.bar_chart_race(df=df_pivot, title="Race de Sumatorio Acumulado de Puntos por País", n_bars=len(top_countries))
+        
+        # Mostrar el gráfico en Streamlit
+        st.write(race_chart)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
