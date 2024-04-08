@@ -291,23 +291,23 @@ def get_songs_ESC23(cancion):
 
     st.write('Buscando en YouTube')
 
-    # try:
+    try:
         
-   # link_video = 'https://www.youtube.com/watch?v=' + youtube_codes_dics[cancion['country']] + '&list=PLVf2bg851geTD_adqUqpSvGDVTqQwLZW6'
-    link_video = youtube_codes_dics[cancion['country']]
-    html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
-    video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
-    video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
-    song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
-    pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
-    time.sleep(random.randint(5, 7))
-    views.append(video_views)
-    likes.append(video_likes)
-    # except:
-    #     views.append(0)
-    #     likes.append(0)
-    #     song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
-    #     pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
+       # link_video = 'https://www.youtube.com/watch?v=' + youtube_codes_dics[cancion['country']] + '&list=PLVf2bg851geTD_adqUqpSvGDVTqQwLZW6'
+        link_video = youtube_codes_dics[cancion['country']]
+        html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
+        video_likes = int(html.split("Me gusta en este vídeo junto con otras ")[1].split(" personas")[0].replace('.',''))
+        video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
+        song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
+        pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
+        time.sleep(random.randint(5, 7))
+        views.append(video_views)
+        likes.append(video_likes)
+    except:
+        views.append(0)
+        likes.append(0)
+        song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
+        pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
 
     st.write('Buscando en Shazam')
 
