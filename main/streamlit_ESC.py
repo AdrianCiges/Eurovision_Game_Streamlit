@@ -1397,7 +1397,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.warning('⚠️ Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
     st.write('')
 
-    graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
+    graf_names = ['💻 Comportamiento Digital', '💲 Apuestas', '💼 Política', '⚙️ Aspectos Técnicos']
     graf = st.radio('Tipo de gráfico a visualizar', graf_names)
     st.write('')
     
@@ -1487,7 +1487,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('')
     
 
-    if graf == 'Comportamiento Digital':
+    if graf == '💻 Comportamiento Digital':
         
     # ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
@@ -1675,7 +1675,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
             
 
-    elif graf == 'Apuestas':
+    elif graf == '💲 Apuestas':
         
      # ----- APUESTAS --------------------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS APUESTAS ---------------------------------------------------------
@@ -1759,7 +1759,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
             except:
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
         
-    elif graf == 'Política':
+    elif graf == '💼 Política':
 
       # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
@@ -2178,7 +2178,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
                 
                 
-    elif graf == 'Aspectos Técnicos':
+    elif graf == '⚙️ Aspectos Técnicos':
         
     # -------TÉCNICOS ----------------------------------------------------------------------
       # ---- GRAFICOS ESTILOS ---------------------------------------------------------
