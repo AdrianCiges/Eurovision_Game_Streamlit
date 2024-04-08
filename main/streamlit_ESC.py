@@ -731,7 +731,9 @@ app_mode = st.sidebar.selectbox('Ir a:',['🎶 Juego Eurovisión', '🤖 Predicc
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-if app_mode == '🎶 Juego Eurovisión':
+tab1, tab2, tab3 = st.tabs(["🎶 Juego Eurovisión", "🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023"])
+
+with tab1:
     
     image_inicio = Image.open("./img/panel.png")
     with io.BytesIO() as output:
@@ -991,7 +993,7 @@ if app_mode == '🎶 Juego Eurovisión':
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-elif app_mode == '🤖 Predicción Eurovisión 2023':
+with tab2:
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
     st.write('')
@@ -1378,7 +1380,7 @@ elif app_mode == '🤖 Predicción Eurovisión 2023':
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-elif app_mode == '📊 Estadísticas 2002-2023':
+with tab3:
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2023</u></h1>', unsafe_allow_html=True)
 
