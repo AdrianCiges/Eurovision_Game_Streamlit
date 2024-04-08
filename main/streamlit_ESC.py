@@ -1416,8 +1416,9 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     graf = st.radio('', graf_names)
     st.write('')
 
-    
-    st.markdown('#### Selecciona un rango de años')
+    # Markdown con estilo para el título
+    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona un rango de años</h4>", unsafe_allow_html=True)
+
     # Filtro por año
     year_range = st.slider('', 
                            #min_value=df_master['year'].min(), 
