@@ -1499,7 +1499,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
         st.write(filtered_df)
         df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                  'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
-                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrcs_long', 'unic_words', 'duracion_eurovision', 'duracion_sporty',
+                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
                                  'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking', 'reput_sci_tech', 'reput_cult', 
                                  'reput_peace_secur', 'reput_world_order', 'reput_planet_climate', 'reput_props_equal', 'reput_health_wellbeing' ]]
         st.write(df_to_show)
