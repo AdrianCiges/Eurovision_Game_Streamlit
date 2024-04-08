@@ -1419,9 +1419,25 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # Radio button para seleccionar el tipo de gráfico
     graf = st.radio('', graf_names)
     st.write('')
+
+
+    # Inyectar CSS personalizado para ajustar el margen
+    st.markdown("""
+    <style>
+    # /* Reducir el margen inferior del título Markdown */
+    # div[data-testid="stMarkdownContainer"] {
+    #     margin-bottom: -25px !important;
+    # }
+    /* Reducir el margen superior del widget radio para acercarlo al título */
+    .stRadio > div {
+        margin-top: -35px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
     
+    st.markdown('#### Selecciona un rango de años')
     # Filtro por año
-    year_range = st.slider('Selecciona un rango de años', 
+    year_range = st.slider('', 
                            #min_value=df_master['year'].min(), 
                            min_value = 2002,
                            #max_value=df_master['year'].max(), 
