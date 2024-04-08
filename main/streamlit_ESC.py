@@ -1500,8 +1500,13 @@ elif app_mode == '📊 Estadísticas 2002-2023':
         df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                  'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
                                  'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking', 'reput_sci_tech', 'reput_cult', 
-                                 'reput_peace_secur', 'reput_world_order', 'reput_planet_climate', 'reput_props_equal', 'reput_health_wellbeing' ]]
+                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+
+        nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
+                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
+                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
+                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+        df_to_show.columns = nuevos_nombres
         st.write(df_to_show)
     st.write('')
     
