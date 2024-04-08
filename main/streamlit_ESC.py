@@ -2281,12 +2281,12 @@ with tab2:
         
         st.write(df)
 
-        # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años
+       # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años
         fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
                        title='Evolución de la media de puntos corregidos por país',
                        labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
                        hover_name='country')
-        fig1.show()
+        st.plotly_chart(fig1)
         
         # Gráfico de la evolución de la suma de puntos_corregidos de cada país durante los años
         fig2 = px.line(df, x='year', y='puntos_corregidos', color='country', 
@@ -2294,15 +2294,15 @@ with tab2:
                        labels={'puntos_corregidos': 'Suma de Puntos Corregidos', 'year': 'Año'},
                        hover_name='country')
         fig2.update_traces(mode='lines+markers')
-        fig2.show()
+        st.plotly_chart(fig2)
         
         # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años en forma de carrera
         fig3 = px.line(df, x='year', y='puntos_corregidos', color='country', 
                        title='Evolución de la media de puntos corregidos por país (animado)',
                        labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
                        hover_name='country', animation_frame='year')
-        fig3.show()
-        
+        st.plotly_chart(fig3)
+                
         
     # -------HISTÓRICOS ----------------------------------------------------------------------
         
