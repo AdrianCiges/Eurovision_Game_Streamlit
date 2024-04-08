@@ -130,7 +130,7 @@ def get_songs(cancion):
         "Turkey 🇹🇷 ": 46,
         "Ukraine 🇺🇦 ": 47,
         "United Kingdom 🇬🇧 ": 48, 
-        "Luxembourg 🇱🇺 ": 49}
+        "Luxembourg 🇱🇺 ": 48}
     song = []
     pais = []
     views = []
@@ -242,7 +242,7 @@ def get_songs_ESC23(cancion):
         "Turkey 🇹🇷 ": 46,
         "Ukraine 🇺🇦 ": 47,
         "United Kingdom 🇬🇧 ": 48,
-        "Luxembourg 🇱🇺 ": 49}
+        "Luxembourg 🇱🇺 ": 48}
     
 
     youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=yekc8t0rJqA&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=34',
@@ -526,7 +526,7 @@ def predicciones_now(user_songs):
 
     # SCRAPPEO LA CUOTA DE APUESTAS ACTUALIZADA
     
-    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48, 'Luxembourg 🇱🇺 ': 49}
+    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48, 'Luxembourg 🇱🇺 ': 48}
     
 
     fecha_actual = datetime.datetime.now()
