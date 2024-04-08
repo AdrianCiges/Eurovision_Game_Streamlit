@@ -2272,6 +2272,8 @@ with tab2:
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
     elif graf == 'Evolución Histórica':
+
+    # -------HISTÓRICOS ----------------------------------------------------------------------
         st.write('En desarrollo...')
 
         df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
@@ -2287,24 +2289,18 @@ with tab2:
                        labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
                        hover_name='country')
         st.plotly_chart(fig1, use_container_width=True) 
+
+        # Calcular la suma acumulativa de puntos corregidos por país para cada año
+        df['puntos_acumulados'] = df.groupby('country')['puntos_corregidos'].cumsum()
         
-        # Gráfico de la evolución de la suma de puntos_corregidos de cada país durante los años
-        fig2 = px.line(df, x='year', y='puntos_corregidos', color='country', 
-                       title='Evolución de la suma de puntos corregidos por país',
-                       labels={'puntos_corregidos': 'Suma de Puntos Corregidos', 'year': 'Año'},
-                       hover_name='country')
-        fig2.update_traces(mode='lines+markers')
-        st.write(fig2, width=0, height=0)  # width=0 y height=0 para que ocupe toda la página
+        # Gráfico de la evolución de la suma acumulativa de puntos corregidos de cada país durante los años
+        fig = px.line(df, x='year', y='puntos_acumulados', color='country', 
+                      title='Evolución de la suma acumulativa de puntos corregidos por país',
+                      labels={'puntos_acumulados': 'Suma Acumulativa de Puntos Corregidos', 'year': 'Año'},
+                      hover_name='country')
+        st.plotly_chart(fig, use_container_width=True)
+
         
-        # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años en forma de carrera
-        fig3 = px.line(df, x='year', y='puntos_corregidos', color='country', 
-                       title='Evolución de la media de puntos corregidos por país (animado)',
-                       labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
-                       hover_name='country', animation_frame='year')
-        fig3.update_traces(mode='lines+markers')  # Añadimos 'lines+markers' para mostrar las líneas
-        st.write(fig3, width=0, height=0)  # width=0 y height=0 para que ocupe toda la página
-        
-    # -------HISTÓRICOS ----------------------------------------------------------------------
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 
