@@ -378,7 +378,7 @@ def row_data_ESC23(user_songs):
     
     time.sleep(1)
     st.write('')
-    st.video('https://www.youtube.com/watch?v=Cv6tgnx6jTQ') 
+    st.video('https://www.youtube.com/watch?v=i_t3qclcXUM') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
 
