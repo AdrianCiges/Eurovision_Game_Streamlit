@@ -1497,8 +1497,8 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
     with st.expander('Ver Datos', expanded=False): 
         st.write(filtered_df)
-
-        df_to_show = filtered_df[['links','country','artist']]
+        st.write(filtered_df.columns())
+        df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos']]
         st.write(df_to_show)
     st.write('')
     
