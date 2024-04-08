@@ -2273,6 +2273,10 @@ with tab2:
 
     elif graf == 'Evolución Histórica':
         st.write('En desarrollo...')
+
+        df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
+                                 'views', 'likes', 'shazams', 'bet_mean']]
+        st.write(df_to_evol)
         
         
     # -------HISTÓRICOS ----------------------------------------------------------------------
