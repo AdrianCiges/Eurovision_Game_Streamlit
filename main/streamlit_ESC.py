@@ -1430,7 +1430,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # }
     /* Reducir el margen superior del widget radio para acercarlo al título */
     .stRadio > div {
-        margin-top: -35px !important;
+        margin-top: -40px !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -1447,8 +1447,24 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                           )
     filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
 
+
+    # Inyectar CSS personalizado para ajustar el margen
+    st.markdown("""
+    <style>
+    # /* Reducir el margen inferior del título Markdown */
+    # div[data-testid="stMarkdownContainer"] {
+    #     margin-bottom: -25px !important;
+    # }
+    /* Reducir el margen superior del widget radio para acercarlo al título */
+    .stRadio > div {
+        margin-top: -40px !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('#### Selecciona los países')
     # Filtro por país
-    selected_country = st.multiselect('Selecciona los países', options=df_master['country'].unique())
+    selected_country = st.multiselect('', options=df_master['country'].unique())
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
