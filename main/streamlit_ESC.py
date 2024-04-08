@@ -1496,7 +1496,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
     with st.expander('Ver Datos', expanded=False): 
-        st.write(filtered_df)
+        # st.write(filtered_df)
         df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                  'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
                                  'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
@@ -1534,7 +1534,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
             
         df_to_show['Likes YT'] = df_to_show['Likes YT'].apply(corregir_numero)
 
-
         df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
 
         df_to_show['Cuota Apuestas'] = df_to_show['Cuota Apuestas'].round(2)
@@ -1565,7 +1564,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
             },
             hide_index=True,
         )
-        st.write(df_to_show)
+        # st.write(df_to_show)
     st.write('')
     
     st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
