@@ -2301,7 +2301,7 @@ with tab2:
         st.plotly_chart(fig, use_container_width=True)
 
 
-        df2 = df['country', 'year', 'puntos_corregidos'] # Me quedo solo con las columnas necesarias
+        df2 = df[['country', 'year', 'puntos_corregidos']] # Me quedo solo con las columnas necesarias
 
         # Pivotar los datos para tener el sumatorio acumulado de puntos por país y año
         df_pivot = df2.pivot(index='year', columns='country', values='puntos_corregidos').fillna(0).cumsum()
