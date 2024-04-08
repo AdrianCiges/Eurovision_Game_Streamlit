@@ -2286,7 +2286,7 @@ with tab2:
                        title='Evolución de la media de puntos corregidos por país',
                        labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
                        hover_name='country')
-        st.write(fig1, width=0, height=0)  # width=0 y height=0 para que ocupe toda la página
+        st.plotly_chart(fig1, use_container_width=True) 
         
         # Gráfico de la evolución de la suma de puntos_corregidos de cada país durante los años
         fig2 = px.line(df, x='year', y='puntos_corregidos', color='country', 
