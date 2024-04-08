@@ -1508,6 +1508,27 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                                  'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         df_to_show.columns = nuevos_nombres
 
+        def corregir_numero(val):
+            return int(val) 
+        
+        def sustituir_valor_emoji(val):
+            if val == "Yes":
+                return "✅"
+            elif val == "No":
+                return "❌"
+            else:
+                return val 
+
+        columnas_a_modificar = ['Finalista', 'Temática Amor']
+        for columna in columnas_a_modificar:
+            df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
+            
+        df_to_show['Likes YT'] = df_to_show[columna].apply(corregir_numero)
+
+        df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
+
+        df_to_show['Puntos Influencia'] = df_to_show['Puntos Influencia'].round(2)
+
         st.data_editor(
             df_to_show,
             column_config={
@@ -1517,7 +1538,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 
                 "% Puntos": st.column_config.ProgressColumn(
                     "% Puntos",
-                    format="%2f",
+                    format="%f",
                     min_value=0,
                     max_value=1,
                 ),
