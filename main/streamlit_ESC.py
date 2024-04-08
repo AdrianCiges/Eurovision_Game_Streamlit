@@ -1424,13 +1424,9 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # Inyectar CSS personalizado para ajustar el margen
     st.markdown("""
     <style>
-    # /* Reducir el margen inferior del título Markdown */
-    # div[data-testid="stMarkdownContainer"] {
-    #     margin-bottom: -70px !important;
-    # }
-    /* Reducir el margen superior del widget radio para acercarlo al título */
-    .stRadio > div {
-        margin-top: -70px !important;
+    /* Reducir el margen superior del widget markdown para acercarlo al título */
+    .stMarkdown > div {
+        margin-top: -40px !important;
     }
     </style>
     """, unsafe_allow_html=True)
