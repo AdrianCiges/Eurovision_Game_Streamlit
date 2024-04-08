@@ -781,6 +781,10 @@ with tab1:
             df = pd.DataFrame(resultado)
             df_sorted = df.sort_values('points', ascending=False).reset_index(drop=True)
 
+            # Hacemos la trampa de Romania = Luxemburgo
+            df_sorted['country'] = df_sorted['country'].replace('Romania 🇷🇴 ', 'Luxemburgo 🇱🇺 ')
+
+
             first_points = df_sorted['points'][0]
             last_points = df_sorted['points'][25]
 
@@ -862,17 +866,6 @@ with tab1:
 
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
             df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
-        
-#             elims = ['Azerbaijan 🇦🇿 ', 'Ireland 🇮🇪 ', 'Latvia 🇱🇻 ', 'Malta 🇲🇹 ', 'Netherlands 🇳🇱 ']
-#             df_elims = pd.DataFrame(0, index=[fecha_hoy], columns=elims)
-#             st.write('df_elims')
-#             df_elims
-
-#             df_nuevo = pd.concat([df_nuevo, df_elims], axis=0, sort=False)
-        
-            df_nuevo = df_nuevo.sort_index(axis=1)
-#             st.write('df_nuevo')
-#             df_nuevo
 
             @st.cache_data
             def load_data_graf():
@@ -884,14 +877,6 @@ with tab1:
                 return df_prueba
 
             df_prueba = load_data_graf()
-
-#             df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
-#             df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
-#             df_prueba = df_prueba.set_index('date')
-#             # Cambiar el índice de fecha+hora a solo fecha
-#             df_prueba.index = df_prueba.index.date.astype(str)
-#             # Cambiar los valores numéricos de float a int
-#             df_prueba = df_prueba.astype(int)
             
             df_prueba = pd.concat([df_nuevo, df_prueba])
             df_prueba.index = df_prueba.index.astype(str)
@@ -1021,7 +1006,6 @@ with tab1:
 
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            st.warning('❗ El 25/04/2023 hubo un cambio en el algoritmo de búsqueda de las variables de YouTube, analizándose desde entonces los videos más representativos de cada candidatura. Tras la 2ª Semi (11/05/2023) habrá un nuevo cambio, tomando desde entonces los videos de las puestas en escena de las semifinales (y el ensayo oficial para el Big 5 + Ucrania). Las predicciones que se realicen tras la final (13/05/2023) tienen en cuenta las cuotas de apuestas del 13/05/2023 por la mañana y calcularán el resultado predicho en caso de no haberse celebrado aún el concurso.')
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
 
