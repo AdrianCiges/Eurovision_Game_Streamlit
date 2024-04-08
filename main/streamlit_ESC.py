@@ -1399,12 +1399,11 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
     
-    # Función para formatear el texto del radio button
-    def format_radio_label(label):
-        return f"<span style='font-size:20px; font-weight:bold'>{label}</span>"
+    # Título del radio button en formato Markdown
+    st.markdown("<h3 style='text-align: center; font-weight: bold;'>Tipo de gráfico a visualizar</h3>", unsafe_allow_html=True)
     
-    # Radio button con título formateado
-    graf = st.radio(label=format_radio_label('Tipo de gráfico a visualizar'), options=graf_names)
+    # Radio button para seleccionar el tipo de gráfico
+    graf = st.radio('', graf_names)
     st.write('')
     
     # Filtro por año
