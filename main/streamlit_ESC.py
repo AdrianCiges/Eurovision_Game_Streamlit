@@ -1408,7 +1408,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # }
     /* Reducir el margen superior del widget radio para acercarlo al título */
     .stRadio > div {
-        margin-top: -30px !important;
+        margin-top: -35px !important;
     }
     </style>
     """, unsafe_allow_html=True)
