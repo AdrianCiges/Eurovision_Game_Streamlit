@@ -1509,7 +1509,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
         df_to_show.columns = nuevos_nombres
 
         st.data_editor(
-            sorted_df_show,
+            df_to_show,
             column_config={
                 "Link": st.column_config.LinkColumn(
                     "🔗 Link", display_text = "🌐 Video YT"
