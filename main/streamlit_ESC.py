@@ -2303,22 +2303,11 @@ with tab2:
         st.plotly_chart(fig, use_container_width=True)
 
         
-        df2 = df[['country', 'year', 'puntos_corregidos']] # Me quedo solo con las columnas necesarias
-
-        # Pivotar los datos para tener el sumatorio acumulado de puntos por país y año
-        df_pivot = df2.pivot(index='year', columns='country', values='puntos_corregidos').fillna(0).cumsum()
+        html_code = """
+        <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+        """
         
-        # Limitar el número de países para la visualización
-        # Si tienes muchos países, puedes limitar el número de países a mostrar para que la visualización sea más clara
-        # Aquí, por ejemplo, mostraremos solo los 10 países con la suma acumulada más alta
-        top_countries = df_pivot.sum().nlargest(10).index
-        df_pivot = df_pivot[top_countries]
-        
-        # Generar el gráfico de carrera
-        race_chart = bcr.bar_chart_race(df=df_pivot, title="Race de Sumatorio Acumulado de Puntos por País", n_bars=len(top_countries))
-        
-        # Mostrar el gráfico en Streamlit
-        st.write(race_chart)
+        st.components.v1.html(html_code, width=800, height=600)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
