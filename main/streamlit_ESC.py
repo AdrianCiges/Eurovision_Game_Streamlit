@@ -2307,39 +2307,39 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 #             st.image(f"data:image/png;base64,{b64_2}", use_column_width=True) 
 
             # try:
-            # words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
-            # words = words_df.tolist()
-            # dict_prueba = {word: words_df.tolist().count(word) for word in words}            
-            # img = cv2.imread('./img/europe.jpg')
-            # gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-            # wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
-            # #plt.figure(figsize=(40,20))
-            # plt.axis("off")
-            # img_pil = Image.fromarray(wordcloud.to_array())
-            # st.image(img_pil, use_column_width=True)
-
             words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
             words = words_df.tolist()
-            dict_prueba = {word: words_df.tolist().count(word) for word in words}
+            dict_prueba = {word: words_df.tolist().count(word) for word in words}            
+            img = cv2.imread('./img/europe.jpg')
+            gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+            wordcloud = WordCloud(width = 1000, height = 500, background_color='white', mask=gray_img).generate_from_frequencies(dict_prueba)
+            #plt.figure(figsize=(40,20))
+            plt.axis("off")
+            img_pil = Image.fromarray(wordcloud.to_array())
+            st.image(img_pil, use_column_width=True)
+
+            # words_df = pd.concat([filtered_df['top1word'], filtered_df['top2word'], filtered_df['top3word'], filtered_df['top4word'], filtered_df['top5word']])
+            # words = words_df.tolist()
+            # dict_prueba = {word: words_df.tolist().count(word) for word in words}
             
-            # Crear WordCloud con el tamaño de fuente ajustado
-            wordcloud = WordCloud(width=1000, height=500, background_color='white')
+            # # Crear WordCloud con el tamaño de fuente ajustado
+            # wordcloud = WordCloud(width=1000, height=500, background_color='white')
             
-            # Calcular el tamaño de fuente adecuado
-            max_font_size = 500
-            font_step = 10
-            font_size = max_font_size
-            while True:
-                wordcloud.generate_from_frequencies(dict_prueba, max_font_size=font_size)
-                if wordcloud.width <= 1000 and wordcloud.height <= 500:
-                    break
-                font_size -= font_step
+            # # Calcular el tamaño de fuente adecuado
+            # max_font_size = 500
+            # font_step = 10
+            # font_size = max_font_size
+            # while True:
+            #     wordcloud.generate_from_frequencies(dict_prueba, max_font_size=font_size)
+            #     if wordcloud.width <= 1000 and wordcloud.height <= 500:
+            #         break
+            #     font_size -= font_step
             
-            # Mostrar la nube de palabras
-            plt.figure(figsize=(10, 5))
-            plt.imshow(wordcloud, interpolation='bilinear')
-            plt.axis('off')
-            st.pyplot(plt)
+            # # Mostrar la nube de palabras
+            # plt.figure(figsize=(10, 5))
+            # plt.imshow(wordcloud, interpolation='bilinear')
+            # plt.axis('off')
+            # st.pyplot(plt)
             # except:
             #     st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
         
