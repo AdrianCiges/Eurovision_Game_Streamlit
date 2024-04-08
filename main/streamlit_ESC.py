@@ -1530,7 +1530,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
         columnas_a_modificar_2 = ['% Puntos', 'Cuota Apuestas', 'Puntos Influencia']
         for columna in columnas_a_modificar_2:
-            df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
+            df_to_show[columna] = df_to_show[columna].apply(corregir_decimales)
 
         # df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
 
