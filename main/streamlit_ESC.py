@@ -1505,7 +1505,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS YOUTUBE ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs YouTube 🔢📹', expanded=True): 
+        with st.expander('PUNTOS vs YouTube 🔢📹', expanded=False): 
 
             st.write('')
             Acum = st.checkbox("Ver en datos acumulados")
@@ -1608,7 +1608,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
       # ---- GRAFICOS PUNTOS VS SHAZAM ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs SHAZAM 🔢🔊', expanded=True): 
+        with st.expander('PUNTOS vs SHAZAM 🔢🔊', expanded=False): 
 
             st.write('')
             Acum2 = st.checkbox("Ver en datos acumulados ")
@@ -1693,7 +1693,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
      # ----- APUESTAS --------------------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS APUESTAS ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs APUESTAS 🔢💸', expanded=True): 
+        with st.expander('PUNTOS vs APUESTAS 🔢💸', expanded=False): 
 
             st.write('')
             Acum8 = st.checkbox("Ver en datos acumulados               ")
@@ -1776,7 +1776,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
       # ---- GRAFICOS PUNTOS VS VECINOS ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs Nº de VECINOS 🔢🌍', expanded=True): 
+        with st.expander('PUNTOS vs Nº de VECINOS 🔢🌍', expanded=False): 
 
             st.write('')
             Acum3 = st.checkbox("Ver en datos acumulados  ")
@@ -1861,7 +1861,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
      # -------ECONOMÍA ----------------------------------------------------------------------
       # ---- GRAFICOS PUNTOS VS PIB ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs PIB 🔢🪙', expanded=True): 
+        with st.expander('PUNTOS vs PIB 🔢🪙', expanded=False): 
 
             st.write('')
             Acum4 = st.checkbox("Ver en datos acumulados   ")
@@ -1944,7 +1944,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
       # ---- GRAFICOS PUNTOS VS RANKING PIB ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs Ranking Relativo PIB 🔢🪙', expanded=True): 
+        with st.expander('PUNTOS vs Ranking Relativo PIB 🔢🪙', expanded=False): 
 
             st.write('')
             Acum5 = st.checkbox("Ver en datos acumulados    ")
@@ -2028,7 +2028,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
       # ---- GRAFICOS PUNTOS VS INFLUENCIA ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs INFLUENCIA 🔢💪🏻', expanded=True): 
+        with st.expander('PUNTOS vs INFLUENCIA 🔢💪🏻', expanded=False): 
 
             st.write('')
             Acum6 = st.checkbox("Ver en datos acumulados      ")
@@ -2111,7 +2111,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 
       # ---- GRAFICOS PUNTOS VS REPUTACIÓN ---------------------------------------------------------
 
-        with st.expander('PUNTOS vs REPUTACIÓN 🔢👍🏻', expanded=True): 
+        with st.expander('PUNTOS vs REPUTACIÓN 🔢👍🏻', expanded=False): 
 
             st.write('')
             Acum7 = st.checkbox("Ver en datos acumulados        ")
@@ -2196,7 +2196,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # -------TÉCNICOS ----------------------------------------------------------------------
       # ---- GRAFICOS ESTILOS ---------------------------------------------------------
 
-        with st.expander('ESTILOS vs PAÍS 🤘🏻🌍', expanded=True):
+        with st.expander('ESTILOS vs PAÍS 🤘🏻🌍', expanded=False):
             
             st.write('')
             sin_pop = st.checkbox("Visualizar sin POP")
@@ -2245,7 +2245,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
         
-        with st.expander('PAÍS vs ESTILOS 🌍🤘🏻', expanded=True):
+        with st.expander('PAÍS vs ESTILOS 🌍🤘🏻', expanded=False):
             
             st.write('')
             sin_pop2 = st.checkbox("Visualizar sin POP ")
@@ -2295,7 +2295,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                       
     # ---- GRAFICOS PALABRAS ---------------------------------------------------------
 
-        with st.expander('Palabras más usadas 🔤', expanded=True):
+        with st.expander('Palabras más usadas 🔤', expanded=False):
             st.write('')
             st.write('❗ La imagen que observarás abajo se acaba de generar de manera dinámica con las palabras más usadas (si filtras los datos se generará una nueva)')
             st.write(f'<p style="font-size: 24px; text-align: left;">Palabras más usadas {year_range[0]}-{year_range[1]}</p>', unsafe_allow_html=True)
@@ -2323,7 +2323,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
 
     # ---- GRAFICOS LONGITUD ---------------------------------------------------------
 
-        with st.expander('Longitud de la cación ⏩', expanded=True):
+        with st.expander('Longitud de la cación ⏩', expanded=False):
 
             st.write('')
             Acum9 = st.checkbox("Ver en datos acumulados                    ")
@@ -2403,7 +2403,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
                 
 
-        with st.expander('Top 20 Canciones según LONGITUD PALABRAS🔝', expanded=True):
+        with st.expander('Top 20 Canciones según LONGITUD PALABRAS🔝', expanded=False):
             
             try:
             
@@ -2466,7 +2466,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
 
 
-        with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=True):
+        with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=False):
 
             shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True)[:20].reset_index()             
             shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
@@ -2491,7 +2491,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
             
   # ---- GRAFICOS IDIOMAS ---------------------------------------------------------
 
-        with st.expander('IDIOMAS vs PAÍS 🗣️🌍', expanded=True):
+        with st.expander('IDIOMAS vs PAÍS 🗣️🌍', expanded=False):
             
             st.write('')
             sin_ing = st.checkbox("Visualizar sin INGLÉS")
@@ -2540,7 +2540,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                 
     # ---- GRAFICOS ESTRUCTURA ---------------------------------------------------------
 
-        with st.expander('ESTRUCTURA vs PAÍS 🔠🌍', expanded=True):
+        with st.expander('ESTRUCTURA vs PAÍS 🔠🌍', expanded=False):
             
             st.write('')
             st.write('❗ En este gráfico solo se visualizan aquellas canciones cuya estructura ha podido ser registrada, dado que no existían datos consistentes sobre ello')
