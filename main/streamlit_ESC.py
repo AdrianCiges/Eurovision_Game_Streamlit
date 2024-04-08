@@ -1400,7 +1400,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
     
     # Utilizando Markdown para añadir estilo al título
-    st.markdown("<h4 style='margin-bottom: -40px;'>🔎 Tipo de gráfico a visualizar</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -50px;'>Tipo de gráfico a visualizar 🔎</h4>", unsafe_allow_html=True)
     
     # Radio button para seleccionar el tipo de gráfico
     graf = st.radio('', graf_names)
