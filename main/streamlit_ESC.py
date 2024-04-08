@@ -1402,10 +1402,6 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # Inyectar CSS personalizado para ajustar el margen
     st.markdown("""
     <style>
-    # /* Reducir el margen inferior del título Markdown */
-    # div[data-testid="stMarkdownContainer"] {
-    #     margin-bottom: -25px !important;
-    # }
     /* Reducir el margen superior del widget radio para acercarlo al título */
     .stRadio > div {
         margin-top: -35px !important;
@@ -1435,7 +1431,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('')
     
     # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -25px;'>Selecciona los países</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
     selected_country = st.multiselect('', options=df_master['country'].unique())
