@@ -2307,7 +2307,7 @@ with tab2:
         <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
         """
         
-        st.components.v1.html(html_code, use_container_width=True)
+        st.components.v1.html(html_code)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
