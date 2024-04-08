@@ -1403,14 +1403,14 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.markdown("<h4 style='margin-bottom: -50px;'> 🔎 Tipo de gráfico a visualizar</h4>", unsafe_allow_html=True)
     
     # Radio button para seleccionar el tipo de gráfico
-    graf = st.radio('', graf_names)
+    graf = st.radio(' ', graf_names)
     st.write('')
 
     # Markdown con estilo para el título
     st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
 
     # Filtro por año
-    year_range = st.slider('', 
+    year_range = st.slider(' ', 
                            #min_value=df_master['year'].min(), 
                            min_value = 2002,
                            #max_value=df_master['year'].max(), 
