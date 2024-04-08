@@ -867,7 +867,7 @@ with tab1:
             # Crear un nuevo dataframe con la fecha de hoy como índice y las columnas y valores especificados
             df_nuevo = pd.DataFrame(data, index=[fecha_hoy])
 
-            @st.cache_data
+            # @st.cache_data
             def load_data_graf():
                 df_prueba = pd.read_excel('./data/prueba_predicc_dia_dia.xlsx')
                 df_prueba.rename(columns= {'Unnamed: 0':'date'}, inplace=True)
