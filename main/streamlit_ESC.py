@@ -852,6 +852,7 @@ with tab1:
                     selected_countries.append(country)
                     manager = col4.text_input(f'Jugador {i+1}')
                     user_songs.append({'song': song, 'singer': singer, 'country': country, 'manager': manager})
+                    st.write('-----')
                 return user_songs
 
             if __name__ == '__main__':
