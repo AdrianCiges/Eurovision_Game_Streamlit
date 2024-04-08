@@ -374,7 +374,7 @@ def row_data_ESC23(user_songs):
     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
     time.sleep(1)
     st.write('')
-    st.markdown('##### 🤯 Esto puede tardar unos segundos. Interval act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos segundos. Recap act time!')
     
     time.sleep(1)
     st.write('')
