@@ -1453,11 +1453,11 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     <style>
     # /* Reducir el margen inferior del título Markdown */
     # div[data-testid="stMarkdownContainer"] {
-    #     margin-bottom: -50px !important;
+    #     margin-bottom: -25px !important;
     # }
     /* Reducir el margen superior del widget radio para acercarlo al título */
     .stRadio > div {
-        margin-top: -60px !important;
+        margin-top: -40px !important;
     }
     </style>
     """, unsafe_allow_html=True)
