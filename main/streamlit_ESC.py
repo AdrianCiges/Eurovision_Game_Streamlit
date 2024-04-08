@@ -129,8 +129,7 @@ def get_songs(cancion):
         "Netherlands 🇳🇱 ": 45,
         "Turkey 🇹🇷 ": 46,
         "Ukraine 🇺🇦 ": 47,
-        "United Kingdom 🇬🇧 ": 48, 
-        "Romania 🇱🇺 ": 48}
+        "United Kingdom 🇬🇧 ": 48}
     song = []
     pais = []
     views = []
@@ -241,8 +240,7 @@ def get_songs_ESC23(cancion):
         "Netherlands 🇳🇱 ": 45,
         "Turkey 🇹🇷 ": 46,
         "Ukraine 🇺🇦 ": 47,
-        "United Kingdom 🇬🇧 ": 48,
-        "Romania 🇱🇺 ": 48}
+        "United Kingdom 🇬🇧 ": 48}
     
 
     youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=yekc8t0rJqA&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=34',
@@ -281,7 +279,7 @@ def get_songs_ESC23(cancion):
                          'Latvia 🇱🇻 ' : 'https://www.youtube.com/watch?v=p8FNO0DtBng&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=21',
                          'Azerbaijan 🇦🇿 ' : 'https://www.youtube.com/watch?v=NNhAk4rVgNc&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=5',
                          'Malta 🇲🇹 ' : 'https://www.youtube.com/watch?v=l6eS60n4wg8&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=24',
-                         'Romania 🇱🇺 ' : 'https://www.youtube.com/watch?v=6CNuXpdyYmE&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=23'
+                         'Romania 🇷🇴 ' : 'https://www.youtube.com/watch?v=6CNuXpdyYmE&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=23'
                          }
 
     song = []
@@ -468,8 +466,7 @@ def predicciones(user_songs):
         45: 142.5697150556129,
         46: 76.81818181818181,
         47: 63.61367202729045,
-        48: 67.0881239250086,
-        49: 550.0}
+        48: 67.0881239250086}
     
     tabla0["bet_mean"] = [dictio_odds[c] for c in tabla0["pais"]]
 
@@ -526,7 +523,7 @@ def predicciones_now(user_songs):
 
     # SCRAPPEO LA CUOTA DE APUESTAS ACTUALIZADA
     
-    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48, 'Romania 🇱🇺 ': 48}
+    pais_odds = {'Albania 🇦🇱 ': 0, 'Andorra 🇦🇩 ': 1, 'Armenia 🇦🇲 ': 2, 'Australia 🇦🇺 ': 3, 'Austria 🇦🇹 ': 4, 'Azerbaijan 🇦🇿 ': 5, 'Belarus 🇧🇾 ': 6, 'Belgium 🇧🇪 ': 7, 'Bosnia and Herzegovina 🇧🇦 ': 8, 'Bulgaria 🇧🇬 ': 9, 'Croatia 🇭🇷 ': 10, 'Cyprus 🇨🇾 ': 11, 'Czechia 🇨🇿 ': 12, 'Denmark 🇩🇰 ': 13, 'Estonia 🇪🇪 ': 14, 'Finland 🇫🇮 ': 15, 'France 🇫🇷 ': 16, 'Georgia 🇬🇪 ': 17, 'Germany 🇩🇪 ': 18, 'Greece 🇬🇷 ': 19, 'Hungary 🇭🇺 ': 20, 'Iceland 🇮🇸 ': 21, 'Ireland 🇮🇪 ': 22, 'Israel 🇮🇱 ': 23, 'Italy 🇮🇹 ': 24, 'Latvia 🇱🇻 ': 25, 'Lithuania 🇱🇹 ': 26, 'Malta 🇲🇹 ': 27, 'Moldova 🇲🇩 ': 28, 'Monaco': 29, 'Montenegro 🇲🇪 ': 30, 'North Macedonia 🇲🇰 ': 31, 'Norway 🇳🇴 ': 32, 'Poland 🇵🇱 ': 33, 'Portugal 🇵🇹 ': 34, 'Romania 🇷🇴 ': 35, 'Russia 🇷🇺 ': 36, 'San Marino 🇸🇲 ': 37, 'Serbia 🇷🇸 ': 38, 'Slovakia 🇸🇰 ': 40, 'Slovenia 🇸🇮 ': 41, 'Spain 🇪🇸 ': 42, 'Sweden 🇸🇪 ': 43, 'Switzerland 🇨🇭 ': 44, 'Netherlands 🇳🇱 ': 45, 'Turkey 🇹🇷 ': 46, 'Ukraine 🇺🇦 ': 47, 'United Kingdom 🇬🇧 ': 48}
     
 
     fecha_actual = datetime.datetime.now()
@@ -571,7 +568,7 @@ def predicciones_now(user_songs):
                     'Latvia 🇱🇻 ': 145.733333333333,
                     'Azerbaijan 🇦🇿 ': 236.066666666667,
                     'Malta 🇲🇹 ': 222.066666666667,
-                    'Romania 🇱🇺 ': 256.066666666667
+                    'Romania 🇷🇴 ': 256.066666666667
                     }
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
@@ -685,9 +682,9 @@ def add_to_playlist(tracks):
     #enlace_clicable = "<a href='" + link_spoty + "'>" + link_spoty + "</a>"
     return st.markdown(f'🎶 A disfrutar: [{link_spoty}]({link_spoty})')
 
-countries = ['Albania 🇦🇱 ', 'Andorra 🇦🇩 ', 'Armenia 🇦🇲 ', 'Australia 🇦🇺 ', 'Austria 🇦🇹 ', 'Azerbaijan 🇦🇿 ', 'Belarus 🇧🇾 ', 'Belgium 🇧🇪 ', 'Bosnia and Herzegovina 🇧🇦 ', 'Bulgaria 🇧🇬 ', 'Croatia 🇭🇷 ', 'Cyprus 🇨🇾 ', 'Czechia 🇨🇿 ', 'Denmark 🇩🇰 ', 'Estonia 🇪🇪 ', 'Finland 🇫🇮 ', 'France 🇫🇷 ', 'Georgia 🇬🇪 ', 'Germany 🇩🇪 ', 'Greece 🇬🇷 ', 'Hungary 🇭🇺 ', 'Iceland 🇮🇸 ', 'Ireland 🇮🇪 ', 'Israel 🇮🇱 ', 'Italy 🇮🇹 ', 'Latvia 🇱🇻 ', 'Lithuania 🇱🇹 ', 'Malta 🇲🇹 ', 'Moldova 🇲🇩 ', 'Montenegro 🇲🇪 ', 'North Macedonia 🇲🇰 ', 'Norway 🇳🇴 ', 'Poland 🇵🇱 ', 'Portugal 🇵🇹 ', 'Romania 🇷🇴 ', 'Russia 🇷🇺 ', 'San Marino 🇸🇲 ', 'Serbia 🇷🇸 ', 'Slovakia 🇸🇰 ', 'Slovenia 🇸🇮 ', 'Spain 🇪🇸 ', 'Sweden 🇸🇪 ', 'Switzerland 🇨🇭 ', 'Netherlands 🇳🇱 ', 'Turkey 🇹🇷 ', 'Ukraine 🇺🇦 ', 'United Kingdom 🇬🇧 ', 'Romania 🇱🇺 ']
+countries = ['Albania 🇦🇱 ', 'Andorra 🇦🇩 ', 'Armenia 🇦🇲 ', 'Australia 🇦🇺 ', 'Austria 🇦🇹 ', 'Azerbaijan 🇦🇿 ', 'Belarus 🇧🇾 ', 'Belgium 🇧🇪 ', 'Bosnia and Herzegovina 🇧🇦 ', 'Bulgaria 🇧🇬 ', 'Croatia 🇭🇷 ', 'Cyprus 🇨🇾 ', 'Czechia 🇨🇿 ', 'Denmark 🇩🇰 ', 'Estonia 🇪🇪 ', 'Finland 🇫🇮 ', 'France 🇫🇷 ', 'Georgia 🇬🇪 ', 'Germany 🇩🇪 ', 'Greece 🇬🇷 ', 'Hungary 🇭🇺 ', 'Iceland 🇮🇸 ', 'Ireland 🇮🇪 ', 'Israel 🇮🇱 ', 'Italy 🇮🇹 ', 'Latvia 🇱🇻 ', 'Lithuania 🇱🇹 ', 'Malta 🇲🇹 ', 'Moldova 🇲🇩 ', 'Montenegro 🇲🇪 ', 'North Macedonia 🇲🇰 ', 'Norway 🇳🇴 ', 'Poland 🇵🇱 ', 'Portugal 🇵🇹 ', 'Romania 🇷🇴 ', 'Russia 🇷🇺 ', 'San Marino 🇸🇲 ', 'Serbia 🇷🇸 ', 'Slovakia 🇸🇰 ', 'Slovenia 🇸🇮 ', 'Spain 🇪🇸 ', 'Sweden 🇸🇪 ', 'Switzerland 🇨🇭 ', 'Netherlands 🇳🇱 ', 'Turkey 🇹🇷 ', 'Ukraine 🇺🇦 ', 'United Kingdom 🇬🇧 ']
 
-num_part = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]
+num_part = [3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48]
 
 
 def get_available_countries(selected_countries):
@@ -775,7 +772,7 @@ with tab1:
                           {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland 🇵🇱 ', 'manager': 'J29'}, 
                           {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal 🇵🇹 ', 'manager': 'J30'}, 
                           {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom 🇬🇧 ', 'manager': 'J31'}, 
-                          {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇱🇺 ', 'manager': 'J32'}, 
+                          {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
                           {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
                           {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
                           {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
