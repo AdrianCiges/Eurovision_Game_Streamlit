@@ -1121,7 +1121,7 @@ with tab1:
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-with tab3:
+with tab2:
 
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📊</span> <u>ESTADÍSTICAS 2002-2023</u></h1>', unsafe_allow_html=True)
 
