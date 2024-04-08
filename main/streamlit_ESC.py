@@ -1498,7 +1498,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     with st.expander('Ver Datos', expanded=False): 
         st.write(filtered_df)
 
-        df_to_show = filtered_df[filtered_df['country','artist']]
+        df_to_show = filtered_df[['country','artist']]
         st.write(df_to_show)
     st.write('')
     
