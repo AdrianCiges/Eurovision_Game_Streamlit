@@ -733,20 +733,6 @@ def get_available_countries(selected_countries):
 tab1, tab2, tab3 = st.tabs(["🎶 Juego Eurovisión", "🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023"])
 
 with tab1:
-    
-    image_inicio = Image.open("./img/panel.png")
-    with io.BytesIO() as output:
-        image_inicio.save(output, format="PNG")
-        b64_1 = base64.b64encode(output.getvalue()).decode()
-
-    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">🎙️</span> <u>THE EUROVISION GAME</u></h1>', unsafe_allow_html=True)
-    
-    st.write('')
-    with st.expander('Cómo usar la página adecuadamente', expanded=False):
-        st.write('⬅️ Utiliza el **panel de la izquierda** para navegar por las diferentes secciones de la página')
-        st.image(f"data:image/png;base64,{b64_1}", use_column_width=True) 
-        st.write('')
-        st.write('🔁 Si accedes desde un móvil **rota la pantalla** para una mejor visibilidad')    
 
     st.markdown('<h2 style="text-align:center"><span style="font-size: 15px;"></span> ¡Bienvenidos al juego de Eurovision! ¿Con quién tenemos el placer de jugar?</h2>', unsafe_allow_html=True)
     
