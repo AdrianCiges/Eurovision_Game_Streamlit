@@ -29,6 +29,8 @@ import datetime
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.subplots as sp
+import bar_chart_race as bcr
+import ffmpeg
 
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -2300,7 +2302,7 @@ with tab2:
                       hover_name='country', markers=True)
         st.plotly_chart(fig, use_container_width=True)
 
-
+        
         df2 = df[['country', 'year', 'puntos_corregidos']] # Me quedo solo con las columnas necesarias
 
         # Pivotar los datos para tener el sumatorio acumulado de puntos por país y año
