@@ -2276,7 +2276,10 @@ with tab2:
 
         df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
                                  'views', 'likes', 'shazams', 'bet_mean']]
-        st.write(df_to_evol)
+
+        df = df_to_evol.copy()
+        
+        st.write(df)
 
         # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años
         fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
