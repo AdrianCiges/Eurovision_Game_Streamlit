@@ -241,45 +241,6 @@ def get_songs_ESC23(cancion):
         "Turkey 🇹🇷 ": 46,
         "Ukraine 🇺🇦 ": 47,
         "United Kingdom 🇬🇧 ": 48 }
-
-   # youtube_codes_dics = {'Sweden 🇸🇪 ': 'b3vJfR81xO0',
-       #  'Finland 🇫🇮 ': 'rJHe-iZ5HSI',
-      #   'Ukraine 🇺🇦 ': 'q6QFVqWX2gM',
-     #    'Norway 🇳🇴 ': 'zt7U0-N1mlk',
-       #  'Spain 🇪🇸 ': 'yxuO0qZITko',
-      #   'Israel 🇮🇱 ': 'r4wbdKmM3bQ',
-     #    'Austria 🇦🇹 ': 'ZMmLeV47Au4',
-     #    'Czechia 🇨🇿 ': '-y78qgDlzAM',
-     #    'France 🇫🇷 ': 'GWfbEFH9NvQ',
-      #   'United Kingdom 🇬🇧 ': 'tJ21grjN6wU',
-      #   'Italy 🇮🇹 ': 'N4HBDAbdXUg',
-      #   'Armenia 🇦🇲 ': 'Co8ZJIejXBA',
-     #    'Switzerland 🇨🇭 ': '_8-Sbc_GZMc&',
-         #'Georgia 🇬🇪 ': 'E8kO-QPippo',
-         #'Netherlands 🇳🇱 ': 'UOf-oKDlO6A',
-     #    'Serbia 🇷🇸 ': 'oeIVwYUge8o',
-     #    'Australia 🇦🇺 ': 'aqtu2GspT80',
-    #     'Croatia 🇭🇷 ': 'O_tmsim6lPY',
-    #     'Moldova 🇲🇩 ': 'se9LDgFW6ak',
-    #     'Germany 🇩🇪 ': 'lnAliSmSI1A',
-     #    'Slovenia 🇸🇮 ': 'vfTiuZaESKs',
-    #     'Estonia 🇪🇪 ': 'lbEj29AjB-c',
-         #'Ireland 🇮🇪 ': 'ak5Fevs424Y',
-   #      'Cyprus 🇨🇾 ': 'zrFUKqTy4zI',
-    #     'Poland 🇵🇱 ': 'ANM4CwbE0Is',
-         #'Iceland 🇮🇸 ': 'BhlJXcCv7gw',
-   #      'Portugal 🇵🇹 ': 'wa3suiOzAAk',
-         #'Denmark 🇩🇰 ': 'kY5QNC2LkG8',
-         #'Greece 🇬🇷 ': 'qL0EkId_sTY',
-         #'Azerbaijan 🇦🇿 ': '5dvsr-L3HgY',
-    #     'Belgium 🇧🇪 ': 'uYWhh-E_VPo',
-   #      'Lithuania 🇱🇹 ': '68lbEUDuWUQ',
-         #'Malta 🇲🇹 ': 'h5wfKv4p8uA',
-         #'San Marino 🇸🇲 ': 'Hjfq-T-8WHw',
-         #'Latvia 🇱🇻 ': 'PQkKJNLuO_Y',
-         #'Romania 🇷🇴 ': 'NRxv-AUCinQ',
-    #     'Albania 🇦🇱 ': 'aZxe3Ce6yEI'}
-    
     
 
     youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=BE2Fj0W4jP4&list=PLmWYEDTNOGUIDlp5epnDhPH-zPI0KfTQG',
@@ -768,63 +729,6 @@ with tab1:
     ctr = train_model(X_train, y_train)
     y_pred = ctr.predict(X_test)
 
-#     y_pred = ctr.predict(X_test)
-
-# ---------------------------------------------------------------------------------
-
-#     @st.cache
-#     def load_data():
-#         data = pd.read_excel("./data/Data_to_train.xlsx")
-#         data.drop("Unnamed: 0", axis=1, inplace=True)
-#         return data
-
-#     @st.cache
-#     def split_data(data):
-#         X = data.drop("propo_puntos", axis=1)
-#         y = data.propo_puntos
-#         X_train, X_test, y_train, y_test = tts(
-#             X, y, train_size=0.99, test_size=0.01, random_state=22
-#         )
-#         return X_train, X_test, y_train, y_test
-
-#     @st.cache
-#     def train_model(X_train, y_train):
-#         ctr = CTR(iterations=5, verbose=False)
-#         ctr.fit(X_train, y_train)
-#         return ctr
-
-#     data = load_data()
-#     X_train, X_test, y_train, y_test = split_data(data)
-
-#     # Convertir X_train y y_train a listas
-#     X_train_list = X_train.values.tolist()
-#     y_train_list = y_train.values.tolist()
-
-#     ctr = train_model(X_train_list, y_train_list)
-
-#     # Convertir X_test a lista
-#     X_test_list = X_test.values.tolist()
-
-#     # Predecir utilizando el modelo entrenado
-#     y_pred = [ctr.predict(x) for x in X_test_list]
-
-# ---------------------------------------------------------------------------------------
-    
-#     data = pd.read_excel("./data/Data_to_train.xlsx")
-#     data.drop("Unnamed: 0", axis=1, inplace=True)
-
-#     # PARTIMOS DATA
-#     X = data.drop("propo_puntos", axis=1)
-#     y = data.propo_puntos
-#     X_train, X_test, y_train, y_test = tts(
-#         X, y, train_size=0.99, test_size=0.01, random_state=22
-#     )
-#     # X_train.shape, X_test.shape, y_train.shape, y_test.shape
-
-#     # ENTRENAMOS
-#     ctr = CTR(iterations=5, verbose=False)
-#     ctr.fit(X_train, y_train)
-#     y_pred = ctr.predict(X_test)
 
     if __name__ == '__main__':
         st.write('')
@@ -838,34 +742,34 @@ with tab1:
                           {'song': 'Future Lover', 'singer': 'Brunette', 'country': 'Armenia 🇦🇲 ', 'manager': 'J3'}, 
                           {'song': 'Promise', 'singer': 'Voyager', 'country': 'Australia 🇦🇺 ', 'manager': 'J4'}, 
                           {'song': 'Who the hell is Edgar?', 'singer': 'Teya & Selena', 'country': 'Austria 🇦🇹 ', 'manager': 'J5'}, 
-                          #{'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
+                          {'song': 'Tell me more', 'singer': 'TuralTuranX', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
                           {'song': 'Because of you', 'singer': 'Gustaph', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
                           {'song': "My Sister's Crown", 'singer': 'Vesna', 'country': 'Czechia 🇨🇿 ', 'manager': 'J8'}, 
                           {'song': 'Break a Broken Heart', 'singer': 'Andrew Lambrou', 'country': 'Cyprus 🇨🇾 ', 'manager': 'J9'}, 
                           {'song': 'Mama ŠČ!', 'singer': 'Let3', 'country': 'Croatia 🇭🇷 ', 'manager': 'J10'}, 
-                          #{'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark 🇩🇰 ', 'manager': 'J11'}, 
+                          {'song': 'Breaking My Heart', 'singer': 'Reiley', 'country': 'Denmark 🇩🇰 ', 'manager': 'J11'}, 
                           {'song': 'Carpe Diem', 'singer': 'Joker Out', 'country': 'Slovenia 🇸🇮 ', 'manager': 'J12'}, 
                           {'song': 'EaEa', 'singer': 'BlancaPaloma', 'country': 'Spain 🇪🇸 ', 'manager': 'J13'}, 
                           {'song': 'Bridges', 'singer': 'Alika', 'country': 'Estonia 🇪🇪 ', 'manager': 'J14'}, 
                           {'song': 'ChaChaCha', 'singer': 'Käärijä', 'country': 'Finland 🇫🇮 ', 'manager': 'J15'}, 
                           {'song': 'Évidemment', 'singer': 'Zarra', 'country': 'France 🇫🇷 ', 'manager': 'J16'}, 
-                          #{'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia 🇬🇪 ', 'manager': 'J17'}, 
-                          #{'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece 🇬🇷 ', 'manager': 'J18'}, 
-                          #{'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland 🇮🇪 ', 'manager': 'J19'}, 
-                          #{'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland 🇮🇸 ', 'manager': 'J20'}, 
+                          {'song': 'Echo', 'singer': 'Iru', 'country': 'Georgia 🇬🇪 ', 'manager': 'J17'}, 
+                          {'song': 'What They Say', 'singer': 'Victor Vernicos', 'country': 'Greece 🇬🇷 ', 'manager': 'J18'}, 
+                          {'song': 'We are one', 'singer': 'Wild Youth', 'country': 'Ireland 🇮🇪 ', 'manager': 'J19'}, 
+                          {'song': 'Power', 'singer': 'Diljá', 'country': 'Iceland 🇮🇸 ', 'manager': 'J20'}, 
                           {'song': 'Unicorn', 'singer': 'Noa Kirel', 'country': 'Israel 🇮🇱 ', 'manager': 'J21'}, 
                           {'song': 'Due Vite', 'singer': 'MarcoMengoni', 'country': 'Italy 🇮🇹 ', 'manager': 'J22'}, 
-                          #{'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia 🇱🇻 ', 'manager': 'J23'}, 
+                          {'song': 'Aijā', 'singer': 'Sudden Lights', 'country': 'Latvia 🇱🇻 ', 'manager': 'J23'}, 
                           {'song': 'Stay', 'singer': 'Monika Linkytė', 'country': 'Lithuania 🇱🇹 ', 'manager': 'J24'}, 
-                          #{'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta 🇲🇹 ', 'manager': 'J25'}, 
+                          {'song': 'Dance (Our Own Party)', 'singer': 'The Busker', 'country': 'Malta 🇲🇹 ', 'manager': 'J25'}, 
                           {'song': 'Soarele şi Luna', 'singer': 'Pasha Parfeni', 'country': 'Moldova 🇲🇩 ', 'manager': 'J26'}, 
                           {'song': 'Queen of kings', 'singer': 'Alessandra', 'country': 'Norway 🇳🇴 ', 'manager': 'J27'}, 
-                          #{'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands 🇳🇱 ', 'manager': 'J28'}, 
+                          {'song': 'Burning Daylight', 'singer': 'Mia Nicolai & Dion Cooper', 'country': 'Netherlands 🇳🇱 ', 'manager': 'J28'}, 
                           {'song': 'Solo', 'singer': 'Blanka', 'country': 'Poland 🇵🇱 ', 'manager': 'J29'}, 
                           {'song': 'AiCoração', 'singer': 'Mimicat', 'country': 'Portugal 🇵🇹 ', 'manager': 'J30'}, 
                           {'song': 'I Wrote a Song', 'singer': 'MaeMuller', 'country': 'United Kingdom 🇬🇧 ', 'manager': 'J31'}, 
-                          #{'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
-                          #{'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
+                          {'song': 'D.G.T. (Off and On)', 'singer': 'Theodor Andrei', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
+                          {'song': 'Like an Animal', 'singer': 'Piqued Jacks', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
                           {'song': 'Samo mi se spava', 'singer': 'Luke Black', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
                           {'song': 'Tattoo', 'singer': 'Loreen', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
                           {'song': 'Watergun', 'singer': 'Remo Forrer', 'country': 'Switzerland 🇨🇭 ', 'manager': 'J36'}, 
