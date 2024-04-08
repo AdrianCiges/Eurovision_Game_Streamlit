@@ -1400,14 +1400,14 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     graf_names = ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']
     
     # Utilizando Markdown para añadir estilo al título
-    st.markdown("<h4 style='margin-bottom: -50px;'>Tipo de gráfico a visualizar  🔎</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -50px;'>Tipo de gráfico a visualizar</h4>", unsafe_allow_html=True)
     
     # Radio button para seleccionar el tipo de gráfico
     graf = st.radio('', graf_names)
     st.write('')
 
     # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona un rango de años  📆</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona un rango de años</h4>", unsafe_allow_html=True)
 
     # Filtro por año
     year_range = st.slider('', 
@@ -1422,7 +1422,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('')
     
     # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona los países  🌍</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -40px;'>Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
     selected_country = st.multiselect('', options=df_master['country'].unique())
@@ -1494,7 +1494,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     # Muestra el DataFrame filtrado
     st.write('\n')
 
-    st.markdown("<h4 style='margin-bottom: 5px;'>Tabla de datos  🔢</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: 5px;'>Tabla de datos</h4>", unsafe_allow_html=True)
     with st.expander('Ver Datos', expanded=False): 
         st.write(filtered_df)
     st.write('')
