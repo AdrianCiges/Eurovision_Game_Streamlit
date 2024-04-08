@@ -1505,7 +1505,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.write('\n')
     st.write('\n')
 
-    st.markdown("<h4 style='margin-bottom: -10px;'>Tabla de datos</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: 0px;'>Tabla de datos</h4>", unsafe_allow_html=True)
     with st.expander('👀 Ver Datos', expanded=False): 
         st.write(filtered_df)
     st.write('')
