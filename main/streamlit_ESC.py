@@ -1425,7 +1425,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder='País o países a visualizar')
+    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder="País o países a visualizar")
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
