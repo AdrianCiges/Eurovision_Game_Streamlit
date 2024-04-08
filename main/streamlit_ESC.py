@@ -1432,9 +1432,11 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                            value = (2002, 2023)
                           )
     filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
-
+    st.wrtie('')
     
-    st.markdown('#### Selecciona los países')
+    # Markdown con estilo para el título
+    st.markdown("<h4 style='margin-bottom: 5px;'>Selecciona los países</h4>", unsafe_allow_html=True)
+    
     # Filtro por país
     selected_country = st.multiselect('', options=df_master['country'].unique())
     if selected_country:
