@@ -1508,7 +1508,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
                                  'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         df_to_show.columns = nuevos_nombres
 
-                st.data_editor(
+        st.data_editor(
             sorted_df_show,
             column_config={
                 "Link": st.column_config.LinkColumn(
