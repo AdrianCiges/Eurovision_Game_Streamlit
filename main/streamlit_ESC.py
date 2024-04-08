@@ -744,7 +744,7 @@ with tab1:
                           {'song': 'One Milkali (One Blood)', 'singer': 'Electric Fields', 'country': 'Australia 🇦🇺 ', 'manager': 'J4'}, 
                           {'song': 'We Will Rave', 'singer': 'Kaleen', 'country': 'Austria 🇦🇹 ', 'manager': 'J5'}, 
                           {'song': 'Özünlə Apar', 'singer': 'FAHREE feat. Ilkin Dovlatov', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
-                          {'song': 'Before The Party's Over', 'singer': 'Mustii', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
+                          {'song': 'Before The Party is Over', 'singer': 'Mustii', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
                           {'song': "Pedestal", 'singer': 'Aiko', 'country': 'Czechia 🇨🇿 ', 'manager': 'J8'}, 
                           {'song': 'Liar', 'singer': 'Sília Kapsís', 'country': 'Cyprus 🇨🇾 ', 'manager': 'J9'}, 
                           {'song': 'Rim Tim Tagi Dim', 'singer': 'Baby Lasagna', 'country': 'Croatia 🇭🇷 ', 'manager': 'J10'}, 
