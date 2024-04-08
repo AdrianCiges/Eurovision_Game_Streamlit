@@ -1499,7 +1499,7 @@ elif app_mode == '📊 Estadísticas 2002-2023':
         st.write(filtered_df)
     st.write('')
     
-    st.markdown("<h4 style='margin-bottom: 5px;'>Gráficos</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
     if graf == 'Comportamiento Digital':
         
     # ------ MÉTRICAS DIGITALES -----------------------------------------------------------------
