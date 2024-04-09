@@ -708,14 +708,29 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     modification_container = st.container()
-
     with modification_container:
+        # Estilo CSS para el contenedor
+        st.markdown(
+            """
+            <style>
+            .modification-container {
+                padding: 20px;
+                background-color: #f4f4f4;
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+        # Contenido del contenedor
         columnas_filtro = ['country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking']
         to_filter_columns = st.multiselect("Filtrar por:", columnas_filtro, placeholder="Selecciona un campo")
         st.write('-----------')
         
         for column in to_filter_columns:
-            # Si la columna es 'year', usa un widget especial en la barra lateral
+            # Si la columna es 'year', usa un widget especial
             if column == 'year':
                 left, right = st.columns((1, 20))
                 # left.write("↳")
