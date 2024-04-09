@@ -693,7 +693,7 @@ def get_available_countries(selected_countries):
 
 @st.cache_data
 def load_data_histo():
-    df_histo = pd.read_excel('./data/data_to_racexlsx')
+    df_histo = pd.read_excel('./data/data_to_race.xlsx')
     return df_histo
 
 # ---------------------------------------------------------------------------------------------------------------------------
