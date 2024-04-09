@@ -1195,7 +1195,7 @@ with tab2:
                 ),
 
                 "Puntos Influencia": st.column_config.ProgressColumn(
-                    "% Puntos",
+                    "Puntos Influencia",
                     format="%f",
                     min_value=0,
                     max_value=100,
@@ -2320,7 +2320,7 @@ with tab2:
         if selected_country:
             df_histo = df_histo[df_histo['country'].isin(selected_country)]
         
-        st.write(df_histo)
+        # st.write(df_histo)
         
         # Derretir el DataFrame para convertir los años en filas
         df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
