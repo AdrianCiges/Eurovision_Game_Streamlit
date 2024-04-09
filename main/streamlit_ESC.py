@@ -2306,6 +2306,7 @@ with tab2:
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
         df_histo = load_data_histo()
+        st.write(df_histo)
         
         # Seleccionar las columnas que representan los años dentro del rango especificado
         cols_in_range = [str(year) for year in range(year_range[0], year_range[1] + 1)]
