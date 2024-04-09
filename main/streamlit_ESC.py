@@ -708,16 +708,16 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
     filters = {}
 
+    selected_columns = st.multiselect(
+        "Seleccionar columnas para usar como filtros:",
+        df.columns,
+        df.columns.tolist()
+    )
+
     modification_container = st.container()
 
     with modification_container:
-        columns_to_filter = st.multiselect(
-            "Seleccionar columnas para filtrar:",
-            df.columns,
-            df.columns.tolist()  # Convertir el índice en una lista
-        )
-        st.write('-----------')
-        for column in columns_to_filter:
+        for column in selected_columns:
             if is_numeric_dtype(df[column]):
                 min_val = df[column].min()
                 max_val = df[column].max()
@@ -734,7 +734,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
             else:
                 user_input = st.multiselect(
                     f"Filtrar por {column}",
-                    df[column].unique().tolist(),  # Convertir el índice en una lista
+                    df[column].unique().tolist(),
                     []
                 )
                 filters[column] = user_input
