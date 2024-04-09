@@ -2300,11 +2300,23 @@ with tab2:
 
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
+        # Crear un DataFrame con todas las combinaciones posibles de país y año
+        all_years = pd.DataFrame({'country': df['country'].unique()})
+        all_years['key'] = 0
+        all_years = all_years.merge(pd.DataFrame({'year': df['year'].unique()}), on='key')
+        all_years.drop('key', axis=1, inplace=True)
+        
+        # Fusionar el DataFrame completo con el DataFrame original para asegurarse de que todas las combinaciones de país y año estén presentes
+        df_full = pd.merge(all_years, df, how='left', on=['country', 'year'])
+        
+        # Llenar los valores faltantes con 0 en la columna 'puntos_corregidos'
+        df_full['puntos_corregidos'].fillna(0, inplace=True)
+        
         # Calcular la suma acumulativa de puntos corregidos por país para cada año
-        df['puntos_acumulados'] = df.groupby('country')['puntos_corregidos'].cumsum()
+        df_full['puntos_acumulados'] = df_full.groupby('country')['puntos_corregidos'].cumsum()
         
         # Gráfico de la evolución de la suma acumulativa de puntos corregidos de cada país durante los años
-        fig = px.line(df, x='year', y='puntos_acumulados', color='country', 
+        fig = px.line(df_full, x='year', y='puntos_acumulados', color='country', 
                       title='Evolución de la suma acumulativa de puntos corregidos por país',
                       labels={'puntos_acumulados': 'Suma Acumulativa de Puntos Corregidos', 'year': 'Año'},
                       hover_name='country')
