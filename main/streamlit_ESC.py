@@ -716,6 +716,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     modification_container = st.container()
 
+    if st.session_state.filters is None:
+        st.session_state.filters = {}
+
     with modification_container:
         for column in selected_columns:
             if is_numeric_dtype(df[column]):
@@ -756,9 +759,11 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     filters[column] = user_text_input
                 st.write('-----------')
 
+    st.session_state.filters = filters
+
     # Aplicar filtros al DataFrame
     filtered_df = df.copy()
-    for column, values in filters.items():
+    for column, values in st.session_state.filters.items():
         if values:
             if isinstance(values, tuple):
                 start, end = values
