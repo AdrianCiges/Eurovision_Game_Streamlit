@@ -2288,14 +2288,14 @@ with tab2:
 
         # -------PUNTOS POR AÑO ----------------------------------------------------------------------
 
-        # Llenar los valores faltantes con 0 en la columna 'puntos_corregidos'
-        df_filled = df.fillna(0)
+        fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
+               title='Evolución de la media de puntos corregidos por país',
+               labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
+               hover_name='country', markers=True)
         
-        # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años
-        fig1 = px.line(df_filled, x='year', y='puntos_corregidos', color='country', 
-                       title='Evolución de la media de puntos corregidos por país',
-                       labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
-                       hover_name='country', markers=True)
+        # Configuración del eje y para incluir ceros
+        fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
+        
         st.plotly_chart(fig1, use_container_width=True)
 
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
