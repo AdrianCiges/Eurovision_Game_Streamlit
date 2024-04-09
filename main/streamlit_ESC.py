@@ -706,7 +706,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        columnas_filtro = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación','Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura','Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+        columnas_filtro = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','finalista','Orden actuación','Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura','Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
 
         # Mapear nombres de columnas en columnas_filtro con los nombres reales de las columnas
         columna_a_columna_real = {
