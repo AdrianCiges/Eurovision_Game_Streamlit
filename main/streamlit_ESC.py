@@ -1248,6 +1248,8 @@ with tab2:
         #                          'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         # df_to_show.columns = nuevos_nombres
 
+        df_to_show = filtered_df
+
         def corregir_numero(val):
             return int(val) 
 
