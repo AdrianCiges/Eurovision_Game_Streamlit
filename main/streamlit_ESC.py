@@ -2288,7 +2288,6 @@ with tab2:
 
         df = df_to_evol.copy()
         df = df.sort_values(by = ["country", "year"], ascending=True).fillna(0)
-        df = df[(df['year'] >= year_range[0]) & (df['year'] <= year_range[1])]
         
         # st.write(df)
 
@@ -2307,6 +2306,10 @@ with tab2:
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
         df_histo = load_data_histo()
+        df_histo = df_histo[(df_histo['year'] >= year_range[0]) & (df_histo['year'] <= year_range[1])]
+        if selected_country:
+            df_histo = df_histo[df_histo['country'].isin(selected_country)]
+        
         # st.write(df_histo)
         
         # Derretir el DataFrame para convertir los años en filas
