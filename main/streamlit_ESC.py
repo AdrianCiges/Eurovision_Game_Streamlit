@@ -1237,16 +1237,16 @@ with tab2:
     st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
     with st.expander('Ver Datos', expanded=False): 
         # st.write(filtered_df)
-        df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
-                                 'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
-                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+        # df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
+        #                          'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
+        #                          'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
+        #                          'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
 
-        nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
-                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
-                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-        df_to_show.columns = nuevos_nombres
+        # nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
+        #                          'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
+        #                          'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
+        #                          'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+        # df_to_show.columns = nuevos_nombres
 
         def corregir_numero(val):
             return int(val) 
