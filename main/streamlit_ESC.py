@@ -1091,8 +1091,8 @@ with tab2:
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
-df_prueba = filter_dataframe(df_master)
-st.write(df_prueba)
+    df_prueba = filter_dataframe(df_master)
+    st.write(df_prueba)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
