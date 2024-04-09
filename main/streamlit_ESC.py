@@ -13,6 +13,7 @@ warnings.filterwarnings("ignore")
 # from sklearn.metrics import mean_squared_error as mse
 # from sklearn.metrics import r2_score as r2
 import pandas as pd
+from pandas.api.types import is_numeric_dtype
 from catboost import CatBoostRegressor as CTR
 from sklearn.model_selection import train_test_split as tts
 from joblib import Parallel, delayed
@@ -696,6 +697,46 @@ def load_data_histo():
     df_histo = pd.read_excel('./data/data_to_race.xlsx')
     return df_histo
 
+
+# ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
+
+def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
+    modify = st.checkbox("🎯 Añadir filtros")
+    if not modify:
+        return df
+
+    df = df.copy()
+
+    modification_container = st.container()
+
+    with modification_container:
+        for column in df.columns:
+            left, right = st.columns((1, 20))
+            if is_numeric_dtype(df[column]):
+                min_val = df[column].min()
+                max_val = df[column].max()
+                step = (max_val - min_val) / 100
+                user_input = right.slider(
+                    f"Filtrar por {column}",
+                    min_value=min_val,
+                    max_value=max_val,
+                    value=(min_val, max_val),
+                    step=step
+                )
+                st.write('-----------')
+                df = df[(df[column] >= user_input[0]) & (df[column] <= user_input[1])]
+            else:
+                user_input = right.multiselect(
+                    f"Filtrar por {column}",
+                    df[column].unique(),
+                    df[column].unique()
+                )
+                st.write('-----------')
+                df = df[df[column].isin(user_input)]
+
+    return df
+# ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
+
 # ---------------------------------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
@@ -1031,7 +1072,6 @@ with tab2:
         return df_master
 
     df_master = load_data_stats()
-
     
     st.write('')
     st.warning('⚠️ Si accedes desde un móvil rota la pantalla para poder visualizar los gráficos con una mejor adaptación.')
@@ -1048,6 +1088,14 @@ with tab2:
 
     # Markdown con estilo para el título
     st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
+
+# ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
+
+df_prueba = filter_dataframe(df_master)
+st.write(df_prueba)
+
+# ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
+
 
     # Filtro por año
     year_range = st.slider(' ', 
