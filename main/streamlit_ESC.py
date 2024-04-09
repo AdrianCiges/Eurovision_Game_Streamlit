@@ -1213,14 +1213,14 @@ with tab2:
         'Ukraine':"Ukraine 🇺🇦 "
     }
     # actualizar la columna 'country' utilizando el método replace
-    filtered_df['country'] = filtered_df['country'].replace(replace_dict)
+    filtered_df['País'] = filtered_df['País'].replace(replace_dict)
 
     replace_dict_likes = {
         '2,9 M': 2900000,
         '1,5 M': 1500000
     }
-    filtered_df['likes'] = filtered_df['likes'].replace(replace_dict_likes)
-    filtered_df['likes'] = [int(li) for li in filtered_df['likes']]
+    filtered_df['Likes'] = filtered_df['Likes'].replace(replace_dict_likes)
+    filtered_df['Likes'] = [int(li) for li in filtered_df['Likes']]
 
     # Muestra el DataFrame filtrado
     st.write('\n')
