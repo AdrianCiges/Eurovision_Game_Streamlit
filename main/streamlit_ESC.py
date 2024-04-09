@@ -1,3 +1,4 @@
+
 import streamlit as st
 import random
 import numpy as np
@@ -2279,23 +2280,20 @@ with tab2:
 
     elif graf == 'Evolución Histórica':
 
-        # -------HISTÓRICOS ----------------------------------------------------------------------
+    # -------HISTÓRICOS ----------------------------------------------------------------------
         
         st.write('En desarrollo...')
-        
+
         df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
                                  'views', 'likes', 'shazams', 'bet_mean']]
-        
+
         df = df_to_evol.copy()
         
-        # Ordenar la leyenda alfabéticamente
-        df_sorted = df.sort_values('country')
-        
-        # st.write(df)
-        
+        st.write(df)
+
         # -------PUNTOS POR AÑO ----------------------------------------------------------------------
-        
-        fig1 = px.line(df_sorted, x='year', y='puntos_corregidos', color='country', 
+
+        fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
                title='Evolución de la media de puntos corregidos por país',
                labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
                hover_name='country', markers=True)
@@ -2303,14 +2301,12 @@ with tab2:
         # Configuración del eje y para incluir ceros
         fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
         
-        # Ordenar la leyenda alfabéticamente y usar los mismos colores para los países
-        fig1.for_each_trace(lambda t: t.update(name=t.name.replace("_"," ")))
         st.plotly_chart(fig1, use_container_width=True)
-        
+
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
         df_histo = load_data_histo()
-        # st.write(df_histo)
+        st.write(df_histo)
         
         # Derretir el DataFrame para convertir los años en filas
         df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
@@ -2318,13 +2314,11 @@ with tab2:
         # Convertir la columna 'year' al tipo de dato adecuado
         df_melted['year'] = pd.to_datetime(df_melted['year'], format='%Y')
         
-        # Ordenar la leyenda alfabéticamente y usar los mismos colores para los países
-        df_melted_sorted = df_melted.sort_values('country')
-        fig = px.line(df_melted_sorted, x='year', y='valor', color='country',
+        # Gráfico de líneas
+        fig = px.line(df_melted, x='year', y='valor', color='country',
                       title='Valor de cada país en cada año',
                       labels={'valor': 'Valor', 'year': 'Año'},
                       hover_name='country', line_group='country', markers=True)
-        fig.for_each_trace(lambda t: t.update(name=t.name.replace("_"," ")))
         st.plotly_chart(fig, use_container_width=True)
 
         # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
