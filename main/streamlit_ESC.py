@@ -2314,7 +2314,7 @@ with tab2:
         cols_filter = ['country', 'Image URL']
         cols_filter.extend(cols_in_range)
 
-        df_histo.loc[:, df_histo.columns.isin(cols_filter)]
+        df_histo = df_histo.loc[:, df_histo.columns.isin(cols_filter)]
         
         # Si también necesitas filtrar por países seleccionados:
         if selected_country:
