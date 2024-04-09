@@ -706,79 +706,44 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        columnas_filtro = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','finalista','Orden actuación','Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura','Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-
-        # Mapear nombres de columnas en columnas_filtro con los nombres reales de las columnas
-        columna_a_columna_real = {
-            'Link': 'links',
-            'País': 'country',
-            'Año': 'year',
-            'Cantante/s': 'artist',
-            'Canción': 'song',
-            'Clasificación': 'clasificacion',
-            'Puntos': 'puntos_corregidos',
-            '% Puntos': 'propo_max_puntos',
-            'Finalista': 'finalista',
-            'Orden actuación': 'order_act',
-            'Estilo': 'estilos',
-            '1º Idioma': 'idioma1',
-            '2º Idioma': 'idioma2',
-            '3º Idioma': 'idioma3',
-            'Temática Amor': 'love_song',
-            '1ª Palabra': 'top1word',
-            '2ª Palabra': 'top2word',
-            '3ª Palabra': 'top3word',
-            '4ª Palabra': 'top4word',
-            '5ª Palabra': 'top5word',
-            'Estructura': 'estruc_resum',
-            'Views YT': 'views',
-            'Likes YT': 'likes',
-            'Shazams': 'shazams',
-            'Cuota Apuestas': 'bet_mean',
-            'Longitud letra': 'lyrics_long',
-            'Nº palabras': 'unic_words',
-            'Duración ESC': 'duracion_eurovision',
-            'Duración Spotify': 'duracion_spoty',
-            'PIB país': 'GDP',
-            'Ranking PIB': 'orden_relativo_GDP',
-            'Ranking Influencia': 'influ_ranking',
-            'Puntos Influencia': 'influ_score',
-            'Ranking Reputación': 'reput_ranking'
-        }
-
-        to_filter_columns = st.multiselect("Filtrar cafeterías por:", columnas_filtro, placeholder="Selecciona un campo")
+        columnas_filtro = ['links','country','year','artist','song','clasificacion','puntos_corregidos',
+                           'propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3',
+                           'love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 
+                           'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 
+                           'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 
+                           'influ_score', 'reput_ranking']
+        to_filter_columns = st.multiselect("Filtrar cafeterías por:", columnas_filtro, 
+                                           placeholder="Selecciona un campo")
         st.write('-----------')
         
         for column in to_filter_columns:
-            # Convertir el nombre de columna en el nombre real de la columna
-            original_column = columna_a_columna_real.get(column, None)
-
-            if original_column is None:
-                continue
-
-            if original_column == '💬 Nº Comentarios':
+            # Si la columna es '💬 Nº Comentarios', usa un widget especial en la barra lateral
+            if column == '💬 Nº Comentarios':
                 left, right = st.columns((1, 20))
+                # left.write("↳")
                 user_num_input = right.number_input(
                     f"{column} mínimo",
-                    min_value=int(df[original_column].min()),
-                    max_value=int(df[original_column].max()),
-                    value=int(df[original_column].min()),
+                    min_value=int(df[column].min()),
+                    max_value=int(df[column].max()),
+                    value=int(df[column].min()),
                 )
                 st.write('-----------')
-                df = df[df[original_column] >= user_num_input]
+                df = df[df[column] >= user_num_input]
             else:
                 left, right = st.columns((1, 20))
-                if is_categorical_dtype(df[original_column]) or df[original_column].nunique() < 10:
+                # left.write("↳")
+                # Trata las columnas con < 10 valores únicos como categóricas
+                if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
                     user_cat_input = right.multiselect(
                         f"{column}",
-                        sorted(df[original_column].unique()),
-                        default=sorted(list(df[original_column].unique())),
+                        sorted(df[column].unique()),
+                        default=sorted(list(df[column].unique())),
                     )
                     st.write('-----------')
-                    df = df[df[original_column].isin(user_cat_input)]
-                elif is_numeric_dtype(df[original_column]):
-                    _min = float(df[original_column].min())
-                    _max = float(df[original_column].max())
+                    df = df[df[column].isin(user_cat_input)]
+                elif is_numeric_dtype(df[column]):
+                    _min = float(df[column].min())
+                    _max = float(df[column].max())
                     step = (_max - _min) / 100
                     user_num_input = right.slider(
                         f"{column}",
@@ -788,27 +753,27 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         step=step,
                     )
                     st.write('-----------')
-                    df = df[df[original_column].between(*user_num_input)]
-                elif is_datetime64_any_dtype(df[original_column]):
+                    df = df[df[column].between(*user_num_input)]
+                elif is_datetime64_any_dtype(df[column]):
                     user_date_input = right.date_input(
                         f"{column}",
                         value=(
-                            df[original_column].min(),
-                            df[original_column].max(),
+                            df[column].min(),
+                            df[column].max(),
                         ),
                     )
                     st.write('-----------')
                     if len(user_date_input) == 2:
                         user_date_input = tuple(map(pd.to_datetime, user_date_input))
                         start_date, end_date = user_date_input
-                        df = df.loc[df[original_column].between(start_date, end_date)]
+                        df = df.loc[df[column].between(start_date, end_date)]
                 else:
                     user_text_input = right.text_input(
                         f"{column}",
                     )
                     st.write('-----------')
                     if user_text_input:
-                        df = df[df[original_column].astype(str).str.contains(user_text_input)]
+                        df = df[df[column].astype(str).str.contains(user_text_input)]
 
     return df
 
