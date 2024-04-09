@@ -2288,6 +2288,7 @@ with tab2:
 
         df = df_to_evol.copy()
         df = df.sort_values(by = ["country", "year"], ascending=True).fillna(0)
+        df = df[(df['year'] >= year_range[0]) & (df['year'] <= year_range[1])]
         
         # st.write(df)
 
