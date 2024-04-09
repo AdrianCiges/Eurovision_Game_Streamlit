@@ -715,12 +715,13 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
             if is_numeric_dtype(df[column]):
                 min_val = df[column].min()
                 max_val = df[column].max()
+                default_val = (min_val, max_val)
                 step = (max_val - min_val) / 100
                 user_input = right.slider(
                     f"Filtrar por {column}",
                     min_value=min_val,
                     max_value=max_val,
-                    value=(min_val, max_val),
+                    value=default_val,
                     step=step
                 )
                 st.write('-----------')
@@ -1086,15 +1087,18 @@ with tab2:
     graf = st.radio(' ', graf_names)
     st.write('')
 
-    # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
 
+    
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
     df_prueba = filter_dataframe(df_master)
     st.write(df_prueba)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
+
+    
+    # Markdown con estilo para el título
+    st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
 
 
     # Filtro por año
