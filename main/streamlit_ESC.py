@@ -744,9 +744,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     filtered_df = df.copy()
     for column, values in filters.items():
         if values:
-            filtered_df = filtered_df[filtered_df[column].isin(values)]
+            filtered_df_func = filtered_df[filtered_df[column].isin(values)]
 
-    return filtered_df
+    return filtered_df_func
     
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
