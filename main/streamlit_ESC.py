@@ -2306,6 +2306,7 @@ with tab2:
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
         df_histo = load_data_histo()
+        st.write(df_histo)
         df_histo = df_histo[(df_histo['year'] >= year_range[0]) & (df_histo['year'] <= year_range[1])]
         if selected_country:
             df_histo = df_histo[df_histo['country'].isin(selected_country)]
