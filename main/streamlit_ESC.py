@@ -711,12 +711,17 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        for column in df.columns:
+        columns_to_filter = st.multiselect(
+            "Seleccionar columnas para filtrar:",
+            df.columns,
+            df.columns
+        )
+        st.write('-----------')
+        for column in columns_to_filter:
             if is_numeric_dtype(df[column]):
                 min_val = df[column].min()
                 max_val = df[column].max()
                 default_val = (min_val, max_val)
-                st.write(f"Columna: {column}, Valor mínimo: {min_val}, Valor máximo: {max_val}")
                 user_input = st.slider(
                     f"Filtrar por {column}",
                     min_value=min_val,
