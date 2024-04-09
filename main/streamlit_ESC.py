@@ -706,74 +706,76 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         return df
 
     df = df.copy()
-    filters = {}
-
-    selected_columns = st.multiselect(
-        "Seleccionar columnas para usar como filtros:",
-        df.columns,
-        df.columns.tolist()
-    )
 
     modification_container = st.container()
 
-    if st.session_state.filters is None:
-        st.session_state.filters = {}
-
     with modification_container:
-        for column in selected_columns:
-            if is_numeric_dtype(df[column]):
-                min_val = df[column].min()
-                max_val = df[column].max()
-                default_val = (min_val, max_val)
-                user_input = st.slider(
-                    f"Filtrar por {column}",
-                    min_value=min_val,
-                    max_value=max_val,
-                    value=default_val,
+        columnas_filtro = ['country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking']
+        to_filter_columns = st.multiselect("Filtrar por:", columnas_filtro, placeholder="Selecciona un campo")
+        st.write('-----------')
+        
+        for column in to_filter_columns:
+            # Si la columna es 'year', usa un widget especial en la barra lateral
+            if column == 'year':
+                left, right = st.columns((1, 20))
+                # left.write("↳")
+                min_year = int(df[column].min())
+                max_year = int(df[column].max())
+                user_year_input = right.slider(
+                    f"Selecciona el año",
+                    min_value=min_year,
+                    max_value=max_year,
+                    value=min_year,
                 )
-                filters[column] = user_input
                 st.write('-----------')
-            elif is_categorical_dtype(df[column]) or df[column].nunique() < 10:
-                user_input = st.multiselect(
-                    f"Filtrar por {column}",
-                    df[column].unique(),
-                    []
-                )
-                filters[column] = user_input
-                st.write('-----------')
-            elif is_datetime64_any_dtype(df[column]):
-                user_date_input = st.date_input(
-                    f"Filtrar por {column}",
-                    value=(df[column].min(), df[column].max()),
-                )
-                if len(user_date_input) == 2:
-                    user_date_input = tuple(map(pd.to_datetime, user_date_input))
-                    start_date, end_date = user_date_input
-                    filters[column] = (start_date, end_date)
-                st.write('-----------')
+                df = df[df[column] == user_year_input]
             else:
-                user_text_input = st.text_input(
-                    f"Filtrar por {column}",
-                )
-                if user_text_input:
-                    filters[column] = user_text_input
-                st.write('-----------')
+                left, right = st.columns((1, 20))
+                # left.write("↳")
+                # Trata las columnas con < 10 valores únicos como categóricas
+                if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
+                    user_cat_input = right.multiselect(
+                        f"{column}",
+                        sorted(df[column].unique()),
+                        default=sorted(list(df[column].unique())),
+                    )
+                    st.write('-----------')
+                    df = df[df[column].isin(user_cat_input)]
+                elif is_numeric_dtype(df[column]):
+                    _min = float(df[column].min())
+                    _max = float(df[column].max())
+                    step = (_max - _min) / 100
+                    user_num_input = right.slider(
+                        f"{column}",
+                        min_value=_min,
+                        max_value=_max,
+                        value=(_min, _max),
+                        step=step,
+                    )
+                    st.write('-----------')
+                    df = df[df[column].between(*user_num_input)]
+                elif is_datetime64_any_dtype(df[column]):
+                    user_date_input = right.date_input(
+                        f"{column}",
+                        value=(
+                            df[column].min(),
+                            df[column].max(),
+                        ),
+                    )
+                    st.write('-----------')
+                    if len(user_date_input) == 2:
+                        user_date_input = tuple(map(pd.to_datetime, user_date_input))
+                        start_date, end_date = user_date_input
+                        df = df.loc[df[column].between(start_date, end_date)]
+                else:
+                    user_text_input = right.text_input(
+                        f"{column}",
+                    )
+                    st.write('-----------')
+                    if user_text_input:
+                        df = df[df[column].astype(str).str.contains(user_text_input)]
 
-    st.session_state.filters = filters
-
-    # Aplicar filtros al DataFrame
-    filtered_df = df.copy()
-    for column, values in st.session_state.filters.items():
-        if values:
-            if isinstance(values, tuple):
-                start, end = values
-                filtered_df = filtered_df.loc[filtered_df[column].between(start, end)]
-            elif isinstance(values, list):
-                filtered_df = filtered_df[filtered_df[column].isin(values)]
-            else:
-                filtered_df = filtered_df[filtered_df[column].astype(str).str.contains(values)]
-
-    return filtered_df
+    return df
     
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
