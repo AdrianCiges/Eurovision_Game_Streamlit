@@ -2282,14 +2282,15 @@ with tab2:
 
     # -------HISTÓRICOS ----------------------------------------------------------------------
         
-        st.write('En desarrollo...')
+        # st.write('En desarrollo...')
 
         df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
                                  'views', 'likes', 'shazams', 'bet_mean']]
 
         df = df_to_evol.copy()
+        df.sort_values(by = "country")
         
-        st.write(df)
+        # st.write(df)
 
         # -------PUNTOS POR AÑO ----------------------------------------------------------------------
 
@@ -2306,7 +2307,7 @@ with tab2:
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
         
         df_histo = load_data_histo()
-        st.write(df_histo)
+        # st.write(df_histo)
         
         # Derretir el DataFrame para convertir los años en filas
         df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
