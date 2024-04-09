@@ -2288,7 +2288,7 @@ with tab2:
                                  'views', 'likes', 'shazams', 'bet_mean']]
 
         df = df_to_evol.copy()
-        df.sort_values(by = "country")
+        df = df.sort_values(by = "country").fillna(0)
         
         # st.write(df)
 
