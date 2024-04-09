@@ -2306,11 +2306,9 @@ with tab2:
         
         df_histo = load_data_histo()
         st.write(df_histo)
-        # Definir las columnas de los años
-        columnas_años = [str(año) for año in range(2002, 2024)]
         
         # Derretir el DataFrame para convertir los años en filas
-        df_melted = df_histo.melt(id_vars=['country', 'Image URL'], value_vars=columnas_años, var_name='year', value_name='valor')
+        df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
         
         # Convertir la columna 'year' al tipo de dato adecuado
         df_melted['year'] = pd.to_datetime(df_melted['year'], format='%Y')
