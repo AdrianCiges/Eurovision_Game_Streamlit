@@ -2291,7 +2291,7 @@ with tab2:
         # Ordenar la leyenda alfabéticamente
         df_sorted = df.sort_values('country')
         
-        st.write(df)
+        # st.write(df)
         
         # -------PUNTOS POR AÑO ----------------------------------------------------------------------
         
