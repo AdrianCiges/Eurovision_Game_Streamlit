@@ -706,6 +706,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         return df
 
     df = df.copy()
+    filters = {}
 
     modification_container = st.container()
 
@@ -723,16 +724,24 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     value=default_val,
                     #step=1
                 )
+                filters[column] = user_input
                 st.write('-----------')
             else:
                 user_input = st.multiselect(
                     f"Filtrar por {column}",
                     df[column].unique(),
-                    df[column].unique()
+                    []
                 )
+                filters[column] = user_input
                 st.write('-----------')
 
-    return df
+    # Aplicar filtros al DataFrame
+    filtered_df = df.copy()
+    for column, values in filters.items():
+        if values:
+            filtered_df = filtered_df[filtered_df[column].isin(values)]
+
+    return filtered_df
     
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
@@ -1090,6 +1099,7 @@ with tab2:
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
     df_prueba = filter_dataframe(df_master)
+    st.write('Esta tabla debería filtrarse ⬇️)
     st.write(df_prueba)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
