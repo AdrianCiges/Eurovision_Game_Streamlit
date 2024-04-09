@@ -727,24 +727,46 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     min_value=min_val,
                     max_value=max_val,
                     value=default_val,
-                    #step=1
                 )
                 filters[column] = user_input
                 st.write('-----------')
-            else:
+            elif is_categorical_dtype(df[column]) or df[column].nunique() < 10:
                 user_input = st.multiselect(
                     f"Filtrar por {column}",
-                    df[column].unique().tolist(),
+                    df[column].unique(),
                     []
                 )
                 filters[column] = user_input
+                st.write('-----------')
+            elif is_datetime64_any_dtype(df[column]):
+                user_date_input = st.date_input(
+                    f"Filtrar por {column}",
+                    value=(df[column].min(), df[column].max()),
+                )
+                if len(user_date_input) == 2:
+                    user_date_input = tuple(map(pd.to_datetime, user_date_input))
+                    start_date, end_date = user_date_input
+                    filters[column] = (start_date, end_date)
+                st.write('-----------')
+            else:
+                user_text_input = st.text_input(
+                    f"Filtrar por {column}",
+                )
+                if user_text_input:
+                    filters[column] = user_text_input
                 st.write('-----------')
 
     # Aplicar filtros al DataFrame
     filtered_df = df.copy()
     for column, values in filters.items():
         if values:
-            filtered_df = filtered_df[filtered_df[column].isin(values)]
+            if isinstance(values, tuple):
+                start, end = values
+                filtered_df = filtered_df.loc[filtered_df[column].between(start, end)]
+            elif isinstance(values, list):
+                filtered_df = filtered_df[filtered_df[column].isin(values)]
+            else:
+                filtered_df = filtered_df[filtered_df[column].astype(str).str.contains(values)]
 
     return filtered_df
     
