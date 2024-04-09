@@ -2385,8 +2385,8 @@ with tab2:
         
         # st.write('En desarrollo...')
 
-        df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
-                                 'views', 'likes', 'shazams', 'bet_mean']]
+        df_to_evol = filtered_df[['País','Año','Clasificación','Puntos','% Puntos',
+                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas']]
 
         df = df_to_evol.copy()
         df = df.sort_values(by = ["country", "year"], ascending=True).fillna(0)
