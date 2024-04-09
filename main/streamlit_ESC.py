@@ -714,7 +714,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         columns_to_filter = st.multiselect(
             "Seleccionar columnas para filtrar:",
             df.columns,
-            df.columns
+            df.columns.tolist()  # Convertir el índice en una lista
         )
         st.write('-----------')
         for column in columns_to_filter:
@@ -734,7 +734,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
             else:
                 user_input = st.multiselect(
                     f"Filtrar por {column}",
-                    df[column].unique(),
+                    df[column].unique().tolist(),  # Convertir el índice en una lista
                     []
                 )
                 filters[column] = user_input
@@ -744,9 +744,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     filtered_df = df.copy()
     for column, values in filters.items():
         if values:
-            filtered_df_func = filtered_df[filtered_df[column].isin(values)]
+            filtered_df = filtered_df[filtered_df[column].isin(values)]
 
-    return filtered_df_func
+    return filtered_df
     
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
