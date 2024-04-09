@@ -696,86 +696,6 @@ def load_data_histo():
     df_histo = pd.read_excel('./data/data_to_race.xlsx')
     return df_histo
 
-def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    modify = st.checkbox("🎯 Añadir filtros")
-    if not modify:
-        return df
-
-    df = df.copy()
-
-    modification_container = st.container()
-
-    with modification_container:
-        columnas_filtro = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
-                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
-                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-        to_filter_columns = st.multiselect("Filtrar cafeterías por:", columnas_filtro, 
-                                           placeholder="Selecciona un campo")
-        st.write('-----------')
-        
-        for column in to_filter_columns:
-            # Si la columna es '💬 Nº Comentarios', usa un widget especial en la barra lateral
-            if column == '💬 Nº Comentarios':
-                left, right = st.columns((1, 20))
-                # left.write("↳")
-                user_num_input = right.number_input(
-                    f"{column} mínimo",
-                    min_value=int(df[column].min()),
-                    max_value=int(df[column].max()),
-                    value=int(df[column].min()),
-                )
-                st.write('-----------')
-                df = df[df[column] >= user_num_input]
-            else:
-                left, right = st.columns((1, 20))
-                # left.write("↳")
-                # Trata las columnas con < 10 valores únicos como categóricas
-                if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
-                    user_cat_input = right.multiselect(
-                        f"{column}",
-                        sorted(df[column].unique()),
-                        default=sorted(list(df[column].unique())),
-                    )
-                    st.write('-----------')
-                    df = df[df[column].isin(user_cat_input)]
-                elif is_numeric_dtype(df[column]):
-                    _min = float(df[column].min())
-                    _max = float(df[column].max())
-                    step = (_max - _min) / 100
-                    user_num_input = right.slider(
-                        f"{column}",
-                        min_value=_min,
-                        max_value=_max,
-                        value=(_min, _max),
-                        step=step,
-                    )
-                    st.write('-----------')
-                    df = df[df[column].between(*user_num_input)]
-                elif is_datetime64_any_dtype(df[column]):
-                    user_date_input = right.date_input(
-                        f"{column}",
-                        value=(
-                            df[column].min(),
-                            df[column].max(),
-                        ),
-                    )
-                    st.write('-----------')
-                    if len(user_date_input) == 2:
-                        user_date_input = tuple(map(pd.to_datetime, user_date_input))
-                        start_date, end_date = user_date_input
-                        df = df.loc[df[column].between(start_date, end_date)]
-                else:
-                    user_text_input = right.text_input(
-                        f"{column}",
-                    )
-                    st.write('-----------')
-                    if user_text_input:
-                        df = df[df[column].astype(str).str.contains(user_text_input)]
-
-    return df
-
-
 # ---------------------------------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
@@ -1108,17 +1028,6 @@ with tab2:
     @st.cache_data
     def load_data_stats():
         df_master = pd.read_excel('./data/MASTERTABLA.xlsx').drop('Unnamed: 0', axis = 1)
-        df_master = df_master[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
-                                 'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
-                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
-
-        nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
-                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
-                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-        
-        df_master.columns = nuevos_nombres
         return df_master
 
     df_master = load_data_stats()
@@ -1149,16 +1058,16 @@ with tab2:
                            #value=(df_master['year'].min(), df_master['year'].max())
                            value = (2002, 2023)
                           )
-    filtered_df = df_master[(df_master['Año'] >= year_range[0]) & (df_master['Año'] <= year_range[1])]
+    filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
     st.write('')
     
     # Markdown con estilo para el título
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['País'].unique())
+    selected_country = st.multiselect(' ', options=df_master['country'].unique())
     if selected_country:
-        filtered_df = filtered_df[filtered_df['País'].isin(selected_country)]
+        filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
     # crear un diccionario de reemplazo
     replace_dict = {
@@ -1213,42 +1122,31 @@ with tab2:
         'Ukraine':"Ukraine 🇺🇦 "
     }
     # actualizar la columna 'country' utilizando el método replace
-    filtered_df['País'] = filtered_df['País'].replace(replace_dict)
+    filtered_df['country'] = filtered_df['country'].replace(replace_dict)
 
     replace_dict_likes = {
         '2,9 M': 2900000,
         '1,5 M': 1500000
     }
-    filtered_df['Likes YT'] = filtered_df['Likes YT'].replace(replace_dict_likes)
-    filtered_df['Likes YT'] = [int(li) for li in filtered_df['Likes YT']]
+    filtered_df['likes'] = filtered_df['likes'].replace(replace_dict_likes)
+    filtered_df['likes'] = [int(li) for li in filtered_df['likes']]
 
     # Muestra el DataFrame filtrado
     st.write('\n')
-# ---- PROBANDO FILTROS DINÁMICOS DF --------------------------------------------------------------------------------------------------
-    
-    df = filter_dataframe(df_master)
-
-    st.write(df)
-
-
-    
-# ---- PROBANDO FILTROS DINÁMICOS DF --------------------------------------------------------------------------------------------------
 
     st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
     with st.expander('Ver Datos', expanded=False): 
         # st.write(filtered_df)
-        # df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
-        #                          'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
-        #                          'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-        #                          'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+        df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
+                                 'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
+                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
+                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
 
-        # nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
-        #                          'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-        #                          'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
-        #                          'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-        # df_to_show.columns = nuevos_nombres
-
-        df_to_show = filtered_df
+        nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
+                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
+                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
+                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+        df_to_show.columns = nuevos_nombres
 
         def corregir_numero(val):
             return int(val) 
@@ -2385,8 +2283,8 @@ with tab2:
         
         # st.write('En desarrollo...')
 
-        df_to_evol = filtered_df[['País','Año','Clasificación','Puntos','% Puntos',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas']]
+        df_to_evol = filtered_df[['country','year','clasificacion','puntos_corregidos','propo_max_puntos',
+                                 'views', 'likes', 'shazams', 'bet_mean']]
 
         df = df_to_evol.copy()
         df = df.sort_values(by = ["country", "year"], ascending=True).fillna(0)
