@@ -1149,16 +1149,16 @@ with tab2:
                            #value=(df_master['year'].min(), df_master['year'].max())
                            value = (2002, 2023)
                           )
-    filtered_df = df_master[(df_master['year'] >= year_range[0]) & (df_master['year'] <= year_range[1])]
+    filtered_df = df_master[(df_master['Año'] >= year_range[0]) & (df_master['Año'] <= year_range[1])]
     st.write('')
     
     # Markdown con estilo para el título
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['country'].unique())
+    selected_country = st.multiselect(' ', options=df_master['País'].unique())
     if selected_country:
-        filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
+        filtered_df = filtered_df[filtered_df['País'].isin(selected_country)]
 
     # crear un diccionario de reemplazo
     replace_dict = {
