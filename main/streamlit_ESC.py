@@ -2299,18 +2299,17 @@ with tab2:
         st.plotly_chart(fig1, use_container_width=True)
 
         # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
+        
+        # Calcular la suma acumulativa de puntos corregidos por país para cada año
+        df['puntos_acumulados'] = df.groupby('country')['puntos_corregidos'].cumsum()
+        
+        # Gráfico de la evolución de la suma acumulativa de puntos corregidos de cada país durante los años
+        fig = px.line(df, x='year', y='puntos_acumulados', color='country', 
+                      title='Evolución de la suma acumulativa de puntos corregidos por país',
+                      labels={'puntos_acumulados': 'Suma Acumulativa de Puntos Corregidos', 'year': 'Año'},
+                      hover_name='country')
+        st.plotly_chart(fig, use_container_width=True)
 
-        # Convertir los valores cero en valores muy pequeños distintos de cero
-        epsilon = 1e-10  # Define un valor epsilon muy pequeño
-        df['puntos_corregidos'] = df['puntos_corregidos'].replace(0, epsilon)
-        
-        # Gráfico de la evolución de la media de puntos_corregidos de cada país durante los años
-        fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
-                       title='Evolución de la media de puntos corregidos por país',
-                       labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
-                       hover_name='country', markers=True)
-        
-        st.plotly_chart(fig1, use_container_width=True)
 
         # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
 
