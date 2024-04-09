@@ -721,7 +721,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     min_value=min_val,
                     max_value=max_val,
                     value=default_val,
-                    step=1
+                    #step=1
                 )
                 st.write('-----------')
             else:
