@@ -2317,7 +2317,7 @@ with tab2:
         fig = px.line(df_melted, x='year', y='valor', color='country',
                       title='Valor de cada país en cada año',
                       labels={'valor': 'Valor', 'year': 'Año'},
-                      hover_name='country', line_group='country')
+                      hover_name='country', line_group='country', markers=True)
         st.plotly_chart(fig, use_container_width=True)
 
         # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
