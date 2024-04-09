@@ -1219,8 +1219,8 @@ with tab2:
         '2,9 M': 2900000,
         '1,5 M': 1500000
     }
-    filtered_df['Likes'] = filtered_df['Likes'].replace(replace_dict_likes)
-    filtered_df['Likes'] = [int(li) for li in filtered_df['Likes']]
+    filtered_df['Likes YT'] = filtered_df['Likes YT'].replace(replace_dict_likes)
+    filtered_df['Likes YT'] = [int(li) for li in filtered_df['Likes YT']]
 
     # Muestra el DataFrame filtrado
     st.write('\n')
