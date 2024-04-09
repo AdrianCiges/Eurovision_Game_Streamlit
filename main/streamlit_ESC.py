@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore")
 # from sklearn.metrics import mean_squared_error as mse
 # from sklearn.metrics import r2_score as r2
 import pandas as pd
-from pandas.api.types import is_numeric_dtype
+from pandas.api.types import is_numeric_dtype, is_datetime64_any_dtype, is_categorical_dtype
 from catboost import CatBoostRegressor as CTR
 from sklearn.model_selection import train_test_split as tts
 from joblib import Parallel, delayed
