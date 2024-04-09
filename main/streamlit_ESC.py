@@ -2314,7 +2314,8 @@ with tab2:
         st.write(cols_in_range)
         
         # Filtrar el DataFrame para incluir solo las columnas dentro del rango de años
-        cols_filter = ['country', 'Image URL'] + 2022
+        cols_filter = ['country', 'Image URL']
+        cols_filter.append(cols_in_range)
         df_histo = df_histo[cols_filter]
         
         # Si también necesitas filtrar por países seleccionados:
