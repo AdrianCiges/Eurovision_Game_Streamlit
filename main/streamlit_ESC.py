@@ -917,7 +917,7 @@ with tab1:
             for i,p in enumerate(df_sorted['points']):
                 df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-            #df_sorted.loc[25:, 'points'] = 0
+            df_sorted.loc[25:, 'points'] = 0
 
             total_points = df_sorted['points'].sum()
 
