@@ -1195,7 +1195,7 @@ with tab2:
     
     df_prueba = filter_dataframe(df_master)
     st.write('Esta tabla debería filtrarse ⬇️')
-    st.write(df_prueba)
+    #st.write(df_prueba)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
