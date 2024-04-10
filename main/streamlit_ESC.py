@@ -1181,7 +1181,7 @@ with tab2:
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['country'].unique())
+    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder="Elije tantos como quieras")
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
@@ -1195,7 +1195,7 @@ with tab2:
     
     df_prueba = filter_dataframe(df_master)
     st.write('Esta tabla debería filtrarse ⬇️')
-    #st.write(df_prueba)
+    st.write(df_prueba)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
