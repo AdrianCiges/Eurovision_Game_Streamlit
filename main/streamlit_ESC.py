@@ -773,15 +773,15 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     st.write('-----------')
 
                 elif is_numeric_dtype(df[column]):
-                    _min = float(df[column].min())
-                    _max = float(df[column].max())
+                    _min = int(df[column].min())
+                    _max = int(df[column].max())
                     step = (_max - _min) / 100
                     user_num_input = right.slider(
                         f"{column}",
                         min_value=_min,
                         max_value=_max,
                         value=(_min, _max),
-                        step=1.00,
+                        step=1,
                     )
                     st.write('-----------')
                     df = df[df[column].between(*user_num_input)]
