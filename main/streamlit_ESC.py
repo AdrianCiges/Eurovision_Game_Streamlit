@@ -758,19 +758,33 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     )
                     st.write('-----------')
                     df = df[df[column].isin(user_cat_input)]
-                elif is_numeric_dtype(df[column]):
-                    _min = float(df[column].min())
-                    _max = float(df[column].max())
-                    step = (_max - _min) / 100
-                    user_num_input = right.slider(
-                        f"{column}",
-                        min_value=_min,
-                        max_value=_max,
-                        value=(_min, _max),
-                        step=1.00,
-                    )
-                    st.write('-----------')
-                    df = df[df[column].between(*user_num_input)]
+                try:
+                    elif is_numeric_dtype(df[column]):
+                        _min = float(df[column].min())
+                        _max = float(df[column].max())
+                        step = (_max - _min) / 100
+                        user_num_input = right.slider(
+                            f"{column}",
+                            min_value=_min,
+                            max_value=_max,
+                            value=(_min, _max),
+                            step=step,
+                        )
+                        st.write('-----------')
+                except:
+                    elif is_numeric_dtype(df[column]):
+                        _min = float(df[column].min())
+                        _max = float(df[column].max())
+                        step = (_max - _min) / 100
+                        user_num_input = right.slider(
+                            f"{column}",
+                            min_value=_min,
+                            max_value=_max,
+                            value=(_min, _max),
+                            step=1.00,
+                        )
+                        st.write('-----------')
+                        df = df[df[column].between(*user_num_input)]
                 elif is_datetime64_any_dtype(df[column]):
                     user_date_input = right.date_input(
                         f"{column}",
