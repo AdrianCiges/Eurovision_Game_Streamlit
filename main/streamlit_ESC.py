@@ -701,7 +701,7 @@ def load_data_histo():
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    modify = st.checkbox("🎯 Añadir más filtros")
+    modify = st.checkbox("👈 Añadir más filtros")
     if not modify:
         return df
 
@@ -1175,6 +1175,10 @@ with tab2:
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
     st.write('')
+    
+    # Markdown con estilo para el título
+    st.markdown("<h4 style='margin-bottom: -40px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
+    
     df_prueba = filter_dataframe(df_master)
     st.write('Esta tabla debería filtrarse ⬇️')
     st.write(df_prueba)
