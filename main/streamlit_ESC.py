@@ -813,7 +813,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2023", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
+tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2024", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
