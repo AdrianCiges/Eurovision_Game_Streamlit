@@ -783,7 +783,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         step=1.00,
                     )
                     st.write('-----------')
-                        df = df[df[column].between(*user_num_input)]
+                    df = df[df[column].between(*user_num_input)]
                 elif is_datetime64_any_dtype(df[column]):
                     user_date_input = right.date_input(
                         f"{column}",
