@@ -1177,7 +1177,7 @@ with tab2:
     st.write('')
     
     # Markdown con estilo para el título
-    st.markdown("<h4 style='margin-bottom: -40px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='margin-bottom: -10px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
     
     df_prueba = filter_dataframe(df_master)
     st.write('Esta tabla debería filtrarse ⬇️')
