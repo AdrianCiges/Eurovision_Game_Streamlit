@@ -1181,7 +1181,7 @@ with tab2:
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder="Elije tantos como quieras")
+    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder="Elige tantos como quieras")
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
