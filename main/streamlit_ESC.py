@@ -746,18 +746,6 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                 )
                 st.write('-----------')
                 df = df[df[column] == user_year_input]
-            elif column == 'bet_mean' or column == 'propo_max_puntos':
-                _min = float(df[column].min())
-                _max = float(df[column].max())
-                step = (_max - _min) / 100
-                user_num_input = right.slider(
-                    f"{column}",
-                    min_value=_min,
-                    max_value=_max,
-                    value=(_min, _max),
-                    step=step,
-                )
-                st.write('-----------')
             else:
                 left, right = st.columns((1, 20))
                 # left.write("↳")
@@ -770,6 +758,19 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     )
                     st.write('-----------')
                     df = df[df[column].isin(user_cat_input)]
+
+                elif column == 'bet_mean' or column == 'propo_max_puntos':
+                    _min = float(df[column].min())
+                    _max = float(df[column].max())
+                    step = (_max - _min) / 100
+                    user_num_input = right.slider(
+                        f"{column}",
+                        min_value=_min,
+                        max_value=_max,
+                        value=(_min, _max),
+                        step=step,
+                    )
+                    st.write('-----------')
 
                 elif is_numeric_dtype(df[column]):
                     _min = float(df[column].min())
