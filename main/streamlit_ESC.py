@@ -767,7 +767,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         min_value=_min,
                         max_value=_max,
                         value=(_min, _max),
-                        step=step,
+                        step=1,
                     )
                     st.write('-----------')
                     df = df[df[column].between(*user_num_input)]
