@@ -701,7 +701,7 @@ def load_data_histo():
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    modify = st.checkbox("🎯 Añadir filtros")
+    modify = st.checkbox("🎯 Añadir más filtros")
     if not modify:
         return df
 
@@ -725,7 +725,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         )
 
         # Contenido del contenedor
-        columnas_filtro = ['country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking']
+        columnas_filtro = ['artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 
+                           'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 
+                           'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking']
         to_filter_columns = st.multiselect("Filtrar por:", columnas_filtro, placeholder="Selecciona un campo")
         st.write('-----------')
         
@@ -791,6 +793,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         df = df[df[column].astype(str).str.contains(user_text_input)]
 
     return df
+    
     
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
@@ -1143,16 +1146,6 @@ with tab2:
     graf = st.radio(' ', graf_names)
     st.write('')
 
-
-    
-# ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
-
-    df_prueba = filter_dataframe(df_master)
-    st.write('Esta tabla debería filtrarse ⬇️')
-    st.write(df_prueba)
-
-# ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
-
     
     # Markdown con estilo para el título
     st.markdown("<h4 style='margin-bottom: -40px;'>🗓 Selecciona un rango de años</h4>", unsafe_allow_html=True)
@@ -1178,6 +1171,16 @@ with tab2:
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
+        
+# ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
+
+    df_prueba = filter_dataframe(df_master)
+    st.write('Esta tabla debería filtrarse ⬇️')
+    st.write(df_prueba)
+
+# ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
+
+    
     # crear un diccionario de reemplazo
     replace_dict = {
         'The Netherlands': 'Netherlands 🇳🇱 ',
