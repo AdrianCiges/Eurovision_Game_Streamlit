@@ -917,13 +917,16 @@ with tab1:
             for i,p in enumerate(df_sorted['points']):
                 df_sorted.loc[i, 'points'] = round(pendiente*p-intercept)
 
-            df_sorted.loc[25:, 'points'] = 0
+            try:
+                df_sorted.loc[26:, 'points'] = 0
+            except:
+                pass
 
             total_points = df_sorted['points'].sum()
 
             cociente = 4292/total_points
 
-            for i,puntos in enumerate(df_sorted['points']):
+            for i,puntos in enumerate(df_sorted['points'][:26]):
                 df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
             total_points = df_sorted['points'].sum()
