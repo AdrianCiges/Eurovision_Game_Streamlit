@@ -2522,12 +2522,14 @@ with tab2:
                 # Configuración del diseño del gráfico
                 if porcentaje:
                     layout = dict(barmode='stack',
-                                  yaxis={'title': '% Puntos'},
-                                  xaxis={'title': 'Año'})
+                                  yaxis={'title': '% Puntos','title_standoff': 0},
+                                  xaxis={'title': 'Año'},
+                                  margin=dict(t=0))
                 else:
                     layout = dict(barmode='stack',
-                                  yaxis={'title': 'Puntos'},
-                                  xaxis={'title': 'Año'})
+                                  yaxis={'title': 'Puntos''title_standoff': 0},
+                                  xaxis={'title': 'Año'},
+                                  margin=dict(t=0))
                 
                 # Creamos la figura
                 fig = go.Figure(data=data, layout=layout)
