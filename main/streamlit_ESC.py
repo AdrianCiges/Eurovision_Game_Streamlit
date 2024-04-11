@@ -2486,20 +2486,21 @@ with tab2:
                 # st.plotly_chart(fig, use_container_width=True)
 
                 colors = {
-                    'Albania 🇦🇱 ': '#9edae5', 'Andorra 🇦🇩 ': '#fdbf6f', 'Armenia 🇦🇲 ': '#ff9896', 'Australia 🇦🇺 ': '#aec7e8',
-                    'Austria 🇦🇹 ': '#ffbb78', 'Azerbaijan 🇦🇿 ': '#98df8a', 'Belarus 🇧🇾 ': '#ff9896', 'Belgium 🇧🇪 ': '#aec7e8',
-                    'Bosnia and Herzegovina 🇧🇦 ': '#ff9896', 'Bosn. & Herz. 🇧🇦 ': '#ff9896', 'Bulgaria 🇧🇬 ': '#9edae5', 'Croatia 🇭🇷 ': '#aec7e8', 'Cyprus 🇨🇾 ': '#ffbb78',
-                    'Czechia 🇨🇿 ': '#ffbb78', 'Denmark 🇩🇰 ': '#98df8a', 'Estonia 🇪🇪 ': '#9edae5', 'Finland 🇫🇮 ': '#ff9896',
-                    'France 🇫🇷 ': '#98df8a', 'Georgia 🇬🇪 ': '#ffbb78', 'Germany 🇩🇪 ': '#9edae5', 'Greece 🇬🇷 ': '#ff9896',
-                    'Hungary 🇭🇺 ': '#ffbb78', 'Iceland 🇮🇸 ': '#aec7e8', 'Ireland 🇮🇪 ': '#ffbb78', 'Israel 🇮🇱 ': '#ffbb78',
-                    'Italy 🇮🇹 ': '#aec7e8', 'Latvia 🇱🇻 ': '#ffbb78', 'Lithuania 🇱🇹 ': '#ff9896', 'Malta 🇲🇹 ': '#ffbb78',
-                    'Moldova 🇲🇩 ': '#ffbb78', 'Montenegro 🇲🇪 ': '#ffbb78', 'North Macedonia 🇲🇰 ': '#ffbb78', 'N. Macedonia 🇲🇰 ': '#ffbb78', 'Norway 🇳🇴 ': '#9edae5',
-                    'Poland 🇵🇱 ': '#ffbb78', 'Portugal 🇵🇹 ': '#ffbb78', 'Romania 🇷🇴 ': '#ff9896', 'Russia 🇷🇺 ': '#ff9896',
-                    'San Marino 🇸🇲 ': '#ff9896', 'Serbia 🇷🇸 ': '#ffbb78', 'Slovakia 🇸🇰 ': '#ffbb78', 'Slovenia 🇸🇮 ': '#ffbb78',
-                    'Spain 🇪🇸 ': '#ff9896', 'Sweden 🇸🇪 ': '#aec7e8', 'Switzerland 🇨🇭 ': '#9edae5', 'Netherlands 🇳🇱 ': '#aec7e8',
-                    'The Netherlands 🇳🇱 ': '#aec7e8', 'Turkey 🇹🇷 ': '#ffbb78', 'Ukraine 🇺🇦 ': '#9edae5', 'United Kingdom 🇬🇧 ': '#ff9896',
-                    'UK 🇬🇧 ': '#ff9896', 'Luxemburgo 🇱🇺 ': '#9edae5', 'Serb. & Mont. 🇷🇸🇲🇪 ': '#98df8a', 'Monaco 🇲🇨 ': '#fdbf6f'
+                    'Albania 🇦🇱 ': '#FFD700', 'Andorra 🇦🇩 ': '#FF7F50', 'Armenia 🇦🇲 ': '#FF6347', 'Australia 🇦🇺 ': '#FF4500',
+                    'Austria 🇦🇹 ': '#FF69B4', 'Azerbaijan 🇦🇿 ': '#FFC0CB', 'Belarus 🇧🇾 ': '#FFA07A', 'Belgium 🇧🇪 ': '#FFE4E1',
+                    'Bosnia and Herzegovina 🇧🇦 ': '#FA8072', 'Bosn. & Herz. 🇧🇦 ': '#FFA500', 'Bulgaria 🇧🇬 ': '#F08080', 'Croatia 🇭🇷 ': '#FFD700', 'Cyprus 🇨🇾 ': '#FF69B4',
+                    'Czechia 🇨🇿 ': '#FFA07A', 'Denmark 🇩🇰 ': '#FF6347', 'Estonia 🇪🇪 ': '#FF7F50', 'Finland 🇫🇮 ': '#FF4500',
+                    'France 🇫🇷 ': '#FF69B4', 'Georgia 🇬🇪 ': '#FFD700', 'Germany 🇩🇪 ': '#FFA500', 'Greece 🇬🇷 ': '#FF6347',
+                    'Hungary 🇭🇺 ': '#FFA07A', 'Iceland 🇮🇸 ': '#FF4500', 'Ireland 🇮🇪 ': '#FFD700', 'Israel 🇮🇱 ': '#FF69B4',
+                    'Italy 🇮🇹 ': '#FF6347', 'Latvia 🇱🇻 ': '#FF4500', 'Lithuania 🇱🇹 ': '#FF69B4', 'Malta 🇲🇹 ': '#FF7F50',
+                    'Moldova 🇲🇩 ': '#FFD700', 'Montenegro 🇲🇪 ': '#FF69B4', 'North Macedonia 🇲🇰 ': '#FFA500', 'N. Macedonia 🇲🇰 ': '#FF6347', 'Norway 🇳🇴 ': '#FF7F50',
+                    'Poland 🇵🇱 ': '#FF4500', 'Portugal 🇵🇹 ': '#FFD700', 'Romania 🇷🇴 ': '#FF6347', 'Russia 🇷🇺 ': '#FFA07A',
+                    'San Marino 🇸🇲 ': '#FFA500', 'Serbia 🇷🇸 ': '#FFD700', 'Slovakia 🇸🇰 ': '#FF6347', 'Slovenia 🇸🇮 ': '#FF7F50',
+                    'Spain 🇪🇸 ': '#FF4500', 'Sweden 🇸🇪 ': '#FFD700', 'Switzerland 🇨🇭 ': '#FF69B4', 'Netherlands 🇳🇱 ': '#FF6347',
+                    'The Netherlands 🇳🇱 ': '#FFA500', 'Turkey 🇹🇷 ': '#FFD700', 'Ukraine 🇺🇦 ': '#FF6347', 'United Kingdom 🇬🇧 ': '#FFA07A',
+                    'UK 🇬🇧 ': '#FF7F50', 'Luxemburgo 🇱🇺 ': '#FFD700', 'Serb. & Mont. 🇷🇸🇲🇪 ': '#FF4500', 'Monaco 🇲🇨 ': '#FF69B4'
                 }
+
 
                 # Creamos una lista vacía para almacenar los datos de las barras
                 data = []
