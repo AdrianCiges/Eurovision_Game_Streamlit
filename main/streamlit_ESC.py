@@ -2488,7 +2488,7 @@ with tab2:
                 colors = {
                     'Albania 🇦🇱 ': '#1f77b4', 'Andorra 🇦🇩 ': '#ff7f0e', 'Armenia 🇦🇲 ': '#2ca02c', 'Australia 🇦🇺 ': '#d62728',
                     'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#8c564b', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#7f7f7f',
-                    'Bosnia and Herzegovina 🇧🇦 ': '#bcbd22', 'Bulgaria 🇧🇬 ': '#17becf', 'Croatia 🇭🇷 ': '#1f77b4', 'Cyprus 🇨🇾 ': '#ff7f0e',
+                    'Bosnia and Herzegovina 🇧🇦 ': '#bcbd22','Bosn. & Herz. 🇧🇦 ': '#bcbd22', Bulgaria 🇧🇬 ': '#17becf', 'Croatia 🇭🇷 ': '#1f77b4', 'Cyprus 🇨🇾 ': '#ff7f0e',
                     'Czechia 🇨🇿 ': '#2ca02c', 'Denmark 🇩🇰 ': '#d62728', 'Estonia 🇪🇪 ': '#9467bd', 'Finland 🇫🇮 ': '#8c564b',
                     'France 🇫🇷 ': '#e377c2', 'Georgia 🇬🇪 ': '#7f7f7f', 'Germany 🇩🇪 ': '#bcbd22', 'Greece 🇬🇷 ': '#17becf',
                     'Hungary 🇭🇺 ': '#1f77b4', 'Iceland 🇮🇸 ': '#ff7f0e', 'Ireland 🇮🇪 ': '#2ca02c', 'Israel 🇮🇱 ': '#d62728',
