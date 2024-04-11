@@ -2486,12 +2486,12 @@ with tab2:
                 # st.plotly_chart(fig, use_container_width=True)
 
                 colors = {'Albania 🇦🇱 ': '#1f67b4', 'Andorra 🇦🇩 ': '#ff6f0e', 'Armenia 🇦🇲 ': '#2ca03c', 'Australia 🇦🇺 ': '#d62528',
-                'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#6c564b', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#7f7f7f',
+                'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#4c524b', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#7f7f7f',
                 'Bosnia and Herzegovina 🇧🇦 ': '#bcbd32','Bosn. & Herz. 🇧🇦 ': '#bcbd42', 'Bulgaria 🇧🇬 ': '#17becf', 'Croatia 🇭🇷 ': '#1f27b4', 'Cyprus 🇨🇾 ': '#ff7f0e',
                 'Czechia 🇨🇿 ': '#2ca12c', 'Denmark 🇩🇰 ': '#d62628', 'Estonia 🇪🇪 ': '#9447bd', 'Finland 🇫🇮 ': '#60FDED',
                 'France 🇫🇷 ': '#e367c2', 'Georgia 🇬🇪 ': '#7f7f6f', 'Germany 🇩🇪 ': '#bcbd52', 'Greece 🇬🇷 ': '#16becf',
                 'Hungary 🇭🇺 ': '#1f57b4', 'Iceland 🇮🇸 ': '#ff5f0e', 'Ireland 🇮🇪 ': '#2ca22c', 'Israel 🇮🇱 ': '#d62428',
-                'Italy 🇮🇹 ': '#9457bd', 'Latvia 🇱🇻 ': '#4c564b', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7f5f7f',
+                'Italy 🇮🇹 ': '#9457bd', 'Latvia 🇱🇻 ': '#7c262b', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7f5f7f',
                 'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#1f47b4','N. Macedonia 🇲🇰 ':'#1f37b4' ,'Norway 🇳🇴 ': '#ff4f0e',
                 'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#d62228', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#FD606A',
                 'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#7f4f7f', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
