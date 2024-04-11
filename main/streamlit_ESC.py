@@ -2484,6 +2484,24 @@ with tab2:
                 # # Mostramos el gráfico en Streamlit
                 # st.plotly_chart(fig, use_container_width=True)
 
+                # Lista de países
+                countries_col = [
+                    'Albania 🇦🇱', 'Andorra 🇦🇩', 'Armenia 🇦🇲', 'Australia 🇦🇺', 'Austria 🇦🇹', 'Azerbaijan 🇦🇿',
+                    'Belarus 🇧🇾', 'Belgium 🇧🇪', 'Bosnia and Herzegovina 🇧🇦', 'Bulgaria 🇧🇬', 'Croatia 🇭🇷', 'Cyprus 🇨🇾',
+                    'Czechia 🇨🇿', 'Denmark 🇩🇰', 'Estonia 🇪🇪', 'Finland 🇫🇮', 'France 🇫🇷', 'Georgia 🇬🇪', 'Germany 🇩🇪',
+                    'Greece 🇬🇷', 'Hungary 🇭🇺', 'Iceland 🇮🇸', 'Ireland 🇮🇪', 'Israel 🇮🇱', 'Italy 🇮🇹', 'Latvia 🇱🇻',
+                    'Lithuania 🇱🇹', 'Malta 🇲🇹', 'Moldova 🇲🇩', 'Montenegro 🇲🇪', 'North Macedonia 🇲🇰', 'Norway 🇳🇴',
+                    'Poland 🇵🇱', 'Portugal 🇵🇹', 'Romania 🇷🇴', 'Russia 🇷🇺', 'San Marino 🇸🇲', 'Serbia 🇷🇸', 'Slovakia 🇸🇰',
+                    'Slovenia 🇸🇮', 'Spain 🇪🇸', 'Sweden 🇸🇪', 'Switzerland 🇨🇭', 'Netherlands 🇳🇱', 'Turkey 🇹🇷', 'Ukraine 🇺🇦',
+                    'United Kingdom 🇬🇧','Luxemburgo 🇱🇺'
+                ]
+                
+                # Generar códigos de color únicos para cada país
+                country_colors = plotly.colors.qualitative.Safe
+                
+                # Crear el diccionario de países y colores
+                colors = dict(zip(countries_col, country_colors))
+                
                 # Creamos una lista vacía para almacenar los datos de las barras
                 data = []
                 
@@ -2497,9 +2515,11 @@ with tab2:
                     sorted_countries = df_year_sorted['country'].tolist()
                     # Creamos una lista de valores de puntos corregidos ordenados
                     sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                    # Creamos una lista de colores para las barras de cada país
+                    bar_colors = [colors[country] for country in sorted_countries]
                     # Añadimos una barra para cada país en el año actual
-                    for country, points in zip(sorted_countries, sorted_points):
-                        data.append(go.Bar(x=[year], y=[points], name=country))
+                    for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
+                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country))
                 
                 # Configuración del diseño del gráfico
                 layout = dict(barmode='stack',
