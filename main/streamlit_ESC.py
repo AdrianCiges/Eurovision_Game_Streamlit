@@ -2493,7 +2493,7 @@ with tab2:
                     'Greece 🇬🇷', 'Hungary 🇭🇺', 'Iceland 🇮🇸', 'Ireland 🇮🇪', 'Israel 🇮🇱', 'Italy 🇮🇹', 'Latvia 🇱🇻',
                     'Lithuania 🇱🇹', 'Malta 🇲🇹', 'Moldova 🇲🇩', 'Montenegro 🇲🇪', 'North Macedonia 🇲🇰', 'Norway 🇳🇴',
                     'Poland 🇵🇱', 'Portugal 🇵🇹', 'Romania 🇷🇴', 'Russia 🇷🇺', 'San Marino 🇸🇲', 'Serbia 🇷🇸', 'Slovakia 🇸🇰',
-                    'Slovenia 🇸🇮', 'Spain 🇪🇸', 'Sweden 🇸🇪', 'Switzerland 🇨🇭', 'Netherlands 🇳🇱', 'Turkey 🇹🇷', 'Ukraine 🇺🇦',
+                    'Slovenia 🇸🇮', 'Spain 🇪🇸', 'Sweden 🇸🇪', 'Switzerland 🇨🇭', 'Netherlands 🇳🇱', 'Turkey 🇹🇷', 'Ukraine 🇺🇦 ',
                     'United Kingdom 🇬🇧','Luxemburgo 🇱🇺'
                 ]
                 
