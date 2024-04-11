@@ -2456,7 +2456,7 @@ with tab2:
                 fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
                        title='',
                        labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
-                       hover_name='country', markers=True)
+                       hover_name='País', markers=True)
                 
                 # Configuración del eje y para incluir ceros
                 fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
@@ -2477,7 +2477,7 @@ with tab2:
                 fig = px.bar(df, x='year', y='puntos_corregidos', color='country',
                              title='',
                              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
-                             hover_name='country')
+                             hover_name='País')
                 
                 fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
 
@@ -2513,7 +2513,7 @@ with tab2:
                 fig = px.line(df_melted, x='year', y='valor', color='country',
                               title='Valor de cada país en cada año',
                               labels={'valor': 'Puntos', 'year': 'Año'},
-                              hover_name='country', line_group='country', markers=True)
+                              hover_name='País', line_group='country', markers=True)
 
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
