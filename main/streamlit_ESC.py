@@ -1198,7 +1198,7 @@ with tab2:
         
 # ----------- PROBANDO FUNCION PARA FILTROS ⬇️------------------------------------------------------------------------------
 
-    # st.write('')
+    # # st.write('')
     
     # # Markdown con estilo para el título
     # st.markdown("<h4 style='margin-bottom: -10px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
@@ -1349,6 +1349,15 @@ with tab2:
     st.write('')
 
     if graf in ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']:
+
+        st.write('')
+    
+        # Markdown con estilo para el título
+        st.markdown("<h4 style='margin-bottom: -10px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
+        
+        filtered_df = filter_dataframe(filtered_df)
+        st.write('Esta tabla debería filtrarse ⬇️')
+        st.write(filtered_df)
         
         st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
         
@@ -2423,6 +2432,9 @@ with tab2:
     else:
         
         if graf == 'Evolución Histórica':
+
+            st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
+
     
         # -------HISTÓRICOS ----------------------------------------------------------------------
             
