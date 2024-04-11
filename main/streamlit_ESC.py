@@ -2464,9 +2464,10 @@ with tab2:
                 
                 st.plotly_chart(fig1, use_container_width=True)
 
-                # -------PUNTOS POR AÑO NARRAS ----------------------------------------------------------------------
+                # -------PUNTOS POR AÑO BARRAS ----------------------------------------------------------------------
         
                 # Creamos el gráfico de barras apiladas
+                st.markdown('f' #### Puntos por país {year_range[0]}-{year_range[1]} - BARRAS')
 
                 if st.checkbox('Ordenar por puntos'):
                     df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, True])
@@ -2478,8 +2479,6 @@ with tab2:
                              title='',
                              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
                              hover_name='country')
-
-                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
                 
                 # Mostramos el gráfico en Streamlit
                 st.plotly_chart(fig, use_container_width=True)
@@ -2512,7 +2511,7 @@ with tab2:
                 # Gráfico de líneas
                 fig = px.line(df_melted, x='year', y='valor', color='country',
                               title='Valor de cada país en cada año',
-                              labels={'valor': 'Valor', 'year': 'Año'},
+                              labels={'valor': 'Puntos', 'year': 'Año'},
                               hover_name='country', line_group='country', markers=True)
 
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
