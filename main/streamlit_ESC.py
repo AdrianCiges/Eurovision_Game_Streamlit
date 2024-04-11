@@ -2471,7 +2471,7 @@ with tab2:
                 if st.checkbox('Ordenar por puntos'):
                     df_sorted_barras = df.copy()
                 else:
-                    df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, False])
+                    df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, True])
                     
 
                 fig = px.bar(df_sorted_barras, x='year', y='puntos_corregidos', color='country',
