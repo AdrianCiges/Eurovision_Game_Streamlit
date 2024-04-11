@@ -2460,7 +2460,7 @@ with tab2:
                 
                 # Configuración del eje y para incluir ceros
                 fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
-                fig1.update_layout(title={'text': f'Evolución puntos por país {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 
                 st.plotly_chart(fig1, use_container_width=True)
         
@@ -2495,7 +2495,7 @@ with tab2:
                               labels={'valor': 'Valor', 'year': 'Año'},
                               hover_name='country', line_group='country', markers=True)
 
-                fig.update_layout(title={'text': f'Evolución puntos acumulados (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
         
                 # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
@@ -2505,7 +2505,7 @@ with tab2:
                 """
                 
                 st.markdown('#### Evolución dinámica puntos acumulados 2002-2023')
-                st.components.v1.html(html_code, width=700, height=600)
+                st.components.v1.html(html_code, width=600, height=600)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
