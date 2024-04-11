@@ -708,21 +708,28 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     df = df.copy()
 
     # Cambiamos los nombres de columnas a las que queremos que salgan en los filtros -> Nombre USER FRIENDLY
-    # df = 
+    nuevos_nombres = ['key', 'country_id','País','Cantante/s','Canción','Año', 'Longitud letra', 'Palabras Únicas','Vecinos Participantes',
+                      'Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra',
+                      'Estructura','Finalista','Puntos','% Puntos','Clasificación','Orden actuación',
+                      '1º Idioma','2º Idioma','3º Idioma','Views YT', 'Likes YT','Links','Estilo',
+                      'Shazams','Duración Spotify','Duración ESC','PIB país','Ranking PIB','Ranking Influencia','Puntos Influencia','Ranking Reputación',
+                      'reput_sci_tech','reput_cult','reput_peace_secur','reput_world_order','reput_planet_climate','reput_props_equal','reput_health_wellbeing',
+                      'Cuota Apuestas']
+    df.columns = nuevos_nombres
 
     modification_container = st.container()
     with modification_container:
 
         # Contenido del contenedor
-        columnas_filtro = ['artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 
-                           'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum','views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 
-                           'duracion_eurovision', 'duracion_spoty','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking']
+        columnas_filtro = ['Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación','Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', 
+                           '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura','Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Palabras Únicas', 
+                           'Duración ESC', 'Duración Spotify','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         to_filter_columns = st.multiselect("Filtrar por:", columnas_filtro, placeholder="Selecciona un campo")
         st.write('-----------')
         
         for column in to_filter_columns:
             # Si la columna es 'year', usa un widget especial
-            if column == 'year':
+            if column == 'Año':
                 left, right = st.columns((1, 20))
                 # left.write("↳")
                 min_year = int(df[column].min())
@@ -748,7 +755,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     st.write('-----------')
                     df = df[df[column].isin(user_cat_input)]
 
-                elif column == 'bet_mean' or column == 'propo_max_puntos':
+                elif column == 'Cuota Apuestas' or column == '% Puntos':
                     _min = float(df[column].min())
                     _max = float(df[column].max())
                     step = (_max - _min) / 100
@@ -796,7 +803,15 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                         df = df[df[column].astype(str).str.contains(user_text_input)]
 
     # Cambiamos los nombres de columnas a los que entraros para que el código no se rompa -> Nombre ORIGINALES
-    # df = 
+    nuevos_nombres = ['key', 'country_id','country','artist','song','year', 'lyrics_long', 'unic_words','vecinos_participantes',
+                      'love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word',
+                      'estruc_resum','finalista','puntos_corregidos','propo_max_puntos','clasificacion','order_act',
+                      'idioma1','idioma2','idioma3','views', 'likes','links','estilos',
+                      'shazams','duracion_spoty','duracion_eurovision','GDP','orden_relativo_GDP','influ_ranking','influ_score','reput_ranking',
+                      'reput_sci_tech','reput_cult','reput_peace_secur','reput_world_order','reput_planet_climate','reput_props_equal','reput_health_wellbeing',
+                      'bet_mean']
+
+    df.columns = nuevos_nombres
 
     return df
     
@@ -1266,12 +1281,12 @@ with tab2:
         df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                  'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
                                  'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-                                 'GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+                                 'vecinos_participantes','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
 
         nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
                                  'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Nº palabras', 'Duración ESC', 'Duración Spotify',
-                                 'PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Palabras Únicas', 'Duración ESC', 'Duración Spotify',
+                                 'Vecinos Participantes','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
         df_to_show.columns = nuevos_nombres
 
         def corregir_numero(val):
@@ -2255,7 +2270,7 @@ with tab2:
                 fig = px.bar(largestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                     orientation='h', height=600)
 
-                fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras')
+                fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas')
                 fig.update_traces(marker_color='#BB34AD')
                 fig.update_yaxes(title='')
                 fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
@@ -2267,7 +2282,7 @@ with tab2:
                 fig = px.bar(shortestP_df, x='lyrics_long', y='paisano', hover_data=['entry', 'lyrics_long'],
                     orientation='h', height=600)
 
-                fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras')
+                fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas')
                 fig.update_traces(marker_color='#1F9CC4')
                 fig.update_yaxes(title='')
                 fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras = %{value:.0f}')
@@ -2278,7 +2293,7 @@ with tab2:
                 fig = px.bar(largestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                     orientation='h', height=600)
 
-                fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
+                fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas Únicas')
                 fig.update_traces(marker_color='#BB34AD')
                 fig.update_yaxes(title='')
                 fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas = %{value:.0f}')
@@ -2290,7 +2305,7 @@ with tab2:
                 fig = px.bar(shortestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                     orientation='h', height=600)
 
-                fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Nº Palabras Únicas')
+                fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas Únicas')
                 fig.update_traces(marker_color='#1F9CC4')
                 fig.update_yaxes(title='')
                 fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
