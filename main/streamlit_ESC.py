@@ -2527,7 +2527,7 @@ with tab2:
                                   margin=dict(t=0))
                 else:
                     layout = dict(barmode='stack',
-                                  yaxis={'title': 'Puntos''title_standoff': 0},
+                                  yaxis={'title': 'Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
                                   margin=dict(t=0))
                 
