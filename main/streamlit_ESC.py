@@ -2479,7 +2479,7 @@ with tab2:
                              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
                              hover_name='country')
                 
-                fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
+                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
 
                 # Mostramos el gráfico en Streamlit
                 st.plotly_chart(fig, use_container_width=True)
