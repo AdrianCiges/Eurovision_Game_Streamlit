@@ -2474,14 +2474,43 @@ with tab2:
                 #     df_sorted_barras = df.sort_values(by=['year', 'country'], ascending=[True, True])
                     
 
-                fig = px.bar(df, x='year', y='puntos_corregidos', color='country',
-                             title='',
-                             labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
-                             hover_name='country')
+                # fig = px.bar(df, x='year', y='puntos_corregidos', color='country',
+                #              title='',
+                #              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
+                #              hover_name='country')
                 
-                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
+                # fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
 
+                # # Mostramos el gráfico en Streamlit
+                # st.plotly_chart(fig, use_container_width=True)
+
+                # Creamos una lista vacía para almacenar los datos de las barras
+                data = []
+                
+                # Iteramos sobre cada año en el DataFrame
+                for year in df['year'].unique():
+                    # Filtramos el DataFrame por año
+                    df_year = df[df['year'] == year]
+                    # Ordenamos las filas por puntos corregidos en orden descendente
+                    df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
+                    # Creamos una lista de nombres de países ordenados
+                    sorted_countries = df_year_sorted['country'].tolist()
+                    # Creamos una lista de valores de puntos corregidos ordenados
+                    sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                    # Añadimos una barra para cada país en el año actual
+                    for country, points in zip(sorted_countries, sorted_points):
+                        data.append(go.Bar(x=[year], y=[points], name=country))
+                
+                # Configuración del diseño del gráfico
+                layout = dict(barmode='stack',
+                              yaxis={'title': 'Puntos'},
+                              xaxis={'title': 'Año'})
+                
+                # Creamos la figura
+                fig = go.Figure(data=data, layout=layout)
+                
                 # Mostramos el gráfico en Streamlit
+                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
         
                 # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
