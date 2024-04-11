@@ -2494,6 +2494,8 @@ with tab2:
                               title='Valor de cada país en cada año',
                               labels={'valor': 'Valor', 'year': 'Año'},
                               hover_name='country', line_group='country', markers=True)
+
+                fig.update_layout(title={'text': f'Evolución puntos acumulados (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
         
                 # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
@@ -2502,7 +2504,8 @@ with tab2:
                 <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
                 
-                st.components.v1.html(html_code, width=800, height=600)
+                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023')
+                st.components.v1.html(html_code, width=700, height=600)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
