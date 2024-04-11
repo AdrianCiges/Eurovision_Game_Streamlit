@@ -2497,7 +2497,7 @@ with tab2:
                     'Poland 🇵🇱 ': '#2ca02c', 'Portugal 🇵🇹 ': '#d62728', 'Romania 🇷🇴 ': '#9467bd', 'Russia 🇷🇺 ': '#8c564b',
                     'San Marino 🇸🇲 ': '#e377c2', 'Serbia 🇷🇸 ': '#7f7f7f', 'Slovakia 🇸🇰 ': '#bcbd22', 'Slovenia 🇸🇮 ': '#17becf',
                     'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff7f0e', 'Switzerland 🇨🇭 ': '#2ca02c', 'Netherlands 🇳🇱 ': '#d62728','The Netherlands 🇳🇱 ': '#d62728',
-                    'Turkey 🇹🇷 ': '#9467bd', 'Ukraine 🇺🇦 ': '#8c564b', 'United Kingdom 🇬🇧 ': '#e377c2', 'UK 🇬🇧 ': '#e377c2', 
+                    'Turkey 🇹🇷 ': '#9467bd', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#e377c2', 'UK 🇬🇧 ': '#e377c2', 
                     'Luxemburgo 🇱🇺 ': '#7f7f7f','Serb. & Mont. 🇷🇸🇲🇪 ':'#6AEB66', 'Monaco 🇲🇨 ':'#EC21D8'
                 }
 
@@ -2524,7 +2524,7 @@ with tab2:
                     
                     # Añadimos una barra para cada país en el año actual
                     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country))
+                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country. showlegend=False))
                 
                 # Configuración del diseño del gráfico
                 layout = dict(barmode='stack',
