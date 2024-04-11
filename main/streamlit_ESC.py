@@ -2497,14 +2497,23 @@ with tab2:
 
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
+
+                # -------CARRERA PUNTOS ACUMULADOS POR AÑO TOP20----------------------------------------------------
         
+                html_code = """
+                <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                """
+                
+                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
+                st.components.v1.html(html_code, width=600, height=600)
+                
                 # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
         
                 html_code = """
                 <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
                 
-                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023')
+                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - ALL')
                 st.components.v1.html(html_code, width=600, height=600)
 
         
