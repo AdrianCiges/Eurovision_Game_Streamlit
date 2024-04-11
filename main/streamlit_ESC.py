@@ -1192,7 +1192,7 @@ with tab2:
     st.markdown("<h4 style='margin-bottom: -40px;'>🌍 Selecciona los países</h4>", unsafe_allow_html=True)
     
     # Filtro por país
-    selected_country = st.multiselect(' ', options=df_master['country'].unique(), placeholder="Elige tantos como quieras")
+    selected_country = st.multiselect(' ', options=sorted(df_master['country'].unique()), placeholder="Elige tantos como quieras")
     if selected_country:
         filtered_df = filtered_df[filtered_df['country'].isin(selected_country)]
 
@@ -2485,13 +2485,13 @@ with tab2:
                 # # Mostramos el gráfico en Streamlit
                 # st.plotly_chart(fig, use_container_width=True)
 
-                colors = {'Albania 🇦🇱 ': '#1f67b4', 'Andorra 🇦🇩 ': '#ff6f0e', 'Armenia 🇦🇲 ': '#2ca03c', 'Australia 🇦🇺 ': '#d62528',
+                colors = {'Albania 🇦🇱 ': '#1f67b4', 'Andorra 🇦🇩 ': '#ff6f0e', 'Armenia 🇦🇲 ': '#64DA39', 'Australia 🇦🇺 ': '#d62528',
                 'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#24E19C', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#C4A4BC',
                 'Bosnia and Herzegovina 🇧🇦 ': '#bcbd32','Bosn. & Herz. 🇧🇦 ': '#bcbd42', 'Bulgaria 🇧🇬 ': '#17becf', 'Croatia 🇭🇷 ': '#1f27b4', 'Cyprus 🇨🇾 ': '#ff7f0e',
                 'Czechia 🇨🇿 ': '#2ca12c', 'Denmark 🇩🇰 ': '#d62628', 'Estonia 🇪🇪 ': '#9447bd', 'Finland 🇫🇮 ': '#60FDED',
                 'France 🇫🇷 ': '#e367c2', 'Georgia 🇬🇪 ': '#7f7f6f', 'Germany 🇩🇪 ': '#bcbd52', 'Greece 🇬🇷 ': '#16becf',
                 'Hungary 🇭🇺 ': '#1f57b4', 'Iceland 🇮🇸 ': '#ff5f0e', 'Ireland 🇮🇪 ': '#2ca22c', 'Israel 🇮🇱 ': '#d62428',
-                'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7f5f7f',
+                'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7CF9F1',
                 'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#5F6EF2','N. Macedonia 🇲🇰 ':'#5F6EF2' ,'Norway 🇳🇴 ': '#ff4f0e',
                 'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#FD606A',
                 'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#AAB2FD', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
