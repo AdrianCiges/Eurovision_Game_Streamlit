@@ -2499,9 +2499,11 @@ with tab2:
                 
                 # Generar códigos de color únicos para cada país
                 country_colors = plotly.colors.qualitative.Safe
+                st.write(country_colors)
                 
                 # Crear el diccionario de países y colores
                 colors = dict(zip(countries_col, country_colors))
+                st.write(colors)
                 
                 # Creamos una lista vacía para almacenar los datos de las barras
                 data = []
@@ -2510,14 +2512,19 @@ with tab2:
                 for year in df['year'].unique():
                     # Filtramos el DataFrame por año
                     df_year = df[df['year'] == year]
+                    
                     # Ordenamos las filas por puntos corregidos en orden descendente
                     df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
+                    
                     # Creamos una lista de nombres de países ordenados
                     sorted_countries = df_year_sorted['country'].tolist()
+                    
                     # Creamos una lista de valores de puntos corregidos ordenados
                     sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                    
                     # Creamos una lista de colores para las barras de cada país
                     bar_colors = [colors[country] for country in sorted_countries]
+                    
                     # Añadimos una barra para cada país en el año actual
                     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country))
