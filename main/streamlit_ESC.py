@@ -377,7 +377,7 @@ def row_data_ESC23(user_songs):
     st.markdown(f'##### 🔎 Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_mas_2h_str} españolas')
     time.sleep(1)
     st.write('')
-    st.markdown('##### 🤯 Esto puede tardar unos segundos. Recap act time!')
+    st.markdown('##### 🤯 Esto puede tardar unos segundos. Recap time!')
     
     time.sleep(1)
     st.write('')
@@ -1350,14 +1350,14 @@ with tab2:
 
     if graf in ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']:
 
-        st.write('')
+        # st.write('')
     
         # Markdown con estilo para el título
         st.markdown("<h4 style='margin-bottom: -10px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
         
         filtered_df = filter_dataframe(filtered_df)
-        st.write('Esta tabla debería filtrarse ⬇️')
-        st.write(filtered_df)
+        # st.write('Esta tabla debería filtrarse ⬇️')
+        # st.write(filtered_df)
         
         st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
         
@@ -2447,58 +2447,61 @@ with tab2:
             df = df.sort_values(by = ["country", "year"], ascending=True).fillna(0)
             
             # st.write(df)
+
+            with st.expander('Evolución Histórica de Puntos 🔢⏳', expanded=False): 
     
-            # -------PUNTOS POR AÑO ----------------------------------------------------------------------
-    
-            fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
-                   title='Evolución de la media de puntos corregidos por país',
-                   labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
-                   hover_name='country', markers=True)
-            
-            # Configuración del eje y para incluir ceros
-            fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
-            
-            st.plotly_chart(fig1, use_container_width=True)
-    
-            # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
-            
-            df_histo = load_data_histo()
-            
-            # Seleccionar las columnas que representan los años dentro del rango especificado
-            cols_in_range = [int(year) for year in range(year_range[0], year_range[1] + 1)]
-            
-            # Filtrar el DataFrame para incluir solo las columnas dentro del rango de años
-            cols_filter = ['country', 'Image URL']
-            cols_filter.extend(cols_in_range)
-    
-            df_histo = df_histo.loc[:, df_histo.columns.isin(cols_filter)]
-            
-            # Si también necesitas filtrar por países seleccionados:
-            if selected_country:
-                df_histo = df_histo[df_histo['country'].isin(selected_country)]
-            
-            # st.write(df_histo)
-            
-            # Derretir el DataFrame para convertir los años en filas
-            df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
-            
-            # Convertir la columna 'year' al tipo de dato adecuado
-            df_melted['year'] = pd.to_datetime(df_melted['year'], format='%Y')
-            
-            # Gráfico de líneas
-            fig = px.line(df_melted, x='year', y='valor', color='country',
-                          title='Valor de cada país en cada año',
-                          labels={'valor': 'Valor', 'year': 'Año'},
-                          hover_name='country', line_group='country', markers=True)
-            st.plotly_chart(fig, use_container_width=True)
-    
-            # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
-    
-            html_code = """
-            <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-            """
-            
-            st.components.v1.html(html_code, width=800, height=600)
+                # -------PUNTOS POR AÑO ----------------------------------------------------------------------
+        
+                fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
+                       title='Evolución de la media de puntos corregidos por país',
+                       labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
+                       hover_name='country', markers=True)
+                
+                # Configuración del eje y para incluir ceros
+                fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
+                fig.update_layout(title={'text': f'Prom. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                
+                st.plotly_chart(fig1, use_container_width=True)
+        
+                # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
+                
+                df_histo = load_data_histo()
+                
+                # Seleccionar las columnas que representan los años dentro del rango especificado
+                cols_in_range = [int(year) for year in range(year_range[0], year_range[1] + 1)]
+                
+                # Filtrar el DataFrame para incluir solo las columnas dentro del rango de años
+                cols_filter = ['country', 'Image URL']
+                cols_filter.extend(cols_in_range)
+        
+                df_histo = df_histo.loc[:, df_histo.columns.isin(cols_filter)]
+                
+                # Si también necesitas filtrar por países seleccionados:
+                if selected_country:
+                    df_histo = df_histo[df_histo['country'].isin(selected_country)]
+                
+                # st.write(df_histo)
+                
+                # Derretir el DataFrame para convertir los años en filas
+                df_melted = df_histo.melt(id_vars=['country', 'Image URL'], var_name='year', value_name='valor')
+                
+                # Convertir la columna 'year' al tipo de dato adecuado
+                df_melted['year'] = pd.to_datetime(df_melted['year'], format='%Y')
+                
+                # Gráfico de líneas
+                fig = px.line(df_melted, x='year', y='valor', color='country',
+                              title='Valor de cada país en cada año',
+                              labels={'valor': 'Valor', 'year': 'Año'},
+                              hover_name='country', line_group='country', markers=True)
+                st.plotly_chart(fig, use_container_width=True)
+        
+                # -------CARRERA PUNTOS ACUMULADOS POR AÑO ----------------------------------------------------
+        
+                html_code = """
+                <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                """
+                
+                st.components.v1.html(html_code, width=800, height=600)
 
         
 # ---------------------------------------------------------------------------------------------------------------------------------------------
