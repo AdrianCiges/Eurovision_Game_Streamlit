@@ -2469,11 +2469,9 @@ with tab2:
                 # Creamos el gráfico de barras apiladas
 
                 if st.checkbox('Ordenar por puntos'):
-                    orden = 'puntos_corregidos'
+                    df_sorted_barras = df.sort_values(by=orden, ascending=True)
                 else:
-                    orden = 'country'
-                
-                df_sorted_barras = df.sort_values(by=orden, ascending=True)
+                    df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, False])
 
                 fig = px.bar(df_sorted_barras, x='year', y='puntos_corregidos', color='country',
                              title='',
