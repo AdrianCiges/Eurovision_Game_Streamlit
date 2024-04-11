@@ -2463,6 +2463,18 @@ with tab2:
                 fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 
                 st.plotly_chart(fig1, use_container_width=True)
+
+                # -------PUNTOS POR AÑO ----------------------------------------------------------------------
+        
+                # Creamos el gráfico de barras apiladas
+                fig = px.bar(df, x='year', y='puntos_corregidos', color='country',
+                             title=f'Puntos por país {df["year"].min()}-{df["year"].max()}',
+                             labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
+                             hover_name='country')
+
+                fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
+                # Mostramos el gráfico en Streamlit
+                st.plotly_chart(fig, use_container_width=True)
         
                 # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
                 
