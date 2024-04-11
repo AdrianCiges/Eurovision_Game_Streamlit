@@ -2466,6 +2466,8 @@ with tab2:
                 st.plotly_chart(fig1, use_container_width=True)
 
                 # -------PUNTOS POR AÑO BARRAS ----------------------------------------------------------------------
+                
+                st.markdown(f'#### Puntos por país {year_range[0]}-{year_range[1]} - Barras')
 
                 # Agregar un checkbox para cambiar entre puntos y escala porcentual
                 porcentaje = st.checkbox("Ver en escala porcentual")
@@ -2518,15 +2520,20 @@ with tab2:
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False))
                 
                 # Configuración del diseño del gráfico
-                layout = dict(barmode='stack',
-                              yaxis={'title': 'Puntos'},
-                              xaxis={'title': 'Año'})
+                if porcentaje:
+                    layout = dict(barmode='stack',
+                                  yaxis={'title': '% Puntos'},
+                                  xaxis={'title': 'Año'})
+                else:
+                    layout = dict(barmode='stack',
+                                  yaxis={'title': 'Puntos'},
+                                  xaxis={'title': 'Año'})
                 
                 # Creamos la figura
                 fig = go.Figure(data=data, layout=layout)
                 
                 # Mostramos el gráfico en Streamlit
-                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
+                # fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
         
                 # -------PUNTOS ACUMULADOS POR AÑO -----------------------------------------------------------
