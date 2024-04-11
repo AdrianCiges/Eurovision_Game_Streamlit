@@ -707,22 +707,11 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.copy()
 
+    # Cambiamos los nombres de columnas a las que queremos que salgan en los filtros -> Nombre USER FRIENDLY
+    # df = 
+
     modification_container = st.container()
     with modification_container:
-        # Estilo CSS para el contenedor
-        st.markdown(
-            """
-            <style>
-            .modification-container {
-                padding: 20px;
-                background-color: #f4f4f4;
-                border-radius: 10px;
-                margin-bottom: 20px;
-            }
-            </style>
-            """,
-            unsafe_allow_html=True
-        )
 
         # Contenido del contenedor
         columnas_filtro = ['artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act','estilos','idioma1','idioma2','idioma3','love_song', 
@@ -805,6 +794,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
                     st.write('-----------')
                     if user_text_input:
                         df = df[df[column].astype(str).str.contains(user_text_input)]
+
+    # Cambiamos los nombres de columnas a los que entraros para que el código no se rompa -> Nombre ORIGINALES
+    # df = 
 
     return df
     
@@ -1198,7 +1190,7 @@ with tab2:
     
     filtered_df = filter_dataframe(filtered_df)
     # st.write('Esta tabla debería filtrarse ⬇️')
-    # st.write(df_prueba)
+    st.write(filtered_df)
 
 # ----------- PROBANDO FUNCION PARA FILTROS ⬆️------------------------------------------------------------------------------
 
