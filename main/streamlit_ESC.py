@@ -1358,7 +1358,8 @@ with tab2:
         filtered_df = filter_dataframe(filtered_df)
         # st.write('Esta tabla debería filtrarse ⬇️')
         # st.write(filtered_df)
-        
+
+        st.write('')
         st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
         
         if graf == 'Comportamiento Digital':
@@ -2453,13 +2454,13 @@ with tab2:
                 # -------PUNTOS POR AÑO ----------------------------------------------------------------------
         
                 fig1 = px.line(df, x='year', y='puntos_corregidos', color='country', 
-                       title='Evolución de la media de puntos corregidos por país',
-                       labels={'puntos_corregidos': 'Media de Puntos Corregidos', 'year': 'Año'},
+                       title='',
+                       labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
                        hover_name='country', markers=True)
                 
                 # Configuración del eje y para incluir ceros
                 fig1.update_yaxes(zeroline=True, zerolinewidth=1, zerolinecolor='black')
-                fig.update_layout(title={'text': f'Prom. Puntos + Views y Likes en YT {year_range[0]}-{year_range[1]}', 'font_size': 24})
+                fig1.update_layout(title={'text': f'Evolución puntos por país {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 
                 st.plotly_chart(fig1, use_container_width=True)
         
