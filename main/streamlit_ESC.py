@@ -2493,10 +2493,10 @@ with tab2:
                     'France 🇫🇷 ': '#e377c2', 'Georgia 🇬🇪 ': '#7f7f7f', 'Germany 🇩🇪 ': '#bcbd22', 'Greece 🇬🇷 ': '#17becf',
                     'Hungary 🇭🇺 ': '#1f77b4', 'Iceland 🇮🇸 ': '#ff7f0e', 'Ireland 🇮🇪 ': '#2ca02c', 'Israel 🇮🇱 ': '#d62728',
                     'Italy 🇮🇹 ': '#9467bd', 'Latvia 🇱🇻 ': '#8c564b', 'Lithuania 🇱🇹 ': '#e377c2', 'Malta 🇲🇹 ': '#7f7f7f',
-                    'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#17becf', 'North Macedonia 🇲🇰 ': '#1f77b4', 'Norway 🇳🇴 ': '#ff7f0e',
+                    'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#17becf', 'North Macedonia 🇲🇰 ': '#1f77b4','N. Macedonia 🇲🇰 ':'#1f77b4' ,'Norway 🇳🇴 ': '#ff7f0e',
                     'Poland 🇵🇱 ': '#2ca02c', 'Portugal 🇵🇹 ': '#d62728', 'Romania 🇷🇴 ': '#9467bd', 'Russia 🇷🇺 ': '#8c564b',
                     'San Marino 🇸🇲 ': '#e377c2', 'Serbia 🇷🇸 ': '#7f7f7f', 'Slovakia 🇸🇰 ': '#bcbd22', 'Slovenia 🇸🇮 ': '#17becf',
-                    'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff7f0e', 'Switzerland 🇨🇭 ': '#2ca02c', 'Netherlands 🇳🇱 ': '#d62728',
+                    'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff7f0e', 'Switzerland 🇨🇭 ': '#2ca02c', 'Netherlands 🇳🇱 ': '#d62728','The Netherlands 🇳🇱 ': '#d62728',
                     'Turkey 🇹🇷 ': '#9467bd', 'Ukraine 🇺🇦 ': '#8c564b', 'United Kingdom 🇬🇧 ': '#e377c2', 'Luxemburgo 🇱🇺 ': '#7f7f7f',
                     'Serb. & Mont. 🇷🇸🇲🇪 ':'#6AEB66'
                 }
