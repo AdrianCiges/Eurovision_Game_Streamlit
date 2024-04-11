@@ -2468,16 +2468,19 @@ with tab2:
         
                 # Creamos el gráfico de barras apiladas
 
-                st.write('añadir un markdown?')
+                if st.checkbox('Ordenar por puntos'):
+                    orden = 'puntos_corregidos'
+                else:
+                    orden = 'country'
                 
-                df_sorted_barras = df.sort_values(by='country', ascending=False)
+                df_sorted_barras = df.sort_values(by=orden, ascending=True)
 
                 fig = px.bar(df_sorted_barras, x='year', y='puntos_corregidos', color='country',
                              title='',
                              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
                              hover_name='country')
 
-                fig1.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
+                fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
                 
                 # Mostramos el gráfico en Streamlit
                 st.plotly_chart(fig, use_container_width=True)
