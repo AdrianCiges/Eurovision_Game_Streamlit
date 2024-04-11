@@ -2467,7 +2467,7 @@ with tab2:
                 # -------PUNTOS POR AÑO BARRAS ----------------------------------------------------------------------
         
                 # Creamos el gráfico de barras apiladas
-                st.markdown('f' #### Puntos por país {year_range[0]}-{year_range[1]} - BARRAS')
+                st.markdown(f' #### Puntos por país {year_range[0]}-{year_range[1]} - BARRAS')
 
                 if st.checkbox('Ordenar por puntos'):
                     df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, True])
