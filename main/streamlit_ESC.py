@@ -2486,17 +2486,17 @@ with tab2:
                 # st.plotly_chart(fig, use_container_width=True)
 
                 colors = {'Albania 🇦🇱 ': '#1f67b4', 'Andorra 🇦🇩 ': '#ff6f0e', 'Armenia 🇦🇲 ': '#2ca03c', 'Australia 🇦🇺 ': '#d62528',
-                'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#4c524b', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#7f7f7f',
+                'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#24E19C', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#C4A4BC',
                 'Bosnia and Herzegovina 🇧🇦 ': '#bcbd32','Bosn. & Herz. 🇧🇦 ': '#bcbd42', 'Bulgaria 🇧🇬 ': '#17becf', 'Croatia 🇭🇷 ': '#1f27b4', 'Cyprus 🇨🇾 ': '#ff7f0e',
                 'Czechia 🇨🇿 ': '#2ca12c', 'Denmark 🇩🇰 ': '#d62628', 'Estonia 🇪🇪 ': '#9447bd', 'Finland 🇫🇮 ': '#60FDED',
                 'France 🇫🇷 ': '#e367c2', 'Georgia 🇬🇪 ': '#7f7f6f', 'Germany 🇩🇪 ': '#bcbd52', 'Greece 🇬🇷 ': '#16becf',
                 'Hungary 🇭🇺 ': '#1f57b4', 'Iceland 🇮🇸 ': '#ff5f0e', 'Ireland 🇮🇪 ': '#2ca22c', 'Israel 🇮🇱 ': '#d62428',
-                'Italy 🇮🇹 ': '#9457bd', 'Latvia 🇱🇻 ': '#7c262b', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7f5f7f',
-                'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#1f47b4','N. Macedonia 🇲🇰 ':'#1f37b4' ,'Norway 🇳🇴 ': '#ff4f0e',
-                'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#d62228', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#FD606A',
-                'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#7f4f7f', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
-                'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff3f0e', 'Switzerland 🇨🇭 ': '#2ca42c', 'Netherlands 🇳🇱 ': '#d62328','The Netherlands 🇳🇱 ': '#d62128',
-                'Turkey 🇹🇷 ': '#9427bd', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#e337c2', 'UK 🇬🇧 ': '#e317c2', 
+                'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7f5f7f',
+                'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#5F6EF2','N. Macedonia 🇲🇰 ':'#5F6EF2' ,'Norway 🇳🇴 ': '#ff4f0e',
+                'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#FD606A',
+                'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#AAB2FD', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
+                'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff3f0e', 'Switzerland 🇨🇭 ': '#2ca42c', 'Netherlands 🇳🇱 ': '#F6BE76','The Netherlands 🇳🇱 ': '#F6BE76',
+                'Turkey 🇹🇷 ': '#E626B3', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#e337c2', 'UK 🇬🇧 ': '#e317c2', 
                 'Luxemburgo 🇱🇺 ': '#7f7f3f','Serb. & Mont. 🇷🇸🇲🇪 ':'#6AEB66', 'Monaco 🇲🇨 ':'#EC21D8'
                 }
 
