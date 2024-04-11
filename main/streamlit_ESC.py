@@ -2481,7 +2481,7 @@ with tab2:
                              hover_name='country')
                 
                 # Probando ordenación
-                fig.update_layout(yaxis={'categoryorder':'puntos_corregidos'}) # add only this line
+                fig.update_layout(yaxis={'categoryorder':'total ascending'}) # add only this line
                 
                 # Mostramos el gráfico en Streamlit
                 st.plotly_chart(fig, use_container_width=True)
