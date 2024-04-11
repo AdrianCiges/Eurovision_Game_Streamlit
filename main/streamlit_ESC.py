@@ -2466,24 +2466,16 @@ with tab2:
                 st.plotly_chart(fig1, use_container_width=True)
 
                 # -------PUNTOS POR AÑO BARRAS ----------------------------------------------------------------------
+
+                # Agregar un checkbox para cambiar entre puntos y escala porcentual
+                porcentaje = st.checkbox("Ver en escala porcentual")
+                
+                # Si el checkbox está marcado, convertir los datos a porcentajes
+                if porcentaje:
+                    total_por_anio = df.groupby('year')['puntos_corregidos'].transform('sum')
+                    df['puntos_corregidos'] = (df['puntos_corregidos'] / total_por_anio) * 100
         
                 # Creamos el gráfico de barras apiladas
-
-                # if st.checkbox('Ordenar por puntos'):
-                #     df_sorted_barras = df.sort_values(by=['year', 'puntos_corregidos'], ascending=[True, True])
-                # else:
-                #     df_sorted_barras = df.sort_values(by=['year', 'country'], ascending=[True, True])
-                    
-
-                # fig = px.bar(df, x='year', y='puntos_corregidos', color='country',
-                #              title='',
-                #              labels={'puntos_corregidos': 'Puntos', 'year': 'Año'},
-                #              hover_name='country')
-                
-                # fig.update_layout(title={'text': f'Puntos por país {year_range[0]}-{year_range[1]} - BARRAS', 'font_size': 24})
-
-                # # Mostramos el gráfico en Streamlit
-                # st.plotly_chart(fig, use_container_width=True)
 
                 colors = {'Albania 🇦🇱 ': '#1f67b4', 'Andorra 🇦🇩 ': '#ff6f0e', 'Armenia 🇦🇲 ': '#64DA39', 'Australia 🇦🇺 ': '#d62528',
                 'Austria 🇦🇹 ': '#9467bd', 'Azerbaijan 🇦🇿 ': '#24E19C', 'Belarus 🇧🇾 ': '#e377c2', 'Belgium 🇧🇪 ': '#C4A4BC',
