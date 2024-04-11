@@ -6,6 +6,7 @@ import time
 import statistics as stats
 from operator import itemgetter
 import matplotlib.pyplot as plt
+import plotly.colors
 from wordcloud import WordCloud
 import cv2
 
