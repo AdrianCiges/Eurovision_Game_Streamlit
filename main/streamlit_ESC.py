@@ -2492,7 +2492,7 @@ with tab2:
                 'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#EFB1B1',
                 'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#AAB2FD', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
                 'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff3f0e', 'Switzerland 🇨🇭 ': '#2ca42c', 'Netherlands 🇳🇱 ': '#F6BE76','The Netherlands 🇳🇱 ': '#F6BE76',
-                'Turkey 🇹🇷 ': '#E626B3', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#e337c2', 'UK 🇬🇧 ': '#e317c2', 
+                'Turkey 🇹🇷 ': '#E626B3', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#EED55B', 'UK 🇬🇧 ': '#EED55B', 
                 'Luxemburgo 🇱🇺 ': '#7f7f3f','Serb. & Mont. 🇷🇸🇲🇪 ':'#6AEB66', 'Monaco 🇲🇨 ':'#EC21D8'
                 }
 
