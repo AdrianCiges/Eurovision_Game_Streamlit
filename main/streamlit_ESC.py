@@ -2307,7 +2307,7 @@ with tab2:
                     fig = px.bar(largestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                         orientation='h', height=600)
     
-                    fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas Únicas')
+                    fig.update_layout(title={'text': f'Top 20 Canciones con MÁS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas')
                     fig.update_traces(marker_color='#BB34AD')
                     fig.update_yaxes(title='')
                     fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas = %{value:.0f}')
@@ -2319,7 +2319,7 @@ with tab2:
                     fig = px.bar(shortestU_df, x='unic_words', y='paisano', hover_data=['entry', 'unic_words'],
                         orientation='h', height=600)
     
-                    fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas Únicas')
+                    fig.update_layout(title={'text': f'Top 20 Canciones con MENOS PALABRAS ÚNICAS {year_range[0]}-{year_range[1]}', 'font_size': 24}, xaxis_title='Palabras Únicas')
                     fig.update_traces(marker_color='#1F9CC4')
                     fig.update_yaxes(title='')
                     fig.update_traces(hovertemplate='Canción = %{customdata[0]}<br>Palabras Únicas= %{value:.0f}')
