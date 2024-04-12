@@ -2333,8 +2333,8 @@ with tab2:
             with st.expander('Top 20 Canciones según LONGITUD TIEMPO ⏱️', expanded=False):
     
                 shortestT_df = concat_df.sort_values('duracion_eurovision', ascending=True).reset_index()
+                shortestT_df = shortestT_df[shortestT_df['duracion_eurovision'] != '0:00'][:20]
                 shortestT_df['segundos'] = [int(s.split(':')[0])*60 + int(s.split(':')[1]) for s in shortestT_df['duracion_eurovision']]
-                shortestT_df = shortestT_df[shortestT_df['segundos'] != '0:00']
                 st.write(shortestT_df)
                 
                 try:
