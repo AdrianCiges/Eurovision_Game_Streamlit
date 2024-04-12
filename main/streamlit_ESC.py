@@ -2187,7 +2187,7 @@ with tab2:
     
         # ---- GRAFICOS LONGITUD ---------------------------------------------------------
     
-            with st.expander('Longitud de la cación ⏩', expanded=False):
+            with st.expander('Longitud de la canción ⏩', expanded=False):
     
                 st.write('')
                 Acum9 = st.checkbox("Ver en datos acumulados                    ")
