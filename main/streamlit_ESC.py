@@ -2726,15 +2726,15 @@ with tab2:
                 """
                 
                 # Establecer un margen inferior negativo para minimizar el espacio
-                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20', margin=(0, 0, -10, 0))
+                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
                 st.components.v1.html(html_code1, width=600, height=600)
                 
                 # Establecer un margen superior negativo para minimizar el espacio
                 html_code2 = """
                 <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
-                
-                st.markdown('#### Reparto puntos acumulados por canción 2002-2023', margin=(-10, 0, 0, 0))
+                st.markdown("<h4 style='margin-bottom: -40px;'>#### Reparto puntos acumulados por canción 2002-2023</h4>", unsafe_allow_html=True)
+                # st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
                 st.components.v1.html(html_code2, width=600, height=600)
                 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
