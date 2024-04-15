@@ -1290,6 +1290,8 @@ with tab2:
     
         st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
         with st.expander('Ver Datos', expanded=False): 
+            st.write('❗ A partir de 2016 los puntos se han corregido, dividiéndolos entre 2, para ser consistentes con el sistema de votación del periodo 2002-2015')
+
             # st.write(filtered_df)
             df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                      'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
@@ -2440,6 +2442,8 @@ with tab2:
     
         st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
         with st.expander('Ver Datos', expanded=False): 
+            st.write('❗ A partir de 2016 los puntos se han corregido, dividiéndolos entre 2, para ser consistentes con el sistema de votación del periodo 2002-2015')
+
             # st.write(filtered_df)
             df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
                                      'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
