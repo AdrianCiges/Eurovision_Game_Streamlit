@@ -2519,7 +2519,8 @@ with tab2:
                     
                     # Añadimos una barra para cada país en el año actual
                     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color, line=dict(color='black', width=1)), legendgroup=country, showlegend=False))
+                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color, line=dict(color='grey', width=1)), legendgroup=country, showlegend=False, 
+                                           hoverlabel=dict(font=dict(color='black'))))
                 
                 # Configuración del diseño del gráfico
                 if porcentaje:
