@@ -147,7 +147,7 @@ def get_songs(cancion):
         url = ("https://www.youtube.com/results?search_query=" + cancion["song"].replace(' ','+').strip() +"+"+ cancion["singer"].replace(' ','+').strip() +"+"+ "Official")
         link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
         html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
-        video_likes = int(html.split(" Me gusta")[0].split(":")[-1].replace('"', "").replace(".", ""))
+        video_likes = int(html.split("Me gusta en este vídeo junto con otras ")[1].split(" personas")[0].replace('.',''))
         video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
         song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
         pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
