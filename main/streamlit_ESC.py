@@ -2521,11 +2521,15 @@ with tab2:
                     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
                         # data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color, line=dict(color='grey', width=1)), legendgroup=country, showlegend=False, 
                         #                    hoverlabel=dict(font=dict(color='black'))))
+                        # data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
+                        #                     #hoverinfo='text',
+                        #                     text=f"{country}: {points} puntos",
+                        #                     hoverlabel=dict(font=dict(color='black'))))
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                                            #hoverinfo='text',
-                                            text=f"{country}: {points} puntos",
+                                            hoverinfo='skip',
+                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points}<extra></extra>",
                                             hoverlabel=dict(font=dict(color='black'))))
-                
+                                    
                 # Configuración del diseño del gráfico
                 if porcentaje:
                     layout = dict(barmode='stack',
