@@ -2712,7 +2712,15 @@ with tab2:
                 st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
                 st.components.v1.html(html_code, width=600, height=600)
                 
+                # -------PUNTOS ACUMULADOS POR AÑO Por CANCIÓN----------------------------------------------------
         
+                html_code = """
+                <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                """
+                
+                st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
+                st.components.v1.html(html_code, width=600, height=600)
+                
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 
 with tab3:
