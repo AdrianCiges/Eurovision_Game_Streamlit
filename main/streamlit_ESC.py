@@ -2703,23 +2703,39 @@ with tab2:
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
 
-                # -------CARRERA PUNTOS ACUMULADOS POR AÑO TOP20----------------------------------------------------
+                # # -------CARRERA PUNTOS ACUMULADOS POR AÑO TOP20----------------------------------------------------
         
-                html_code = """
+                # html_code = """
+                # <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                # """
+                
+                # st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
+                # st.components.v1.html(html_code, width=600, height=600)
+                
+                # # -------PUNTOS ACUMULADOS POR AÑO Por CANCIÓN----------------------------------------------------
+        
+                # html_code = """
+                # <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+                # """
+                
+                # st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
+                # st.components.v1.html(html_code, width=600, height=600)
+
+                html_code1 = """
                 <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
                 
-                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
-                st.components.v1.html(html_code, width=600, height=600)
+                # Establecer un margen inferior negativo para minimizar el espacio
+                st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20', margin=(0, 0, -10, 0))
+                st.components.v1.html(html_code1, width=600, height=600)
                 
-                # -------PUNTOS ACUMULADOS POR AÑO Por CANCIÓN----------------------------------------------------
-        
-                html_code = """
+                # Establecer un margen superior negativo para minimizar el espacio
+                html_code2 = """
                 <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
                 
-                st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
-                st.components.v1.html(html_code, width=600, height=600)
+                st.markdown('#### Reparto puntos acumulados por canción 2002-2023', margin=(-10, 0, 0, 0))
+                st.components.v1.html(html_code2, width=600, height=600)
                 
 # ---------------------------------------------------------------------------------------------------------------------------------------------
 
