@@ -1276,7 +1276,7 @@ with tab2:
 
     if graf in ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']:
 
-        # st.write('')
+        st.write('')
     
         # Markdown con estilo para el título
         st.markdown("<h4 style='margin-bottom: -10px;'>🎯 ¿Quieres añadir más filtros?</h4>", unsafe_allow_html=True)
