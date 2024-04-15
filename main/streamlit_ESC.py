@@ -2522,7 +2522,7 @@ with tab2:
                         # data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color, line=dict(color='grey', width=1)), legendgroup=country, showlegend=False, 
                         #                    hoverlabel=dict(font=dict(color='black'))))
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                                            hoverinfo='text',
+                                            #hoverinfo='text',
                                             text=f"{country}: {points} puntos",
                                             hoverlabel=dict(font=dict(color='black'))))
                 
