@@ -571,7 +571,7 @@ def predicciones_now(user_songs):
                     'Latvia 🇱🇻 ': 175,
                     'Azerbaijan 🇦🇿 ': 276.8,
                     'Malta 🇲🇹 ': 306.8,
-                    'Luxembourg 🇱🇺 ': 276.8
+                    'Romania 🇷🇴 ': 276.8
                     }
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
