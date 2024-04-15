@@ -1274,82 +1274,6 @@ with tab2:
     filtered_df['likes'] = filtered_df['likes'].replace(replace_dict_likes)
     filtered_df['likes'] = [int(li) for li in filtered_df['likes']]
 
-    # Muestra el DataFrame filtrado
-    st.write('\n')
-
-    st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
-    with st.expander('Ver Datos', expanded=False): 
-        # st.write(filtered_df)
-        df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
-                                 'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
-                                 'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
-                                 'vecinos_participantes','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
-
-        nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
-                                 'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
-                                 'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Palabras Únicas', 'Duración ESC', 'Duración Spotify',
-                                 'Vecinos Participantes','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
-        df_to_show.columns = nuevos_nombres
-
-        def corregir_numero(val):
-            return int(val) 
-
-        def corregir_text(val):
-            try:
-                return val.strip()
-            except:
-                return val
-        def sustituir_valor_emoji(val):
-            if val == "Yes":
-                return "✅"
-            elif val == "No":
-                return "❌"
-            else:
-                return val 
-
-        columnas_a_modificar = ['Finalista', 'Temática Amor']
-        for columna in columnas_a_modificar:
-            df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
-
-        columnas_a_modificar_2 = ['Cantante/s', 'Canción', 'Estilo', '1º Idioma', '2º Idioma', '3º Idioma', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura']
-        for columna in columnas_a_modificar_2:
-            df_to_show[columna] = df_to_show[columna].apply(corregir_text)
-            
-        df_to_show['Likes YT'] = df_to_show['Likes YT'].apply(corregir_numero)
-
-        df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
-
-        df_to_show['Cuota Apuestas'] = df_to_show['Cuota Apuestas'].round(2)
-
-        df_to_show['Puntos Influencia'] = df_to_show['Puntos Influencia'].round(2)
-
-        st.data_editor(
-            df_to_show,
-            column_config={
-                "Link": st.column_config.LinkColumn(
-                    "🔗 Link", display_text = "🌐 Video YT"
-                ),
-                
-                "% Puntos": st.column_config.ProgressColumn(
-                    "% Puntos",
-                    format="%f",
-                    min_value=0,
-                    max_value=1,
-                ),
-
-                "Puntos Influencia": st.column_config.ProgressColumn(
-                    "Puntos Influencia",
-                    format="%f",
-                    min_value=0,
-                    max_value=100,
-                ),
-
-            },
-            hide_index=True,
-        )
-        # st.write(df_to_show)
-    st.write('')
-
     if graf in ['Comportamiento Digital', 'Apuestas', 'Política', 'Aspectos Técnicos']:
 
         # st.write('')
@@ -1361,6 +1285,82 @@ with tab2:
         # st.write('Esta tabla debería filtrarse ⬇️')
         # st.write(filtered_df)
 
+        # Muestra el DataFrame filtrado
+        st.write('\n')
+    
+        st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
+        with st.expander('Ver Datos', expanded=False): 
+            # st.write(filtered_df)
+            df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
+                                     'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
+                                     'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
+                                     'vecinos_participantes','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+    
+            nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
+                                     'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
+                                     'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Palabras Únicas', 'Duración ESC', 'Duración Spotify',
+                                     'Vecinos Participantes','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+            df_to_show.columns = nuevos_nombres
+    
+            def corregir_numero(val):
+                return int(val) 
+    
+            def corregir_text(val):
+                try:
+                    return val.strip()
+                except:
+                    return val
+            def sustituir_valor_emoji(val):
+                if val == "Yes":
+                    return "✅"
+                elif val == "No":
+                    return "❌"
+                else:
+                    return val 
+    
+            columnas_a_modificar = ['Finalista', 'Temática Amor']
+            for columna in columnas_a_modificar:
+                df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
+    
+            columnas_a_modificar_2 = ['Cantante/s', 'Canción', 'Estilo', '1º Idioma', '2º Idioma', '3º Idioma', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura']
+            for columna in columnas_a_modificar_2:
+                df_to_show[columna] = df_to_show[columna].apply(corregir_text)
+                
+            df_to_show['Likes YT'] = df_to_show['Likes YT'].apply(corregir_numero)
+    
+            df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
+    
+            df_to_show['Cuota Apuestas'] = df_to_show['Cuota Apuestas'].round(2)
+    
+            df_to_show['Puntos Influencia'] = df_to_show['Puntos Influencia'].round(2)
+    
+            st.data_editor(
+                df_to_show,
+                column_config={
+                    "Link": st.column_config.LinkColumn(
+                        "🔗 Link", display_text = "🌐 Video YT"
+                    ),
+                    
+                    "% Puntos": st.column_config.ProgressColumn(
+                        "% Puntos",
+                        format="%f",
+                        min_value=0,
+                        max_value=1,
+                    ),
+    
+                    "Puntos Influencia": st.column_config.ProgressColumn(
+                        "Puntos Influencia",
+                        format="%f",
+                        min_value=0,
+                        max_value=100,
+                    ),
+    
+                },
+                hide_index=True,
+            )
+            # st.write(df_to_show)
+        st.write('')
+        
         st.write('')
         st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
         
@@ -2435,7 +2435,81 @@ with tab2:
                 except:
                     st.write('#### ❌ El gráfico no se ha podido generar debido a los filtros que has aplicado (has seleccionado un único país, un único año, 2020 sin concurso...)')
     else:
-        
+        # Muestra el DataFrame filtrado
+        st.write('\n')
+    
+        st.markdown("<h4 style='margin-bottom: 5px;'>🔢 Tabla de datos </h4>", unsafe_allow_html=True)
+        with st.expander('Ver Datos', expanded=False): 
+            # st.write(filtered_df)
+            df_to_show = filtered_df[['links','country','year','artist','song','clasificacion','puntos_corregidos','propo_max_puntos','finalista','order_act',
+                                     'estilos','idioma1','idioma2','idioma3','love_song', 'top1word', 'top2word', 'top3word', 'top4word', 'top5word', 'estruc_resum',
+                                     'views', 'likes', 'shazams', 'bet_mean', 'lyrics_long', 'unic_words', 'duracion_eurovision', 'duracion_spoty',
+                                     'vecinos_participantes','GDP', 'orden_relativo_GDP', 'influ_ranking', 'influ_score', 'reput_ranking' ]]
+    
+            nuevos_nombres = ['Link','País','Año','Cantante/s','Canción','Clasificación','Puntos','% Puntos','Finalista','Orden actuación',
+                                     'Estilo','1º Idioma','2º Idioma','3º Idioma','Temática Amor', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura',
+                                     'Views YT', 'Likes YT', 'Shazams', 'Cuota Apuestas', 'Longitud letra', 'Palabras Únicas', 'Duración ESC', 'Duración Spotify',
+                                     'Vecinos Participantes','PIB país', 'Ranking PIB', 'Ranking Influencia', 'Puntos Influencia', 'Ranking Reputación']
+            df_to_show.columns = nuevos_nombres
+    
+            def corregir_numero(val):
+                return int(val) 
+    
+            def corregir_text(val):
+                try:
+                    return val.strip()
+                except:
+                    return val
+            def sustituir_valor_emoji(val):
+                if val == "Yes":
+                    return "✅"
+                elif val == "No":
+                    return "❌"
+                else:
+                    return val 
+    
+            columnas_a_modificar = ['Finalista', 'Temática Amor']
+            for columna in columnas_a_modificar:
+                df_to_show[columna] = df_to_show[columna].apply(sustituir_valor_emoji)
+    
+            columnas_a_modificar_2 = ['Cantante/s', 'Canción', 'Estilo', '1º Idioma', '2º Idioma', '3º Idioma', '1ª Palabra', '2ª Palabra', '3ª Palabra', '4ª Palabra', '5ª Palabra', 'Estructura']
+            for columna in columnas_a_modificar_2:
+                df_to_show[columna] = df_to_show[columna].apply(corregir_text)
+                
+            df_to_show['Likes YT'] = df_to_show['Likes YT'].apply(corregir_numero)
+    
+            df_to_show['% Puntos'] = df_to_show['% Puntos'].round(2)
+    
+            df_to_show['Cuota Apuestas'] = df_to_show['Cuota Apuestas'].round(2)
+    
+            df_to_show['Puntos Influencia'] = df_to_show['Puntos Influencia'].round(2)
+    
+            st.data_editor(
+                df_to_show,
+                column_config={
+                    "Link": st.column_config.LinkColumn(
+                        "🔗 Link", display_text = "🌐 Video YT"
+                    ),
+                    
+                    "% Puntos": st.column_config.ProgressColumn(
+                        "% Puntos",
+                        format="%f",
+                        min_value=0,
+                        max_value=1,
+                    ),
+    
+                    "Puntos Influencia": st.column_config.ProgressColumn(
+                        "Puntos Influencia",
+                        format="%f",
+                        min_value=0,
+                        max_value=100,
+                    ),
+    
+                },
+                hide_index=True,
+            )
+            # st.write(df_to_show)
+        st.write('')
         if graf == 'Evolución Histórica':
 
             st.markdown("<h4 style='margin-bottom: 5px;'>📈 Gráficos</h4>", unsafe_allow_html=True)
