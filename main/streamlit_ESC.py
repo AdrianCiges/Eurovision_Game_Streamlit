@@ -2531,7 +2531,7 @@ with tab2:
             
             # st.write(df)
 
-            with st.expander('Evolución Histórica de Puntos 🔢⏳', expanded=False): 
+            with st.expander('Evolución Histórica de Puntos por Año 🔢⏳', expanded=False): 
     
                 # -------PUNTOS POR AÑO ----------------------------------------------------------------------
         
@@ -2578,30 +2578,6 @@ with tab2:
 
                 # Creamos una lista vacía para almacenar los datos de las barras
                 data = []
-                
-                # Iteramos sobre cada año en el DataFrame
-                # for year in df['year'].unique():
-                #     # Filtramos el DataFrame por año
-                #     df_year = df[df['year'] == year]
-                    
-                #     # Ordenamos las filas por puntos corregidos en orden descendente
-                #     df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
-                    
-                #     # Creamos una lista de nombres de países ordenados
-                #     sorted_countries = df_year_sorted['country'].tolist()
-                    
-                #     # Creamos una lista de valores de puntos corregidos ordenados
-                #     sorted_points = df_year_sorted['puntos_corregidos'].tolist()
-                    
-                #     # Creamos una lista de colores para las barras de cada país
-                #     bar_colors = [colors[country] for country in sorted_countries]
-                    
-                #     # Añadimos una barra para cada país en el año actual
-                #     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                #         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                #                             hoverinfo='skip',
-                #                             hovertemplate=f"<b>{country}</b><br>Puntos: {points:.0f}<extra></extra>",
-                #                             hoverlabel=dict(font=dict(color='black'))))
                                     
                 # Configuración del diseño del gráfico
                 if porcentaje:
@@ -2703,24 +2679,10 @@ with tab2:
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
 
+            with st.expander('Acumulado Histórico de Puntos 🔢🛒', expanded=False): 
+
                 # # -------CARRERA PUNTOS ACUMULADOS POR AÑO TOP20----------------------------------------------------
         
-                # html_code = """
-                # <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-                # """
-                
-                # st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
-                # st.components.v1.html(html_code, width=600, height=600)
-                
-                # # -------PUNTOS ACUMULADOS POR AÑO Por CANCIÓN----------------------------------------------------
-        
-                # html_code = """
-                # <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-                # """
-                
-                # st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
-                # st.components.v1.html(html_code, width=600, height=600)
-
                 html_code1 = """
                 <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/17473996"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
@@ -2728,6 +2690,8 @@ with tab2:
                 # Establecer un margen inferior negativo para minimizar el espacio
                 st.markdown('#### Evolución dinámica puntos acumulados 2002-2023 - TOP20')
                 st.components.v1.html(html_code1, width=600, height=600)
+                
+                # # -------PUNTOS ACUMULADOS POR AÑO Por CANCIÓN----------------------------------------------------
                 
                 # Establecer un margen superior negativo para minimizar el espacio
                 html_code2 = """
