@@ -2526,12 +2526,15 @@ with tab2:
                     layout = dict(barmode='stack',
                                   yaxis={'title': '% Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
-                                  margin=dict(t=0))
+                                  margin=dict(t=0),
+                                  legend={'title': {'text': 'Países', 'font': {'color': 'black'}}})  # Ajustar el color del título de la leyenda a negro
                 else:
                     layout = dict(barmode='stack',
                                   yaxis={'title': 'Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
-                                  margin=dict(t=0))
+                                  margin=dict(t=0),
+                                  legend={'title': {'text': 'Países', 'font': {'color': 'black'}}})  # Ajustar el color del título de la leyenda a negro
+
                 
                 # Creamos la figura
                 fig = go.Figure(data=data, layout=layout)
