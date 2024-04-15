@@ -1014,7 +1014,7 @@ with tab1:
             df_prueba.index = df_prueba.index.astype(str)
             df_prueba = df_prueba.sort_index(ascending=True)
             df_prueba = df_prueba.fillna(0)
-            st.write(df_prueba)
+            # st.write(df_prueba)
             
             # Crear el gráfico de líneas con Plotly
             fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
@@ -1028,7 +1028,7 @@ with tab1:
             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 12/04/2023 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 11/04/2024 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
             # fig.update_layout(
             #     shapes=[
