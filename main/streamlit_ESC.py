@@ -2517,33 +2517,21 @@ with tab2:
                     # Creamos una lista de colores para las barras de cada país
                     bar_colors = [colors[country] for country in sorted_countries]
                     
-                    # # Añadimos una barra para cada país en el año actual
-                    # for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                    #     data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                    #                         hoverinfo='skip',
-                    #                         hovertemplate=f"<b>{country}</b><br>Puntos: {points:.2f}%<extra></extra>",
-                    #                         hoverlabel=dict(font=dict(color='black'))))
-                                    
-                # Configuración del diseño del gráfico
-                if porcentaje:
                     # Añadimos una barra para cada país en el año actual
                     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
                                             hoverinfo='skip',
-                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points:.2f}%<extra></extra>",
+                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points:.0f}<extra></extra>",
                                             hoverlabel=dict(font=dict(color='black'))))
+                                    
+                # Configuración del diseño del gráfico
+                if porcentaje:
                     layout = dict(barmode='stack',
                                   yaxis={'title': '% Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
                                   margin=dict(t=0),
                                   legend={'title': {'text': 'Países', 'font': {'color': 'black'}}})  # Ajustar el color del título de la leyenda a negro
                 else:
-                    # Añadimos una barra para cada país en el año actual
-                    for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                                            hoverinfo='skip',
-                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points}<extra></extra>",
-                                            hoverlabel=dict(font=dict(color='black'))))
                     layout = dict(barmode='stack',
                                   yaxis={'title': 'Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
