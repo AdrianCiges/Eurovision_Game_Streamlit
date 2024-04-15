@@ -2489,7 +2489,7 @@ with tab2:
                 'Hungary 🇭🇺 ': '#1f57b4', 'Iceland 🇮🇸 ': '#ff5f0e', 'Ireland 🇮🇪 ': '#2ca22c', 'Israel 🇮🇱 ': '#d62428',
                 'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#50AB5C',
                 'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#5F6EF2','N. Macedonia 🇲🇰 ':'#5F6EF2' ,'Norway 🇳🇴 ': '#F77CEB',
-                'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#EFB1B1',
+                'Poland 🇵🇱 ': '#C644B9', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#EFB1B1',
                 'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#AAB2FD', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
                 'Spain 🇪🇸 ': '#1f77b4', 'Sweden 🇸🇪 ': '#ff3f0e', 'Switzerland 🇨🇭 ': '#2ca42c', 'Netherlands 🇳🇱 ': '#F6BE76','The Netherlands 🇳🇱 ': '#F6BE76',
                 'Turkey 🇹🇷 ': '#E626B3', 'Ukraine 🇺🇦 ': '#F9F919', 'United Kingdom 🇬🇧 ': '#EED55B', 'UK 🇬🇧 ': '#EED55B', 
