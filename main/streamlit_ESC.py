@@ -2501,37 +2501,81 @@ with tab2:
                 data = []
                 
                 # Iteramos sobre cada año en el DataFrame
-                for year in df['year'].unique():
-                    # Filtramos el DataFrame por año
-                    df_year = df[df['year'] == year]
+                # for year in df['year'].unique():
+                #     # Filtramos el DataFrame por año
+                #     df_year = df[df['year'] == year]
                     
-                    # Ordenamos las filas por puntos corregidos en orden descendente
-                    df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
+                #     # Ordenamos las filas por puntos corregidos en orden descendente
+                #     df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
                     
-                    # Creamos una lista de nombres de países ordenados
-                    sorted_countries = df_year_sorted['country'].tolist()
+                #     # Creamos una lista de nombres de países ordenados
+                #     sorted_countries = df_year_sorted['country'].tolist()
                     
-                    # Creamos una lista de valores de puntos corregidos ordenados
-                    sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                #     # Creamos una lista de valores de puntos corregidos ordenados
+                #     sorted_points = df_year_sorted['puntos_corregidos'].tolist()
                     
-                    # Creamos una lista de colores para las barras de cada país
-                    bar_colors = [colors[country] for country in sorted_countries]
+                #     # Creamos una lista de colores para las barras de cada país
+                #     bar_colors = [colors[country] for country in sorted_countries]
                     
-                    # Añadimos una barra para cada país en el año actual
-                    for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
-                        data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
-                                            hoverinfo='skip',
-                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points:.0f}<extra></extra>",
-                                            hoverlabel=dict(font=dict(color='black'))))
+                #     # Añadimos una barra para cada país en el año actual
+                #     for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
+                #         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
+                #                             hoverinfo='skip',
+                #                             hovertemplate=f"<b>{country}</b><br>Puntos: {points:.0f}<extra></extra>",
+                #                             hoverlabel=dict(font=dict(color='black'))))
                                     
                 # Configuración del diseño del gráfico
                 if porcentaje:
+                    for year in df['year'].unique():
+                        # Filtramos el DataFrame por año
+                        df_year = df[df['year'] == year]
+                        
+                        # Ordenamos las filas por puntos corregidos en orden descendente
+                        df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
+                        
+                        # Creamos una lista de nombres de países ordenados
+                        sorted_countries = df_year_sorted['country'].tolist()
+                        
+                        # Creamos una lista de valores de puntos corregidos ordenados
+                        sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                        
+                        # Creamos una lista de colores para las barras de cada país
+                        bar_colors = [colors[country] for country in sorted_countries]
+                        
+                        # Añadimos una barra para cada país en el año actual
+                        for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
+                            data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
+                                                hoverinfo='skip',
+                                                hovertemplate=f"<b>{country}</b><br>% Puntos: {points:.2f}%<extra></extra>",
+                                                hoverlabel=dict(font=dict(color='black'))))
                     layout = dict(barmode='stack',
                                   yaxis={'title': '% Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
                                   margin=dict(t=0),
                                   legend={'title': {'text': 'Países', 'font': {'color': 'black'}}})  # Ajustar el color del título de la leyenda a negro
                 else:
+                    for year in df['year'].unique():
+                        # Filtramos el DataFrame por año
+                        df_year = df[df['year'] == year]
+                        
+                        # Ordenamos las filas por puntos corregidos en orden descendente
+                        df_year_sorted = df_year.sort_values(by='puntos_corregidos', ascending=False)
+                        
+                        # Creamos una lista de nombres de países ordenados
+                        sorted_countries = df_year_sorted['country'].tolist()
+                        
+                        # Creamos una lista de valores de puntos corregidos ordenados
+                        sorted_points = df_year_sorted['puntos_corregidos'].tolist()
+                        
+                        # Creamos una lista de colores para las barras de cada país
+                        bar_colors = [colors[country] for country in sorted_countries]
+                        
+                        # Añadimos una barra para cada país en el año actual
+                        for country, points, color in zip(sorted_countries, sorted_points, bar_colors):
+                            data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
+                                                hoverinfo='skip',
+                                                hovertemplate=f"<b>{country}</b><br>Puntos: {points}<extra></extra>",
+                                                hoverlabel=dict(font=dict(color='black'))))
                     layout = dict(barmode='stack',
                                   yaxis={'title': 'Puntos','title_standoff': 0},
                                   xaxis={'title': 'Año'},
