@@ -2487,7 +2487,7 @@ with tab2:
                 'Czechia 🇨🇿 ': '#2ca12c', 'Denmark 🇩🇰 ': '#d62628', 'Estonia 🇪🇪 ': '#9447bd', 'Finland 🇫🇮 ': '#60FDED',
                 'France 🇫🇷 ': '#e367c2', 'Georgia 🇬🇪 ': '#7f7f6f', 'Germany 🇩🇪 ': '#bcbd52', 'Greece 🇬🇷 ': '#16becf',
                 'Hungary 🇭🇺 ': '#1f57b4', 'Iceland 🇮🇸 ': '#ff5f0e', 'Ireland 🇮🇪 ': '#2ca22c', 'Israel 🇮🇱 ': '#d62428',
-                'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#7CF77C',
+                'Italy 🇮🇹 ': '#8BFD8F', 'Latvia 🇱🇻 ': '#E856A4', 'Lithuania 🇱🇹 ': '#e357c2', 'Malta 🇲🇹 ': '#50AB5C',
                 'Moldova 🇲🇩 ': '#bcbd22', 'Montenegro 🇲🇪 ': '#14becf', 'North Macedonia 🇲🇰 ': '#5F6EF2','N. Macedonia 🇲🇰 ':'#5F6EF2' ,'Norway 🇳🇴 ': '#F77CEB',
                 'Poland 🇵🇱 ': '#2ca52c', 'Portugal 🇵🇹 ': '#FD5B7C', 'Romania 🇷🇴 ': '#9437bd', 'Russia 🇷🇺 ': '#EFB1B1',
                 'San Marino 🇸🇲 ': '#e347c2', 'Serbia 🇷🇸 ': '#AAB2FD', 'Slovakia 🇸🇰 ': '#bcbd62', 'Slovenia 🇸🇮 ': '#12becf',
