@@ -2527,7 +2527,7 @@ with tab2:
                         #                     hoverlabel=dict(font=dict(color='black'))))
                         data.append(go.Bar(x=[year], y=[points], name=country, marker=dict(color=color), legendgroup=country, showlegend=False,
                                             hoverinfo='skip',
-                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points}<extra></extra>",
+                                            hovertemplate=f"<b>{country}</b><br>Puntos: {points:.2f}%<extra></extra>",
                                             hoverlabel=dict(font=dict(color='black'))))
                                     
                 # Configuración del diseño del gráfico
