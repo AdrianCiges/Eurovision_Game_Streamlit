@@ -2733,7 +2733,7 @@ with tab2:
                 html_code2 = """
                 <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 """
-                st.markdown(html_code = """<h4 style="margin-top: -80px; margin-bottom: 0px;">Reparto puntos acumulados por canción 2002-2023</h4>""", unsafe_allow_html=True)
+                st.markdown("<h4 style="margin-top: -80px; margin-bottom: 0px;">Reparto puntos acumulados por canción 2002-2023</h4>", unsafe_allow_html=True)
                 # st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
                 st.components.v1.html(html_code2, width=600, height=600)
                 
