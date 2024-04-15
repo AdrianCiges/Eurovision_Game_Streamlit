@@ -2682,7 +2682,7 @@ with tab2:
             with st.expander('Acumulado Histórico de Puntos 🔢🛒', expanded=False): 
 
                 st.write('❗ Los siguientes gráficos no se filtrarán por país y/o año ya que el cálculo acumulado de puntos carecería de sentido.')
-
+                st.write('')
 
                 # # -------CARRERA PUNTOS ACUMULADOS POR AÑO TOP20----------------------------------------------------
         
