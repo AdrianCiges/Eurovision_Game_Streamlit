@@ -2679,7 +2679,7 @@ with tab2:
                 fig.update_layout(title={'text': f'Puntos acum. (desde 2002) para {year_range[0]}-{year_range[1]}', 'font_size': 24})
                 st.plotly_chart(fig, use_container_width=True)
 
-            with st.expander('Acumulado Histórico de Puntos 🔢🛒', expanded=False): 
+            with st.expander('Acumulados Histórico 🔢🛒', expanded=False): 
 
                 st.write('❗ Los siguientes gráficos no se filtrarán por país y/o año ya que el cálculo acumulado de puntos carecería de sentido.')
                 st.write('')
@@ -2698,9 +2698,9 @@ with tab2:
                 
                 # Establecer un margen superior negativo para minimizar el espacio
                 html_code2 = """
-                <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17567443"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
-                """
-                st.markdown("<h4 style='margin-bottom: -10px; margin-top: -80px;'>Reparto puntos acumulados por canción 2002-2023</h4>", unsafe_allow_html=True)
+                    <div class="flourish-embed flourish-hierarchy" data-src="visualisation/17597991"><script src="https://public.flourish.studio/resources/embed.js"></script></div>                
+                    """
+                st.markdown("<h4 style='margin-bottom: -10px; margin-top: -80px;'>Repartos acumulados por canción 2002-2023</h4>", unsafe_allow_html=True)
                 # st.markdown('#### Reparto puntos acumulados por canción 2002-2023')
                 st.components.v1.html(html_code2, width=600, height=600)
                 
