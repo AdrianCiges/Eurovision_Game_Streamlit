@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 import plotly.colors
 from wordcloud import WordCloud
 import cv2 
-
 warnings.filterwarnings("ignore")
 # from sklearn.metrics import mean_squared_error as mse
 # from sklearn.metrics import r2_score as r2
