@@ -904,7 +904,7 @@ with tab1:
 
 
             first_points = df_sorted['points'][0]
-            last_points = df_sorted['points'][25]
+            last_points = df_sorted['points'][24]
 
             pendiente = first_points/(first_points-last_points)
             intercept = (first_points*last_points)/(first_points-last_points)
