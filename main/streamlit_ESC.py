@@ -1051,16 +1051,16 @@ with tab1:
                         y1=max(list(df_prueba.max()))+100,
                         line=dict(color='black', width=1.4, dash='dash'),
                     ),
-                    # dict(
-                    #     type='line',
-                    #     xref='x',
-                    #     yref='y',
-                    #     x0='2023-05-13',
-                    #     y0=0,
-                    #     x1='2023-05-13',
-                    #     y1=max(list(df_prueba.max()))+100,
-                    #     line=dict(color='black', width=1.4, dash='dash'),
-                    # ),
+                    dict(
+                        type='line',
+                        xref='x',
+                        yref='y',
+                        x0='2024-05-10',
+                        y0=0,
+                        x1='2024-05-10',
+                        y1=max(list(df_prueba.max()))+100,
+                        line=dict(color='black', width=1.4, dash='dash'),
+                    ),
                     dict(
                         type='line',
                         xref='x',
@@ -1103,16 +1103,16 @@ with tab1:
                         font=dict(size=14, color='red'),
                         xanchor='right'
                     ),
-                    # dict(
-                    #     x='2023-05-13',
-                    #     y=max(list(df_prueba.max()))+50,
-                    #     xref='x',
-                    #     yref='y',
-                    #     text='Final ',
-                    #     showarrow=False,
-                    #     font=dict(size=14, color='red'),
-                    #     xanchor='right'
-                    # ),
+                    dict(
+                        x='2024-05-10',
+                        y=max(list(df_prueba.max()))+50,
+                        xref='x',
+                        yref='y',
+                        text='Predicción Final ',
+                        showarrow=False,
+                        font=dict(size=14, color='red'),
+                        xanchor='right'
+                    ),
                     dict(
                         x='2024-05-11',
                         y=max(list(df_prueba.max()))+50,
