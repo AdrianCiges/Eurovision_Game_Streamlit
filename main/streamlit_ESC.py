@@ -1108,7 +1108,7 @@ with tab1:
                         y=max(list(df_prueba.max()))+50,
                         xref='x',
                         yref='y',
-                        text='Predicción Final ',
+                        text='Final ',
                         showarrow=False,
                         font=dict(size=14, color='red'),
                         xanchor='right'
