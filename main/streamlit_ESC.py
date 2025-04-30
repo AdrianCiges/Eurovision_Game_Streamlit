@@ -246,44 +246,45 @@ def get_songs_ESC23(cancion):
         "United Kingdom 🇬🇧 ": 48 }
     
 
-    youtube_codes_dics = {'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=K4hlFKVHsag&t=6s',
-                         'Finland 🇫🇮 ': 'https://www.youtube.com/watch?v=eXvdKgO2Acw&t=6s',
-                         'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=-qjs54ZTRBQ&t=6s',
-                         'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=UycoKAz1Jm8&t=6s',
-                         'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=RUa9TMRzmlI&t=6s',
-                         'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=xGvv0kIZgZI&t=6s',
-                         'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=KqSuRaN9zFk&t=6s',
-                         #'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=_iTcX6NlAqA&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=9',
-                         'France 🇫🇷 ': 'https://www.youtube.com/watch?v=f-z9PFfpzeE&t=6s',
-                         'United Kingdom 🇬🇧 ': 'https://www.youtube.com/watch?v=kiIhvA2Ozzk&t=6s',
-                         'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=jwfjNjV5DIw&t=6s',
-                         'Armenia 🇦🇲 ': 'https://www.youtube.com/watch?v=t0sefiNLP_E&t=6s',
-                         'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=coOJkjCMcow&t=6s',
-                         'Georgia 🇬🇪 ': 'https://www.youtube.com/watch?v=9zrWufVsIeM&t=6s',
-                         'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=IyO42taxFpM&t=6s',
-                         #'Australia 🇦🇺 ': 'https://www.youtube.com/watch?v=tJ2IaHxCvdw&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=4',
-                         'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=6LyjyuaQggs&t=6s',
-                         #'Moldova 🇲🇩 ': 'https://www.youtube.com/watch?v=Jom9sNL5whs&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=25',
-                         'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=_KXwJAu7aCU&t=6s',
-                         'Slovenia 🇸🇮 ': 'https://www.youtube.com/watch?v=tSek8SqlDIA&t=6s',
-                         'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=7uSGQ566fyY&t=6s',
-                         'Cyprus 🇨🇾 ': 'https://www.youtube.com/watch?v=_6ncN7WC_Og&t=6s',
-                         #'Poland 🇵🇱 ': 'https://www.youtube.com/watch?v=IhvDkF9XZx0&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=28',
-                         #'Iceland 🇮🇸 ': 'https://www.youtube.com/watch?v=OouUsCZ3xkM&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=17',
-                         'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=246RdLYgRZY&t=6s',
-                         #'Denmark 🇩🇰 ': 'https://www.youtube.com/watch?v=3pCtdFnv9eQ&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=10',
-                         'Greece 🇬🇷 ': 'https://www.youtube.com/watch?v=VRBBQ-B4q4s',
-                         #'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=WCe9zrWEFNc&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=6',
-                         'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=HuLKyOQcRDw&t=6s',
-                         #'San Marino 🇸🇲 ': 'https://www.youtube.com/watch?v=9NcAJtfhpWA&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=30',
-                         #'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=nrjFhjpm7D8&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=1',
-                         #'Netherlands 🇳🇱 ' : 'https://www.youtube.com/watch?v=IiHFnmI8pxg&t=6s',
-                         'Ireland 🇮🇪 ' : 'https://www.youtube.com/watch?v=BNc5zTYkTaQ&t=6s',
-                         'Latvia 🇱🇻 ' : 'https://www.youtube.com/watch?v=N1YvDgwszn8&t=6s',
-                         #'Azerbaijan 🇦🇿 ' : 'https://www.youtube.com/watch?v=NNhAk4rVgNc&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=5',
-                         #'Malta 🇲🇹 ' : 'https://www.youtube.com/watch?v=l6eS60n4wg8&list=PLmWYEDTNOGULUJYEhh-EUa32rEcHuNXO7&index=24',
-                         'Romania 🇷🇴 ' : 'https://www.youtube.com/watch?v=u6p4dujtvPI&t=6s'
-                         }
+    youtube_codes_dics_updated = {
+                                    'Sweden 🇸🇪': 'https://www.youtube.com/watch?v=WK3HOMhAeQY',
+                                    'Austria 🇦🇹': 'https://www.youtube.com/watch?v=-ieSTNpxvio',
+                                    'France 🇫🇷': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
+                                    'Israel 🇮🇱': 'https://www.youtube.com/watch?v=Q3BELu4z6-U',
+                                    'Netherlands 🇳🇱': 'https://www.youtube.com/watch?v=hEHwr5k9pd0',
+                                    'Finland 🇫🇮': 'https://www.youtube.com/watch?v=Kg3QoTpnqyw',
+                                    'Estonia 🇪🇪': 'https://www.youtube.com/watch?v=N58X7DrVE50',
+                                    'Belgium 🇧🇪': 'https://www.youtube.com/watch?v=oVrsnGFmuss',
+                                    'Ukraine 🇺🇦': 'https://www.youtube.com/watch?v=Dv4Zp_FG0qg',
+                                    'Albania 🇦🇱': 'https://www.youtube.com/watch?v=RNT1SmmxuIk',
+                                    'Malta 🇲🇹': 'https://www.youtube.com/watch?v=8qNK1tt6L5k',
+                                    'United Kingdom 🇬🇧': 'https://www.youtube.com/watch?v=-hu6R3ZnOdY',
+                                    'Italy 🇮🇹': 'https://www.youtube.com/watch?v=mfAf9-5Oevw',
+                                    'San Marino 🇸🇲': 'https://www.youtube.com/watch?v=Le3WpaLYRvE',
+                                    'Czechia 🇨🇿': 'https://www.youtube.com/watch?v=kpdQtYrEBTs',
+                                    'Lithuania 🇱🇹': 'https://www.youtube.com/watch?v=R2f2aZ6Fy58',
+                                    'Cyprus 🇨🇾': 'https://www.youtube.com/watch?v=rbfQqWyqgJw',
+                                    'Greece 🇬🇷': 'https://www.youtube.com/watch?v=ew1pujFTd1o',
+                                    'Australia 🇦🇺': 'https://www.youtube.com/watch?v=_08I6mjHSLA',
+                                    'Germany 🇩🇪': 'https://www.youtube.com/watch?v=zJplC4-9Scs',
+                                    'Ireland 🇮🇪': 'https://www.youtube.com/watch?v=-wnjg9jZEcM',
+                                    'Switzerland 🇨🇭': 'https://www.youtube.com/watch?v=dGX54zRExR8',
+                                    'Georgia 🇬🇪': 'https://www.youtube.com/watch?v=c3wu0dUNd4c',
+                                    'Norway 🇳🇴': 'https://www.youtube.com/watch?v=h7jkEmoBvU0',
+                                    'Portugal 🇵🇹': 'https://www.youtube.com/watch?v=-s1Cc2uEj3U',
+                                    'Poland 🇵🇱': 'https://www.youtube.com/watch?v=YXHHDjiclxA',
+                                    'Slovenia 🇸🇮': 'https://www.youtube.com/watch?v=qTS2L0VcaVI',
+                                    'Azerbaijan 🇦🇿': 'https://www.youtube.com/watch?v=upbiPJ9uA70',
+                                    'Denmark 🇩🇰': 'https://www.youtube.com/watch?v=gdCAgiSIOUc',
+                                    'Spain 🇪🇸': 'https://www.youtube.com/watch?v=BvVxhbCW9rw',
+                                    'Latvia 🇱🇻': 'https://www.youtube.com/watch?v=b1_t79mQkm4',
+                                    'Armenia 🇦🇲': 'https://www.youtube.com/watch?v=zm-Kil8Hm9Q',
+                                    'Luxembourg 🇱🇺': 'https://www.youtube.com/watch?v=LVHu_KwHiKY',
+                                    'Serbia 🇷🇸': 'https://www.youtube.com/watch?v=18BCbtvDcag',
+                                    'Croatia 🇭🇷': 'https://www.youtube.com/watch?v=xOodVfY8hCs',
+                                    'Iceland 🇮🇸': 'https://www.youtube.com/watch?v=s9P83Nl6D1M',
+                                    'Montenegro 🇲🇪': 'https://www.youtube.com/watch?v=_zs0yq39aFA'
+                                    }
 
     song = []
     pais = []
@@ -381,7 +382,7 @@ def row_data_ESC23(user_songs):
     
     time.sleep(1)
     st.write('')
-    st.video('https://www.youtube.com/watch?v=i_t3qclcXUM') 
+    st.video('https://www.youtube.com/watch?v=ygniu2fDTkc') 
 
     tablas_songs = Parallel(n_jobs=6, verbose=True)(delayed(get_songs_ESC23)(d) for d in user_songs)
 
@@ -814,11 +815,11 @@ tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2024", "📊 Estadíst
 
 with tab1:
 
-    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 30 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 20 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
     st.write('')
     st.write('')
-    st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 11 de mayo de 2024. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
-    st.warning('⚠️ La fiabilidad de las predicciones es mayor conforme se acerca el festival y, sobretodo, después de las semifinales (7 y 9 de mayo de 2024).')
+    st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 17 de mayo de 2025. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
+    st.warning('⚠️ La fiabilidad de las predicciones es mayor conforme se acerca el festival y, sobretodo, después de las semifinales (13 y 15 de mayo de 2024).')
 
     # CARGAMOS DATA TO TRAIN
     @st.cache_data
@@ -855,44 +856,43 @@ with tab1:
         fecha_formateada = fecha_hoy.strftime("%d/%m/%Y")
 
         if st.button(f'Predecir resultado a {fecha_formateada}'):
-            user_songs = [
-                          #{'song': 'Titan', 'singer': 'Besa Kokëdhima', 'country': 'Albania 🇦🇱 ', 'manager': 'J1'}, 
-                          {'song': 'Always on the Run', 'singer': 'Isaak', 'country': 'Germany 🇩🇪 ', 'manager': 'J2'}, 
-                          {'song': 'Jako', 'singer': 'Ladaniva', 'country': 'Armenia 🇦🇲 ', 'manager': 'J3'}, 
-                          #{'song': 'One Milkali (One Blood)', 'singer': 'Electric Fields', 'country': 'Australia 🇦🇺 ', 'manager': 'J4'}, 
-                          {'song': 'We Will Rave', 'singer': 'Kaleen', 'country': 'Austria 🇦🇹 ', 'manager': 'J5'}, 
-                          #{'song': 'Özünlə Apar', 'singer': 'FAHREE feat. Ilkin Dovlatov', 'country': 'Azerbaijan 🇦🇿 ', 'manager': 'J6'}, 
-                          #{'song': 'Before The Party is Over', 'singer': 'Mustii', 'country': 'Belgium 🇧🇪 ', 'manager': 'J7'}, 
-                          #{'song': "Pedestal", 'singer': 'Aiko', 'country': 'Czechia 🇨🇿 ', 'manager': 'J8'}, 
-                          {'song': 'Liar', 'singer': 'Sília Kapsís', 'country': 'Cyprus 🇨🇾 ', 'manager': 'J9'}, 
-                          {'song': 'Rim Tim Tagi Dim', 'singer': 'Baby Lasagna', 'country': 'Croatia 🇭🇷 ', 'manager': 'J10'}, 
-                          #{'song': 'Sand', 'singer': 'Saba', 'country': 'Denmark 🇩🇰 ', 'manager': 'J11'}, 
-                          {'song': 'Veronika', 'singer': 'Raiven', 'country': 'Slovenia 🇸🇮 ', 'manager': 'J12'}, 
-                          {'song': 'Zorra', 'singer': 'Nebulossa', 'country': 'Spain 🇪🇸 ', 'manager': 'J13'}, 
-                          {'song': '(Nendest) narkootikumidest ei tea me (küll) midagi', 'singer': '5miinust & Puuluup', 'country': 'Estonia 🇪🇪 ', 'manager': 'J14'}, 
-                          {'song': 'No Rules!', 'singer': 'Windows95man', 'country': 'Finland 🇫🇮 ', 'manager': 'J15'}, 
-                          {'song': 'Mon Amour', 'singer': 'Slimane', 'country': 'France 🇫🇷 ', 'manager': 'J16'}, 
-                          {'song': 'Firefighter', 'singer': 'Nutsa Buzaladze', 'country': 'Georgia 🇬🇪 ', 'manager': 'J17'}, 
-                          {'song': 'Zari» («ζάρι»)', 'singer': 'Marina Satti', 'country': 'Greece 🇬🇷 ', 'manager': 'J18'}, 
-                          {'song': 'Doomsday Blue', 'singer': 'Bambie Thug', 'country': 'Ireland 🇮🇪 ', 'manager': 'J19'}, 
-                          #{'song': 'Scared of Heights', 'singer': 'Hera Björk', 'country': 'Iceland 🇮🇸 ', 'manager': 'J20'}, 
-                          {'song': 'Hurricane', 'singer': 'Eden Golan', 'country': 'Israel 🇮🇱 ', 'manager': 'J21'}, 
-                          {'song': 'La noia', 'singer': 'Angelina Mango', 'country': 'Italy 🇮🇹 ', 'manager': 'J22'}, 
-                          {'song': 'Hollow', 'singer': 'Dons', 'country': 'Latvia 🇱🇻 ', 'manager': 'J23'}, 
-                          {'song': 'Luktelk', 'singer': 'Silvester Belt', 'country': 'Lithuania 🇱🇹 ', 'manager': 'J24'}, 
-                          #{'song': 'Loop', 'singer': 'Sarah Bonnici', 'country': 'Malta 🇲🇹 ', 'manager': 'J25'}, 
-                          #{'song': 'In The Middle', 'singer': 'Natalia Barbu', 'country': 'Moldova 🇲🇩 ', 'manager': 'J26'}, 
-                          {'song': 'Ulveham', 'singer': 'Gåte', 'country': 'Norway 🇳🇴 ', 'manager': 'J27'}, 
-                          #{'song': 'Europapa', 'singer': 'Joost Klein', 'country': 'Netherlands 🇳🇱 ', 'manager': 'J28'}, 
-                          #{'song': 'The Tower', 'singer': 'Luna', 'country': 'Poland 🇵🇱 ', 'manager': 'J29'}, 
-                          {'song': 'Grito', 'singer': 'Iolanda', 'country': 'Portugal 🇵🇹 ', 'manager': 'J30'}, 
-                          {'song': 'Dizzy', 'singer': 'Olly Alexander', 'country': 'United Kingdom 🇬🇧 ', 'manager': 'J31'}, 
-                          {'song': 'Fighter', 'singer': 'Tali', 'country': 'Romania 🇷🇴 ', 'manager': 'J32'}, 
-                          #{'song': '11:11', 'singer': 'Megara', 'country': 'San Marino 🇸🇲 ', 'manager': 'J33'}, 
-                          {'song': 'Ramonda', 'singer': 'Teya Dora', 'country': 'Serbia 🇷🇸 ', 'manager': 'J34'}, 
-                          {'song': 'Unforgettable', 'singer': 'Marcus & Martinus', 'country': 'Sweden 🇸🇪 ', 'manager': 'J35'}, 
-                          {'song': 'The Code', 'singer': 'Nemo', 'country': 'Switzerland 🇨🇭 ', 'manager': 'J36'}, 
-                          {'song': 'Teresa & Maria', 'singer': 'Alyona Alyona & Jerry Heil', 'country': 'Ukraine 🇺🇦 ', 'manager': 'J37'}]
+            user_songs_updated = [  {'song': "Bara Bada Bastu", 'singer': "KAJ", 'country': "Sweden 🇸🇪"},
+                                    {'song': "Wasted Love", 'singer': "JJ", 'country': "Austria 🇦🇹"},
+                                    {'song': "Maman", 'singer': "Louane", 'country': "France 🇫🇷"},
+                                    {'song': "New Day Will Rise", 'singer': "Yuval Raphael", 'country': "Israel 🇮🇱"},
+                                    {'song': "C'est La Vie", 'singer': "Claude", 'country': "Netherlands 🇳🇱"},
+                                    {'song': "Ich komme", 'singer': "Erika Vikman", 'country': "Finland 🇫🇮"},
+                                    {'song': "Espresso macchiato", 'singer': "Tommy Cash", 'country': "Estonia 🇪🇪"},
+                                    {'song': "Strobe Lights", 'singer': "Red Sebastian", 'country': "Belgium 🇧🇪"},
+                                    {'song': "Bird of Pray", 'singer': "Ziferblat", 'country': "Ukraine 🇺🇦"},
+                                    {'song': "Zjerm", 'singer': "Shkodra Elektronike", 'country': "Albania 🇦🇱"},
+                                    {'song': "Kant", 'singer': "Miriana Conte", 'country': "Malta 🇲🇹"},
+                                    {'song': "What The Hell Just Happened?", 'singer': "Remember Monday", 'country': "United Kingdom 🇬🇧"},
+                                    {'song': "Volevo Essere Un Duro", 'singer': "Lucio Corsi", 'country': "Italy 🇮🇹"},
+                                    {'song': "Tutta L'Italia", 'singer': "Gabry Ponte", 'country': "San Marino 🇸🇲"},
+                                    {'song': "Kiss Kiss Goodbye", 'singer': "Adonxs", 'country': "Czechia 🇨🇿"},
+                                    {'song': "Tavo akys", 'singer': "Katarsis", 'country': "Lithuania 🇱🇹"},
+                                    {'song': "Shh", 'singer': "Theo Evan", 'country': "Cyprus 🇨🇾"},
+                                    {'song': "Asteromata", 'singer': "Klavdia", 'country': "Greece 🇬🇷"},
+                                    {'song': "Milkshake Man", 'singer': "Go-Jo", 'country': "Australia 🇦🇺"},
+                                    {'song': "Baller", 'singer': "Abor & Tynna", 'country': "Germany 🇩🇪"},
+                                    {'song': "Laika Party", 'singer': "Emmy", 'country': "Ireland 🇮🇪"},
+                                    {'song': "Voyage", 'singer': "Zoë Më", 'country': "Switzerland 🇨🇭"},
+                                    {'song': "Freedom", 'singer': "Mariam Shengelia", 'country': "Georgia 🇬🇪"},
+                                    {'song': "Lighter", 'singer': "Kyle Alessandro", 'country': "Norway 🇳🇴"},
+                                    {'song': "Deslocado", 'singer': "NAPA", 'country': "Portugal 🇵🇹"},
+                                    {'song': "Gaja", 'singer': "Justyna Steczkowska", 'country': "Poland 🇵🇱"},
+                                    {'song': "How Much Time Do We Have Left", 'singer': "Klemen", 'country': "Slovenia 🇸🇮"},
+                                    {'song': "Run With U", 'singer': "Mamagama", 'country': "Azerbaijan 🇦🇿"},
+                                    {'song': "Hallucination", 'singer': "Sissal", 'country': "Denmark 🇩🇰"},
+                                    {'song': "Esa diva", 'singer': "Melody", 'country': "Spain 🇪🇸"},
+                                    {'song': "Bur man laimi", 'singer': "Tautumeitas", 'country': "Latvia 🇱🇻"},
+                                    {'song': "Survivor", 'singer': "Parg", 'country': "Armenia 🇦🇲"},
+                                    {'song': "La poupée monte le son", 'singer': "Laura Thorn", 'country': "Luxembourg 🇱🇺"},
+                                    {'song': "Mila", 'singer': "Princ", 'country': "Serbia 🇷🇸"},
+                                    {'song': "Poison Cake", 'singer': "Marko Bošnjak", 'country': "Croatia 🇭🇷"},
+                                    {'song': "RÓA", 'singer': "VÆB", 'country': "Iceland 🇮🇸"},
+                                    {'song': "Dobrodošli", 'singer': "Nina Žižić", 'country': "Montenegro 🇲🇪"} ]
 
             resultado = predicciones_now(user_songs)
 
