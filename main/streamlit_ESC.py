@@ -1038,8 +1038,8 @@ with tab1:
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
             fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
-            fig.update_layout(
-                shapes=[
+            # fig.update_layout(
+            #     shapes=[
                     # dict(
                     #     type='line',
                     #     xref='x',
