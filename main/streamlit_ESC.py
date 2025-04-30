@@ -824,7 +824,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
-tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2024", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
+tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2025", "📊 Estadísticas 2002-2023", "🎶 Juego Eurovisión"])
 
 # ---------------------------------------------------------------------------------------------------------------------------
 
@@ -1036,7 +1036,7 @@ with tab1:
             fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
             fecha_actual = datetime.datetime.now()
             fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 11/04/2024 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
             fig.update_layout(
                 shapes=[
@@ -1050,47 +1050,47 @@ with tab1:
                     #     y1=max(list(df_prueba.max()))+100,
                     #     line=dict(color='black', width=1.4, dash='dash'),
                     # ),
-                    dict(
-                        type='line',
-                        xref='x',
-                        yref='y',
-                        x0='2024-05-07',
-                        y0=0,
-                        x1='2024-05-07',
-                        y1=max(list(df_prueba.max()))+100,
-                        line=dict(color='black', width=1.4, dash='dash'),
-                    ),
-                    dict(
-                        type='line',
-                        xref='x',
-                        yref='y',
-                        x0='2024-05-09',
-                        y0=0,
-                        x1='2024-05-09',
-                        y1=max(list(df_prueba.max()))+100,
-                        line=dict(color='black', width=1.4, dash='dash'),
-                    ),
-                    dict(
-                        type='line',
-                        xref='x',
-                        yref='y',
-                        x0='2024-05-10',
-                        y0=0,
-                        x1='2024-05-10',
-                        y1=max(list(df_prueba.max()))+100,
-                        line=dict(color='black', width=1.4, dash='dash'),
-                    ),
-                    dict(
-                        type='line',
-                        xref='x',
-                        yref='y',
-                        x0='2024-05-11',
-                        y0=0,
-                        x1='2024-05-11',
-                        y1=max(list(df_prueba.max()))+100,
-                        line=dict(color='black', width=1.4, dash='dash'),
-                    )
-                ], 
+                #     dict(
+                #         type='line',
+                #         xref='x',
+                #         yref='y',
+                #         x0='2024-05-07',
+                #         y0=0,
+                #         x1='2024-05-07',
+                #         y1=max(list(df_prueba.max()))+100,
+                #         line=dict(color='black', width=1.4, dash='dash'),
+                #     ),
+                #     dict(
+                #         type='line',
+                #         xref='x',
+                #         yref='y',
+                #         x0='2024-05-09',
+                #         y0=0,
+                #         x1='2024-05-09',
+                #         y1=max(list(df_prueba.max()))+100,
+                #         line=dict(color='black', width=1.4, dash='dash'),
+                #     ),
+                #     dict(
+                #         type='line',
+                #         xref='x',
+                #         yref='y',
+                #         x0='2024-05-10',
+                #         y0=0,
+                #         x1='2024-05-10',
+                #         y1=max(list(df_prueba.max()))+100,
+                #         line=dict(color='black', width=1.4, dash='dash'),
+                #     ),
+                #     dict(
+                #         type='line',
+                #         xref='x',
+                #         yref='y',
+                #         x0='2024-05-11',
+                #         y0=0,
+                #         x1='2024-05-11',
+                #         y1=max(list(df_prueba.max()))+100,
+                #         line=dict(color='black', width=1.4, dash='dash'),
+                #     )
+                # ], 
                 annotations=[
                     # dict(
                     #     x='2023-04-25',
@@ -1102,48 +1102,48 @@ with tab1:
                     #     font=dict(size=14, color='red'),
                     #     xanchor='right'
                     # ),
-                    dict(
-                        x='2024-05-07',
-                        y=max(list(df_prueba.max()))+50,
-                        xref='x',
-                        yref='y',
-                        text='1ª Semi ',
-                        showarrow=False,
-                        font=dict(size=14, color='red'),
-                        xanchor='right'
-                    ),
-                    dict(
-                        x='2024-05-09',
-                        y=max(list(df_prueba.max()))+50,
-                        xref='x',
-                        yref='y',
-                        text='2ª Semi ',
-                        showarrow=False,
-                        font=dict(size=14, color='red'),
-                        xanchor='right'
-                    ),
-                    dict(
-                        x='2024-05-10',
-                        y=max(list(df_prueba.max()))+50,
-                        xref='x',
-                        yref='y',
-                        text='Final ',
-                        showarrow=False,
-                        font=dict(size=14, color='red'),
-                        xanchor='right'
-                    ),
-                    dict(
-                        x='2024-05-11',
-                        y=max(list(df_prueba.max()))+50,
-                        xref='x',
-                        yref='y',
-                        text=' Final (real)',
-                        showarrow=False,
-                        font=dict(size=14, color='red'),
-                        xanchor='left'
-                    )
-                ]
-            )
+            #         dict(
+            #             x='2024-05-07',
+            #             y=max(list(df_prueba.max()))+50,
+            #             xref='x',
+            #             yref='y',
+            #             text='1ª Semi ',
+            #             showarrow=False,
+            #             font=dict(size=14, color='red'),
+            #             xanchor='right'
+            #         ),
+            #         dict(
+            #             x='2024-05-09',
+            #             y=max(list(df_prueba.max()))+50,
+            #             xref='x',
+            #             yref='y',
+            #             text='2ª Semi ',
+            #             showarrow=False,
+            #             font=dict(size=14, color='red'),
+            #             xanchor='right'
+            #         ),
+            #         dict(
+            #             x='2024-05-10',
+            #             y=max(list(df_prueba.max()))+50,
+            #             xref='x',
+            #             yref='y',
+            #             text='Final ',
+            #             showarrow=False,
+            #             font=dict(size=14, color='red'),
+            #             xanchor='right'
+            #         ),
+            #         dict(
+            #             x='2024-05-11',
+            #             y=max(list(df_prueba.max()))+50,
+            #             xref='x',
+            #             yref='y',
+            #             text=' Final (real)',
+            #             showarrow=False,
+            #             font=dict(size=14, color='red'),
+            #             xanchor='left'
+            #         )
+            #     ]
+            # )
 
 
             st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
