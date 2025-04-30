@@ -246,7 +246,7 @@ def get_songs_ESC23(cancion):
         "United Kingdom 🇬🇧 ": 48 }
     
 
-    youtube_codes_dics_updated = {
+    youtube_codes_dics = {
                                     'Sweden 🇸🇪': 'https://www.youtube.com/watch?v=WK3HOMhAeQY',
                                     'Austria 🇦🇹': 'https://www.youtube.com/watch?v=-ieSTNpxvio',
                                     'France 🇫🇷': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
