@@ -973,6 +973,10 @@ with tab1:
             df_sorted_check = df_sorted.copy()
             df_sorted_check.reset_index(drop=True, inplace=True)
             df_sorted_check.index += 1
+            
+            # Asegurar que los puntos no sean negativos
+            df_sorted_check["points"] = df_sorted_check["points"].apply(lambda x: max(x, 0))
+            
             st.table(df_sorted_check.style.apply(highlight_rows, axis=1))
 
             #df_sorted['country1'] = [e.replace(' ','·') for e in df_sorted['country']]
