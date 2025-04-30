@@ -519,7 +519,6 @@ def predicciones_now(user_songs):
         if type(shz) != int:
             shazams_bien.append(int(shz.replace(".", "")))
         elif (shz == 0 and type(shz) == int) or (shz == "" and type(shz) != int):
-            shazams_bien.append(stats.mean(int_shazams))elif (shz == 0 and type(shz) == int) or (shz == "" and type(shz) != int):
             if int_shazams:  # Verifica que no esté vacía
                 shazams_bien.append(stats.mean(int_shazams))
             else:
