@@ -416,10 +416,10 @@ def predicciones(user_songs):
         if type(shz) != int:
             shazams_bien.append(int(shz.replace(".", "")))
         elif (shz == 0 and type(shz) == int) or (shz == "" and type(shz) != int):
-            shazams_bien.append(stats.mean(int_shazams))
+            shazams_bien.append(stats.mean(int_shazams))  # ← ERROR AQUÍ
         else:
             shazams_bien.append(int(shz))
-    tabla0["shazams"] = shazams_bien
+            tabla0["shazams"] = shazams_bien
 
     # DAMOS DE APUESTA DE LA MEDIA HISTÓRICA (20 AÑOS) DEL PAÍS SELECCIONADO
     dictio_odds = {
