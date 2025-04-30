@@ -1091,7 +1091,7 @@ with tab1:
                 #         line=dict(color='black', width=1.4, dash='dash'),
                 #     )
                 # ], 
-                annotations=[
+                # annotations=[
                     # dict(
                     #     x='2023-04-25',
                     #     y=max(list(df_prueba.max()))+50,
