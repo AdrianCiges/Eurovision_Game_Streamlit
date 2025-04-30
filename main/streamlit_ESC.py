@@ -819,7 +819,7 @@ with tab1:
     st.write('')
     st.write('')
     st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 17 de mayo de 2025. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
-    st.warning('⚠️ La fiabilidad de las predicciones es mayor conforme se acerca el festival y, sobretodo, después de las semifinales (13 y 15 de mayo de 2024).')
+    st.warning('⚠️ La fiabilidad de las predicciones es mayor conforme se acerca el festival y, sobretodo, después de las semifinales (13 y 15 de mayo de 2025).')
 
     # CARGAMOS DATA TO TRAIN
     @st.cache_data
