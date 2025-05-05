@@ -923,6 +923,7 @@ with tab1:
             # Hacemos la trampa de Romania = Luxemburgo
             df_sorted['country'] = df_sorted['country'].replace('Romania 🇷🇴 ', 'Luxemburgo 🇱🇺 ')
 
+            puntos_maximos_posibles = (len(user_songs)-1)*58*2
 
             first_points = df_sorted['points'][0]
             last_points = df_sorted['points'][24]
@@ -942,14 +943,14 @@ with tab1:
 
             total_points = df_sorted['points'].sum()
 
-            cociente = 4292/total_points
+            cociente = puntos_maximos_posibles/total_points
 
             for i,puntos in enumerate(df_sorted['points'][:26]):
                 df_sorted.loc[i, 'points'] = round(puntos*cociente)
 
             total_points = df_sorted['points'].sum()
 
-            diferencia = 4292-total_points
+            diferencia = puntos_maximos_posibles-total_points
 
             # Me quedo con el último índice no nulo
             for i,p in enumerate(df_sorted['points']):
