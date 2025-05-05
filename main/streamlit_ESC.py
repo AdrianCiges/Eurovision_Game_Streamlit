@@ -246,45 +246,44 @@ def get_songs_ESC23(cancion):
         "United Kingdom 🇬🇧 ": 48 }
     
 
-    youtube_codes_dics = {
-                                    'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=WK3HOMhAeQY',
-                                    'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=-ieSTNpxvio',
-                                    'France 🇫🇷 ': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
-                                    'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=Q3BELu4z6-U',
-                                    'Netherlands 🇳🇱 ': 'https://www.youtube.com/watch?v=hEHwr5k9pd0',
-                                    'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=Kg3QoTpnqyw',
-                                    'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=N58X7DrVE50',
-                                    'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=oVrsnGFmuss',
-                                    'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=Dv4Zp_FG0qg',
-                                    'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=RNT1SmmxuIk',
-                                    'Malta 🇲🇹 ': 'https://www.youtube.com/watch?v=8qNK1tt6L5k',
-                                    'United Kingdom 🇬🇧 ': 'https://www.youtube.com/watch?v=-hu6R3ZnOdY',
-                                    'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=mfAf9-5Oevw',
-                                    'San Marino 🇸🇲 ': 'https://www.youtube.com/watch?v=Le3WpaLYRvE',
-                                    'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=kpdQtYrEBTs',
-                                    'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=R2f2aZ6Fy58',
-                                    'Cyprus 🇨🇾 ': 'https://www.youtube.com/watch?v=rbfQqWyqgJw',
-                                    'Greece 🇬🇷 ': 'https://www.youtube.com/watch?v=ew1pujFTd1o',
-                                    'Australia 🇦🇺 ': 'https://www.youtube.com/watch?v=_08I6mjHSLA',
-                                    'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=zJplC4-9Scs',
-                                    'Ireland 🇮🇪 ': 'https://www.youtube.com/watch?v=-wnjg9jZEcM',
-                                    'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=dGX54zRExR8',
-                                    'Georgia 🇬🇪 ': 'https://www.youtube.com/watch?v=c3wu0dUNd4c',
-                                    'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=h7jkEmoBvU0',
-                                    'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=-s1Cc2uEj3U',
-                                    'Poland 🇵🇱 ': 'https://www.youtube.com/watch?v=YXHHDjiclxA',
-                                    'Slovenia 🇸🇮 ': 'https://www.youtube.com/watch?v=qTS2L0VcaVI',
-                                    'Azerbaijan 🇦🇿 ': 'https://www.youtube.com/watch?v=upbiPJ9uA70',
-                                    'Denmark 🇩🇰 ': 'https://www.youtube.com/watch?v=gdCAgiSIOUc',
-                                    'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=BvVxhbCW9rw',
-                                    'Latvia 🇱🇻 ': 'https://www.youtube.com/watch?v=b1_t79mQkm4',
-                                    'Armenia 🇦🇲 ': 'https://www.youtube.com/watch?v=zm-Kil8Hm9Q',
-                                    'Romania 🇷🇴 ': 'https://www.youtube.com/watch?v=LVHu_KwHiKY',
-                                    'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=18BCbtvDcag',
-                                    'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=xOodVfY8hCs',
-                                    'Iceland 🇮🇸 ': 'https://www.youtube.com/watch?v=s9P83Nl6D1M',
-                                    'Montenegro 🇲🇪 ': 'https://www.youtube.com/watch?v=_zs0yq39aFA'
-                                    }
+    youtube_codes_dics = {  'Sweden 🇸🇪 ': 'https://www.youtube.com/watch?v=WK3HOMhAeQY',
+                            'Austria 🇦🇹 ': 'https://www.youtube.com/watch?v=-ieSTNpxvio',
+                            'France 🇫🇷 ': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
+                            'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=Q3BELu4z6-U',
+                            'Netherlands 🇳🇱 ': 'https://www.youtube.com/watch?v=hEHwr5k9pd0',
+                            'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=Kg3QoTpnqyw',
+                            'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=N58X7DrVE50',
+                            'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=oVrsnGFmuss',
+                            'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=Dv4Zp_FG0qg',
+                            'Albania 🇦🇱 ': 'https://www.youtube.com/watch?v=RNT1SmmxuIk',
+                            'Malta 🇲🇹 ': 'https://www.youtube.com/watch?v=8qNK1tt6L5k',
+                            'United Kingdom 🇬🇧 ': 'https://www.youtube.com/watch?v=-hu6R3ZnOdY',
+                            'Italy 🇮🇹 ': 'https://www.youtube.com/watch?v=mfAf9-5Oevw',
+                            'San Marino 🇸🇲 ': 'https://www.youtube.com/watch?v=Le3WpaLYRvE',
+                            'Czechia 🇨🇿 ': 'https://www.youtube.com/watch?v=kpdQtYrEBTs',
+                            'Lithuania 🇱🇹 ': 'https://www.youtube.com/watch?v=R2f2aZ6Fy58',
+                            'Cyprus 🇨🇾 ': 'https://www.youtube.com/watch?v=rbfQqWyqgJw',
+                            'Greece 🇬🇷 ': 'https://www.youtube.com/watch?v=ew1pujFTd1o',
+                            'Australia 🇦🇺 ': 'https://www.youtube.com/watch?v=_08I6mjHSLA',
+                            'Germany 🇩🇪 ': 'https://www.youtube.com/watch?v=zJplC4-9Scs',
+                            'Ireland 🇮🇪 ': 'https://www.youtube.com/watch?v=-wnjg9jZEcM',
+                            'Switzerland 🇨🇭 ': 'https://www.youtube.com/watch?v=dGX54zRExR8',
+                            'Georgia 🇬🇪 ': 'https://www.youtube.com/watch?v=c3wu0dUNd4c',
+                            'Norway 🇳🇴 ': 'https://www.youtube.com/watch?v=h7jkEmoBvU0',
+                            'Portugal 🇵🇹 ': 'https://www.youtube.com/watch?v=-s1Cc2uEj3U',
+                            'Poland 🇵🇱 ': 'https://www.youtube.com/watch?v=YXHHDjiclxA',
+                            'Slovenia 🇸🇮 ': 'https://www.youtube.com/watch?v=qTS2L0VcaVI',
+                            'Azerbaijan 🇦🇿 ': 'https://www.youtube.com/watch?v=upbiPJ9uA70',
+                            'Denmark 🇩🇰 ': 'https://www.youtube.com/watch?v=gdCAgiSIOUc',
+                            'Spain 🇪🇸 ': 'https://www.youtube.com/watch?v=BvVxhbCW9rw',
+                            'Latvia 🇱🇻 ': 'https://www.youtube.com/watch?v=b1_t79mQkm4',
+                            'Armenia 🇦🇲 ': 'https://www.youtube.com/watch?v=zm-Kil8Hm9Q',
+                            'Romania 🇷🇴 ': 'https://www.youtube.com/watch?v=LVHu_KwHiKY',
+                            'Serbia 🇷🇸 ': 'https://www.youtube.com/watch?v=18BCbtvDcag',
+                            'Croatia 🇭🇷 ': 'https://www.youtube.com/watch?v=xOodVfY8hCs',
+                            'Iceland 🇮🇸 ': 'https://www.youtube.com/watch?v=s9P83Nl6D1M',
+                            'Montenegro 🇲🇪 ': 'https://www.youtube.com/watch?v=_zs0yq39aFA'
+                            }
 
     song = []
     pais = []
@@ -584,12 +583,13 @@ def predicciones_now(user_songs):
     # REORDENO TABLA
     tabla0 = tabla0[["pais", "bet_mean", "views", "likes", "shazams"]]
     tabla0.rename(columns={"pais": "country","views": "views_propos","likes": "likes_propos","shazams": "shazams_propos",},inplace=True,)
-
+    
     # CREANDO PROPORCIONES
     tabla0["views_propos"] = [v / tabla0["views_propos"].sum() for v in tabla0["views_propos"]]
     tabla0["likes_propos"] = [l / tabla0["likes_propos"].sum() for l in tabla0["likes_propos"]]
     tabla0["shazams_propos"] = [s / tabla0["shazams_propos"].sum() for s in tabla0["shazams_propos"]]
     #print(tabla0)
+    st.write(tabla0)
 
     st.write('')
     st.markdown('##### 🤔 Prediciendo resultados...')
