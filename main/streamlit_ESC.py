@@ -575,7 +575,7 @@ def predicciones_now(user_songs):
                         'Croatia 🇭🇷 ': 457.6,
                         'Iceland 🇮🇸 ': 342.6,
                         'Montenegro 🇲🇪 ': 425.933333333333,
-                        'Romania 🇷🇴  ': 361.933333333333
+                        'Romania 🇷🇴 ': 361.933333333333
                     }
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
