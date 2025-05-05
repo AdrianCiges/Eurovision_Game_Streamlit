@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 import numpy as np
+import regex as re
 import warnings
 import time
 import statistics as stats
@@ -147,7 +148,7 @@ def get_songs(cancion):
         link_video = 'https://www.youtube.com/watch?v=' + (req.get(f"{url}").text).split('/watch?v=')[1].split(',')[0].replace('"', "")
         html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
         video_likes = int(html.split("Me gusta en este vídeo junto con otras ")[1].split(" personas")[0].replace('.',''))
-        video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
+        video_views = int(re.search(r'"videoViewCountRenderer":\s*{.*?"simpleText":"([\d\.]+) visualizaciones"', html).group(1).replace('.', ''))
         song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
         pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
         time.sleep(random.randint(5, 7))
@@ -300,7 +301,7 @@ def get_songs_ESC23(cancion):
         link_video = youtube_codes_dics[cancion['country']]
         html = req.get(link_video, headers = {"Accept-Language": "es-ES,es;q=0.9"}).text
         video_likes = int(html.split("Me gusta en este vídeo junto con otras ")[1].split(" personas")[0].replace('.',''))
-        video_views = int((bs(html)).select_one('meta[itemprop="interactionCount"][content]')["content"])
+        video_views = int(re.search(r'"videoViewCountRenderer":\s*{.*?"simpleText":"([\d\.]+) visualizaciones"', html).group(1).replace('.', ''))
         song.append(cancion["song"] + " " + cancion["singer"]) # Añado la canción(just to see, después dropearé)
         pais.append(label_codes[cancion["country"]]) # Añado el label del país según mi dictio
         time.sleep(random.randint(5, 7))
