@@ -165,13 +165,14 @@ def get_songs(cancion):
     try:
         link_shazam_search = 'https://www.shazam.com/services/search/v4/es/ES/web/search?term='+cancion['song']+'%20'+cancion['singer']+'&numResults=1&offset=0&types=artists,songs&limit=1'
         json_shazam = json.loads(req.get(link_shazam_search).text)
-
-        song_id = json_shazam['tracks']['hits'][0]['track']['key']
-        print(song_id)
-        link_shazam_search = 'https://www.shazam.com/services/count/v2/web/track/'+song_id
-
-        json_shazam = json.loads(req.get(link_shazam_search).text)
-        shazams_count = json_shazam['total']
+        link_shazam_search = json_shazam['tracks']['hits'][0]['track']['url']
+        json_shazam = req.get(link_shazam_search).text
+        
+        html = json_shazam.split('TrackPageHeader_floatingCount')[1]
+        shazams_text = html.split('TrackPageHeader_count')[1].split('Text-module_fontWeightNormal')[1].split('>')[1].split('<')[0]
+        
+        shazams_count = int(shazams_text.replace(",", "").replace(".", ""))
+        shazams_count
 
         #meter aqui la cantidad
         shazams.append(shazams_count)
