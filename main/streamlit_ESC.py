@@ -1150,6 +1150,37 @@ with tab1:
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
 
+
+            # Asegurarse de que los puntos no son negativos
+            df_sorted_check["points"] = df_sorted_check["points"].apply(lambda x: max(x, 0))
+            
+            # Crear gráfico de barras
+            fig = px.bar(
+                df_sorted_check,
+                x="pais",
+                y="points",
+                text="points",
+                color="pais",
+                title="Predicción final de puntos por país",
+                labels={"pais": "País", "points": "Puntos"},
+            )
+            
+            # Estética del gráfico
+            fig.update_traces(textposition='outside')
+            fig.update_layout(
+                xaxis_tickangle=-45,
+                yaxis_title="Puntos predichos",
+                xaxis_title="País",
+                title_font_size=24,
+                height=700,
+                showlegend=False
+            )
+            
+            # Mostrar el gráfico en Streamlit
+            st.success("👇🏻 Predicción de puntos finales por país:")
+            st.plotly_chart(fig, use_container_width=True)
+
+
 # ---------------------------------------------------------------------------------------------------------------------------
 
 with tab2:
