@@ -1030,19 +1030,19 @@ with tab1:
             df_prueba = df_prueba.fillna(0)
             # st.write(df_prueba)
             
-            # Crear el gráfico de líneas con Plotly
-            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
+            # # Crear el gráfico de líneas con Plotly
+            # fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
 
-            # Configurar formato de fecha en el eje X
-            fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
-            #fig.update_yaxes(title='Predicción de puntos')
+            # # Configurar formato de fecha en el eje X
+            # fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
+            # #fig.update_yaxes(title='Predicción de puntos')
 
 
-            # Configurar marcadores de puntos en las líneas
-            fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
-            fecha_actual = datetime.datetime.now()
-            fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            # # Configurar marcadores de puntos en las líneas
+            # fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
+            # fecha_actual = datetime.datetime.now()
+            # fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
+            # fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
             # fig.update_layout(
             #     shapes=[
@@ -1152,19 +1152,16 @@ with tab1:
             # )
 
 
-            st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            # Mostrar el gráfico
-            st.plotly_chart(fig, use_container_width=True)
-
+            # st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
+            # # Mostrar el gráfico
+            # st.plotly_chart(fig, use_container_width=True)
 
             # Asegurarse de que los puntos no son negativos
             df_sorted_check["points"] = df_sorted_check["points"].apply(lambda x: max(x, 0))
-            
 
-            # Crear gráfico de barras
             fig = px.bar(
                 df_sorted_check,
-                x="country",
+                x="country",  # Ahora solo las banderas
                 y="points",
                 text="points",
                 color="country",
@@ -1172,7 +1169,6 @@ with tab1:
                 labels={"country": "País", "points": "Puntos"},
             )
             
-            # Estética del gráfico
             fig.update_traces(textposition='outside')
             fig.update_layout(
                 xaxis_tickangle=-45,
@@ -1182,10 +1178,7 @@ with tab1:
                 height=700,
                 showlegend=False
             )
-            
-            # Mostrar el gráfico en Streamlit
-            # st.success("👇🏻 Predicción de puntos finales por país:")
-            st.plotly_chart(fig, use_container_width=True)
+
 
 
 
