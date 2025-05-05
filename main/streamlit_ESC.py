@@ -252,7 +252,7 @@ def get_songs_ESC23(cancion):
                             'France 🇫🇷 ': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
                             'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=Q3BELu4z6-U',
                             'Netherlands 🇳🇱 ': 'https://www.youtube.com/watch?v=hEHwr5k9pd0',
-                            'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=5aieMiQOQtk',
+                            'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=5MS_Fczs_98',
                             'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=5MS_Fczs_98',
                             'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=oVrsnGFmuss',
                             'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=Dv4Zp_FG0qg',
