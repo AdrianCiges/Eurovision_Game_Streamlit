@@ -538,43 +538,43 @@ def predicciones_now(user_songs):
 
     # st.markdown(f'##### Scrappeando visitas y likes (en YouTube) y shazams de las canciones seleccionadas a día {fecha_actual_str} a las {hora_actual_str}')
 
-    scrap_odds =    {   'Sweden 🇸🇪 ': 2.18266666666667,
-                        'Austria 🇦🇹 ': 5.64666666666667,
-                        'France 🇫🇷 ': 10.9666666666667,
-                        'Israel 🇮🇱 ': 16.7333333333333,
-                        'Netherlands 🇳🇱 ': 17.6666666666667,
-                        'Finland 🇫🇮 ': 31.8,
-                        'Estonia 🇪🇪 ': 44.6666666666667,
-                        'Belgium 🇧🇪 ': 31.6,
-                        'Ukraine 🇺🇦 ': 86.6,
-                        'Albania 🇦🇱 ': 61.6,
-                        'Malta 🇲🇹 ': 76.7333333333333,
-                        'United Kingdom 🇬🇧 ': 97.3333333333333,
-                        'Italy 🇮🇹 ': 132.8,
-                        'San Marino 🇸🇲 ': 158.533333333333,
-                        'Czechia 🇨🇿 ': 31.6666666666667,
-                        'Lithuania 🇱🇹 ': 220.266666666667,
-                        'Cyprus 🇨🇾 ': 68.8,
-                        'Greece 🇬🇷 ': 155.266666666667,
-                        'Australia 🇦🇺 ': 153.866666666667,
-                        'Germany 🇩🇪 ': 171.2,
-                        'Ireland 🇮🇪 ': 148.666666666667,
-                        'Switzerland 🇨🇭 ': 125.466666666667,
+    scrap_odds =    {   'Sweden 🇸🇪 ': 2.29466666666667,
+                        'Austria 🇦🇹 ': 5.134,
+                        'France 🇫🇷 ': 11.4,
+                        'Israel 🇮🇱 ': 14.7333333333333,
+                        'Netherlands 🇳🇱 ': 14.2666666666667,
+                        'Finland 🇫🇮 ': 30.8,
+                        'Estonia 🇪🇪 ': 47.3333333333333,
+                        'Belgium 🇧🇪 ': 31.7333333333333,
+                        'Ukraine 🇺🇦 ': 77.3333333333333,
+                        'Albania 🇦🇱 ': 60.4,
+                        'Malta 🇲🇹 ': 65.1333333333333,
+                        'United Kingdom 🇬🇧 ': 97,
+                        'Italy 🇮🇹 ': 106.533333333333,
+                        'San Marino 🇸🇲 ': 166.533333333333,
+                        'Czechia 🇨🇿 ': 33.3333333333333,
+                        'Lithuania 🇱🇹 ': 222.933333333333,
+                        'Cyprus 🇨🇾 ': 61.2666666666667,
+                        'Greece 🇬🇷 ': 161.533333333333,
+                        'Australia 🇦🇺 ': 142.2,
+                        'Germany 🇩🇪 ': 160.866666666667,
+                        'Ireland 🇮🇪 ': 157.266666666667,
+                        'Switzerland 🇨🇭 ': 114.133333333333,
                         'Georgia 🇬🇪 ': 415.933333333333,
-                        'Norway 🇳🇴 ': 177.533333333333,
+                        'Norway 🇳🇴 ': 184.2,
                         'Portugal 🇵🇹 ': 373.266666666667,
-                        'Poland 🇵🇱 ': 248.533333333333,
-                        'Slovenia 🇸🇮 ': 304.933333333333,
-                        'Azerbaijan 🇦🇿 ': 236.933333333333,
-                        'Denmark 🇩🇰 ': 260.266666666667,
-                        'Spain 🇪🇸 ': 182.866666666667,
-                        'Latvia 🇱🇻 ': 351.933333333333,
+                        'Poland 🇵🇱 ': 258.533333333333,
+                        'Slovenia 🇸🇮 ': 317.6,
+                        'Azerbaijan 🇦🇿 ': 213.6,
+                        'Denmark 🇩🇰 ': 251.6,
+                        'Spain 🇪🇸 ': 169.866666666667,
+                        'Latvia 🇱🇻 ': 282.6,
                         'Armenia 🇦🇲 ': 379.266666666667,
-                        'Romania 🇷🇴 ': 361.933333333333,
-                        'Serbia 🇷🇸 ': 354.6,
+                        'Serbia 🇷🇸 ': 315.933333333333,
                         'Croatia 🇭🇷 ': 457.6,
-                        'Iceland 🇮🇸 ': 372.6,
-                        'Montenegro 🇲🇪 ': 425.933333333333
+                        'Iceland 🇮🇸 ': 342.6,
+                        'Montenegro 🇲🇪 ': 425.933333333333,
+                        'Romania 🇷🇴  ': 361.933333333333
                     }
 
     dictio_odds = {pais_odds[key]: value for key, value in scrap_odds.items() if key in pais_odds}
@@ -1025,19 +1025,19 @@ with tab1:
             df_prueba = df_prueba.fillna(0)
             # st.write(df_prueba)
             
-            # # Crear el gráfico de líneas con Plotly
-            # fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
+            # Crear el gráfico de líneas con Plotly
+            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
 
-            # # Configurar formato de fecha en el eje X
-            # fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
-            # #fig.update_yaxes(title='Predicción de puntos')
+            # Configurar formato de fecha en el eje X
+            fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
+            #fig.update_yaxes(title='Predicción de puntos')
 
 
-            # # Configurar marcadores de puntos en las líneas
-            # fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
-            # fecha_actual = datetime.datetime.now()
-            # fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            # fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            # Configurar marcadores de puntos en las líneas
+            fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
+            fecha_actual = datetime.datetime.now()
+            fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
+            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
             # fig.update_layout(
             #     shapes=[
@@ -1147,9 +1147,9 @@ with tab1:
             # )
 
 
-            # st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            # # Mostrar el gráfico
-            # st.plotly_chart(fig, use_container_width=True)
+            st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
+            # Mostrar el gráfico
+            st.plotly_chart(fig, use_container_width=True)
 
 
             # Asegurarse de que los puntos no son negativos
@@ -1163,7 +1163,7 @@ with tab1:
                 y="points",
                 text="points",
                 color="country",
-                title="Predicción final de puntos por país",
+                title="Predicción de puntos totales por país",
                 labels={"country": "País", "points": "Puntos"},
             )
             
@@ -1179,7 +1179,7 @@ with tab1:
             )
             
             # Mostrar el gráfico en Streamlit
-            st.success("👇🏻 Predicción de puntos finales por país:")
+            # st.success("👇🏻 Predicción de puntos finales por país:")
             st.plotly_chart(fig, use_container_width=True)
 
 
