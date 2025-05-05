@@ -1179,7 +1179,8 @@ with tab1:
                 showlegend=False
             )
 
-
+            # Mostrar el gráfico
+            st.plotly_chart(fig, use_container_width=True)
 
 
 # ---------------------------------------------------------------------------------------------------------------------------
