@@ -252,7 +252,7 @@ def get_songs_ESC23(cancion):
                             'France 🇫🇷 ': 'https://www.youtube.com/watch?v=Pj2DTSLcNnI',
                             'Israel 🇮🇱 ': 'https://www.youtube.com/watch?v=Q3BELu4z6-U',
                             'Netherlands 🇳🇱 ': 'https://www.youtube.com/watch?v=hEHwr5k9pd0',
-                            'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=Kg3QoTpnqyw',
+                            'Finland 🇫🇮' : 'https://www.youtube.com/watch?v=5aieMiQOQtk',
                             'Estonia 🇪🇪 ': 'https://www.youtube.com/watch?v=5MS_Fczs_98',
                             'Belgium 🇧🇪 ': 'https://www.youtube.com/watch?v=oVrsnGFmuss',
                             'Ukraine 🇺🇦 ': 'https://www.youtube.com/watch?v=Dv4Zp_FG0qg',
@@ -835,7 +835,7 @@ with tab1:
     st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES EUROVISIÓN 2025</u></h1>', unsafe_allow_html=True)
     st.write('')
     st.write('')
-    st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 17 de mayo de 2025. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
+    st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 17 de mayo de 2025.')
     st.warning('⚠️ La fiabilidad de las predicciones es mayor conforme se acerca el festival y, sobretodo, después de las semifinales (13 y 15 de mayo de 2025).')
 
     # CARGAMOS DATA TO TRAIN
@@ -1026,19 +1026,19 @@ with tab1:
             df_prueba = df_prueba.fillna(0)
             # st.write(df_prueba)
             
-            # Crear el gráfico de líneas con Plotly
-            fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
+            # # Crear el gráfico de líneas con Plotly
+            # fig = px.line(df_prueba, x=df_prueba.index, y=df_prueba.columns)
 
-            # Configurar formato de fecha en el eje X
-            fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
-            #fig.update_yaxes(title='Predicción de puntos')
+            # # Configurar formato de fecha en el eje X
+            # fig.update_xaxes(title='Fecha', tickformat='%d/%m/%Y')
+            # #fig.update_yaxes(title='Predicción de puntos')
 
 
-            # Configurar marcadores de puntos en las líneas
-            fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
-            fecha_actual = datetime.datetime.now()
-            fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
-            fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
+            # # Configurar marcadores de puntos en las líneas
+            # fig.update_traces(mode='markers+lines', marker=dict(size=6), showlegend=True)
+            # fecha_actual = datetime.datetime.now()
+            # fecha_actual_str = fecha_actual.strftime("%d/%m/%Y")
+            # fig.update_layout(legend_title_text='País',title={'text': f"Evolución predicción desde 30/05/2025 hasta {fecha_formateada}",'font_size': 24},  xaxis_tickfont=dict(size=20), yaxis_tickfont=dict(size=20), yaxis_title=f'<b style="font-size:1em">Predicción de puntos</b>', xaxis_title=f'<b style="font-size:1em">Fecha de la predicción</b>', xaxis=dict(tickangle=-25), height=800) 
             
             # fig.update_layout(
             #     shapes=[
@@ -1148,9 +1148,9 @@ with tab1:
             # )
 
 
-            st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
-            # Mostrar el gráfico
-            st.plotly_chart(fig, use_container_width=True)
+            # st.success('👇🏻 Puedes filtrar qué países ver en el gráfico pulsando sobre ellos en la leyenda: Si pulsas 1️⃣ vez, eliminas ese país del gráfico. Si pulsas 2️⃣ veces, verás solo ese país, y entonces, tocando 1️⃣ vez en otros, añadirás países a la visualización. Si quieres reestablecer la vista inicial, pulsa en "Autoscale", situado en tercera posición por la derecha en la parte superior del gráfico')
+            # # Mostrar el gráfico
+            # st.plotly_chart(fig, use_container_width=True)
 
 
             # Asegurarse de que los puntos no son negativos
