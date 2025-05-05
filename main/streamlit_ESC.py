@@ -472,6 +472,7 @@ def predicciones(user_songs):
         48: 67.0881239250086}
     tabla0["bet_mean"] = [dictio_odds[c] for c in tabla0["pais"]]
 
+    st.write(tabla0)
     # REORDENO TABLA
     tabla0 = tabla0[["pais", "bet_mean", "views", "likes", "shazams"]]
     tabla0.rename(columns={"pais": "country","views": "views_propos","likes": "likes_propos","shazams": "shazams_propos",},inplace=True,)
