@@ -1182,50 +1182,6 @@ with tab1:
             # Mostrar el gráfico
             st.plotly_chart(fig, use_container_width=True)
 
-            # PROBANDO GRÁFICO CON BANDERAS!
-            
-            import plotly.express as px
-            
-            # Función para convertir códigos ISO a emoji de bandera
-            def country_code_to_flag(code):
-                return ''.join([chr(127397 + ord(c)) for c in code.upper()])
-            
-            # 👉 Suponemos que df_sorted_check["country"] tiene valores como "France FR"
-            # Extraemos nombre y código por separado
-            df_sorted_check["country_name"] = df_sorted_check["country"].apply(lambda x: " ".join(x.split()[:-1]))
-            df_sorted_check["country_code"] = df_sorted_check["country"].apply(lambda x: x.split()[-1])
-            
-            # Convertir código a bandera
-            df_sorted_check["flag"] = df_sorted_check["country_code"].apply(country_code_to_flag)
-            
-            # Crear etiqueta combinada (opcional: solo la bandera si prefieres)
-            df_sorted_check["country_flag"] = df_sorted_check["flag"] + " " + df_sorted_check["country_name"]
-            
-            # Crear gráfico de barras con banderas
-            fig = px.bar(
-                df_sorted_check,
-                x="country_flag",  # 🇫🇷 France, 🇸🇪 Sweden, etc.
-                y="points",
-                text="points",
-                color="country",  # Esto mantiene la variedad de colores
-                title="Predicción de puntos totales por país",
-                labels={"country_flag": "País", "points": "Puntos"},
-            )
-            
-            # Estética del gráfico
-            fig.update_traces(textposition='outside')
-            fig.update_layout(
-                xaxis_tickangle=-45,
-                yaxis_title="Puntos predichos",
-                xaxis_title="País",
-                title_font_size=24,
-                height=700,
-                showlegend=False
-            )
-            
-            # Mostrar en Streamlit
-            st.plotly_chart(fig, use_container_width=True)
-
 # ---------------------------------------------------------------------------------------------------------------------------
 
 with tab2:
