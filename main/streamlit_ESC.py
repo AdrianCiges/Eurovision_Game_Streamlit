@@ -830,7 +830,7 @@ tab1, tab2, tab3 = st.tabs(["🤖 Predicción Eurovisión 2025", "📊 Estadíst
 
 with tab1:
 
-    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES 20 DÍAS ANTES</u></h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align:center"><span style="font-size: 40px;">📈</span> <u>PREDICCIONES EUROVISIÓN 2025</u></h1>', unsafe_allow_html=True)
     st.write('')
     st.write('')
     st.success('En este apartado podrás realizar una predicción en vivo de las canciones participantes en el Festival de Eurovisión del sábado 17 de mayo de 2025. Visualizarás la estimación en fecha y hora actual y un gráfico con la evolución de ésta a lo largo de los 30 días previos al concurso.')
@@ -1154,15 +1154,16 @@ with tab1:
             # Asegurarse de que los puntos no son negativos
             df_sorted_check["points"] = df_sorted_check["points"].apply(lambda x: max(x, 0))
             
+
             # Crear gráfico de barras
             fig = px.bar(
                 df_sorted_check,
-                x="pais",
+                x="country",
                 y="points",
                 text="points",
-                color="pais",
+                color="country",
                 title="Predicción final de puntos por país",
-                labels={"pais": "País", "points": "Puntos"},
+                labels={"country": "País", "points": "Puntos"},
             )
             
             # Estética del gráfico
@@ -1179,6 +1180,7 @@ with tab1:
             # Mostrar el gráfico en Streamlit
             st.success("👇🏻 Predicción de puntos finales por país:")
             st.plotly_chart(fig, use_container_width=True)
+
 
 
 # ---------------------------------------------------------------------------------------------------------------------------
