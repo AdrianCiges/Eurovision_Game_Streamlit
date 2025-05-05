@@ -322,10 +322,13 @@ def get_songs_ESC23(cancion):
         link_shazam_search = json_shazam['tracks']['hits'][0]['track']['url']
         json_shazam = req.get(link_shazam_search).text
         
-        html = json_shazam.split('TrackPageHeader_floatingCount')[1]
-        shazams_text = html.split('TrackPageHeader_count')[1].split('Text-module_fontWeightNormal')[1].split('>')[1].split('<')[0]
+        try: 
+            html = json_shazam.split('TrackPageHeader_floatingCount')[1]
+            shazams_text = html.split('TrackPageHeader_count')[1].split('Text-module_fontWeightNormal')[1].split('>')[1].split('<')[0]
+        except:
+            shazams_text = json_shazam.split('TrackPageHeader_floatingCount')[0].split('TrackPageHeader_count')[1].split('\\"className\\')[-2].split('\\')[-2]
         
-        shazams_count = int(shazams_text.replace(",", "").replace(".", ""))
+        shazams_count = int(shazams_text.replace(",", "").replace(".", "").replace('"',''))
         shazams_count
 
         #meter aqui la cantidad
