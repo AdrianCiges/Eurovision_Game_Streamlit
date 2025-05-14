@@ -906,7 +906,7 @@ with tab1:
                             {'song': "Survivor", 'singer': "Parg", 'country': "Armenia 🇦🇲 "},
                             {'song': "La poupée monte le son", 'singer': "Laura Thorn", 'country': "Romania 🇷🇴 "},
                             {'song': "Mila", 'singer': "Princ", 'country': "Serbia 🇷🇸 "},
-                            {'song': "Poison Cake", 'singer': "Marko Bošnjak", 'country': "Croatia 🇭🇷 "},
+                            #{'song': "Poison Cake", 'singer': "Marko Bošnjak", 'country': "Croatia 🇭🇷 "},
                             {'song': "RÓA", 'singer': "VÆB", 'country': "Iceland 🇮🇸 "},
                             {'song': "Dobrodošli", 'singer': "Nina Žižić", 'country': "Montenegro 🇲🇪 "} ]
 
@@ -918,7 +918,8 @@ with tab1:
             # Hacemos la trampa de Romania = Luxemburgo
             df_sorted['country'] = df_sorted['country'].replace('Romania 🇷🇴 ', 'Luxemburgo 🇱🇺 ')
 
-            puntos_maximos_posibles = (len(user_songs)-1)*58*2
+            #puntos_maximos_posibles = (len(user_songs)-1)*58*2
+            puntos_maximos_posibles = 36*58*2
 
             first_points = df_sorted['points'][0]
             last_points = df_sorted['points'][24]
