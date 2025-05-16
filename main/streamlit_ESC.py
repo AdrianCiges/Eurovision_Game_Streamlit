@@ -901,8 +901,9 @@ with tab1:
                             {'song': "La poupée monte le son", 'singer': "Laura Thorn", 'country': "Romania 🇷🇴 "},
                             #{'song': "Mila", 'singer': "Princ", 'country': "Serbia 🇷🇸 "},
                             #{'song': "Poison Cake", 'singer': "Marko Bošnjak", 'country': "Croatia 🇭🇷 "},
-                            {'song': "RÓA", 'singer': "VÆB", 'country': "Iceland 🇮🇸 "},
-                            #{'song': "Dobrodošli", 'singer': "Nina Žižić", 'country': "Montenegro 🇲🇪 "} ]
+                            {'song': "RÓA", 'singer': "VÆB", 'country': "Iceland 🇮🇸 "}
+                            #{'song': "Dobrodošli", 'singer': "Nina Žižić", 'country': "Montenegro 🇲🇪 "} 
+                             ]
 
             resultado = predicciones_now(user_songs)
 
